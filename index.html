@@ -36,14 +36,18 @@
 
     <!-- HOME / DASHBOARD VIEW -->
     <div id="home-view" class="view active flex-col min-h-screen items-center justify-center p-4">
-        <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+        <div class="max-w-5xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <div class="bg-slate-800 text-white text-center py-10 px-4">
                 <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">SSB Psychological Simulator</h1>
                 <p class="text-lg text-slate-300 italic">"The more you sweat in peace, the less you bleed in war."</p>
             </div>
             
             <div class="p-8">
-                <div class="grid md:grid-cols-3 gap-6 mb-8 text-sm">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 text-sm">
+                    <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                        <h3 class="font-bold text-orange-800 text-lg mb-2">PPDT (1 Slide)</h3>
+                        <p class="text-gray-600">1 Random Picture. <strong>30s</strong> to observe, <strong>4m</strong> to write your story.</p>
+                    </div>
                     <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
                         <h3 class="font-bold text-blue-800 text-lg mb-2">TAT (11 Slides)</h3>
                         <p class="text-gray-600">10 Random Pictures + 1 Blank Slide. <strong>30s</strong> to observe, <strong>4m</strong> to write.</p>
@@ -62,13 +66,68 @@
                     <button onclick="startTest('full')" class="w-full bg-slate-800 text-white font-bold text-xl py-4 rounded-xl hover:bg-slate-700 transition shadow-lg transform hover:-translate-y-1">
                         Start Full Mock Test (TAT + WAT + SRT)
                     </button>
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <button onclick="startPPDT()" class="bg-orange-600 text-white font-semibold py-3 rounded-lg hover:bg-orange-700 transition">PPDT Only</button>
                         <button onclick="startTest('TAT')" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">TAT Only</button>
                         <button onclick="startTest('WAT')" class="bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">WAT Only</button>
                         <button onclick="startTest('SRT')" class="bg-teal-600 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 transition">SRT Only</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- PPDT VIEWING VIEW -->
+    <div id="ppdt-viewing-view" class="view h-screen w-full bg-black flex-col items-center justify-center relative no-select">
+        <div id="ppdt-loading" class="text-white text-2xl animate-pulse">Loading Slide...</div>
+        <img id="ppdt-image" src="" alt="PPDT Image" class="hidden max-h-[85vh] max-w-[95vw] object-contain shadow-2xl">
+        <div class="absolute bottom-10 text-gray-400 text-lg font-mono tracking-widest uppercase" id="ppdt-instruction">Observe the Picture Carefully</div>
+    </div>
+
+    <!-- PPDT WRITING VIEW -->
+    <div id="ppdt-writing-view" class="view h-screen w-full bg-gray-50 flex-col p-4 md:p-8">
+        <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">Write Your PPDT Story</h2>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mt-1">Picture Perception and Discussion Test</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="text-2xl font-mono bg-red-100 text-red-700 px-6 py-2 rounded-lg border border-red-200 shadow-sm" id="ppdt-timer">04:00</div>
+                    <button onclick="submitPPDT()" class="mt-2 text-sm text-blue-600 font-semibold hover:text-blue-800">Submit Early</button>
+                </div>
+            </div>
+            <textarea id="ppdt-input" class="w-full flex-1 p-8 text-xl border border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-orange-100 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
+        </div>
+    </div>
+
+    <!-- PPDT RESULT VIEW -->
+    <div id="ppdt-result-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center p-4">
+        <div class="bg-white p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-orange-500">
+            <div class="w-20 h-20 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </div>
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">PPDT Completed</h1>
+            <p class="text-gray-500 mb-8 text-lg">Your response has been recorded. You can download your report with the image included.</p>
+            <button onclick="generatePPDTPDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download PDF Report
+            </button>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <button onclick="startPPDT()" class="w-full bg-orange-100 text-orange-700 px-4 py-3 rounded-xl font-bold hover:bg-orange-200 transition">
+                    Next PPDT
+                </button>
+                <button onclick="startPPDT()" class="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
+                    Restart PPDT
+                </button>
+            </div>
+            <button onclick="location.reload()" class="w-full text-gray-500 font-semibold hover:text-gray-800 transition">
+                Return to Home Menu
+            </button>
         </div>
     </div>
 
@@ -495,7 +554,12 @@
             srtInterval: null,
             tatViewInterval: null,
             tatWriteInterval: null,
-            currentTatImages: []
+            currentTatImages: [],
+            // New PPDT States
+            currentPpdtImage: "",
+            ppdtResult: "",
+            ppdtViewInterval: null,
+            ppdtWriteInterval: null
         };
 
         function shuffle(array) {
@@ -519,6 +583,72 @@
             document.getElementById(viewId).classList.add('active');
         }
 
+        // --- PPDT LOGIC ---
+        function startPPDT() {
+            // Select random image from existing pool for PPDT
+            appState.currentPpdtImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+            appState.ppdtResult = "";
+            document.getElementById('ppdt-input').value = "";
+            
+            showView('ppdt-viewing-view');
+            
+            const img = document.getElementById('ppdt-image');
+            const loading = document.getElementById('ppdt-loading');
+            const instruction = document.getElementById('ppdt-instruction');
+
+            img.classList.add('hidden');
+            loading.classList.remove('hidden');
+            instruction.innerText = "Observe carefully";
+
+            // Cross Origin anonymous required to allow downloading the image onto PDF later
+            img.crossOrigin = "Anonymous"; 
+            img.onload = () => {
+                loading.classList.add('hidden');
+                img.classList.remove('hidden');
+                startPPDTViewingTimer();
+            };
+            img.onerror = () => {
+                loading.innerText = "Image failed to load. Skipping observation...";
+                setTimeout(startPPDTWriting, 2000);
+            };
+            img.src = appState.currentPpdtImage;
+        }
+
+        function startPPDTViewingTimer() {
+            let timeLeft = 30;
+            clearInterval(appState.ppdtViewInterval);
+            appState.ppdtViewInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(appState.ppdtViewInterval);
+                    startPPDTWriting();
+                }
+            }, 1000);
+        }
+
+        function startPPDTWriting() {
+            showView('ppdt-writing-view');
+            const input = document.getElementById('ppdt-input');
+            input.focus();
+            
+            let timeLeft = 240; // 4 minutes
+            document.getElementById('ppdt-timer').innerText = formatTime(timeLeft);
+            
+            clearInterval(appState.ppdtWriteInterval);
+            appState.ppdtWriteInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('ppdt-timer').innerText = formatTime(timeLeft);
+                if (timeLeft <= 0) submitPPDT();
+            }, 1000);
+        }
+
+        function submitPPDT() {
+            clearInterval(appState.ppdtWriteInterval);
+            appState.ppdtResult = document.getElementById('ppdt-input').value.trim();
+            showView('ppdt-result-view');
+        }
+
+        // --- EXISTING TEST LOGIC ---
         function startTest(type) {
             appState.results = { tat: [], wat: [], srt: [] };
             appState.currentTatIndex = 0;
@@ -700,7 +830,75 @@
             };
         }
 
-        // --- PDF GENERATION ---
+        // --- PPDT PDF GENERATION ---
+        function getBase64Image(imgEl) {
+            const canvas = document.createElement("canvas");
+            canvas.width = imgEl.naturalWidth;
+            canvas.height = imgEl.naturalHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(imgEl, 0, 0);
+            return canvas.toDataURL("image/jpeg");
+        }
+
+        function generatePPDTPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const date = new Date().toLocaleDateString();
+
+            doc.setFillColor(234, 88, 12); // orange-600
+            doc.rect(0, 0, 210, 40, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(24);
+            doc.text("PPDT Performance Report", 14, 25);
+            doc.setFontSize(10);
+            doc.text(`Generated on: ${date}`, 14, 34);
+
+            let currentY = 50;
+            doc.setTextColor(30, 41, 59);
+            
+            // Add Image to PDF
+            const imgEl = document.getElementById('ppdt-image');
+            try {
+                const imgData = getBase64Image(imgEl);
+                // Calculate dimensions to fit nicely within standard A4 width
+                const maxW = 182; 
+                const maxH = 100;
+                let w = imgEl.naturalWidth;
+                let h = imgEl.naturalHeight;
+                const ratio = Math.min(maxW / w, maxH / h);
+                
+                doc.addImage(imgData, 'JPEG', 14, currentY, w * ratio, h * ratio);
+                currentY += (h * ratio) + 15;
+            } catch (e) {
+                doc.setFontSize(10);
+                doc.setTextColor(239, 68, 68); // Red text
+                doc.text("(Could not append image to PDF due to strict browser cross-origin limits.)", 14, currentY);
+                currentY += 10;
+                doc.setTextColor(30, 41, 59);
+            }
+
+            // Write Story
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text("Your Story:", 14, currentY);
+            currentY += 8;
+
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'normal');
+            const text = appState.ppdtResult || "(No story provided)";
+            const splitText = doc.splitTextToSize(text, 180);
+            
+            // Checking if pagination is needed
+            if (currentY + (splitText.length * 5) > 280) {
+                doc.addPage();
+                currentY = 20;
+            }
+            
+            doc.text(splitText, 14, currentY);
+            doc.save(`PPDT_Report_${date.replace(/\//g, '-')}.pdf`);
+        }
+
+        // --- EXISTING PDF GENERATION ---
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
