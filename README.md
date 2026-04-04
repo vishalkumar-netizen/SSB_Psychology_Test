@@ -1,5 +1,3 @@
-# SSB_Psychology_Test
-
 # SSB Psychological Test Simulator
 
 [](https://www.google.com/search?q=https://github.com/vishalkumar-netizen/SSB_Psychology_Test/blob/main/LICENSE)
