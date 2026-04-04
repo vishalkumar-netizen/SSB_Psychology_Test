@@ -1,39 +1,77 @@
 # SSB_Psychology_Test
-SSB Psychological Test DIPR simulating WAT, SRT, and TAT like real DIPR tests. Uses custom datasets and GitHub images, with randomization, hidden timers, and PDF reports. Built in a single index.html for simple, realistic practice.
-A fully functional web-based SSB Psychological Test Coach built using a single index.html file. This application simulates real Services Selection Board (SSB) psychological tests including TAT (Thematic Apperception Test), WAT (Word Association Test), and SRT (Situation Reaction Test) with high accuracy, replicating actual exam conditions used by DIPR.
 
-The platform uses custom datasets (user-provided WAT & SRT) and dynamically fetches TAT images from a GitHub source, ensuring realistic and varied test experiences on every attempt. Each session is randomized to prevent repetition and enhance practice quality.
+# SSB Psychological Test Simulator
 
-Key Features
-Real SSB Simulation
-WAT: 60 words displayed one-by-one for 15 seconds each
-Hidden timer (no visible countdown) to simulate real pressure
-Automatic word transition after 15 seconds
-SRT Test Environment
-60 real-life situations from custom dataset
-Fixed total time limit (like actual SSB)
-Continuous response input system
-TAT / PPT Test
-Images dynamically fetched from GitHub
-Sequential display to simulate real storytelling conditions
-Dynamic Randomization
-New randomized set of WAT words and SRT situations every session
-Response Tracking
-Stores all user responses during the session
-PDF Report Generation
-Automatically generates downloadable PDF with all responses (WAT + SRT)
-Minimal & Focused UI
-Distraction-free interface
-Designed to simulate real psychological pressure
-Single File Architecture
-Built entirely in one index.html
-No backend required
-Uses only open-source tools and methods
-Tech Stack
-HTML, CSS, JavaScript (Vanilla)
-Open-source datasets (custom provided)
-GitHub image hosting (for TAT)
-Client-side PDF generation (JavaScript libraries)
-Purpose
+[](https://www.google.com/search?q=https://github.com/vishalkumar-netizen/SSB_Psychology_Test/blob/main/LICENSE)
+[](https://www.google.com/search?q=https://vishalkumar-netizen.github.io/SSB_Psychology_Test/)
 
-This project is designed for SSB aspirants to practice psychological tests in a realistic environment, improve response quality, and build confidence under time pressure.
+A professional, high-performance web application designed to simulate the **Psychological Testing** phase of the Service Selection Board (SSB) interviews. This tool precisely replicates the strict timing, environment, and pressure of the actual tests conducted at Selection Centres (AFSB, NSB, and Selection Boards).
+
+## 🎯 Purpose
+
+Psychological tests (TAT, WAT, and SRT) assess a candidate's natural responses and **Officer Like Qualities (OLQs)** under extreme time constraints. This simulator helps aspirants build:
+
+  * **Time Management:** Mastering the "30-second observation / 4-minute writing" rhythm.
+  * **Rapid Thinking:** Reducing the gap between stimulus and response.
+  * **Mental Stamina:** Preparing for the 2-3 hour continuous testing cycle.
+  * **Performance Review:** Generating objective reports for self-analysis or mentor feedback.
+
+-----
+
+## 🛠 Features
+
+### 1\. Thematic Apperception Test (TAT)
+
+  * **Standard Protocol:** 11 slides (10 random images + 1 final blank slide).
+  * **Timing:** Exactly 30 seconds for observation followed by 4 minutes for writing.
+  * **Immersive UI:** A darkened "Viewing Mode" to minimize distractions and simulate a testing hall.
+  * **Blank Slide Logic:** Specialized phase for the 11th story based on user-imagined scenarios.
+
+### 2\. Word Association Test (WAT)
+
+  * **60-Word Sequence:** Words are displayed in rapid succession.
+  * **15-Second Window:** Automatic transitions with a visual progress bar.
+  * **Natural Response Capture:** Captures the current text buffer the moment the timer expires.
+
+### 3\. Situation Reaction Test (SRT)
+
+  * **Full Set:** Displays 60 practical life situations.
+  * **30-Minute Global Timer:** Simulates the overall pressure of completing the entire booklet.
+  * **Clean Layout:** Optimized for fast typing and easy scrolling.
+
+### 4\. Automated PDF Report Generation
+
+  * **Instant Results:** Upon completion, the tool compiles all responses into a professional PDF.
+  * **Formatted Data:** Stories, sentences, and reactions are organized into tables and sections.
+  * **Privacy-First:** All PDF generation happens locally in the browser; no data is sent to a server.
+
+-----
+
+## 💻 Tech Stack
+
+  * **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+  * **Styling:** Tailwind CSS (Responsive and modern UI).
+  * **PDF Engine:** [jsPDF](https://github.com/parallax/jsPDF) & [jsPDF-AutoTable](https://github.com/simonbengtsson/jsPDF-AutoTable).
+  * **Deployment:** GitHub Pages compatible.
+
+-----
+
+## 📖 How to Use
+
+1.  **Access the Tool:** Open the live link or clone the repository and open `index.html`.
+2.  **Select Mode:** Choose a "Full Mock Test" for a complete experience or "Practice Mode" for individual tests.
+3.  **Take the Test:** Ensure you are in a quiet environment with a physical keyboard for the best experience.
+4.  **Download Report:** Click the "Download PDF Report" button at the end to save and review your performance.
+
+-----
+
+## 🤝 Contributing
+
+Contributions are welcome. If you would like to suggest new TAT images, WAT words, or SRT situations:
+
+1.  Fork the repository.
+2.  Create a feature branch.
+3.  Submit a Pull Request with your proposed changes.
+
+
+
