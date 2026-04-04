@@ -12,15 +12,23 @@
         .view { display: none; }
         .view.active { display: flex; }
         
-        /* Smooth progress bar for WAT */
         #wat-progress-bar {
             transition: width 15s linear;
         }
         
-        /* Prevent selection during test to simulate exam conditions */
         .no-select {
             user-select: none;
             -webkit-user-select: none;
+        }
+
+        /* Animation for the blank slide pulse */
+        @keyframes pulse-bg {
+            0% { background-color: #f8fafc; }
+            50% { background-color: #f1f5f9; }
+            100% { background-color: #f8fafc; }
+        }
+        .blank-active {
+            animation: pulse-bg 2s infinite;
         }
     </style>
 </head>
@@ -28,36 +36,36 @@
 
     <!-- HOME / DASHBOARD VIEW -->
     <div id="home-view" class="view active flex-col min-h-screen items-center justify-center p-4">
-        <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <div class="bg-slate-800 text-white text-center py-10 px-4">
                 <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">SSB Psychological Simulator</h1>
-                <p class="text-lg text-slate-300">Strictly timed, dynamic sets, and auto-generated PDF reports.</p>
+                <p class="text-lg text-slate-300 italic">"The more you sweat in peace, the less you bleed in war."</p>
             </div>
             
             <div class="p-8">
                 <div class="grid md:grid-cols-3 gap-6 mb-8 text-sm">
                     <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                        <h3 class="font-bold text-blue-800 text-lg mb-2">TAT (Picture Story)</h3>
-                        <p class="text-gray-600">A random image appears for <strong>30 seconds</strong>. You then have exactly <strong>4 minutes</strong> to type your story.</p>
+                        <h3 class="font-bold text-blue-800 text-lg mb-2">TAT (11 Slides)</h3>
+                        <p class="text-gray-600">10 Random Pictures + 1 Blank Slide. <strong>30s</strong> to observe, <strong>4m</strong> to write.</p>
                     </div>
                     <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
-                        <h3 class="font-bold text-indigo-800 text-lg mb-2">WAT (Word Association)</h3>
-                        <p class="text-gray-600"><strong>60 words</strong> appear one by one. You have exactly <strong>15 seconds</strong> per word. The screen auto-advances.</p>
+                        <h3 class="font-bold text-indigo-800 text-lg mb-2">WAT (60 Words)</h3>
+                        <p class="text-gray-600">60 words shown for <strong>15s</strong> each. Write your first natural response.</p>
                     </div>
                     <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
-                        <h3 class="font-bold text-teal-800 text-lg mb-2">SRT (Situation Reaction)</h3>
-                        <p class="text-gray-600"><strong>60 situations</strong> are presented in a list. You have a fixed total time of <strong>30 minutes</strong> to react to them.</p>
+                        <h3 class="font-bold text-teal-800 text-lg mb-2">SRT (60 Situations)</h3>
+                        <p class="text-gray-600">60 practical situations. You have a total of <strong>30 minutes</strong> to react.</p>
                     </div>
                 </div>
 
                 <div class="space-y-4">
-                    <button onclick="startTest('full')" class="w-full bg-slate-800 text-white font-bold text-xl py-4 rounded-xl hover:bg-slate-700 transition shadow-lg">
-                        Start Complete Mock Test (TAT + WAT + SRT)
+                    <button onclick="startTest('full')" class="w-full bg-slate-800 text-white font-bold text-xl py-4 rounded-xl hover:bg-slate-700 transition shadow-lg transform hover:-translate-y-1">
+                        Start Full Mock Test (TAT + WAT + SRT)
                     </button>
                     <div class="grid grid-cols-3 gap-4">
-                        <button onclick="startTest('TAT')" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">Practice TAT</button>
-                        <button onclick="startTest('WAT')" class="bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">Practice WAT</button>
-                        <button onclick="startTest('SRT')" class="bg-teal-600 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 transition">Practice SRT</button>
+                        <button onclick="startTest('TAT')" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">TAT Only</button>
+                        <button onclick="startTest('WAT')" class="bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">WAT Only</button>
+                        <button onclick="startTest('SRT')" class="bg-teal-600 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 transition">SRT Only</button>
                     </div>
                 </div>
             </div>
@@ -66,29 +74,38 @@
 
     <!-- TAT VIEWING VIEW -->
     <div id="tat-viewing-view" class="view h-screen w-full bg-black flex-col items-center justify-center relative no-select">
-        <div id="tat-loading" class="text-white text-2xl animate-pulse">Loading TAT Image...</div>
+        <div id="tat-loading" class="text-white text-2xl animate-pulse">Loading Slide...</div>
+        <div id="tat-blank-indicator" class="hidden text-center">
+            <div class="w-64 h-80 bg-white border-4 border-gray-400 rounded-lg shadow-2xl mb-8"></div>
+            <h2 class="text-white text-4xl font-bold tracking-widest uppercase">Blank Slide</h2>
+            <p class="text-gray-400 mt-4 text-xl">Prepare your own story</p>
+        </div>
         <img id="tat-image" src="" alt="TAT Image" class="hidden max-h-[85vh] max-w-[95vw] object-contain shadow-2xl">
-        <div class="absolute bottom-10 text-gray-400 text-lg font-mono tracking-widest">OBSERVE THE PICTURE</div>
+        <div class="absolute bottom-10 text-gray-400 text-lg font-mono tracking-widest uppercase" id="tat-instruction">Observe the Picture Carefully</div>
     </div>
 
     <!-- TAT WRITING VIEW -->
     <div id="tat-writing-view" class="view h-screen w-full bg-gray-50 flex-col p-4 md:p-8">
         <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Write Your Story</h2>
-                <div class="text-2xl font-mono bg-red-100 text-red-700 px-6 py-2 rounded-lg border border-red-200 shadow-sm" id="tat-timer">04:00</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800" id="tat-writing-title">Write Your Story</h2>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mt-1" id="tat-slide-counter">Slide 1 of 11</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="text-2xl font-mono bg-red-100 text-red-700 px-6 py-2 rounded-lg border border-red-200 shadow-sm" id="tat-timer">04:00</div>
+                    <span class="text-xs text-red-400 mt-1">Automatic save on timeout</span>
+                </div>
             </div>
-            <textarea id="tat-input" class="w-full flex-1 p-6 text-xl border border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-blue-100 resize-none leading-relaxed" placeholder="What led up to the situation? What is happening now? What is the outcome?"></textarea>
+            <textarea id="tat-input" class="w-full flex-1 p-8 text-xl border border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-blue-100 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
         </div>
     </div>
 
     <!-- WAT VIEW -->
     <div id="wat-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center relative no-select">
-        <!-- Visual Timer Bar -->
         <div class="absolute top-0 left-0 w-full h-2 bg-gray-200">
             <div id="wat-progress-bar" class="h-full bg-indigo-600 w-0"></div>
         </div>
-        
         <div class="text-center w-full max-w-4xl px-4">
             <div class="text-gray-400 font-mono tracking-widest mb-10 text-lg">WORD <span id="wat-progress">1</span> OF 60</div>
             <div id="wat-word" class="text-7xl md:text-9xl font-extrabold uppercase tracking-widest text-slate-900 mb-16 drop-shadow-sm">WORD</div>
@@ -99,40 +116,165 @@
     <!-- SRT VIEW -->
     <div id="srt-view" class="view h-screen w-full bg-gray-50 flex-col">
         <div class="sticky top-0 bg-white shadow-md px-6 py-4 flex justify-between items-center z-10">
-            <div class="flex items-center gap-4">
-                <h2 class="text-2xl font-bold text-gray-800">Situation Reaction Test</h2>
-                <span class="text-gray-500 text-sm hidden md:inline">Respond exactly as you would act.</span>
-            </div>
+            <h2 class="text-2xl font-bold text-gray-800">Situation Reaction Test (60 Questions)</h2>
             <div class="flex items-center gap-6">
                 <div class="text-2xl font-mono bg-red-100 text-red-700 px-4 py-1 rounded-lg border border-red-200" id="srt-timer">30:00</div>
-                <button onclick="submitSRT()" class="bg-teal-600 text-white px-6 py-2 rounded font-bold hover:bg-teal-700 transition shadow-md">Submit</button>
+                <button onclick="submitSRT()" class="bg-teal-600 text-white px-6 py-2 rounded font-bold hover:bg-teal-700 transition shadow-md">Final Submit</button>
             </div>
         </div>
         <div class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-100">
-            <div id="srt-container" class="max-w-5xl mx-auto">
-                <!-- Situations injected here via JS -->
-            </div>
+            <div id="srt-container" class="max-w-5xl mx-auto space-y-4"></div>
         </div>
     </div>
 
     <!-- RESULT VIEW -->
     <div id="result-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center p-4">
         <div class="bg-white p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
-            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Test Completed</h1>
-            <p class="text-gray-500 mb-8 text-lg">Your responses have been successfully recorded in the session. Generate your report to analyze.</p>
-            
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Session Ended</h1>
+            <p class="text-gray-500 mb-8 text-lg">Your responses have been recorded. You can now download your performance report.</p>
             <button onclick="generatePDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
                 Download PDF Report
             </button>
             <button onclick="location.reload()" class="w-full bg-gray-100 text-gray-700 px-6 py-4 rounded-xl font-bold hover:bg-gray-200 transition">
-                Return to Dashboard
+                Retake Another Test
             </button>
         </div>
     </div>
 
     <script>
-        // --- DATA POOLS (Strictly open-source standard SSB training material) ---
+        const TAT_IMAGES_POOL = [
+            "https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt1.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt2.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt3.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt4.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt5.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt6.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt7.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt8.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt9.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt10.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt11.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt12.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt13.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt14.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt15.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt16.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt17.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt18.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt19.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt20.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt21.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt22.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt23.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt24.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt25.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt26.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt27.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt28.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt29.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt30.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt31.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt32.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt33.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt34.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt35.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt36.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt37.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt38.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt39.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt40.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt41.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt42.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt43.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt44.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt45.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat1.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat2.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat3.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat4.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat5.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat6.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat7.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat8.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat9.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat10.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat11.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat12.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat13.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat14.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat15.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat16.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat17.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat18.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat19.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat20.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat21.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat22.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat23.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat24.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat25.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat26.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat27.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat28.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat29.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat30.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat31.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat32.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat33.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat34.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat35.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat36.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat37.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat38.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat39.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat40.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat41.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat42.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat43.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat44.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat45.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat46.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat47.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat48.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat49.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat50.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat51.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat52.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat53.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat54.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat55.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat56.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat57.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat58.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat59.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat60.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat61.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat62.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat63.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat64.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat65.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat66.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat67.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat68.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat69.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat70.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat71.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat72.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat73.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat74.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat75.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat76.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat77.jpg",
+"https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat78.jpg",
+        ];
         
         const WAT_WORDS_POOL = [
             "Accept", "Achieve", "Action", "Active", "Adopt", "Aim", "Alert", "Angry", "Army", "Attack",
@@ -273,6 +415,7 @@
 "Zero", "Zone", "Zeal", "Zest", "Zigzag", "Zip", "Zinc", "Zoom", "Zonal", "Zoology",
 "Zenith", "Zealous", "Zebra", "Zestful", "Zillion", "Zipper", "Zany", "Zincite", "Zodiac", "Zooming",
 
+
         ];
 
         const SRT_POOL = [
@@ -283,120 +426,78 @@
             "While discussing his viewpoint in a group, others ignore him.",
             "He notices a car speeding and running over a child.",
             "A fellow passenger falls from a moving train.",
-            "His parents want him to marry a wealthy but less educated girl, but he prefers an educated match.",
+            "His parents want him to marry a wealthy but less educated girl.",
             "He made a silly mistake in his work, and his friend points it out.",
-            "The lane outside his house is flooded after heavy rain; his is the first house.",
-            "His friend needs money for his father's operation; he finds a purse with money and owner's ID.",
+            "The lane outside his house is flooded after heavy rain.",
+            "His friend needs money for his father's operation; he finds a purse.",
             "He sees someone drowning in a river and he doesn't know swimming.",
             "While going for an SSB interview, his dress gets torn on the bus.",
             "He is stuck in a traffic jam while going to an important meeting.",
             "His grandmother has a sudden heart attack right before his final exam.",
             "He must take his mother for shopping and also finish his project.",
             "He finds students pulling the emergency chain on a train for fun.",
-            "His sister is unhappy with her arranged marriage just a week before the wedding.",
+            "His sister is unhappy with her arranged marriage just before the wedding.",
             "He gets lost in a dense jungle during a trekking camp.",
             "His wallet and tickets get stolen while traveling to a new city.",
             "A sudden fire breaks out at his home at midnight.",
-            "He sees someone suspiciously climbing a neighbor's house with a rope.",
+            "He sees someone suspiciously climbing a neighbor's house.",
             "He sees a crowd getting aggressive over a minor parking delay.",
             "His friend borrows the exact book he needs for tomorrow's exam.",
             "His leave is denied during his sister's marriage.",
-            "A sudden strike takes place and his leave ends after two days, but trains are cancelled.",
+            "A sudden strike takes place and his leave ends, but trains are cancelled.",
             "He observes someone smoking in a public non-smoking zone.",
             "He has to handle two urgent tasks at the exact same time.",
             "His co-worker is unwell, and a major project deadline is today.",
             "His bike breaks down in an isolated place at night.",
             "He forgets his assignment at home on the final presentation day.",
             "He witnesses a theft in his neighborhood.",
-            "He is asked to organize a football match in his school but has no funds.",
-            "He boarded a wrong train and only two minutes were left for the right train to start on another platform.",
-            "He and his father met with an accident on a scooter. His father is severely injured.",
+            "He is asked to organize a football match but has no funds.",
+            "He boarded a wrong train and only minutes are left to change.",
+            "He and his father met with an accident. His father is injured.",
             "Due to a cyclone his family lost all their possessions.",
-            "In his train compartment, two gunmen force passengers to give their belongings.",
-            "He was in charge of a wireless board in a sailing ship which lost its communication with the coast.",
-            "In his free period he wanted to study but his friends were continuously disturbing him.",
+            "In his compartment, gunmen force passengers to give belongings.",
+            "He was in charge of a wireless board and lost communication.",
+            "In his free period his friends were continuously disturbing him.",
             "He is given a job he is not interested in.",
-            "In his village two leading parties got in conflict during the Sarpanch election.",
-            "During blackout exercises, he was scout on duty, but one rich man was adamant on keeping his lights on.",
-            "He is asked to perform a tough task which his seniors failed to do.",
-            "He finds out that the person he calls his best friend has been cheating him.",
-            "Emergency is declared in the city where his unit is located. He is the Commanding Officer.",
-            "His wife is seriously sick but his boss has refused to give him leave.",
-            "His financial condition is weak and he is the eldest son, but his parents want him to continue his studies.",
-            "His marriage is fixed but one day before the marriage the girl meets with an accident and loses an arm.",
-            "He felt that the work he is presently engaged in is completely useless.",
-            "While on an early morning walk, he finds a person lying unconscious on the road bleeding.",
-            "He is given a task that violates his personal ethics but is mandated by the company.",
+            "In his village two parties got in conflict during election.",
+            "During blackout exercises, he was on duty, but one man was adamant.",
+            "He is asked to perform a tough task which his seniors failed.",
+            "He finds out that his best friend has been cheating him.",
+            "Emergency is declared in the city where his unit is located.",
+            "His wife is seriously sick but his boss refused to give leave.",
+            "Financial condition is weak, but parents want him to study.",
+            "Marriage is fixed but the girl meets with an accident.",
+            "He felt that the work he is engaged in is completely useless.",
+            "He finds a person lying unconscious on the road bleeding.",
+            "He is given a task that violates his personal ethics.",
             "He is returning home late night and sees three men teasing a girl.",
-            "He finds a sealed envelope marked 'Confidential' lying on the street.",
-            "During an excursion, his group is attacked by a swarm of wild bees.",
+            "He finds a sealed envelope marked 'Confidential' on the street.",
+            "During an excursion, his group is attacked by wild bees.",
             "His juniors mock his new initiatives in the workplace.",
-            "He notices his roommate is depressed and has stopped attending classes.",
-            "He needs to reach the examination hall in 15 minutes, but his cab breaks down midway.",
-            "A senior officer insults him in front of his subordinates without any fault of his.",
+            "He notices his roommate is depressed and stopped classes.",
+            "Needs to reach the exam hall but cab breaks down.",
+            "A senior officer insults him in front of his subordinates.",
             "He sees a snake near the feet of his sleeping brother.",
-            "During a boat ride, the boat starts leaking and there are 10 people aboard.",
+            "During a boat ride, the boat starts leaking.",
             "He finds a bag full of explosives at a crowded bus stand.",
-            "He is about to submit his final answer sheet when he realizes he skipped an entire section.",
-            "His neighbors are playing very loud music late at night before his important interview.",
-            "He catches a student cheating in the exam hall. He is the invigilator.",
-            "His team loses a match because of a blunder made by him.",
-            "He witnesses a hit-and-run accident but the driver is the son of a powerful local politician.",
-            "He is appointed the leader of a group, but two members outright refuse to follow his instructions.",
-            "During a trekking expedition, one of his group members sprains his ankle.",
-            "He discovers that the drinking water supplied to his area is contaminated.",
-            "He accidentally drops a very expensive piece of equipment at the lab.",
-            "His parents do not support his decision to join the Armed Forces.",
-            "He finds a lost child crying in a crowded market.",
-            "He is selected for a prestigious course abroad, but he lacks the funds to afford it.",
-            "His best friend is addicted to gambling and is heavily in debt.",
-            "A rumor is being spread against him by a jealous colleague.",
-            "He is lost in an unfamiliar city without his smartphone or wallet.",
-            "He needs urgent blood donation for a relative but his blood type is rare.",
-            "He sees a fire break out in a nearby slum area.",
-            "He is given a deadline of 2 hours for a task that normally takes a whole day.",
-            "His colleague takes the credit for the hard work done by him.",
-            "During a trip, the tour guide abandons his group in the middle of a forest.",
-            "He overhears a conversation planning a robbery in a bank.",
-            "He falls seriously ill just two days before his physical fitness test.",
-            "His younger brother is caught in bad company and starts failing exams.",
-            "He spots a crack in the railway track just minutes before a train is scheduled to pass.",
-            "His train ticket is waitlisted and he urgently needs to report to his unit.",
-            "He is leading a mission and two of his team members get heavily injured.",
-            "He discovers a fire in the cinema hall while watching a movie with his family.",
-            "While driving, the brakes of his car suddenly fail on a slope.",
-            "He finds a highly confidential military document leaked on the internet.",
-            "His best friend confesses to committing a serious crime and asks for help to hide.",
-            "He is wrongly accused of theft by his commanding officer.",
-            "A flood hits his city and the water level is rising rapidly near his house.",
-            "He is traveling in an airplane and suddenly oxygen masks drop down.",
-            "He catches a pickpocket red-handed in a crowded local bus.",
-            "He is preparing for an exam but there is a power cut for the entire night.",
-            "He is bitten by a stray dog while returning from the market.",
-            "His subordinate refuses to obey his direct orders during a critical operation.",
-            "He finds a bag full of cash and jewelry in a public toilet.",
-            "He spots a terrorist planting a bomb in a busy shopping mall."
+            "He is about to submit when he realizes he skipped a section.",
+            "Neighbors are playing loud music before his important interview.",
+            "He catches a student cheating in the exam hall.",
+            "His team loses a match because of a blunder by him."
         ];
 
-        // --- APP STATE ---
         let appState = {
             testQueue: [],
-            results: { tat: null, wat: [], srt: [] },
+            results: { tat: [], wat: [], srt: [] },
+            currentTatIndex: 0,
             currentWatIndex: 0,
             watInterval: null,
             srtInterval: null,
             tatViewInterval: null,
-            tatWriteInterval: null
+            tatWriteInterval: null,
+            currentTatImages: []
         };
 
-        // Prevent Accidental Closure during Test
-        window.onbeforeunload = function() {
-            if (appState.testQueue.length > 0 || appState.results.wat.length > 0 || appState.results.srt.length > 0) {
-                return "A test is currently in progress. Your data will be lost if you leave.";
-            }
-        };
-
-        // Utility: Array Shuffle (Fisher-Yates)
         function shuffle(array) {
             let currentIndex = array.length, randomIndex;
             while (currentIndex !== 0) {
@@ -407,87 +508,107 @@
             return array;
         }
 
-        // Utility: Format Time
         function formatTime(seconds) {
             const m = Math.floor(seconds / 60).toString().padStart(2, '0');
             const s = (seconds % 60).toString().padStart(2, '0');
             return `${m}:${s}`;
         }
 
-        // View Management
         function showView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(viewId).classList.add('active');
         }
 
-        // Fullscreen request for realism
-        function requestFullScreen() {
-            const elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen().catch(err => console.log(err));
-            }
-        }
-
-        // --- TEST FLOW CONTROL ---
         function startTest(type) {
-            requestFullScreen();
-            appState.results = { tat: null, wat: [], srt: [] };
+            appState.results = { tat: [], wat: [], srt: [] };
+            appState.currentTatIndex = 0;
+            
+            // Pick 10 random images from pool + 1 blank
+            const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 10);
+            appState.currentTatImages = [...selected, "BLANK"]; 
             
             if (type === 'full') {
                 appState.testQueue = ['TAT', 'WAT', 'SRT'];
             } else {
                 appState.testQueue = [type];
             }
-            
             nextTest();
         }
 
         function nextTest() {
             if (appState.testQueue.length === 0) {
                 showView('result-view');
-                if(document.exitFullscreen) document.exitFullscreen().catch(()=>{});
                 return;
             }
-            
             const next = appState.testQueue.shift();
             if (next === 'TAT') initTAT();
             else if (next === 'WAT') initWAT();
             else if (next === 'SRT') initSRT();
         }
 
-        // --- 1. TAT LOGIC ---
+        // --- TAT ---
         function initTAT() {
+            if (appState.currentTatIndex >= appState.currentTatImages.length) {
+                nextTest();
+                return;
+            }
+
+            const currentImage = appState.currentTatImages[appState.currentTatIndex];
             showView('tat-viewing-view');
+            
             const img = document.getElementById('tat-image');
             const loading = document.getElementById('tat-loading');
-            
+            const blankBox = document.getElementById('tat-blank-indicator');
+            const instruction = document.getElementById('tat-instruction');
+
+            // Reset UI
             img.classList.add('hidden');
+            blankBox.classList.add('hidden');
             loading.classList.remove('hidden');
-            
-            // Random ambiguous grayscale image using Unsplash / Picsum
-            img.onload = () => {
+            instruction.innerText = "Observe carefully";
+
+            if (currentImage === "BLANK") {
                 loading.classList.add('hidden');
-                img.classList.remove('hidden');
-                
-                let timeLeft = 30; // 30 seconds viewing
-                appState.tatViewInterval = setInterval(() => {
-                    timeLeft--;
-                    if (timeLeft <= 0) {
-                        clearInterval(appState.tatViewInterval);
-                        startTATWriting();
-                    }
-                }, 1000);
-            };
-            img.src = `https://picsum.photos/800/600?grayscale&blur=1&random=${Math.random()}`;
+                blankBox.classList.remove('hidden');
+                instruction.innerText = "Think of your own scenario";
+                startViewingTimer();
+            } else {
+                img.onload = () => {
+                    loading.classList.add('hidden');
+                    img.classList.remove('hidden');
+                    startViewingTimer();
+                };
+                img.onerror = () => {
+                    loading.innerText = "Image failed to load. Skipping observation...";
+                    setTimeout(startTATWriting, 2000);
+                };
+                img.src = currentImage;
+            }
+        }
+
+        function startViewingTimer() {
+            let timeLeft = 30;
+            appState.tatViewInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(appState.tatViewInterval);
+                    startTATWriting();
+                }
+            }, 1000);
         }
 
         function startTATWriting() {
             showView('tat-writing-view');
             const input = document.getElementById('tat-input');
+            const isBlank = appState.currentTatImages[appState.currentTatIndex] === "BLANK";
+            
+            document.getElementById('tat-writing-title').innerText = isBlank ? "Write Your Blank Slide Story" : "Write Your Story";
+            document.getElementById('tat-slide-counter').innerText = `Slide ${appState.currentTatIndex + 1} of 11`;
+            
             input.value = '';
             input.focus();
             
-            let timeLeft = 240; // 4 minutes
+            let timeLeft = 240; 
             document.getElementById('tat-timer').innerText = formatTime(timeLeft);
             
             appState.tatWriteInterval = setInterval(() => {
@@ -495,175 +616,159 @@
                 document.getElementById('tat-timer').innerText = formatTime(timeLeft);
                 if (timeLeft <= 0) {
                     clearInterval(appState.tatWriteInterval);
-                    appState.results.tat = input.value;
-                    nextTest();
+                    saveTatStory();
                 }
             }, 1000);
         }
 
-        // --- 2. WAT LOGIC ---
-        let currentWatWords = [];
+        function saveTatStory() {
+            const input = document.getElementById('tat-input');
+            const isBlank = appState.currentTatImages[appState.currentTatIndex] === "BLANK";
+            
+            appState.results.tat.push({
+                slide: appState.currentTatIndex + 1,
+                label: isBlank ? "Blank Slide Story" : `Picture ${appState.currentTatIndex + 1}`,
+                story: input.value.trim()
+            });
+            
+            appState.currentTatIndex++;
+            initTAT();
+        }
+
+        // --- WAT ---
         function initWAT() {
-            currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60);
+            const currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60);
             appState.currentWatIndex = 0;
             showView('wat-view');
             
-            // Prevent Enter key from submitting early
-            document.getElementById('wat-input').addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') e.preventDefault(); 
-            });
-
+            const runWatCycle = () => {
+                const wordEl = document.getElementById('wat-word');
+                const inputEl = document.getElementById('wat-input');
+                const bar = document.getElementById('wat-progress-bar');
+                
+                wordEl.innerText = currentWatWords[appState.currentWatIndex];
+                document.getElementById('wat-progress').innerText = appState.currentWatIndex + 1;
+                inputEl.value = '';
+                inputEl.focus();
+                
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 15s linear';
+                    bar.style.width = '100%';
+                }, 50);
+                
+                appState.watInterval = setTimeout(() => {
+                    appState.results.wat.push({
+                        word: currentWatWords[appState.currentWatIndex],
+                        response: inputEl.value.trim()
+                    });
+                    appState.currentWatIndex++;
+                    if (appState.currentWatIndex < 60) runWatCycle();
+                    else nextTest();
+                }, 15000);
+            };
             runWatCycle();
         }
 
-        function runWatCycle() {
-            const wordEl = document.getElementById('wat-word');
-            const inputEl = document.getElementById('wat-input');
-            const bar = document.getElementById('wat-progress-bar');
-            
-            // Reset UI
-            wordEl.innerText = currentWatWords[appState.currentWatIndex];
-            document.getElementById('wat-progress').innerText = appState.currentWatIndex + 1;
-            inputEl.value = '';
-            inputEl.focus();
-            
-            // Reset & Trigger Progress Bar Animation
-            bar.style.transition = 'none';
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.transition = 'width 15s linear';
-                bar.style.width = '100%';
-            }, 50);
-            
-            appState.watInterval = setTimeout(() => {
-                // Save Result exactly at 15s mark
-                appState.results.wat.push({
-                    word: currentWatWords[appState.currentWatIndex],
-                    response: inputEl.value.trim()
-                });
-                
-                appState.currentWatIndex++;
-                if (appState.currentWatIndex < 60) {
-                    runWatCycle();
-                } else {
-                    nextTest();
-                }
-            }, 15000);
-        }
-
-        // --- 3. SRT LOGIC ---
-        let currentSrtSituations = [];
+        // --- SRT ---
         function initSRT() {
-            currentSrtSituations = shuffle([...SRT_POOL]).slice(0, 60);
+            const currentSrtSituations = shuffle([...SRT_POOL]).slice(0, 60);
             showView('srt-view');
-            
             const container = document.getElementById('srt-container');
             container.innerHTML = currentSrtSituations.map((sit, idx) => `
-                <div class="mb-6 p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition">
-                    <p class="text-lg font-semibold text-gray-800 mb-4"><span class="text-teal-600 mr-2">${idx + 1}.</span>${sit}</p>
-                    <textarea id="srt-input-${idx}" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-4 focus:ring-teal-100 focus:outline-none resize-none bg-gray-50 text-gray-800 text-lg" rows="2" placeholder="Your reaction..."></textarea>
+                <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
+                    <p class="text-lg font-bold text-slate-800 mb-3">${idx + 1}. ${sit}</p>
+                    <textarea id="srt-input-${idx}" class="w-full p-4 border rounded-lg bg-gray-50 focus:bg-white transition-all resize-none" rows="2" placeholder="Your reaction..."></textarea>
                 </div>
             `).join('');
             
-            let timeLeft = 1800; // 30 minutes
-            document.getElementById('srt-timer').innerText = formatTime(timeLeft);
-            
+            let timeLeft = 1800; 
             appState.srtInterval = setInterval(() => {
                 timeLeft--;
                 document.getElementById('srt-timer').innerText = formatTime(timeLeft);
-                if (timeLeft <= 0) {
-                    submitSRT();
-                }
+                if (timeLeft <= 0) submitSRT();
             }, 1000);
+            
+            window.submitSRT = () => {
+                clearInterval(appState.srtInterval);
+                appState.results.srt = currentSrtSituations.map((sit, idx) => ({
+                    situation: sit,
+                    response: document.getElementById(`srt-input-${idx}`).value.trim()
+                }));
+                nextTest();
+            };
         }
 
-        function submitSRT() {
-            clearInterval(appState.srtInterval);
-            appState.results.srt = currentSrtSituations.map((sit, idx) => ({
-                situation: sit,
-                response: document.getElementById(`srt-input-${idx}`).value.trim()
-            }));
-            nextTest();
-        }
-
-        // --- 4. PDF GENERATION LOGIC ---
+        // --- PDF GENERATION ---
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
+            const date = new Date().toLocaleDateString();
             
-            // Header
+            // Title Page
+            doc.setFillColor(30, 41, 59); // slate-800
+            doc.rect(0, 0, 210, 40, 'F');
+            doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
-            doc.setTextColor(30, 41, 59); // Slate-800
-            doc.text("SSB Psychological Test Report", 14, 20);
-            
+            doc.text("SSB Psychological Performance Report", 14, 25);
             doc.setFontSize(10);
-            doc.setTextColor(100, 116, 139);
-            doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, 28);
-            
-            let currentY = 40;
+            doc.text(`Generated on: ${date}`, 14, 34);
+
+            let currentY = 50;
 
             // Section: TAT
-            if (appState.results.tat) {
+            if (appState.results.tat.length > 0) {
+                doc.setTextColor(30, 41, 59);
                 doc.setFontSize(16);
-                doc.setTextColor(30, 64, 175); // Blue-800
                 doc.text("Thematic Apperception Test (TAT)", 14, currentY);
-                currentY += 8;
-                
-                doc.setFontSize(11);
-                doc.setTextColor(15, 23, 42); // Slate-900
-                const splitText = doc.splitTextToSize(appState.results.tat || "[No response provided]", 180);
-                doc.text(splitText, 14, currentY);
-                currentY += (splitText.length * 5) + 15;
+                currentY += 10;
+
+                appState.results.tat.forEach((item) => {
+                    if (currentY > 260) { doc.addPage(); currentY = 20; }
+                    
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`${item.label}:`, 14, currentY);
+                    currentY += 6;
+                    
+                    doc.setFont(undefined, 'normal');
+                    const text = item.story || "(No story provided)";
+                    const splitText = doc.splitTextToSize(text, 180);
+                    doc.text(splitText, 14, currentY);
+                    currentY += (splitText.length * 5) + 10;
+                });
             }
 
             // Section: WAT
             if (appState.results.wat.length > 0) {
-                if (currentY > 230) { doc.addPage(); currentY = 20; }
-                
+                doc.addPage();
                 doc.setFontSize(16);
-                doc.setTextColor(55, 48, 163); // Indigo-800
-                doc.text("Word Association Test (WAT)", 14, currentY);
-                
+                doc.text("Word Association Test (WAT)", 14, 20);
                 doc.autoTable({
-                    startY: currentY + 5,
-                    head: [['#', 'Word', 'Reaction / Sentence']],
-                    body: appState.results.wat.map((r, i) => [i + 1, r.word, r.response || "-"]),
+                    startY: 25,
+                    head: [['#', 'Stimulus Word', 'Response']],
+                    body: appState.results.wat.map((w, i) => [i + 1, w.word, w.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [67, 56, 202] }, // Indigo-700
-                    styles: { fontSize: 10, cellPadding: 3 },
-                    columnStyles: {
-                        0: { cellWidth: 10, halign: 'center' },
-                        1: { cellWidth: 40, fontStyle: 'bold' },
-                        2: { cellWidth: 130 }
-                    }
+                    headStyles: { fillColor: [79, 70, 229] } // indigo-600
                 });
-                currentY = doc.lastAutoTable.finalY + 15;
             }
 
             // Section: SRT
             if (appState.results.srt.length > 0) {
-                if (currentY > 230) { doc.addPage(); currentY = 20; }
-                
+                doc.addPage();
                 doc.setFontSize(16);
-                doc.setTextColor(17, 94, 89); // Teal-800
-                doc.text("Situation Reaction Test (SRT)", 14, currentY);
-                
+                doc.text("Situation Reaction Test (SRT)", 14, 20);
                 doc.autoTable({
-                    startY: currentY + 5,
+                    startY: 25,
                     head: [['#', 'Situation', 'Reaction']],
-                    body: appState.results.srt.map((r, i) => [i + 1, r.situation, r.response || "-"]),
+                    body: appState.results.srt.map((s, i) => [i + 1, s.situation, s.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [15, 118, 110] }, // Teal-700
-                    styles: { fontSize: 10, cellPadding: 3, overflow: 'linebreak' },
-                    columnStyles: {
-                        0: { cellWidth: 10, halign: 'center' },
-                        1: { cellWidth: 80 },
-                        2: { cellWidth: 90 }
-                    }
+                    headStyles: { fillColor: [13, 148, 136] } // teal-600
                 });
             }
 
-            doc.save("SSB_Psychological_Report.pdf");
+            doc.save(`SSB_Psych_Report_${date.replace(/\//g, '-')}.pdf`);
         }
     </script>
 </body>
