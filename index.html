@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSB Psychological Test Simulator</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>SSB Psych Test | Practice Real SSB Psychology Tests Online</title>
+    <meta name="description" content="Practice for the SSB Interview with our free psychological test simulator. Take timed mock tests for PPDT, TAT, WAT, and SRT, and download your performance PDF.">
+    <meta name="keywords" content="SSB, PPDT, TAT, WAT, SRT, SSB Interview, Psychological Test, Armed forces preparation, NDA, CDS, AFCAT">
+    <meta name="author" content="SSB Test Simulator">
+    
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="SSB Psych Test Simulator">
+    <meta property="og:description" content="Practice PPDT, TAT, WAT, and SRT under realistic time constraints. Get a downloadable PDF report.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.postimg.cc/sf0Jg2gk/logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+        
+        /* Tool View Logic */
         .view { display: none; }
         .view.active { display: flex; }
+        
+        /* Page Logic */
+        .site-page { display: none; }
+        .site-page.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Blinking Animation for the Notification */
+        @keyframes blink-animation {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .blink-me {
+            animation: blink-animation 1.5s ease-in-out infinite;
+        }
+
+        /* News Ticker Animation */
+        @keyframes scroll-left {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: scroll-left 25s linear infinite;
+        }
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
         
         #wat-progress-bar {
             transition: width 15s linear;
@@ -21,7 +81,6 @@
             -webkit-user-select: none;
         }
 
-        /* Animation for the blank slide pulse */
         @keyframes pulse-bg {
             0% { background-color: #f8fafc; }
             50% { background-color: #f1f5f9; }
@@ -32,50 +91,345 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 overflow-x-hidden">
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-gray-100 overflow-x-hidden transition-colors duration-300">
 
-    <!-- HOME / DASHBOARD VIEW -->
-    <div id="home-view" class="view active flex-col min-h-screen items-center justify-center p-4">
-        <div class="max-w-5xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-            <div class="bg-slate-800 text-white text-center py-10 px-4">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">SSB Psychological Test</h1>
-                <p class="text-lg text-slate-300 italic">"The more you sweat in peace, the less you bleed in war."</p>
-            </div>
-            
-            <div class="p-8">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 text-sm">
-                    <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
-                        <h3 class="font-bold text-orange-800 text-lg mb-2">PPDT (1 Slide)</h3>
-                        <p class="text-gray-600">1 Random Picture. <strong>30s</strong> to observe, <strong>4m</strong> to write your story.</p>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                        <h3 class="font-bold text-blue-800 text-lg mb-2">TAT (11 Slides)</h3>
-                        <p class="text-gray-600">10 Random Pictures + 1 Blank Slide. <strong>30s</strong> to observe, <strong>4m</strong> to write.</p>
-                    </div>
-                    <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
-                        <h3 class="font-bold text-indigo-800 text-lg mb-2">WAT (60 Words)</h3>
-                        <p class="text-gray-600">60 words shown for <strong>15s</strong> each. Write your first natural response.</p>
-                    </div>
-                    <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
-                        <h3 class="font-bold text-teal-800 text-lg mb-2">SRT (60 Situations)</h3>
-                        <p class="text-gray-600">60 practical situations. You have a total of <strong>30 minutes</strong> to react.</p>
+    <!-- NAVIGATION BAR -->
+    <nav id="main-navbar" class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center cursor-pointer py-2" onclick="navTo('page-home')">
+                    <img src="https://i.postimg.cc/sf0Jg2gk/logo.png" alt="SSB Logo" class="h-10 w-10 mr-3 object-contain bg-white rounded-full p-0.5">
+                    <div class="flex flex-col justify-center">
+                        <span class="font-bold text-xl tracking-wider leading-tight">SSB Psych Test</span>
+                        <span class="text-[10px] text-blue-300 uppercase tracking-wide hidden sm:block mt-0.5">Practice Real SSB Psychology Tests Online</span>
                     </div>
                 </div>
-
-                <div class="space-y-4">
-                    <button onclick="startTest('full')" class="w-full bg-slate-800 text-white font-bold text-xl py-4 rounded-xl hover:bg-slate-700 transition shadow-lg transform hover:-translate-y-1">
-                        Start Full Mock Test (TAT + WAT + SRT)
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <button onclick="navTo('page-home')" class="hover:text-blue-400 transition font-medium">Home</button>
+                    <button onclick="navTo('page-about')" class="hover:text-blue-400 transition font-medium">About</button>
+                    <button onclick="navTo('page-contact')" class="hover:text-blue-400 transition font-medium">Contact</button>
+                    <button onclick="navTo('page-privacy')" class="hover:text-blue-400 transition font-medium">Privacy Policy</button>
+                    <button onclick="navTo('page-terms')" class="hover:text-blue-400 transition font-medium">Terms</button>
+                    <button onclick="navTo('page-support')" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-bold transition shadow">Support Us</button>
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-800 hover:bg-slate-700 transition focus:outline-none" aria-label="Toggle Dark Mode">
+                        <span id="theme-icon-desktop">🌙</span>
                     </button>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <button onclick="startPPDT()" class="bg-orange-600 text-white font-semibold py-3 rounded-lg hover:bg-orange-700 transition">PPDT Only</button>
-                        <button onclick="startTest('TAT')" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">TAT Only</button>
-                        <button onclick="startTest('WAT')" class="bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">WAT Only</button>
-                        <button onclick="startTest('SRT')" class="bg-teal-600 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 transition">SRT Only</button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-800 hover:bg-slate-700 transition focus:outline-none text-xl" aria-label="Toggle Dark Mode">
+                        <span id="theme-icon-mobile">🌙</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navTo('page-home')" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium hover:bg-slate-700 transition">Home</button>
+                <button onclick="navTo('page-about')" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium hover:bg-slate-700 transition">About</button>
+                <button onclick="navTo('page-contact')" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium hover:bg-slate-700 transition">Contact</button>
+                <button onclick="navTo('page-privacy')" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium hover:bg-slate-700 transition">Privacy Policy</button>
+                <button onclick="navTo('page-terms')" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium hover:bg-slate-700 transition">Terms & Conditions</button>
+                <button onclick="navTo('page-support')" class="block w-full text-left px-3 py-3 mt-2 rounded-md text-base font-bold bg-blue-600 hover:bg-blue-700 transition">Support Us</button>
+            </div>
+        </div>
+        
+        <!-- RUNNING TICKER -->
+        <div id="news-ticker" class="bg-blue-600 text-white text-sm md:text-base font-semibold py-2 marquee-container border-b border-blue-700 shadow-inner">
+            <div class="marquee-content">
+                🚀 100% Free Practice Tool &nbsp; &nbsp; • &nbsp; &nbsp; ⏱️ Timer-based Real DIPR Tests &nbsp; &nbsp; • &nbsp; &nbsp; 🎯 Real SSB-like Interface &nbsp; &nbsp; • &nbsp; &nbsp; 🔒 No Signup Required &nbsp; &nbsp; • &nbsp; &nbsp; 📱 Fast & Mobile Friendly &nbsp; &nbsp; • &nbsp; &nbsp; 📑 Download PDF Reports &nbsp; &nbsp; • &nbsp; &nbsp; 💡 Dynamic Question Banks
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main id="main-content">
+        
+        <!-- HOME PAGE -->
+        <div id="page-home" class="site-page active pb-12">
+            <!-- Hero Header (Logo & Title) -->
+            <div class="bg-white dark:bg-slate-800 shadow-sm border-b border-gray-200 dark:border-slate-700 mb-8 transition-colors duration-300">
+                <div class="max-w-5xl mx-auto px-4 py-8 md:py-12">
+                    <div class="flex flex-col md:flex-row items-center justify-center md:justify-start gap-6">
+                        <img src="https://i.postimg.cc/sf0Jg2gk/logo.png" alt="SSB Psych Test Logo" class="w-24 h-24 md:w-32 md:h-32 object-contain rounded-2xl shadow-sm border border-gray-100 p-2 bg-white">
+                        <div class="text-center md:text-left w-full">
+                            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">SSB Psych Test</h1>
+                            <p class="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-semibold mb-3">Practice Real SSB Psychology Tests Online</p>
+                            
+                            <!-- Badges -->
+                            <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+                                <div class="inline-block bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 text-sm font-bold px-4 py-1.5 rounded-full border border-yellow-300 dark:border-yellow-700/50 shadow-sm">
+                                    ⚡ Based on actual SSB screening experience
+                                </div>
+                                <div class="inline-block bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-sm font-bold px-4 py-1.5 rounded-full border border-green-300 dark:border-green-700/50 shadow-sm">
+                                    ✨ Free | No Login Required
+                                </div>
+                            </div>
+                            
+                            <!-- QUICK ACTION "FREE TEST" BUTTONS -->
+                            <div class="flex flex-wrap justify-center md:justify-start gap-4 items-center mt-2">
+                                <span class="text-xl font-extrabold text-slate-900 dark:text-slate-100 uppercase tracking-widest mr-2 hidden sm:inline-block">START TEST NOW:</span>
+                                <button onclick="startPPDT()" class="bg-orange-50 text-orange-700 hover:bg-orange-600 hover:text-white border-2 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800 font-extrabold py-4 px-8 rounded-2xl transition text-xl shadow-md transform hover:-translate-y-1">PPDT</button>
+                                <button onclick="startTest('TAT')" class="bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white border-2 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800 font-extrabold py-4 px-8 rounded-2xl transition text-xl shadow-md transform hover:-translate-y-1">TAT</button>
+                                <button onclick="startTest('WAT')" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-600 hover:text-white border-2 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800 font-extrabold py-4 px-8 rounded-2xl transition text-xl shadow-md transform hover:-translate-y-1">WAT</button>
+                                <button onclick="startTest('SRT')" class="bg-teal-50 text-teal-700 hover:bg-teal-600 hover:text-white border-2 border-teal-200 dark:bg-teal-900/30 dark:text-teal-300 dark:border-teal-800 font-extrabold py-4 px-8 rounded-2xl transition text-xl shadow-md transform hover:-translate-y-1">SRT</button>
+                                <button onclick="startTest('full')" class="bg-slate-800 text-white hover:bg-slate-700 border-2 border-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600 font-extrabold py-4 px-10 rounded-2xl transition text-xl shadow-lg transform hover:-translate-y-1 ml-0 sm:ml-2">Full Mock</button>
+                            </div>
+
+                            <!-- BLINKING NOTIFICATION -->
+                            <div class="mt-8 blink-me">
+                                <p class="text-sm md:text-base font-bold text-green-800 dark:text-green-100 bg-green-100 dark:bg-green-800 inline-block px-5 py-3 rounded-xl border border-green-300 dark:border-green-600 shadow-sm">
+                                    💡 Every time you take a test, the simulator randomly selects a new picture for PPDT and TAT, and a new set of words for WAT from our large database. You can download your test pictures, words, and responses in PDF format after the test is over.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Text Section -->
+            <div class="max-w-5xl mx-auto px-4 w-full mb-12">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-8 md:p-10 text-center transition-colors duration-300">
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                        Welcome to the ultimate online preparation tool for the <strong>Services Selection Board (SSB) Interview</strong>. The psychological test battery is designed to evaluate a candidate's mental fortitude, emotional stability, and subconscious reactions. To succeed, you need practice under strict time constraints. Our test replicates the exact pressure of the actual testing hall.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SEO / Informational Content (Replaced to highlight USPs) -->
+            <div class="max-w-5xl mx-auto px-4 w-full mb-12">
+                <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                    
+                    <!-- WHAT YOU OFFER (Core Features) -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-8 md:p-10 transition-colors duration-300">
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white mb-6 border-b dark:border-slate-700 pb-3 flex items-center gap-3">
+                            🎯 What We Offer
+                        </h2>
+                        <ul class="space-y-6">
+                            <li class="flex flex-col">
+                                <span class="font-bold text-blue-700 dark:text-blue-400 text-lg">TAT (Picture Perception)</span>
+                                <span class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">Write meaningful stories on sequential back-to-back pictures under strict time pressure.</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold text-indigo-700 dark:text-indigo-400 text-lg">WAT (Word Association Test)</span>
+                                <span class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">Test your subconscious by writing natural responses to words flashed for 15 seconds.</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold text-teal-700 dark:text-teal-400 text-lg">SRT (Situation Reaction Test)</span>
+                                <span class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">React to 60 everyday practical situations realistically within a 30-minute limit.</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold text-orange-700 dark:text-orange-400 text-lg">SDT (Self Description Test)</span>
+                                <span class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">Understand your personality by writing comprehensive self-assessments.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- WHY YOUR SITE (USP) -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-8 md:p-10 transition-colors duration-300">
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white mb-6 border-b dark:border-slate-700 pb-3 flex items-center gap-3">
+                            ⚡ Why Choose Us
+                        </h2>
+                        <ul class="space-y-5 text-gray-700 dark:text-gray-300 font-medium text-lg">
+                            <li class="flex items-center gap-4">
+                                <span class="text-3xl bg-blue-50 dark:bg-blue-900/30 p-2 rounded-xl">🖥️</span>
+                                <span><strong>Real SSB-like interface</strong> simulating exact exam hall conditions.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="text-3xl bg-orange-50 dark:bg-orange-900/30 p-2 rounded-xl">⏱️</span>
+                                <span><strong>Timer-based tests</strong> maintaining strict DIPR timings.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="text-3xl bg-green-50 dark:bg-green-900/30 p-2 rounded-xl">🔓</span>
+                                <span><strong>No signup required</strong> — jump straight into practice instantly.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="text-3xl bg-purple-50 dark:bg-purple-900/30 p-2 rounded-xl">📱</span>
+                                <span><strong>Fast & mobile friendly</strong> layout for preparation on-the-go.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="text-3xl bg-teal-50 dark:bg-teal-900/30 p-2 rounded-xl">💸</span>
+                                <span><strong>100% Free practice tool</strong> built specifically for defence aspirants.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- How to Use Instructions -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-8 md:p-10 mt-8 transition-colors duration-300">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4 border-b dark:border-slate-700 pb-2">How to Use This Simulator</h2>
+                    <ul class="list-disc pl-6 space-y-3 text-md text-gray-600 dark:text-gray-300">
+                        <li>Ensure you are in a quiet environment free from distractions.</li>
+                        <li>Have a physical notebook ready if you prefer writing, or use the on-screen typing interface provided below.</li>
+                        <li>Select either a specific test from the Quick Actions above or the <strong>Full Mock Test</strong> panel below to begin. <em>Note: Once a test begins, the timer cannot be paused.</em></li>
+                        <li><strong>Download Results:</strong> Upon completion, click the download button to generate a clean <strong>PDF Performance Report</strong> of your responses. You can easily save this PDF for self-analysis or to share with mentors.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- THE MAIN TOOL DASHBOARD -->
+            <div class="max-w-5xl mx-auto px-4 w-full mb-12">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                    <div class="bg-slate-800 dark:bg-slate-900 text-white text-center py-8 px-4">
+                        <h2 class="text-3xl font-extrabold tracking-tight mb-2">Start Your Practice Session</h2>
+                        <p class="text-md text-slate-300 italic">"The more you sweat in peace, the less you bleed in war."</p>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 text-sm">
+                            <div class="bg-orange-50 dark:bg-slate-700/50 p-4 rounded-lg border border-orange-100 dark:border-slate-600">
+                                <h3 class="font-bold text-orange-800 dark:text-orange-400 text-lg mb-2">PPDT (1 Slide)</h3>
+                                <p class="text-gray-600 dark:text-gray-300">1 Random Picture. <strong>30s</strong> to observe, <strong>4m</strong> to write your story.</p>
+                            </div>
+                            <div class="bg-blue-50 dark:bg-slate-700/50 p-4 rounded-lg border border-blue-100 dark:border-slate-600">
+                                <h3 class="font-bold text-blue-800 dark:text-blue-400 text-lg mb-2">TAT (11 Slides)</h3>
+                                <p class="text-gray-600 dark:text-gray-300">10 Random Pictures + 1 Blank Slide. <strong>30s</strong> to observe, <strong>4m</strong> to write.</p>
+                            </div>
+                            <div class="bg-indigo-50 dark:bg-slate-700/50 p-4 rounded-lg border border-indigo-100 dark:border-slate-600">
+                                <h3 class="font-bold text-indigo-800 dark:text-indigo-400 text-lg mb-2">WAT (60 Words)</h3>
+                                <p class="text-gray-600 dark:text-gray-300">60 words shown for <strong>15s</strong> each. Write your first natural response.</p>
+                            </div>
+                            <div class="bg-teal-50 dark:bg-slate-700/50 p-4 rounded-lg border border-teal-100 dark:border-slate-600">
+                                <h3 class="font-bold text-teal-800 dark:text-teal-400 text-lg mb-2">SRT (60 Situations)</h3>
+                                <p class="text-gray-600 dark:text-gray-300">60 practical situations. You have a total of <strong>30 minutes</strong> to react.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <button onclick="startTest('full')" class="w-full bg-slate-800 dark:bg-slate-700 text-white font-bold text-xl py-4 rounded-xl hover:bg-slate-700 dark:hover:bg-slate-600 transition shadow-lg transform hover:-translate-y-1">
+                                Start Full Mock Test (TAT + WAT + SRT)
+                            </button>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <button onclick="startPPDT()" class="bg-orange-600 dark:bg-orange-700 text-white font-semibold py-3 rounded-lg hover:bg-orange-700 dark:hover:bg-orange-600 transition shadow">PPDT Only</button>
+                                <button onclick="startTest('TAT')" class="bg-blue-600 dark:bg-blue-700 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition shadow">TAT Only</button>
+                                <button onclick="startTest('WAT')" class="bg-indigo-600 dark:bg-indigo-700 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition shadow">WAT Only</button>
+                                <button onclick="startTest('SRT')" class="bg-teal-600 dark:bg-teal-700 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 dark:hover:bg-teal-600 transition shadow">SRT Only</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="page-about" class="site-page py-16 px-4">
+            <div class="max-w-3xl mx-auto bg-white dark:bg-slate-800 p-10 rounded-2xl shadow border border-gray-200 dark:border-slate-700 transition-colors">
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-6 border-b dark:border-slate-700 pb-4">About Us</h1>
+                <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p>Welcome to the <strong>SSB Psychological Test Simulator</strong>. Our mission is to provide Defence aspirants with a realistic, high-quality, and completely free platform to practice for the Services Selection Board (SSB) interviews.</p>
+                    <p>Preparation is the key to success in the Armed Forces. We understand that time management and pressure handling are the biggest challenges during the psychological battery of tests. This tool was specifically designed to simulate the strict time-bound environment of the actual exam hall.</p>
+                    <p>Whether you are preparing for NDA, CDS, AFCAT, or direct entries, consistent practice on this platform will help you condition your subconscious mind, improve your writing speed, and formulate better responses.</p>
+                    
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50 mt-6">
+                        <p class="font-semibold text-blue-800 dark:text-blue-300">Disclaimer: This platform is for practice purposes only and does not represent actual SSB evaluation. This platform isn't affiliated with any Coaching institute.</p>
+                    </div>
+
+                    <p class="font-bold text-slate-800 dark:text-white mt-6">Jai Hind!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="page-contact" class="site-page py-16 px-4">
+            <div class="max-w-3xl mx-auto bg-white dark:bg-slate-800 p-10 rounded-2xl shadow border border-gray-200 dark:border-slate-700 text-center transition-colors">
+                <div class="text-5xl mb-4">📬</div>
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-4">Contact Us</h1>
+                <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto">Have feedback, found a bug, or want to suggest new features for the simulator? We would love to hear from you.</p>
+                
+                <!-- Updated Google Form Link -->
+                <a href="https://forms.gle/y8kAJdsHiH7eChs26" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 dark:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition shadow-lg mb-6">
+                    Fill out our Feedback Form
+                </a>
+                
+                <!-- Updated Contact Email to Link -->
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-8 border-t dark:border-slate-700 pt-6">Or reach us via form at: <br><a href="https://forms.gle/y8kAJdsHiH7eChs26" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline text-base font-bold inline-block mt-1">https://forms.gle/y8kAJdsHiH7eChs26</a></p>
+            </div>
+        </div>
+
+        <!-- PRIVACY POLICY PAGE -->
+        <div id="page-privacy" class="site-page py-16 px-4">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-10 rounded-2xl shadow border border-gray-200 dark:border-slate-700 transition-colors">
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-6 border-b dark:border-slate-700 pb-4">Privacy Policy</h1>
+                <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p><strong>Effective Date:</strong> January 1, 2024</p>
+                    <p>Your privacy is important to us. This Privacy Policy explains how the SSB Psychological Test Simulator handles your data.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">1. Data Collection & Storage</h3>
+                    <p>This tool operates <strong>entirely within your local web browser</strong>. We do NOT collect, store, transmit, or read any of the stories, words, or reactions you type into the simulator. Your test results and the generated PDF report are created directly on your device and are never sent to any external server.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">2. Third-Party Services & Ads</h3>
+                    <p>To keep this tool free, we may use third-party advertising services (such as Google AdSense) and analytics (such as Google Analytics). These third parties may use cookies, web beacons, and similar technologies to collect or receive information from your website and elsewhere on the internet to provide measurement services and target ads.</p>
+                    <p class="font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">Google uses cookies to serve ads. Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Google Ads Settings</a>.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">3. External Links</h3>
+                    <p>Our website may contain links to external sites that are not operated by us. We have no control over the content and practices of these sites and cannot accept responsibility for their privacy policies.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">4. Changes to this Policy</h3>
+                    <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERMS & CONDITIONS PAGE -->
+        <div id="page-terms" class="site-page py-16 px-4">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-10 rounded-2xl shadow border border-gray-200 dark:border-slate-700 transition-colors">
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-6 border-b dark:border-slate-700 pb-4">Terms & Conditions</h1>
+                <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p><strong>Effective Date:</strong> January 1, 2024</p>
+                    <p>Welcome to the SSB Psychological Test Simulator. By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">1. Educational Purpose</h3>
+                    <p>This simulator is provided as a free educational resource for candidates preparing for the Services Selection Board (SSB) interview. It is meant for practice purposes only. We do not guarantee success or specific results in your actual SSB exams.</p>
+                    <p class="font-semibold text-blue-800 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-100 dark:border-blue-800/50">Please note: This platform is for practice purposes only and does not represent actual SSB evaluation. This platform isn't affiliated with any Coaching institute.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">2. Content & Copyright</h3>
+                    <p>The pictures, words, and situations provided in this tool are curated from public domains or created specifically for practice. If you believe any content infringes upon your copyright, please contact us immediately for its removal.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">3. Limitation of Liability</h3>
+                    <p>Under no circumstances shall the creators of this tool be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website or its content.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-6">4. Modifications to Terms</h3>
+                    <p>We reserve the right to revise these terms and conditions at any time without prior notice. By using this website, you agree to be bound by the current version of these Terms & Conditions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPPORT PAGE -->
+        <div id="page-support" class="site-page py-16 px-4">
+            <div class="max-w-3xl mx-auto bg-white dark:bg-slate-800 p-10 rounded-2xl shadow border border-gray-200 dark:border-slate-700 text-center transition-colors">
+                <div class="text-5xl mb-4">☕</div>
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white mb-4">Support This Project</h1>
+                <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed">This tool is completely free forever. However, hosting, maintaining, and updating the application takes time and resources. If this simulator helped you in your SSB preparation, consider supporting us!</p>
+                
+                <div class="bg-gray-50 dark:bg-slate-700/50 border border-gray-200 dark:border-slate-600 rounded-xl p-8 max-w-sm mx-auto shadow-inner">
+                    <h3 class="font-bold text-slate-800 dark:text-white mb-4">Scan to Pay via UPI</h3>
+                    <!-- Placeholder QR Code Box -->
+                    <div class="w-48 h-48 bg-gray-200 dark:bg-slate-600 border-2 border-dashed border-gray-400 dark:border-slate-500 mx-auto flex items-center justify-center rounded-lg mb-4">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">[ Insert QR Code Image Here ]</span>
+                    </div>
+                    <p class="text-sm font-mono text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-slate-600 py-2 rounded">UPI ID: your-upi-id@bank</p>
+                </div>
+                
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-8">Thank you for your generous support!</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- TOOL FULLSCREEN VIEWS (Hidden by default)  -->
+    <!-- ========================================== -->
 
     <!-- PPDT VIEWING VIEW -->
     <div id="ppdt-viewing-view" class="view h-screen w-full bg-black flex-col items-center justify-center relative no-select">
@@ -85,49 +439,46 @@
     </div>
 
     <!-- PPDT WRITING VIEW -->
-    <div id="ppdt-writing-view" class="view h-screen w-full bg-gray-50 flex-col p-4 md:p-8">
+    <div id="ppdt-writing-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col p-4 md:p-8">
         <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800">Write Your PPDT Story</h2>
-                    <p class="text-sm text-gray-500 uppercase tracking-widest mt-1">Picture Perception and Discussion Test</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Write Your PPDT Story</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">Picture Perception and Discussion Test</p>
                 </div>
                 <div class="flex flex-col items-end">
-                    <div class="text-2xl font-mono bg-red-100 text-red-700 px-6 py-2 rounded-lg border border-red-200 shadow-sm" id="ppdt-timer">04:00</div>
-                    <button onclick="submitPPDT()" class="mt-2 text-sm text-blue-600 font-semibold hover:text-blue-800">Submit Early</button>
+                    <div class="text-2xl font-mono bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-6 py-2 rounded-lg border border-red-200 dark:border-red-800 shadow-sm" id="ppdt-timer">04:00</div>
+                    <button onclick="submitPPDT()" class="mt-2 text-sm text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-800 dark:hover:text-blue-300">Submit Early</button>
                 </div>
             </div>
-            <textarea id="ppdt-input" class="w-full flex-1 p-8 text-xl border border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-orange-100 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
+            <textarea id="ppdt-input" class="w-full flex-1 p-8 text-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-900/30 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
         </div>
     </div>
 
     <!-- PPDT RESULT VIEW -->
-    <div id="ppdt-result-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center p-4">
-        <div class="bg-white p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-orange-500">
-            <div class="w-20 h-20 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+    <div id="ppdt-result-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-orange-500">
+            <div class="w-20 h-20 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
             </div>
-            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">PPDT Completed</h1>
-            <p class="text-gray-500 mb-8 text-lg">Your response has been recorded. You can download your report with the image included.</p>
-            <button onclick="generatePPDTPDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
+            <h1 class="text-4xl font-extrabold text-gray-800 dark:text-white mb-2">PPDT Completed</h1>
+            <p class="text-gray-500 dark:text-gray-400 mb-8 text-lg">Your response has been recorded. You can download your report with the image included.</p>
+            <button onclick="generatePPDTPDF()" class="w-full bg-slate-800 dark:bg-slate-700 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 dark:hover:bg-slate-600 flex items-center justify-center gap-3 transition shadow-lg mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Download PDF Report
             </button>
             <div class="grid grid-cols-2 gap-4 mb-4">
-                <button onclick="startPPDT()" class="w-full bg-orange-100 text-orange-700 px-4 py-3 rounded-xl font-bold hover:bg-orange-200 transition">
+                <button onclick="startPPDT()" class="w-full bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400 px-4 py-3 rounded-xl font-bold hover:bg-orange-200 dark:hover:bg-orange-800/50 transition">
                     Next PPDT
                 </button>
-                <button onclick="startPPDT()" class="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
-                    Restart PPDT
+                <button onclick="location.reload()" class="w-full bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-white px-4 py-3 rounded-xl font-bold hover:bg-gray-200 dark:hover:bg-slate-600 transition">
+                    Home Menu
                 </button>
             </div>
-            <button onclick="location.reload()" class="w-full text-gray-500 font-semibold hover:text-gray-800 transition">
-                Return to Home Menu
-            </button>
         </div>
     </div>
 
@@ -135,7 +486,7 @@
     <div id="tat-viewing-view" class="view h-screen w-full bg-black flex-col items-center justify-center relative no-select">
         <div id="tat-loading" class="text-white text-2xl animate-pulse">Loading Slide...</div>
         <div id="tat-blank-indicator" class="hidden text-center">
-            <div class="w-64 h-80 bg-white border-4 border-gray-400 rounded-lg shadow-2xl mb-8"></div>
+            <div class="w-64 h-80 bg-white dark:bg-gray-200 border-4 border-gray-400 rounded-lg shadow-2xl mb-8 blank-active"></div>
             <h2 class="text-white text-4xl font-bold tracking-widest uppercase">Blank Slide</h2>
             <p class="text-gray-400 mt-4 text-xl">Prepare your own story</p>
         </div>
@@ -144,86 +495,130 @@
     </div>
 
     <!-- TAT WRITING VIEW -->
-    <div id="tat-writing-view" class="view h-screen w-full bg-gray-50 flex-col p-4 md:p-8">
+    <div id="tat-writing-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col p-4 md:p-8">
         <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800" id="tat-writing-title">Write Your Story</h2>
-                    <p class="text-sm text-gray-500 uppercase tracking-widest mt-1" id="tat-slide-counter">Slide 1 of 11</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white" id="tat-writing-title">Write Your Story</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1" id="tat-slide-counter">Slide 1 of 11</p>
                 </div>
                 <div class="flex flex-col items-end">
-                    <div class="text-2xl font-mono bg-red-100 text-red-700 px-6 py-2 rounded-lg border border-red-200 shadow-sm" id="tat-timer">04:00</div>
+                    <div class="text-2xl font-mono bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-6 py-2 rounded-lg border border-red-200 dark:border-red-800 shadow-sm" id="tat-timer">04:00</div>
                     <span class="text-xs text-red-400 mt-1">Automatic save on timeout</span>
                 </div>
             </div>
-            <textarea id="tat-input" class="w-full flex-1 p-8 text-xl border border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-blue-100 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
+            <textarea id="tat-input" class="w-full flex-1 p-8 text-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl shadow-inner focus:outline-none focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/30 resize-none leading-relaxed transition-all" placeholder="Enter your story here..."></textarea>
         </div>
     </div>
 
     <!-- WAT VIEW -->
-    <div id="wat-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center relative no-select">
-        <div class="absolute top-0 left-0 w-full h-2 bg-gray-200">
-            <div id="wat-progress-bar" class="h-full bg-indigo-600 w-0"></div>
+    <div id="wat-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col items-center justify-center relative no-select">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gray-200 dark:bg-slate-700">
+            <div id="wat-progress-bar" class="h-full bg-indigo-600 dark:bg-indigo-500 w-0"></div>
         </div>
         <div class="text-center w-full max-w-4xl px-4">
-            <div class="text-gray-400 font-mono tracking-widest mb-10 text-lg">WORD <span id="wat-progress">1</span> OF 60</div>
-            <div id="wat-word" class="text-7xl md:text-9xl font-extrabold uppercase tracking-widest text-slate-900 mb-16 drop-shadow-sm">WORD</div>
-            <input type="text" id="wat-input" class="w-full p-6 text-2xl md:text-3xl text-center border-b-4 border-indigo-400 bg-transparent focus:outline-none focus:border-indigo-700 text-slate-800 transition-colors" autocomplete="off" placeholder="Type your sentence...">
+            <div class="text-gray-400 dark:text-gray-500 font-mono tracking-widest mb-10 text-lg">WORD <span id="wat-progress">1</span> OF 60</div>
+            <div id="wat-word" class="text-7xl md:text-9xl font-extrabold uppercase tracking-widest text-slate-900 dark:text-white mb-16 drop-shadow-sm">WORD</div>
+            <input type="text" id="wat-input" class="w-full p-6 text-2xl md:text-3xl text-center border-b-4 border-indigo-400 dark:border-indigo-600 bg-transparent focus:outline-none focus:border-indigo-700 dark:focus:border-indigo-400 text-slate-800 dark:text-white transition-colors" autocomplete="off" placeholder="Type your sentence...">
         </div>
     </div>
 
     <!-- SRT VIEW -->
-    <div id="srt-view" class="view h-screen w-full bg-gray-50 flex-col">
-        <div class="sticky top-0 bg-white shadow-md px-6 py-4 flex justify-between items-center z-10">
-            <h2 class="text-2xl font-bold text-gray-800">Situation Reaction Test (60 Questions)</h2>
+    <div id="srt-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col">
+        <div class="sticky top-0 bg-white dark:bg-slate-800 shadow-md px-6 py-4 flex justify-between items-center z-10">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Situation Reaction Test (60 Questions)</h2>
             <div class="flex items-center gap-6">
-                <div class="text-2xl font-mono bg-red-100 text-red-700 px-4 py-1 rounded-lg border border-red-200" id="srt-timer">30:00</div>
-                <button onclick="submitSRT()" class="bg-teal-600 text-white px-6 py-2 rounded font-bold hover:bg-teal-700 transition shadow-md">Final Submit</button>
+                <div class="text-2xl font-mono bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-4 py-1 rounded-lg border border-red-200 dark:border-red-800" id="srt-timer">30:00</div>
+                <button onclick="submitSRT()" class="bg-teal-600 dark:bg-teal-700 text-white px-6 py-2 rounded font-bold hover:bg-teal-700 dark:hover:bg-teal-600 transition shadow-md">Final Submit</button>
             </div>
         </div>
-        <div class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-100">
+        <div class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-100 dark:bg-slate-900">
             <div id="srt-container" class="max-w-5xl mx-auto space-y-4"></div>
         </div>
     </div>
 
     <!-- RESULT VIEW -->
-    <div id="result-view" class="view h-screen w-full bg-gray-50 flex-col items-center justify-center p-4">
-        <div class="bg-white p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
-            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+    <div id="result-view" class="view h-screen w-full bg-gray-50 dark:bg-slate-900 flex-col items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 p-10 rounded-2xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
+            <div class="w-20 h-20 bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
                 </svg>
             </div>
-            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Session Ended</h1>
-            <p class="text-gray-500 mb-8 text-lg">Your responses have been recorded. You can now download your performance report.</p>
-            <button onclick="generatePDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
+            <h1 class="text-4xl font-extrabold text-gray-800 dark:text-white mb-2">Session Ended</h1>
+            <p class="text-gray-500 dark:text-gray-400 mb-8 text-lg">Your responses have been recorded. You can now download your performance report.</p>
+            <button onclick="generatePDF()" class="w-full bg-slate-800 dark:bg-slate-700 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 dark:hover:bg-slate-600 flex items-center justify-center gap-3 transition shadow-lg mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Download PDF Report
             </button>
-            <button onclick="location.reload()" class="w-full bg-gray-100 text-gray-700 px-6 py-4 rounded-xl font-bold hover:bg-gray-200 transition">
-                Retake Another Test
+            <button onclick="location.reload()" class="w-full bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-white px-6 py-4 rounded-xl font-bold hover:bg-gray-200 dark:hover:bg-slate-600 transition">
+                Home / Retake Test
             </button>
         </div>
     </div>
 
+    <!-- CORE JAVASCRIPT LOGIC -->
     <script>
+        // --- THEME TOGGLE LOGIC ---
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            const iconContent = isDark ? '☀️' : '🌙';
+            document.getElementById('theme-icon-desktop').innerText = iconContent;
+            document.getElementById('theme-icon-mobile').innerText = iconContent;
+        }
+
+        // --- NAVIGATION LOGIC (SPA) ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function navTo(pageId) {
+            // Hide all pages and test views
+            document.querySelectorAll('.site-page').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            
+            // Show requested page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Make sure navbar is visible
+            document.getElementById('main-navbar').style.display = 'block';
+            
+            // Hide mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0,0);
+        }
+
+        function showView(viewId) {
+            // This is called by the test logic. It hides standard pages and the navbar.
+            document.querySelectorAll('.site-page').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            
+            document.getElementById(viewId).classList.add('active');
+            
+            // Hide Navbar during test to prevent distraction/cheating
+            if (viewId !== 'page-home') {
+                document.getElementById('main-navbar').style.display = 'none';
+            }
+        }
+
+
         // --- DYNAMICALLY GENERATED IMAGE POOL ---
         const ppdtImages = Array.from({ length: 45 }, (_, i) =>
           `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt${i + 1}.jpg`
         );
-
         const tatImages = Array.from({ length: 78 }, (_, i) =>
           `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat${i + 1}.jpg`
         );
-
         const moreImages = Array.from({ length: 556 }, (_, i) =>
           `https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/0a3f5bb8b475a02af1afec7378eb1f9c708bee04/More%20(${i + 1}).jpg`
         );
-
         const TAT_IMAGES_POOL = [...ppdtImages, ...tatImages, ...moreImages];
-        // ----------------------------------------
         
         const WAT_WORDS_POOL = [
             "Accept", "Achieve", "Action", "Active", "Adopt", "Aim", "Alert", "Angry", "Army", "Attack",
@@ -445,7 +840,6 @@
             tatViewInterval: null,
             tatWriteInterval: null,
             currentTatImages: [],
-            // New PPDT States
             currentPpdtImage: "",
             ppdtResult: "",
             ppdtViewInterval: null,
@@ -468,14 +862,8 @@
             return `${m}:${s}`;
         }
 
-        function showView(viewId) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-        }
-
         // --- PPDT LOGIC ---
         function startPPDT() {
-            // Select random image from existing pool for PPDT
             appState.currentPpdtImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
             appState.ppdtResult = "";
             document.getElementById('ppdt-input').value = "";
@@ -490,7 +878,6 @@
             loading.classList.remove('hidden');
             instruction.innerText = "Observe carefully";
 
-            // Cross Origin anonymous required to allow downloading the image onto PDF later
             img.crossOrigin = "Anonymous"; 
             img.onload = () => {
                 loading.classList.add('hidden');
@@ -538,12 +925,11 @@
             showView('ppdt-result-view');
         }
 
-        // --- EXISTING TEST LOGIC ---
+        // --- GENERAL TEST LOGIC ---
         function startTest(type) {
             appState.results = { tat: [], wat: [], srt: [] };
             appState.currentTatIndex = 0;
             
-            // Pick 10 random images from pool + 1 blank
             const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 10);
             appState.currentTatImages = [...selected, "BLANK"]; 
             
@@ -581,7 +967,6 @@
             const blankBox = document.getElementById('tat-blank-indicator');
             const instruction = document.getElementById('tat-instruction');
 
-            // Reset UI
             img.classList.add('hidden');
             blankBox.classList.add('hidden');
             loading.classList.remove('hidden');
@@ -697,9 +1082,9 @@
             showView('srt-view');
             const container = document.getElementById('srt-container');
             container.innerHTML = currentSrtSituations.map((sit, idx) => `
-                <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <p class="text-lg font-bold text-slate-800 mb-3">${idx + 1}. ${sit}</p>
-                    <textarea id="srt-input-${idx}" class="w-full p-4 border rounded-lg bg-gray-50 focus:bg-white transition-all resize-none" rows="2" placeholder="Your reaction..."></textarea>
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-slate-700">
+                    <p class="text-lg font-bold text-slate-800 dark:text-white mb-3">${idx + 1}. ${sit}</p>
+                    <textarea id="srt-input-${idx}" class="w-full p-4 border dark:border-slate-600 rounded-lg bg-gray-50 dark:bg-slate-700 focus:bg-white dark:focus:bg-slate-600 text-gray-900 dark:text-white transition-all resize-none" rows="2" placeholder="Your reaction..."></textarea>
                 </div>
             `).join('');
             
@@ -720,7 +1105,7 @@
             };
         }
 
-        // --- PPDT PDF GENERATION ---
+        // --- PDF GENERATION ---
         function getBase64Image(imgEl) {
             const canvas = document.createElement("canvas");
             canvas.width = imgEl.naturalWidth;
@@ -735,7 +1120,7 @@
             const doc = new jsPDF();
             const date = new Date().toLocaleDateString();
 
-            doc.setFillColor(234, 88, 12); // orange-600
+            doc.setFillColor(234, 88, 12); 
             doc.rect(0, 0, 210, 40, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
@@ -746,11 +1131,9 @@
             let currentY = 50;
             doc.setTextColor(30, 41, 59);
             
-            // Add Image to PDF
             const imgEl = document.getElementById('ppdt-image');
             try {
                 const imgData = getBase64Image(imgEl);
-                // Calculate dimensions to fit nicely within standard A4 width
                 const maxW = 182; 
                 const maxH = 100;
                 let w = imgEl.naturalWidth;
@@ -761,13 +1144,12 @@
                 currentY += (h * ratio) + 15;
             } catch (e) {
                 doc.setFontSize(10);
-                doc.setTextColor(239, 68, 68); // Red text
+                doc.setTextColor(239, 68, 68);
                 doc.text("(Could not append image to PDF due to strict browser cross-origin limits.)", 14, currentY);
                 currentY += 10;
                 doc.setTextColor(30, 41, 59);
             }
 
-            // Write Story
             doc.setFontSize(14);
             doc.setFont(undefined, 'bold');
             doc.text("Your Story:", 14, currentY);
@@ -778,7 +1160,6 @@
             const text = appState.ppdtResult || "(No story provided)";
             const splitText = doc.splitTextToSize(text, 180);
             
-            // Checking if pagination is needed
             if (currentY + (splitText.length * 5) > 280) {
                 doc.addPage();
                 currentY = 20;
@@ -788,14 +1169,12 @@
             doc.save(`PPDT_Report_${date.replace(/\//g, '-')}.pdf`);
         }
 
-        // --- EXISTING PDF GENERATION ---
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const date = new Date().toLocaleDateString();
             
-            // Title Page
-            doc.setFillColor(30, 41, 59); // slate-800
+            doc.setFillColor(30, 41, 59);
             doc.rect(0, 0, 210, 40, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
@@ -805,7 +1184,6 @@
 
             let currentY = 50;
 
-            // Section: TAT
             if (appState.results.tat.length > 0) {
                 doc.setTextColor(30, 41, 59);
                 doc.setFontSize(16);
@@ -828,7 +1206,6 @@
                 });
             }
 
-            // Section: WAT
             if (appState.results.wat.length > 0) {
                 doc.addPage();
                 doc.setFontSize(16);
@@ -838,11 +1215,10 @@
                     head: [['#', 'Stimulus Word', 'Response']],
                     body: appState.results.wat.map((w, i) => [i + 1, w.word, w.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [79, 70, 229] } // indigo-600
+                    headStyles: { fillColor: [79, 70, 229] }
                 });
             }
 
-            // Section: SRT
             if (appState.results.srt.length > 0) {
                 doc.addPage();
                 doc.setFontSize(16);
@@ -852,7 +1228,7 @@
                     head: [['#', 'Situation', 'Reaction']],
                     body: appState.results.srt.map((s, i) => [i + 1, s.situation, s.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [13, 148, 136] } // teal-600
+                    headStyles: { fillColor: [13, 148, 136] }
                 });
             }
 
