@@ -196,7 +196,7 @@
             </div>
             <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Session Ended</h1>
             <p class="text-gray-500 mb-8 text-lg">Your responses have been recorded. You can now download your performance report.</p>
-            <button onclick="generatePDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
+            <button onclick="generateFullPDF()" class="w-full bg-slate-800 text-white px-6 py-4 rounded-xl font-bold text-xl hover:bg-slate-700 flex items-center justify-center gap-3 transition shadow-lg mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -258,113 +258,7 @@
             "Ugly", "Understand", "Union", "Unjust", "Urge", "Use", "Value", "Victory", "View", "Village",
             "Vision", "Voice", "Wait", "War", "Waste", "Watch", "Water", "Way", "Weak", "Wealth",
             "Weapon", "Win", "Wise", "Wish", "Woman", "Word", "Work", "Worry", "Wound", "Wrong",
-            "Young", "Youth", "Zeal", "Accept", "Achieve", "Action", "Active", "Adapt", "Adopt", "Advance", "Advice", "Aim", "Alert",
-"Alive", "Allow", "Alone", "Ambition", "Anger", "Answer", "Apply", "Approach", "Arrange", "Arrive",
-"Art", "Ask", "Assist", "Attempt", "Attend", "Attention", "Attitude", "Authority", "Aware", "Award",
-"Back", "Bad", "Balance", "Base", "Battle", "Be", "Bear", "Become", "Begin", "Believe",
-"Best", "Better", "Big", "Bind", "Bold", "Body", "Brave", "Break", "Build", "Busy",
-"Calm", "Care", "Carry", "Cause", "Center", "Change", "Charge", "Check", "Chief", "Choose",
-"Clean", "Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Concern",
-"Confidence", "Control", "Correct", "Courage", "Create", "Crisis", "Cross", "Current", "Cut", "Daily",
-"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Do", "Done", "Drive", "Duty",
-"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Exact", "Example",
-"Execute", "Exercise", "Exist", "Expand", "Expect", "Experience", "Expert", "Explain", "Explore", "Express",
-"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Full",
-"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-"Human", "Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire",
-"Intend", "Interest", "Judge", "Join", "Keep", "Key", "Kind", "Know", "Knowledge", "Lead",
-"Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live", "Look",
-"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Much", "Need", "New", "Next",
-"Nice", "Normal", "Note", "Notice", "Now", "Obey", "Observe", "Offer", "Open", "Operate",
-"Order", "Organize", "Other", "Overcome", "Own", "Pain", "Part", "Participate", "Pass", "Patience",
-"Perform", "Plan", "Play", "Point", "Power", "Practice", "Prepare", "Present", "Press", "Prevent",
-"Problem", "Process", "Produce", "Progress", "Protect", "Prove", "Public", "Pull", "Push", "Quality",
-"Quick", "Quiet", "Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive",
-"Record", "Reduce", "Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember",
-"Remove", "Repeat", "Reply", "Report", "Respect", "Respond", "Rest", "Result", "Return", "Review",
-"Right", "Rise", "Risk", "Run", "Safe", "Save", "Say", "Search", "Secure", "See",
-"Seek", "Select", "Self", "Send", "Sense", "Serve", "Set", "Settle", "Share", "Shift",
-"Short", "Show", "Simple", "Skill", "Slow", "Small", "Smart", "Solve", "Sound", "Speak",
-"Special", "Speed", "Stand", "Start", "State", "Stay", "Step", "Stop", "Store", "Strong",
-"Study", "Success", "Support", "Sure", "System", "Take", "Talk", "Task", "Team", "Teach",
-"Test", "Think", "Time", "Train", "Try", "Turn", "Understand", "Unit", "Use", "Value",
-"View", "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise",
-"Work", "World", "Worry", "Write", "Young", "Zero",
-"Abandon", "Ability", "Able", "Abuse", "Accident", "Account", "Accuse", "Across", "Act", "Actor",
-"Actual", "Add", "Address", "Adjust", "Admire", "Admit", "Adult", "Advance", "Adventure", "Advertise",
-"Affect", "Afford", "Afraid", "After", "Again", "Against", "Age", "Agency", "Agent", "Agree",
-"Ahead", "Aid", "Air", "Alarm", "Album", "Alcohol", "Alertness", "Alien", "Alive", "All",
-"Allow", "Almost", "Alone", "Along", "Already", "Also", "Alter", "Always", "Amazing", "Ambitious",
-"Amount", "Amuse", "Analyse", "Ancient", "And", "Angel", "Angle", "Animal", "Announce", "Annual",
-"Another", "Answer", "Any", "Anyone", "Anything", "Anyway", "Apart", "Apartment", "Apologize", "Apparent",
-"Appeal", "Appear", "Apple", "Application", "Apply", "Appoint", "Appreciate", "Approve", "Area", "Argue",
-"Arm", "Army", "Around", "Arrange", "Arrest", "Arrive", "Art", "Article", "Artist", "As",
-"Ask", "Asleep", "Aspect", "Assist", "Assume", "At", "Attach", "Attack", "Attempt", "Attend",
-"Attention", "Attitude", "Attract", "Audience", "Author", "Auto", "Available", "Avoid", "Await", "Awake",
-"Baby", "Back", "Bad", "Bag", "Bake", "Balance", "Ball", "Ban", "Band", "Bank",
-"Bar", "Bare", "Bargain", "Base", "Basic", "Basis", "Battle", "Be", "Beach", "Bear",
-"Beat", "Beautiful", "Because", "Become", "Bed", "Before", "Begin", "Behavior", "Behind", "Believe",
-"Benefit", "Best", "Better", "Between", "Beyond", "Big", "Bill", "Bind", "Biology", "Bird",
-"Birth", "Bit", "Bite", "Black", "Blade", "Blame", "Blank", "Blind", "Block", "Blood",
-"Blow", "Blue", "Board", "Boat", "Body", "Boil", "Bold", "Bomb", "Bone", "Book",
-"Border", "Born", "Borrow", "Boss", "Both", "Bottle", "Bottom", "Bound", "Bow", "Box",
-"Boy", "Brain", "Branch", "Brave", "Bread", "Break", "Breath", "Bridge", "Brief", "Bright",
-"Bring", "Broad", "Broken", "Brother", "Brown", "Build", "Burn", "Burst", "Business", "Busy",
-"Calm", "Care", "Carry", "Catch", "Cause", "Center", "Change", "Charge", "Check", "Choose",
-"Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Control", "Courage",
-"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Drive", "Duty", "Do", "Done",
-"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Example", "Execute",
-"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Future",
-"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-"Guard", "Gainful", "Gentle", "Genuine", "Glad", "Global", "Go", "Ground", "Group", "Grateful",
-"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-"Human", "Hurry", "Habit", "Harm", "Hero", "Humble", "Hunt", "Hear", "Heart", "Honor",
-"Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire", "Intend",
-"Interest", "Inform", "Influence", "Important", "Improve", "Involve", "Issue", "Invite", "Ignore", "Invent",
-"Judge", "Join", "Jump", "Job", "Joy", "Just", "Journey", "Justice", "Junior", "Joke",
-"Jealous", "Jolly", "Journal", "Junction", "Jail", "Jewel", "Jerk", "Jet", "Jungle", "Juggle",
-"Keep", "Key", "Kind", "Know", "Knowledge", "Kick", "Kill", "Keen", "Kite", "Knock",
-"Knot", "Knife", "King", "Kindness", "Kid", "Kitchen", "Knee", "Kettle", "Karma", "Known",
-"Lead", "Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live",
-"Look", "Love", "Lose", "Loss", "Luck", "Loyal", "Lead", "Labour", "Large", "Late",
-"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Motivate", "Moral", "Major", "March",
-"Need", "New", "Next", "Nice", "Normal", "Note", "Notice", "Now", "Name", "Near",
-"Neat", "Noble", "Noise", "None", "Number", "Nurture", "Nation", "Natural", "Narrow", "Necessary",
-"Obey", "Observe", "Offer", "Open", "Operate", "Order", "Organize", "Other", "Overcome", "Own",
-"Object", "Obtain", "Occur", "Offend", "Often", "Old", "Only", "Oppose", "Option", "Out",
-"Pain", "Part", "Participate", "Pass", "Patience", "Perform", "Plan", "Play", "Point", "Power",
-"Practice", "Prepare", "Present", "Press", "Prevent", "Problem", "Process", "Produce", "Progress", "Protect",
-"Quality", "Quick", "Quiet", "Question", "Queue", "Quit", "Quarrel", "Quest", "Quote", "Quench",
-"Quickly", "Quietly", "Qualification", "Quantity", "Quirk", "Quiver", "Queen", "Query", "Quilt", "Quotient",
-"Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive", "Record", "Reduce",
-"Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember", "Remove", "Repeat",
-"Safe", "Save", "Say", "Search", "Secure", "See", "Seek", "Select", "Self", "Send",
-"Sense", "Serve", "Set", "Share", "Shift", "Short", "Show", "Simple", "Skill", "Solve",
-"Take", "Talk", "Task", "Team", "Teach", "Test", "Think", "Time", "Train", "Try",
-"Turn", "Trust", "Truth", "Tough", "Target", "Talent", "Travel", "Teach", "Thinker", "Timely",
-"Understand", "Unit", "Use", "Value", "Utilize", "Unite", "Unique", "Useful", "Urgent", "Uplift",
-"Update", "Upgrade", "Upright", "Ultimate", "Uncertain", "Unfair", "Unfit", "Unite", "Urban", "User",
-"Value", "View", "Victory", "Vision", "Visit", "Voice", "Volunteer", "Valid", "Vary", "Vast",
-"Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
-"Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
-"World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
-"X-ray", "Xenon", "Xerox", "Xylophone", "Xylem", "Xenial", "Xiphoid", "Xenophobia", "X-factor", "X-axis",
-"Xenolith", "Xenogenesis", "Xeric", "Xyloid", "Xenograft", "Xeniality", "Xenotropic", "Xenogamy", "Xenon-light", "Xylograph",
-"Young", "Yield", "Year", "Yes", "Yesterday", "Yellow", "Yard", "Yearn", "Youth", "Yoke",
-"Yell", "Yoga", "Yummy", "Yawn", "Yogic", "Yonder", "Yielding", "Yearly", "Yacht", "Yoke",
-"Zero", "Zone", "Zeal", "Zest", "Zigzag", "Zip", "Zinc", "Zoom", "Zonal", "Zoology",
-"Zenith", "Zealous", "Zebra", "Zestful", "Zillion", "Zipper", "Zany", "Zincite", "Zodiac", "Zooming",
-
-
+            "Young", "Youth", "Zeal"
         ];
 
         const SRT_POOL = [
@@ -445,7 +339,6 @@
             tatViewInterval: null,
             tatWriteInterval: null,
             currentTatImages: [],
-            // New PPDT States
             currentPpdtImage: "",
             ppdtResult: "",
             ppdtViewInterval: null,
@@ -475,7 +368,6 @@
 
         // --- PPDT LOGIC ---
         function startPPDT() {
-            // Select random image from existing pool for PPDT
             appState.currentPpdtImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
             appState.ppdtResult = "";
             document.getElementById('ppdt-input').value = "";
@@ -490,7 +382,6 @@
             loading.classList.remove('hidden');
             instruction.innerText = "Observe carefully";
 
-            // Cross Origin anonymous required to allow downloading the image onto PDF later
             img.crossOrigin = "Anonymous"; 
             img.onload = () => {
                 loading.classList.add('hidden');
@@ -521,7 +412,7 @@
             const input = document.getElementById('ppdt-input');
             input.focus();
             
-            let timeLeft = 240; // 4 minutes
+            let timeLeft = 240; 
             document.getElementById('ppdt-timer').innerText = formatTime(timeLeft);
             
             clearInterval(appState.ppdtWriteInterval);
@@ -538,12 +429,11 @@
             showView('ppdt-result-view');
         }
 
-        // --- EXISTING TEST LOGIC ---
+        // --- TEST FLOW LOGIC ---
         function startTest(type) {
             appState.results = { tat: [], wat: [], srt: [] };
             appState.currentTatIndex = 0;
             
-            // Pick 10 random images from pool + 1 blank
             const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 10);
             appState.currentTatImages = [...selected, "BLANK"]; 
             
@@ -581,7 +471,6 @@
             const blankBox = document.getElementById('tat-blank-indicator');
             const instruction = document.getElementById('tat-instruction');
 
-            // Reset UI
             img.classList.add('hidden');
             blankBox.classList.add('hidden');
             loading.classList.remove('hidden');
@@ -593,6 +482,7 @@
                 instruction.innerText = "Think of your own scenario";
                 startViewingTimer();
             } else {
+                img.crossOrigin = "Anonymous";
                 img.onload = () => {
                     loading.classList.add('hidden');
                     img.classList.remove('hidden');
@@ -648,10 +538,12 @@
             appState.results.tat.push({
                 slide: appState.currentTatIndex + 1,
                 label: isBlank ? "Blank Slide Story" : `Picture ${appState.currentTatIndex + 1}`,
-                story: input.value.trim()
+                story: input.value.trim(),
+                image: appState.currentTatImages[appState.currentTatIndex] // Save image for PDF
             });
             
             appState.currentTatIndex++;
+            clearInterval(appState.tatWriteInterval);
             initTAT();
         }
 
@@ -720,22 +612,32 @@
             };
         }
 
-        // --- PPDT PDF GENERATION ---
-        function getBase64Image(imgEl) {
-            const canvas = document.createElement("canvas");
-            canvas.width = imgEl.naturalWidth;
-            canvas.height = imgEl.naturalHeight;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(imgEl, 0, 0);
-            return canvas.toDataURL("image/jpeg");
+        // --- PDF HELPERS ---
+        function fetchImageAsBase64(url) {
+            return new Promise((resolve, reject) => {
+                if (!url || url === "BLANK") return resolve(null);
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL("image/jpeg"));
+                };
+                img.onerror = () => resolve(null);
+                img.src = url;
+            });
         }
 
-        function generatePPDTPDF() {
+        // --- PPDT PDF ---
+        async function generatePPDTPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const date = new Date().toLocaleDateString();
 
-            doc.setFillColor(234, 88, 12); // orange-600
+            doc.setFillColor(234, 88, 12); 
             doc.rect(0, 0, 210, 40, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
@@ -744,30 +646,14 @@
             doc.text(`Generated on: ${date}`, 14, 34);
 
             let currentY = 50;
-            doc.setTextColor(30, 41, 59);
             
-            // Add Image to PDF
-            const imgEl = document.getElementById('ppdt-image');
-            try {
-                const imgData = getBase64Image(imgEl);
-                // Calculate dimensions to fit nicely within standard A4 width
-                const maxW = 182; 
-                const maxH = 100;
-                let w = imgEl.naturalWidth;
-                let h = imgEl.naturalHeight;
-                const ratio = Math.min(maxW / w, maxH / h);
-                
-                doc.addImage(imgData, 'JPEG', 14, currentY, w * ratio, h * ratio);
-                currentY += (h * ratio) + 15;
-            } catch (e) {
-                doc.setFontSize(10);
-                doc.setTextColor(239, 68, 68); // Red text
-                doc.text("(Could not append image to PDF due to strict browser cross-origin limits.)", 14, currentY);
-                currentY += 10;
-                doc.setTextColor(30, 41, 59);
+            const imgData = await fetchImageAsBase64(appState.currentPpdtImage);
+            if (imgData) {
+                doc.addImage(imgData, 'JPEG', 14, currentY, 80, 60);
+                currentY += 70;
             }
 
-            // Write Story
+            doc.setTextColor(30, 41, 59);
             doc.setFontSize(14);
             doc.setFont(undefined, 'bold');
             doc.text("Your Story:", 14, currentY);
@@ -775,27 +661,19 @@
 
             doc.setFontSize(12);
             doc.setFont(undefined, 'normal');
-            const text = appState.ppdtResult || "(No story provided)";
-            const splitText = doc.splitTextToSize(text, 180);
-            
-            // Checking if pagination is needed
-            if (currentY + (splitText.length * 5) > 280) {
-                doc.addPage();
-                currentY = 20;
-            }
-            
+            const splitText = doc.splitTextToSize(appState.ppdtResult || "(No story provided)", 180);
             doc.text(splitText, 14, currentY);
-            doc.save(`PPDT_Report_${date.replace(/\//g, '-')}.pdf`);
+            
+            doc.save(`PPDT_Report.pdf`);
         }
 
-        // --- EXISTING PDF GENERATION ---
-        function generatePDF() {
+        // --- FULL PDF (TAT with Images) ---
+        async function generateFullPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const date = new Date().toLocaleDateString();
             
-            // Title Page
-            doc.setFillColor(30, 41, 59); // slate-800
+            doc.setFillColor(30, 41, 59); 
             doc.rect(0, 0, 210, 40, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
@@ -805,44 +683,65 @@
 
             let currentY = 50;
 
-            // Section: TAT
             if (appState.results.tat.length > 0) {
                 doc.setTextColor(30, 41, 59);
-                doc.setFontSize(16);
+                doc.setFontSize(18);
                 doc.text("Thematic Apperception Test (TAT)", 14, currentY);
-                currentY += 10;
+                currentY += 15;
 
-                appState.results.tat.forEach((item) => {
-                    if (currentY > 260) { doc.addPage(); currentY = 20; }
+                for (let i = 0; i < appState.results.tat.length; i++) {
+                    const item = appState.results.tat[i];
                     
-                    doc.setFontSize(11);
+                    // Check for new page
+                    if (currentY > 230) { doc.addPage(); currentY = 20; }
+                    
+                    doc.setFontSize(12);
                     doc.setFont(undefined, 'bold');
-                    doc.text(`${item.label}:`, 14, currentY);
-                    currentY += 6;
-                    
+                    doc.text(`${item.label}`, 14, currentY);
+                    currentY += 7;
+
+                    // Add Image to PDF if available
+                    if (item.image && item.image !== "BLANK") {
+                        const imgData = await fetchImageAsBase64(item.image);
+                        if (imgData) {
+                            doc.addImage(imgData, 'JPEG', 14, currentY, 60, 45);
+                            currentY += 50;
+                        }
+                    } else if (item.image === "BLANK") {
+                        doc.setDrawColor(200, 200, 200);
+                        doc.rect(14, currentY, 60, 45);
+                        doc.setFontSize(8);
+                        doc.text("BLANK SLIDE", 30, currentY + 25);
+                        currentY += 50;
+                    }
+
+                    doc.setFontSize(11);
                     doc.setFont(undefined, 'normal');
                     const text = item.story || "(No story provided)";
                     const splitText = doc.splitTextToSize(text, 180);
+                    
+                    // Prevent text from cutting off at bottom
+                    if (currentY + (splitText.length * 5) > 280) { doc.addPage(); currentY = 20; }
+                    
                     doc.text(splitText, 14, currentY);
-                    currentY += (splitText.length * 5) + 10;
-                });
+                    currentY += (splitText.length * 5) + 15;
+                }
             }
 
-            // Section: WAT
             if (appState.results.wat.length > 0) {
                 doc.addPage();
                 doc.setFontSize(16);
+                doc.setTextColor(30, 41, 59);
                 doc.text("Word Association Test (WAT)", 14, 20);
                 doc.autoTable({
                     startY: 25,
                     head: [['#', 'Stimulus Word', 'Response']],
                     body: appState.results.wat.map((w, i) => [i + 1, w.word, w.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [79, 70, 229] } // indigo-600
+                    headStyles: { fillColor: [79, 70, 229] }
                 });
             }
 
-            // Section: SRT
             if (appState.results.srt.length > 0) {
                 doc.addPage();
                 doc.setFontSize(16);
@@ -852,11 +751,11 @@
                     head: [['#', 'Situation', 'Reaction']],
                     body: appState.results.srt.map((s, i) => [i + 1, s.situation, s.response || "-"]),
                     theme: 'grid',
-                    headStyles: { fillColor: [13, 148, 136] } // teal-600
+                    headStyles: { fillColor: [13, 148, 136] }
                 });
             }
 
-            doc.save(`SSB_Psych_Report_${date.replace(/\//g, '-')}.pdf`);
+            doc.save(`SSB_Psych_Report.pdf`);
         }
     </script>
 </body>
