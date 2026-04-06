@@ -898,8 +898,8 @@
                     <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-1 font-bold">Picture Perception and Discussion Test</p>
                 </div>
                 <div class="flex flex-col items-end">
-                    <div class="text-3xl font-mono font-bold bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-6 py-2 rounded-xl border border-orange-200 dark:border-orange-800/50 shadow-inner tracking-widest" id="ppdt-timer">04:00</div>
-                    <button onclick="submitPPDT()" class="mt-2 text-xs text-slate-500 hover:text-orange-600 font-bold transition">Submit Early</button>
+                    <div class="hidden text-3xl font-mono font-bold bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-6 py-2 rounded-xl border border-orange-200 dark:border-orange-800/50 shadow-inner tracking-widest" id="ppdt-timer">04:00</div>
+                    <button onclick="submitPPDT()" class="text-xs text-slate-500 hover:text-orange-600 font-bold transition">Submit Early</button>
                 </div>
             </div>
             <textarea id="ppdt-input" class="w-full flex-1 p-8 text-xl font-medium border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-2xl shadow-inner focus:outline-none focus:border-orange-400 dark:focus:border-orange-500 resize-none leading-relaxed transition-colors" placeholder="Start typing your story here..."></textarea>
@@ -949,8 +949,8 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-end">
-                    <div class="text-3xl font-mono font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-6 py-2 rounded-xl border border-blue-200 dark:border-blue-800/50 shadow-inner tracking-widest" id="tat-timer">04:00</div>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase mt-2">Auto-saves on timeout</span>
+                    <div class="hidden text-3xl font-mono font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-6 py-2 rounded-xl border border-blue-200 dark:border-blue-800/50 shadow-inner tracking-widest" id="tat-timer">04:00</div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase mt-1">Auto-saves on timeout</span>
                 </div>
             </div>
             <textarea id="tat-input" class="w-full flex-1 p-8 text-xl font-medium border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-2xl shadow-inner focus:outline-none focus:border-blue-400 dark:focus:border-blue-500 resize-none leading-relaxed transition-colors" placeholder="Start typing your story here..."></textarea>
@@ -959,12 +959,15 @@
 
     <!-- WAT VIEW -->
     <div id="wat-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-950 flex-col items-center justify-center relative no-select z-[100]">
-        <div class="absolute top-0 left-0 w-full h-3 bg-slate-200 dark:bg-slate-800">
+        <div class="hidden absolute top-0 left-0 w-full h-3 bg-slate-200 dark:bg-slate-800">
             <div id="wat-progress-bar" class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-glow w-0 rounded-r-full"></div>
         </div>
-        <div class="absolute top-6 right-6">
+        
+        <!-- Added "hidden" to the div below to remove the "Word 1/60" visibility -->
+        <div class="hidden absolute top-6 right-6">
             <span class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest border border-indigo-200 dark:border-indigo-800">Word <span id="wat-progress">1</span> / 60</span>
         </div>
+        
         <div class="text-center w-full max-w-5xl px-4 flex flex-col items-center justify-center h-full">
             <div id="wat-word" class="text-7xl md:text-[120px] font-black uppercase tracking-tight text-slate-900 dark:text-white mb-20 drop-shadow-xl select-none">WORD</div>
             <input type="text" id="wat-input" class="w-full max-w-3xl p-6 text-3xl md:text-4xl font-bold text-center border-b-4 border-slate-300 dark:border-slate-700 bg-transparent focus:outline-none focus:border-indigo-500 text-indigo-700 dark:text-indigo-300 transition-colors placeholder-slate-300 dark:placeholder-slate-700" autocomplete="off" placeholder="Type reaction...">
@@ -979,7 +982,7 @@
                 <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">60 Questions File</p>
             </div>
             <div class="flex items-center gap-4">
-                <div class="text-3xl font-mono font-bold bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-6 py-2 rounded-xl border border-teal-200 dark:border-teal-800/50 shadow-inner tracking-widest" id="srt-timer">30:00</div>
+                <div class="hidden text-3xl font-mono font-bold bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-6 py-2 rounded-xl border border-teal-200 dark:border-teal-800/50 shadow-inner tracking-widest" id="srt-timer">30:00</div>
                 <button onclick="submitSRT()" class="bg-teal-600 text-white px-8 py-3.5 rounded-xl font-extrabold hover:bg-teal-700 transition shadow-lg text-sm tracking-wide uppercase">Final Submit</button>
             </div>
         </div>
