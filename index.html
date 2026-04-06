@@ -35,7 +35,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
@@ -199,7 +200,7 @@
                             <div class="inline-flex items-center bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 text-xs sm:text-sm font-bold px-4 py-2 rounded-full border border-yellow-200 dark:border-yellow-800/50 shadow-sm uppercase tracking-wide">
                                 <span class="mr-2">⚡</span> Based on actual SSB screening
                             </div>
-                            <div class="inline-flex items-center bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-bold px-4 py-2 rounded-full border border-emerald-200 dark:border-emerald-800/50 shadow-sm uppercase tracking-wide">
+                            <div class="inline-flex items-center bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-bold px-4 py-2 rounded-full border border-emerald-200 dark:emerald-800/50 shadow-sm uppercase tracking-wide">
                                 <span class="mr-2">✨</span> 100% Free | No Login
                             </div>
                         </div>
@@ -261,7 +262,7 @@
                             <span class="text-blue-600 dark:text-blue-400 text-2xl font-bold">T</span>
                         </div>
                         <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-2">TAT</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Thematic Apperception. 11 Slides (10 Pic + 1 Blank). 30s observe, 4m write.</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Thematic Apperception. 12 Slides (11 Pic + 1 Blank). 30s observe, 4m write.</p>
                         <button onclick="startTest('TAT')" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors">Start TAT</button>
                     </div>
 
@@ -886,7 +887,6 @@
 
     <!-- ========================================== -->
     <!-- UPGRADED FULLSCREEN TEST VIEWS             -->
-    <!-- (Core IDs and logic remain untouched)      -->
     <!-- ========================================== -->
 
     <!-- PPDT VIEWING VIEW -->
@@ -954,7 +954,8 @@
                 <div>
                     <h2 class="text-2xl font-extrabold text-slate-800 dark:text-white" id="tat-writing-title">Thematic Apperception Formulation</h2>
                     <div class="flex items-center gap-3 mt-1">
-                        <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-widest" id="tat-slide-counter">Slide 1 of 11</span>
+                        <!-- Updated counter to reflect 12 slides total -->
+                        <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-widest" id="tat-slide-counter">Slide 1 of 12</span>
                     </div>
                 </div>
                 <div class="flex flex-col items-end">
@@ -1019,7 +1020,7 @@
     </div>
 
 
-    <!-- CORE JAVASCRIPT LOGIC (100% UNTOUCHED LOGIC) -->
+    <!-- CORE JAVASCRIPT LOGIC -->
     <script>
         // --- THEME TOGGLE LOGIC ---
         function toggleTheme() {
@@ -1055,7 +1056,6 @@
                 document.getElementById('main-footer').style.display = 'none';
             }
         }
-
 
         // --- DYNAMICALLY GENERATED IMAGE POOL ---
         const ppdtImages = Array.from({ length: 45 }, (_, i) =>
@@ -1201,7 +1201,7 @@
 "Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
 "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
 "World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
-        ];
+                    ];
 
         const SRT_POOL = [
             "He has gone on a cycling expedition with six persons but two cycles have got punctured on a deserted patch. He ___________",
@@ -1581,6 +1581,7 @@
             tatViewInterval: null,
             tatWriteInterval: null,
             currentTatImages: [],
+            currentTatImageObj: null, // Used to store TAT image temporarily for PDF
             currentPpdtImage: "",
             ppdtResult: "",
             ppdtViewInterval: null,
@@ -1601,6 +1602,16 @@
             const m = Math.floor(seconds / 60).toString().padStart(2, '0');
             const s = (seconds % 60).toString().padStart(2, '0');
             return `${m}:${s}`;
+        }
+
+        // Helper function to extract base64 from image element
+        function getBase64Image(imgEl) {
+            const canvas = document.createElement("canvas");
+            canvas.width = imgEl.naturalWidth;
+            canvas.height = imgEl.naturalHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(imgEl, 0, 0);
+            return canvas.toDataURL("image/jpeg");
         }
 
         // --- PPDT LOGIC ---
@@ -1671,7 +1682,8 @@
             appState.results = { tat: [], wat: [], srt: [] };
             appState.currentTatIndex = 0;
             
-            const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 10);
+            // Bug fix: 11 images + 1 Blank = 12 total
+            const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 11);
             appState.currentTatImages = [...selected, "BLANK"]; 
             
             if (type === 'full') {
@@ -1717,15 +1729,30 @@
                 loading.classList.add('hidden');
                 blankBox.classList.remove('hidden');
                 instruction.innerText = "Think of your own scenario";
+                appState.currentTatImageObj = null; // No image for blank slide
                 startViewingTimer();
             } else {
+                img.crossOrigin = "Anonymous"; // Crucial for PDF generation
                 img.onload = () => {
                     loading.classList.add('hidden');
                     img.classList.remove('hidden');
+                    
+                    // Capture image data locally right when it loads so it can be added to the PDF later
+                    try {
+                        appState.currentTatImageObj = {
+                            data: getBase64Image(img),
+                            w: img.naturalWidth,
+                            h: img.naturalHeight
+                        };
+                    } catch(e) {
+                        appState.currentTatImageObj = null;
+                    }
+
                     startViewingTimer();
                 };
                 img.onerror = () => {
                     loading.innerText = "Image failed to load. Skipping observation...";
+                    appState.currentTatImageObj = null;
                     setTimeout(startTATWriting, 2000);
                 };
                 img.src = currentImage;
@@ -1749,7 +1776,7 @@
             const isBlank = appState.currentTatImages[appState.currentTatIndex] === "BLANK";
             
             document.getElementById('tat-writing-title').innerText = isBlank ? "Write Your Blank Slide Story" : "Write Your Story";
-            document.getElementById('tat-slide-counter').innerText = `Slide ${appState.currentTatIndex + 1} of 11`;
+            document.getElementById('tat-slide-counter').innerText = `Slide ${appState.currentTatIndex + 1} of 12`;
             
             input.value = '';
             input.focus();
@@ -1774,7 +1801,8 @@
             appState.results.tat.push({
                 slide: appState.currentTatIndex + 1,
                 label: isBlank ? "Blank Slide Story" : `Picture ${appState.currentTatIndex + 1}`,
-                story: input.value.trim()
+                story: input.value.trim(),
+                imageObj: isBlank ? null : appState.currentTatImageObj // Assign captured image info here
             });
             
             appState.currentTatIndex++;
@@ -1847,14 +1875,6 @@
         }
 
         // --- PDF GENERATION ---
-        function getBase64Image(imgEl) {
-            const canvas = document.createElement("canvas");
-            canvas.width = imgEl.naturalWidth;
-            canvas.height = imgEl.naturalHeight;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(imgEl, 0, 0);
-            return canvas.toDataURL("image/jpeg");
-        }
 
         function generatePPDTPDF() {
             const { jsPDF } = window.jspdf;
@@ -1892,12 +1912,12 @@
             }
 
             doc.setFontSize(14);
-            doc.setFont(undefined, 'bold');
+            doc.setFont("helvetica", "bold");
             doc.text("Your Story:", 14, currentY);
             currentY += 8;
 
             doc.setFontSize(12);
-            doc.setFont(undefined, 'normal');
+            doc.setFont("helvetica", "normal");
             const text = appState.ppdtResult || "(No story provided)";
             const splitText = doc.splitTextToSize(text, 180);
             
@@ -1924,48 +1944,85 @@
             doc.text(`Generated on: ${date}`, 14, 34);
 
             let currentY = 50;
+            let hasPrintedSection = false; // Layout checker to prevent blank pages
 
             if (appState.results.tat.length > 0) {
                 doc.setTextColor(30, 41, 59);
                 doc.setFontSize(16);
+                doc.setFont("helvetica", "bold");
                 doc.text("Thematic Apperception Test (TAT)", 14, currentY);
                 currentY += 10;
 
                 appState.results.tat.forEach((item) => {
-                    if (currentY > 260) { doc.addPage(); currentY = 20; }
+                    // Start new page if not enough space for the picture header
+                    if (currentY > 240) { doc.addPage(); currentY = 20; }
+                    
+                    doc.setFontSize(14);
+                    doc.setFont("helvetica", "bold");
+                    doc.text(`${item.label}:`, 14, currentY);
+                    currentY += 8;
+
+                    // If an image object was captured successfully during the TAT phase, render it
+                    if (item.imageObj) {
+                        try {
+                            const maxW = 100; // Constrain the image size for the report
+                            const maxH = 65;
+                            const ratio = Math.min(maxW / item.imageObj.w, maxH / item.imageObj.h);
+                            doc.addImage(item.imageObj.data, 'JPEG', 14, currentY, item.imageObj.w * ratio, item.imageObj.h * ratio);
+                            currentY += (item.imageObj.h * ratio) + 10;
+                        } catch (e) {
+                            doc.setFontSize(10);
+                            doc.setTextColor(239, 68, 68);
+                            doc.text("(Image omitted due to rendering error)", 14, currentY);
+                            currentY += 8;
+                            doc.setTextColor(30, 41, 59);
+                        }
+                    }
                     
                     doc.setFontSize(11);
-                    doc.setFont(undefined, 'bold');
-                    doc.text(`${item.label}:`, 14, currentY);
-                    currentY += 6;
-                    
-                    doc.setFont(undefined, 'normal');
+                    doc.setFont("helvetica", "normal");
                     const text = item.story || "(No story provided)";
                     const splitText = doc.splitTextToSize(text, 180);
+                    
+                    // Push story to next page if it overflows
+                    if (currentY + (splitText.length * 5) > 280) {
+                        doc.addPage();
+                        currentY = 20;
+                    }
+                    
                     doc.text(splitText, 14, currentY);
-                    currentY += (splitText.length * 5) + 10;
+                    currentY += (splitText.length * 5) + 15;
                 });
+                
+                hasPrintedSection = true;
             }
 
             if (appState.results.wat.length > 0) {
-                doc.addPage();
+                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
+                
                 doc.setFontSize(16);
-                doc.text("Word Association Test (WAT)", 14, 20);
+                doc.setFont("helvetica", "bold");
+                doc.text("Word Association Test (WAT)", 14, currentY);
+                
                 doc.autoTable({
-                    startY: 25,
+                    startY: currentY + 5,
                     head: [['#', 'Stimulus Word', 'Response']],
                     body: appState.results.wat.map((w, i) => [i + 1, w.word, w.response || "-"]),
                     theme: 'grid',
                     headStyles: { fillColor: [79, 70, 229] }
                 });
+                hasPrintedSection = true;
             }
 
             if (appState.results.srt.length > 0) {
-                doc.addPage();
+                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
+                
                 doc.setFontSize(16);
-                doc.text("Situation Reaction Test (SRT)", 14, 20);
+                doc.setFont("helvetica", "bold");
+                doc.text("Situation Reaction Test (SRT)", 14, currentY);
+                
                 doc.autoTable({
-                    startY: 25,
+                    startY: currentY + 5,
                     head: [['#', 'Situation', 'Reaction']],
                     body: appState.results.srt.map((s, i) => [i + 1, s.situation, s.response || "-"]),
                     theme: 'grid',
