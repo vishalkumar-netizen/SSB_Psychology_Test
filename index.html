@@ -25,11 +25,11 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/YqM6FTTD/logo.png">
     
-    <!-- Favicon & Apple Touch Icon (Forces Logo on Mobile/Search) -->
+    <!-- Favicon & Apple Touch Icon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/YqM6FTTD/logo.png">
     <link rel="apple-touch-icon" href="https://i.postimg.cc/YqM6FTTD/logo.png">
 
-    <!-- Schema.org Markup for Google (Forces Google to recognize your Logo and Site Name) -->
+    <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,15 +38,6 @@
       "alternateName": "SSB Psychological Test Online",
       "url": "https://www.ssbpsychtest.in/",
       "image": "https://i.postimg.cc/YqM6FTTD/logo.png"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SSB Psych Test Platform",
-      "url": "https://www.ssbpsychtest.in/",
-      "logo": "https://i.postimg.cc/YqM6FTTD/logo.png"
     }
     </script>
 
@@ -105,7 +96,6 @@
         .dark ::-webkit-scrollbar-thumb { background: #334155; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
-        #wat-progress-bar { transition: width 15s linear; }
         .no-select { user-select: none; -webkit-user-select: none; }
         
         .glass-nav {
@@ -117,7 +107,7 @@
 </head>
 <body class="bg-[#f8fafc] dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 overflow-x-hidden transition-colors duration-300 flex flex-col min-h-screen">
 
-    <!-- NAVIGATION BAR (Glassmorphism) -->
+    <!-- NAVIGATION BAR -->
     <nav id="main-navbar" class="glass-nav text-white sticky top-0 z-50 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-[72px]">
@@ -133,13 +123,12 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <button onclick="navTo('page-home')" class="text-sm font-semibold text-slate-200 hover:text-white transition">Home</button>
                     
-                    <!-- Dropdown Menu: Know about test -->
+                    <!-- Dropdown Menu -->
                     <div class="relative group py-4">
                         <button class="text-sm font-semibold text-slate-200 group-hover:text-white transition flex items-center gap-1 focus:outline-none">
                             About SSB & Psych test
                             <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <!-- Dropdown Content -->
                         <div class="absolute left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
                             <div class="py-2">
                                 <button onclick="navTo('page-know-ssb')" class="block w-full text-left px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition">Know about SSB</button>
@@ -160,7 +149,7 @@
                     <button onclick="navTo('page-support')" class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 px-5 py-2.5 rounded-xl font-bold transition shadow-glow text-sm">Donate ☕</button>
                 </div>
 
-                <!-- Mobile Hamburger Button -->
+                <!-- Mobile Hamburger -->
                 <div class="md:hidden flex items-center gap-3">
                     <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-800 hover:bg-slate-700 transition focus:outline-none text-xl border border-slate-700">
                         <span id="theme-icon-mobile">🌙</span>
@@ -177,7 +166,6 @@
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <button onclick="navTo('page-home')" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold hover:bg-slate-800 transition">Home</button>
                 
-                <!-- Mobile Dropdown Section -->
                 <div class="bg-slate-800/50 rounded-xl mt-2 mb-2 p-2">
                     <span class="block px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest">About SSB & Psych test</span>
                     <button onclick="navTo('page-know-ssb')" class="block w-full text-left pl-6 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-700 transition text-slate-300">Know about SSB</button>
@@ -251,7 +239,7 @@
                         <div class="mt-8 blink-me inline-block">
                             <p class="text-xs sm:text-sm font-semibold text-blue-800 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/40 px-5 py-2.5 rounded-full border border-blue-200 dark:border-blue-700/50 shadow-sm flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Dynamic Tests: New pictures and words every time. Download PDF results instantly!
+                                Dynamic Tests: New pictures and words every time. Download PDF results right after test!
                             </p>
                         </div>
                     </div>
@@ -428,8 +416,8 @@
                                         <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-lg text-slate-900 dark:text-white">Instant PDF Reports</h4>
-                                        <p class="text-sm mt-1">Download your responses immediately after the test for self-analysis or to share with mentors.</p>
+                                        <h4 class="font-bold text-lg text-slate-900 dark:text-white">Notebook Companion</h4>
+                                        <p class="text-sm mt-1">No digital typing. The tool acts as a projector and provides a Question Paper PDF at the end.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -445,7 +433,7 @@
                                 </div>
                                 <div class="flex gap-4 items-center bg-white dark:bg-slate-700 p-4 rounded-xl shadow-sm">
                                     <div class="bg-blue-600 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">2</div>
-                                    <p class="text-sm dark:text-slate-200 font-medium">Use a physical notebook to write, or use our fast on-screen typing interface.</p>
+                                    <p class="text-sm dark:text-slate-200 font-medium">Keep your physical notebook and pen ready before starting.</p>
                                 </div>
                                 <div class="flex gap-4 items-center bg-white dark:bg-slate-700 p-4 rounded-xl shadow-sm">
                                     <div class="bg-blue-600 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">3</div>
@@ -453,7 +441,7 @@
                                 </div>
                                 <div class="flex gap-4 items-center bg-white dark:bg-slate-700 p-4 rounded-xl shadow-sm">
                                     <div class="bg-blue-600 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">4</div>
-                                    <p class="text-sm dark:text-slate-200 font-medium">Download the PDF and analyze your subconscious responses honestly.</p>
+                                    <p class="text-sm dark:text-slate-200 font-medium">Download the PDF to cross-check what you wrote in your notebook.</p>
                                 </div>
                             </div>
                         </div>
@@ -461,7 +449,7 @@
                 </div>
             </div>
 
-            <!-- FAQ SECTION (Crucial for SEO/AdSense) -->
+            <!-- FAQ SECTION -->
             <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
@@ -474,8 +462,8 @@
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Our database contains hundreds of hazy/clear images and psychology words that have either appeared in past SSB interviews or follow the exact thematic patterns defined by the DIPR (Defence Institute of Psychological Research).</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Is my data saved on your servers?</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">No. Privacy is our priority. This entire application runs locally in your browser. When you type responses or generate a PDF, it happens on your device. We do not collect or read your psychological responses.</p>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Why can't I type my answers anymore?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">We updated the platform to be a <strong>Notebook Companion Tool</strong>. In the real SSB, you do not type; you write rapidly with a pen. We want you to build muscle memory and handwriting speed, so the tool now purely acts as the projector.</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm">
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Can I pause the timer during the test?</h3>
@@ -487,7 +475,7 @@
             <!-- Bottom CTA -->
             <div class="bg-blue-600 dark:bg-blue-800 py-12 text-center px-4">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Ready to test your psychology?</h2>
-                <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Start your first full mock test today. Generate your report, analyze your traits, and step closer to the uniform.</p>
+                <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Start your first full mock test today. Grab your notebook, analyze your traits, and step closer to the uniform.</p>
                 <button onclick="startTest('full')" class="bg-white text-blue-700 font-extrabold py-4 px-10 rounded-full transition-transform transform hover:scale-105 shadow-xl text-lg">Start Full Mock Test</button>
             </div>
         </div>
@@ -563,6 +551,7 @@
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3 flex items-center gap-2"><span class="text-orange-500">🔹</span> Process:</h3>
                         <ul class="list-disc pl-6 space-y-2 font-medium">
                             <li>Show blurred image (30 sec)</li>
+                            <li>Write details (1 min)</li>
                             <li>Write story (4 min)</li>
                             <li>Narrate + group discussion</li>
                         </ul>
@@ -846,9 +835,7 @@
                 <div class="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 shadow-inner">
                     <h3 class="font-extrabold text-xl text-slate-800 dark:text-white mb-6 uppercase tracking-wider">Scan to Pay via UPI</h3>
                     
-                    <!-- QR Code Image Container -->
                     <div class="w-56 h-56 mx-auto flex items-center justify-center rounded-2xl mb-6 bg-white p-3 shadow-md border border-slate-100">
-                        <!-- REPLACE THIS SRC WITH YOUR ACTUAL QR LINK -->
                         <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/950824f8cbce1c8e86cc41195cf0ea1305d120f0/UPPIPPAAYY.jpeg" alt="UPI QR Code" class="max-w-full max-h-full object-contain rounded-xl">
                     </div>
                     
@@ -863,7 +850,7 @@
         </div>
     </main>
 
-    <!-- COMPREHENSIVE FOOTER (Crucial for AdSense) -->
+    <!-- COMPREHENSIVE FOOTER -->
     <footer id="main-footer" class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -909,135 +896,98 @@
 
 
     <!-- ========================================== -->
-    <!-- UPGRADED FULLSCREEN TEST VIEWS             -->
+    <!-- NEW: PROJECTOR / NOTEBOOK COMPANION VIEWS  -->
     <!-- ========================================== -->
 
-    <!-- PPDT VIEWING VIEW -->
-    <div id="ppdt-viewing-view" class="view h-screen w-full bg-slate-950 flex-col items-center justify-center relative no-select z-[100]">
-        <div id="ppdt-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-        <img id="ppdt-image" src="" alt="PPDT Image" class="hidden max-h-[85vh] max-w-[95vw] object-contain shadow-2xl rounded-sm border-4 border-slate-800">
-        <div class="absolute bottom-8 bg-slate-900/80 px-6 py-2 rounded-full border border-slate-800">
-            <span class="text-slate-300 text-sm font-bold tracking-widest uppercase" id="ppdt-instruction">Observe the Picture Carefully</span>
-        </div>
-    </div>
-
-    <!-- PPDT WRITING VIEW -->
-    <div id="ppdt-writing-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-950 flex-col p-4 md:p-8 z-[100]">
-        <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
-            <div class="flex justify-between items-center mb-6 bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
-                <div>
-                    <h2 class="text-2xl font-extrabold text-slate-800 dark:text-white">PPDT Story Formulation</h2>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-1 font-bold">Picture Perception and Discussion Test</p>
-                </div>
-                <div class="flex flex-col items-end">
-                    <div class="hidden text-3xl font-mono font-bold bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-6 py-2 rounded-xl border border-orange-200 dark:border-orange-800/50 shadow-inner tracking-widest" id="ppdt-timer">04:00</div>
-                    <button onclick="submitPPDT()" class="text-xs text-slate-500 hover:text-orange-600 font-bold transition">Submit Early</button>
-                </div>
+    <!-- PRE-TEST INSTRUCTION VIEW -->
+    <div id="instruction-view" class="view h-screen w-full bg-white dark:bg-slate-900 flex-col items-center justify-center p-8 z-[100]">
+        <div class="max-w-4xl w-full mx-auto text-left bg-slate-50 dark:bg-slate-800 p-10 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700">
+            <h1 id="inst-title" class="text-3xl md:text-5xl font-black mb-8 text-slate-900 dark:text-white border-b pb-4 border-slate-200 dark:border-slate-700"></h1>
+            <div id="inst-content" class="text-lg md:text-2xl text-slate-800 dark:text-slate-200 space-y-4"></div>
+            
+            <div class="mt-12 text-center bg-blue-50 dark:bg-blue-900/30 py-4 rounded-xl border border-blue-200 dark:border-blue-800">
+                <p class="text-blue-800 dark:text-blue-300 font-extrabold text-xl md:text-2xl uppercase tracking-widest animate-pulse">
+                    Test begins automatically in <span id="inst-timer" class="text-3xl mx-2 text-blue-600 dark:text-blue-400">30</span> seconds
+                </p>
             </div>
-            <textarea id="ppdt-input" class="w-full flex-1 p-8 text-xl font-medium border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-2xl shadow-inner focus:outline-none focus:border-orange-400 dark:focus:border-orange-500 resize-none leading-relaxed transition-colors" placeholder="Start typing your story here..."></textarea>
-        </div>
-    </div>
-
-    <!-- PPDT RESULT VIEW -->
-    <div id="ppdt-result-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-900 flex-col items-center justify-center p-4 z-[100]">
-        <div class="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-orange-500">
-            <div class="w-24 h-24 bg-orange-50 dark:bg-orange-900/30 text-orange-500 dark:text-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
-            </div>
-            <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">PPDT Completed</h1>
-            <p class="text-slate-500 dark:text-slate-400 mb-8 font-medium">Your response is safely recorded in local memory. Generate your report now.</p>
-            <button onclick="generatePPDTPDF()" class="w-full bg-slate-900 dark:bg-slate-700 text-white px-6 py-4 rounded-2xl font-bold text-lg hover:bg-slate-800 dark:hover:bg-slate-600 flex items-center justify-center gap-3 transition shadow-xl mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Download PDF Report
-            </button>
-            <div class="grid grid-cols-2 gap-4 mb-2">
-                <button onclick="startPPDT()" class="w-full bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 px-4 py-3 rounded-xl font-bold hover:bg-orange-100 dark:hover:bg-orange-900/40 transition">Next PPDT</button>
-                <button onclick="location.reload()" class="w-full bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 px-4 py-3 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition">End Session</button>
+            <div class="text-center mt-6">
+                <p class="text-slate-500 font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+                    <span>📓</span> Keep your notebook ready <span>📓</span>
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- TAT VIEWING VIEW -->
-    <div id="tat-viewing-view" class="view h-screen w-full bg-slate-950 flex-col items-center justify-center relative no-select z-[100]">
-        <div id="tat-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-        <div id="tat-blank-indicator" class="hidden text-center w-full h-full flex flex-col items-center justify-center bg-white dark:bg-slate-200 blank-active">
-            <h2 class="text-slate-900 text-5xl md:text-7xl font-extrabold tracking-widest uppercase mb-4 drop-shadow-sm">Blank Slide</h2>
-            <p class="text-slate-600 text-2xl font-medium">Prepare your own story</p>
-        </div>
-        <img id="tat-image" src="" alt="TAT Image" class="hidden max-h-[85vh] max-w-[95vw] object-contain shadow-2xl rounded-sm border-4 border-slate-800">
-        <div class="absolute bottom-8 bg-slate-900/80 px-6 py-2 rounded-full border border-slate-800">
-            <span class="text-slate-300 text-sm font-bold tracking-widest uppercase" id="tat-instruction">Observe the Picture Carefully</span>
-        </div>
-    </div>
-
-    <!-- TAT WRITING VIEW -->
-    <div id="tat-writing-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-950 flex-col p-4 md:p-8 z-[100]">
-        <div class="max-w-5xl w-full mx-auto flex-1 flex flex-col">
-            <div class="flex justify-between items-center mb-6 bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
-                <div>
-                    <h2 class="text-2xl font-extrabold text-slate-800 dark:text-white" id="tat-writing-title">Thematic Apperception Formulation</h2>
-                    <div class="flex items-center gap-3 mt-1">
-                        <!-- Updated counter to reflect 12 slides total -->
-                        <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-widest" id="tat-slide-counter">Slide 1 of 12</span>
-                    </div>
-                </div>
-                <div class="flex flex-col items-end">
-                    <div class="hidden text-3xl font-mono font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-6 py-2 rounded-xl border border-blue-200 dark:border-blue-800/50 shadow-inner tracking-widest" id="tat-timer">04:00</div>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase mt-1">Auto-saves on timeout</span>
-                </div>
-            </div>
-            <textarea id="tat-input" class="w-full flex-1 p-8 text-xl font-medium border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-2xl shadow-inner focus:outline-none focus:border-blue-400 dark:focus:border-blue-500 resize-none leading-relaxed transition-colors" placeholder="Start typing your story here..."></textarea>
-        </div>
-    </div>
-
-    <!-- WAT VIEW -->
-    <div id="wat-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-950 flex-col items-center justify-center relative no-select z-[100]">
-        <div class="hidden absolute top-0 left-0 w-full h-3 bg-slate-200 dark:bg-slate-800">
-            <div id="wat-progress-bar" class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-glow w-0 rounded-r-full"></div>
+    <!-- PPDT DISPLAY VIEW (Handles all 3 Phases) -->
+    <div id="ppdt-display-view" class="view h-screen w-full flex-col relative no-select z-[100] transition-colors duration-0">
+        <!-- Phase 1: Image Observation (Black BG) -->
+        <div id="ppdt-phase1" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
+            <div id="ppdt-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
+            <img id="ppdt-image" src="" alt="PPDT Image" class="hidden max-h-[95vh] max-w-[95vw] object-contain">
         </div>
         
-        <!-- Added "hidden" to the div below to remove the "Word 1/60" visibility -->
-        <div class="hidden absolute top-6 right-6">
-            <span class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest border border-indigo-200 dark:border-indigo-800">Word <span id="wat-progress">1</span> / 60</span>
+        <!-- Phase 2: Details Instruction (White BG) -->
+        <div id="ppdt-phase2" class="hidden w-full h-full flex flex-col items-center justify-center bg-white dark:bg-slate-50 p-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 max-w-5xl leading-tight">
+                Write down the detail of the picture - No. of characters, their gender, mood, age & what is going on
+            </h1>
         </div>
         
+        <!-- Phase 3: Blank Writing Screen (White BG) -->
+        <div id="ppdt-phase3" class="hidden w-full h-full bg-white dark:bg-slate-50"></div>
+    </div>
+
+    <!-- TAT DISPLAY VIEW -->
+    <div id="tat-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
+        <!-- Observation Phase (Black or White based on slide) -->
+        <div id="tat-observe" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
+            <div id="tat-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
+            <img id="tat-image" src="" alt="TAT Image" class="hidden max-h-[95vh] max-w-[95vw] object-contain">
+        </div>
+        
+        <!-- Blank Slide Instruction (White BG) -->
+        <div id="tat-blank-text" class="hidden w-full h-full flex flex-col items-center justify-center bg-white dark:bg-slate-50 p-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight uppercase">
+                Blank - Write story of your own imagination
+            </h1>
+        </div>
+
+        <!-- Writing Phase (White BG) -->
+        <div id="tat-write" class="hidden w-full h-full bg-white dark:bg-slate-50"></div>
+    </div>
+
+    <!-- WAT DISPLAY VIEW -->
+    <div id="wat-display-view" class="view h-screen w-full bg-white dark:bg-slate-50 flex-col items-center justify-center relative no-select z-[100]">
         <div class="text-center w-full max-w-5xl px-4 flex flex-col items-center justify-center h-full">
-            <div id="wat-word" class="text-7xl md:text-[120px] font-black uppercase tracking-tight text-slate-900 dark:text-white mb-20 drop-shadow-xl select-none">WORD</div>
-            <input type="text" id="wat-input" class="w-full max-w-3xl p-6 text-3xl md:text-4xl font-bold text-center border-b-4 border-slate-300 dark:border-slate-700 bg-transparent focus:outline-none focus:border-indigo-500 text-indigo-700 dark:text-indigo-300 transition-colors placeholder-slate-300 dark:placeholder-slate-700" autocomplete="off" placeholder="Type reaction...">
+            <div id="wat-word" class="text-6xl md:text-[140px] font-black uppercase tracking-tight text-slate-900 drop-shadow-xl select-none"></div>
         </div>
     </div>
 
-    <!-- SRT VIEW -->
-    <div id="srt-view" class="view h-screen w-full bg-slate-100 dark:bg-slate-950 flex-col z-[100]">
-        <div class="sticky top-0 bg-white dark:bg-slate-900 shadow-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 md:px-8 flex flex-col sm:flex-row justify-between items-center z-10 gap-4">
-            <div>
-                <h2 class="text-2xl font-extrabold text-slate-800 dark:text-white">Situation Reaction Test</h2>
-                <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">60 Questions File</p>
+    <!-- SRT DISPLAY VIEW -->
+    <div id="srt-display-view" class="view h-screen w-full bg-white dark:bg-slate-50 flex-col z-[100]">
+        <!-- Hidden header to prevent distraction, only pure situations -->
+        <div class="flex-1 overflow-y-auto p-8 md:p-16">
+            <div class="max-w-4xl mx-auto space-y-6" id="srt-container">
+                <!-- Situations injected here -->
             </div>
-            <div class="flex items-center gap-4">
-                <div class="hidden text-3xl font-mono font-bold bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-6 py-2 rounded-xl border border-teal-200 dark:border-teal-800/50 shadow-inner tracking-widest" id="srt-timer">30:00</div>
-                <button onclick="submitSRT()" class="bg-teal-600 text-white px-8 py-3.5 rounded-xl font-extrabold hover:bg-teal-700 transition shadow-lg text-sm tracking-wide uppercase">Final Submit</button>
-            </div>
-        </div>
-        <div class="flex-1 overflow-y-auto p-4 md:p-8">
-            <div id="srt-container" class="max-w-4xl mx-auto space-y-6"></div>
         </div>
     </div>
 
-    <!-- RESULT VIEW -->
+    <!-- RESULT / DOWNLOAD VIEW -->
     <div id="result-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-900 flex-col items-center justify-center p-4 z-[100]">
         <div class="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
-            <div class="w-24 h-24 bg-green-50 dark:bg-green-900/30 text-green-500 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+            <div class="w-24 h-24 bg-green-50 dark:bg-green-900/30 text-green-500 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
             </div>
-            <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Battery Completed</h1>
-            <p class="text-slate-500 dark:text-slate-400 mb-8 font-medium">Excellent work. Your psychological dossier is ready for export.</p>
-            <button onclick="generatePDF()" class="w-full bg-gradient-to-r from-slate-900 to-slate-800 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 transition-all mb-4 border border-transparent">
+            <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Testing Sequence Completed</h1>
+            <p class="text-slate-500 dark:text-slate-400 mb-8 font-medium">Download the Question Paper PDF to review the stimuli against your physical notebook.</p>
+            
+            <button onclick="generatePDF()" class="w-full bg-gradient-to-r from-slate-900 to-slate-800 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 transition-all mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Download PDF Dossier
+                Download Question Paper
             </button>
-            <button onclick="location.reload()" class="w-full bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 px-6 py-4 rounded-2xl font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition">
-                Return to Dashboard
+            <button onclick="exitFullscreenAndHome()" class="w-full bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 px-6 py-4 rounded-2xl font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition">
+                End Session
             </button>
         </div>
     </div>
@@ -1045,7 +995,6 @@
 
     <!-- CORE JAVASCRIPT LOGIC -->
     <script>
-        // --- THEME TOGGLE LOGIC ---
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             const isDark = document.documentElement.classList.contains('dark');
@@ -1054,7 +1003,6 @@
             document.getElementById('theme-icon-mobile').innerText = iconContent;
         }
 
-        // --- NAVIGATION LOGIC (SPA) ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -1080,16 +1028,42 @@
             }
         }
 
-        // --- DYNAMICALLY GENERATED IMAGE POOL ---
-        const ppdtImages = Array.from({ length: 45 }, (_, i) =>
-          `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt${i + 1}.jpg`
-        );
-        const tatImages = Array.from({ length: 78 }, (_, i) =>
-          `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat${i + 1}.jpg`
-        );
-        const moreImages = Array.from({ length: 556 }, (_, i) =>
-          `https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/0a3f5bb8b475a02af1afec7378eb1f9c708bee04/More%20(${i + 1}).jpg`
-        );
+        // --- FULLSCREEN LOGIC ---
+        function enterFullscreen() {
+            try {
+                const docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen().catch(err => {
+                        console.warn("Fullscreen API blocked or not supported:", err.message);
+                    });
+                }
+                else if (docElm.webkitRequestFullScreen) docElm.webkitRequestFullScreen();
+                else if (docElm.msRequestFullscreen) docElm.msRequestFullscreen();
+            } catch (error) {
+                console.warn("Fullscreen API error:", error.message);
+            }
+        }
+
+        function exitFullscreenAndHome() {
+            try {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().catch(err => {
+                        console.warn("Exit Fullscreen API blocked or not supported:", err.message);
+                    });
+                }
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            } catch (error) {
+                console.warn("Exit Fullscreen API error:", error.message);
+            } finally {
+                location.reload();
+            }
+        }
+
+        // --- IMAGE DATA POOLS ---
+        const ppdtImages = Array.from({ length: 45 }, (_, i) => `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt${i + 1}.jpg`);
+        const tatImages = Array.from({ length: 78 }, (_, i) => `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat${i + 1}.jpg`);
+        const moreImages = Array.from({ length: 556 }, (_, i) => `https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/0a3f5bb8b475a02af1afec7378eb1f9c708bee04/More%20(${i + 1}).jpg`);
         const TAT_IMAGES_POOL = [...ppdtImages, ...tatImages, ...moreImages];
         
         const WAT_WORDS_POOL = [
@@ -1224,10 +1198,10 @@
 "Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
 "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
 "World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
-                    ];
+        ];
 
         const SRT_POOL = [
-            "He has gone on a cycling expedition with six persons but two cycles have got punctured on a deserted patch. He ___________",
+             "He has gone on a cycling expedition with six persons but two cycles have got punctured on a deserted patch. He ___________",
             "His call for the SSB has come for the same day as his MNC interview and his best friend’s marriage. He ___________",
             "In the SSB, on the first day, he finds that no one is talking to him. He ___________",
             "He has been kidnapped and asked to sign a ransom note for ₹10 lakh. He ___________",
@@ -1594,22 +1568,39 @@
             "His team loses a match because of a blunder by him. He ___________"
         ];
 
+        // --- STATE & UTILS ---
         let appState = {
             testQueue: [],
-            results: { tat: [], wat: [], srt: [] },
+            results: { ppdt: null, tat: [], wat: [], srt: [] }, // Storing stimuli only
             currentTatIndex: 0,
             currentWatIndex: 0,
-            watInterval: null,
-            srtInterval: null,
-            tatViewInterval: null,
-            tatWriteInterval: null,
             currentTatImages: [],
-            currentTatImageObj: null, // Used to store TAT image temporarily for PDF
-            currentPpdtImage: "",
-            ppdtResult: "",
-            ppdtViewInterval: null,
-            ppdtWriteInterval: null
+            currentTimeout: null, // Global tracker for timeouts
+            instructionInterval: null
         };
+
+        // Generates a professional digital beep sound
+        function playBeep() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // 800Hz frequency
+                
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // Volume
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3); // Fade out
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.3); // 0.3 seconds duration
+            } catch (error) {
+                console.warn("Beep audio blocked or not supported:", error.message);
+            }
+        }
 
         function shuffle(array) {
             let currentIndex = array.length, randomIndex;
@@ -1621,13 +1612,6 @@
             return array;
         }
 
-        function formatTime(seconds) {
-            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-            const s = (seconds % 60).toString().padStart(2, '0');
-            return `${m}:${s}`;
-        }
-
-        // Helper function to extract base64 from image element
         function getBase64Image(imgEl) {
             const canvas = document.createElement("canvas");
             canvas.width = imgEl.naturalWidth;
@@ -1637,83 +1621,161 @@
             return canvas.toDataURL("image/jpeg");
         }
 
-        // --- PPDT LOGIC ---
-        function startPPDT() {
-            appState.currentPpdtImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
-            appState.ppdtResult = "";
-            document.getElementById('ppdt-input').value = "";
+        // --- INSTRUCTION SYSTEM ---
+        const INSTRUCTIONS = {
+            PPDT: {
+                title: "Instruction for PPDT",
+                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
+                        <li>A blurred picture shown for <strong>30 seconds</strong></li>
+                        <li>Observe: characters, mood, action, background</li>
+                        <li><strong>1 minute:</strong> to write down the basic details Mention:
+                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>No. of characters</li>
+                                <li>Age, gender, mood, define action</li>
+                            </ul>
+                        </li>
+                        <li><strong>Write story in 4 minutes:</strong>
+                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>What led to situation (past)</li>
+                                <li>What is happening (present)</li>
+                                <li>What will happen (future)</li>
+                            </ul>
+                        </li>
+                    </ul>`
+            },
+            TAT: {
+                title: "Instruction for TAT",
+                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
+                        <li>12 pictures (last is blank)</li>
+                        <li>Each picture shown for <strong>30 sec</strong></li>
+                        <li>Write story in <strong>4 min each</strong></li>
+                        <li><strong>👉 Story must include:</strong>
+                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>Main character (like you)</li>
+                                <li>Problem/challenge</li>
+                                <li>Logical action</li>
+                                <li>Positive outcome</li>
+                            </ul>
+                        </li>
+                        <li><strong>👉 12th (blank slide):</strong> Write your own real-life based story</li>
+                    </ul>`
+            },
+            WAT: {
+                title: "Instruction for WAT",
+                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
+                        <li>60 words</li>
+                        <li>Each word shown for <strong>15 seconds</strong></li>
+                        <li><strong>👉 Write:</strong>
+                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>First thought that comes to mind</li>
+                                <li>A meaningful sentence</li>
+                            </ul>
+                        </li>
+                    </ul>`
+            },
+            SRT: {
+                title: "Instruction for SRT",
+                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
+                        <li>60 situations</li>
+                        <li>Time: <strong>30 minutes</strong> total</li>
+                        <li><strong>👉 Write:</strong>
+                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>What action you will take in that situation</li>
+                                <li>Quick, practical, responsible response</li>
+                            </ul>
+                        </li>
+                    </ul>`
+            }
+        };
+
+        function playInstructions(type, startCallback) {
+            enterFullscreen();
+            showView('instruction-view');
             
-            showView('ppdt-viewing-view');
+            document.getElementById('inst-title').innerText = INSTRUCTIONS[type].title;
+            document.getElementById('inst-content').innerHTML = INSTRUCTIONS[type].html;
             
-            const img = document.getElementById('ppdt-image');
-            const loading = document.getElementById('ppdt-loading');
-            const instruction = document.getElementById('ppdt-instruction');
-
-            img.classList.add('hidden');
-            loading.classList.remove('hidden');
-            instruction.innerText = "Observe carefully";
-
-            img.crossOrigin = "Anonymous"; 
-            img.onload = () => {
-                loading.classList.add('hidden');
-                img.classList.remove('hidden');
-                startPPDTViewingTimer();
-            };
-            img.onerror = () => {
-                loading.innerText = "Image failed to load. Skipping observation...";
-                setTimeout(startPPDTWriting, 2000);
-            };
-            img.src = appState.currentPpdtImage;
-        }
-
-        function startPPDTViewingTimer() {
-            let timeLeft = 30;
-            clearInterval(appState.ppdtViewInterval);
-            appState.ppdtViewInterval = setInterval(() => {
+            let timeLeft = 30; // 30 seconds instructions
+            document.getElementById('inst-timer').innerText = timeLeft;
+            
+            clearInterval(appState.instructionInterval);
+            appState.instructionInterval = setInterval(() => {
                 timeLeft--;
+                document.getElementById('inst-timer').innerText = timeLeft;
                 if (timeLeft <= 0) {
-                    clearInterval(appState.ppdtViewInterval);
-                    startPPDTWriting();
+                    clearInterval(appState.instructionInterval);
+                    startCallback();
                 }
             }, 1000);
         }
 
-        function startPPDTWriting() {
-            showView('ppdt-writing-view');
-            const input = document.getElementById('ppdt-input');
-            input.focus();
-            
-            let timeLeft = 240; 
-            document.getElementById('ppdt-timer').innerText = formatTime(timeLeft);
-            
-            clearInterval(appState.ppdtWriteInterval);
-            appState.ppdtWriteInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('ppdt-timer').innerText = formatTime(timeLeft);
-                if (timeLeft <= 0) submitPPDT();
-            }, 1000);
+
+        // --- PPDT LOGIC (Strict 3 Phases) ---
+        function startPPDT() {
+            appState.testQueue = ['PPDT_END']; // Ensure it goes to result after
+            appState.results.ppdt = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+            playInstructions('PPDT', executePPDTPhase1);
         }
 
-        function submitPPDT() {
-            clearInterval(appState.ppdtWriteInterval);
-            appState.ppdtResult = document.getElementById('ppdt-input').value.trim();
-            showView('ppdt-result-view');
+        function executePPDTPhase1() {
+            showView('ppdt-display-view');
+            document.getElementById('ppdt-phase1').classList.remove('hidden');
+            document.getElementById('ppdt-phase2').classList.add('hidden');
+            document.getElementById('ppdt-phase3').classList.add('hidden');
+
+            const img = document.getElementById('ppdt-image');
+            const loading = document.getElementById('ppdt-loading');
+
+            img.classList.add('hidden');
+            loading.classList.remove('hidden');
+            img.crossOrigin = "Anonymous";
+            
+            img.onload = () => {
+                loading.classList.add('hidden');
+                img.classList.remove('hidden');
+                // Capture data for PDF
+                try { appState.results.ppdtObj = { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight }; } catch(e){}
+                
+                // Phase 1 Timer: 30 Seconds
+                appState.currentTimeout = setTimeout(executePPDTPhase2, 30000); 
+            };
+            
+            // ERROR HANDLER: If image is deleted/broken, instantly fetch a new random one
+            img.onerror = () => {
+                console.warn("PPDT image failed to load, picking another...");
+                appState.results.ppdt = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                img.src = appState.results.ppdt;
+            };
+            
+            img.src = appState.results.ppdt;
         }
 
-        // --- GENERAL TEST LOGIC ---
+        function executePPDTPhase2() {
+            document.getElementById('ppdt-phase1').classList.add('hidden');
+            document.getElementById('ppdt-phase2').classList.remove('hidden');
+            
+            // Phase 2 Timer: 60 Seconds
+            appState.currentTimeout = setTimeout(executePPDTPhase3, 60000);
+        }
+
+        function executePPDTPhase3() {
+            document.getElementById('ppdt-phase2').classList.add('hidden');
+            document.getElementById('ppdt-phase3').classList.remove('hidden');
+            
+            // Phase 3 Timer: 4 Minutes (240s)
+            appState.currentTimeout = setTimeout(() => {
+                showView('result-view'); // Proceed to results
+            }, 240000);
+        }
+
+        // --- FULL TEST QUEUE ROUTING ---
         function startTest(type) {
-            appState.results = { tat: [], wat: [], srt: [] };
+            appState.results = { ppdt: null, tat: [], wat: [], srt: [] };
             appState.currentTatIndex = 0;
             
-            // Bug fix: 11 images + 1 Blank = 12 total
-            const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 11);
-            appState.currentTatImages = [...selected, "BLANK"]; 
+            if (type === 'full') appState.testQueue = ['TAT', 'WAT', 'SRT'];
+            else appState.testQueue = [type];
             
-            if (type === 'full') {
-                appState.testQueue = ['TAT', 'WAT', 'SRT'];
-            } else {
-                appState.testQueue = [type];
-            }
             nextTest();
         }
 
@@ -1723,337 +1785,234 @@
                 return;
             }
             const next = appState.testQueue.shift();
-            if (next === 'TAT') initTAT();
-            else if (next === 'WAT') initWAT();
-            else if (next === 'SRT') initSRT();
+            
+            if (next === 'TAT') {
+                const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 11);
+                appState.currentTatImages = [...selected, "BLANK"];
+                playInstructions('TAT', executeTATPhase1);
+            } 
+            else if (next === 'WAT') playInstructions('WAT', executeWAT);
+            else if (next === 'SRT') playInstructions('SRT', executeSRT);
         }
 
-        // --- TAT ---
-        function initTAT() {
+        // --- TAT LOGIC ---
+        function executeTATPhase1() {
             if (appState.currentTatIndex >= appState.currentTatImages.length) {
                 nextTest();
                 return;
             }
 
-            const currentImage = appState.currentTatImages[appState.currentTatIndex];
-            showView('tat-viewing-view');
-            
+            showView('tat-display-view');
+            const observeDiv = document.getElementById('tat-observe');
+            const blankTextDiv = document.getElementById('tat-blank-text');
+            const writeDiv = document.getElementById('tat-write');
             const img = document.getElementById('tat-image');
             const loading = document.getElementById('tat-loading');
-            const blankBox = document.getElementById('tat-blank-indicator');
-            const instruction = document.getElementById('tat-instruction');
-
-            img.classList.add('hidden');
-            blankBox.classList.add('hidden');
-            loading.classList.remove('hidden');
-            instruction.innerText = "Observe carefully";
+            
+            writeDiv.classList.add('hidden');
+            const currentImage = appState.currentTatImages[appState.currentTatIndex];
 
             if (currentImage === "BLANK") {
-                loading.classList.add('hidden');
-                blankBox.classList.remove('hidden');
-                instruction.innerText = "Think of your own scenario";
-                appState.currentTatImageObj = null; // No image for blank slide
-                startViewingTimer();
+                playBeep(); // Beep when blank slide text is shown
+                observeDiv.classList.add('hidden');
+                blankTextDiv.classList.remove('hidden');
+                appState.results.tat.push({ type: "BLANK" });
+                
+                // 30 Seconds observation for Blank Slide
+                appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
             } else {
-                img.crossOrigin = "Anonymous"; // Crucial for PDF generation
+                blankTextDiv.classList.add('hidden');
+                observeDiv.classList.remove('hidden');
+                img.classList.add('hidden');
+                loading.classList.remove('hidden');
+                
+                img.crossOrigin = "Anonymous";
                 img.onload = () => {
                     loading.classList.add('hidden');
                     img.classList.remove('hidden');
+                    playBeep(); // Beep when image successfully loads and is shown
                     
-                    // Capture image data locally right when it loads so it can be added to the PDF later
-                    try {
-                        appState.currentTatImageObj = {
-                            data: getBase64Image(img),
-                            w: img.naturalWidth,
-                            h: img.naturalHeight
-                        };
-                    } catch(e) {
-                        appState.currentTatImageObj = null;
-                    }
+                    let imgObj = null;
+                    try { imgObj = { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight }; } catch(e){}
+                    appState.results.tat.push({ type: "IMAGE", obj: imgObj });
 
-                    startViewingTimer();
+                    // 30 Seconds observation for Image
+                    appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
                 };
+                
+                // ERROR HANDLER: If image is deleted/broken, instantly fetch a new random one
                 img.onerror = () => {
-                    loading.innerText = "Image failed to load. Skipping observation...";
-                    appState.currentTatImageObj = null;
-                    setTimeout(startTATWriting, 2000);
+                    console.warn("TAT image failed to load, picking another...");
+                    const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                    appState.currentTatImages[appState.currentTatIndex] = newImage;
+                    img.src = newImage;
                 };
+                
                 img.src = currentImage;
             }
         }
 
-        function startViewingTimer() {
-            let timeLeft = 30;
-            appState.tatViewInterval = setInterval(() => {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(appState.tatViewInterval);
-                    startTATWriting();
-                }
-            }, 1000);
+        function executeTATPhase2() {
+            document.getElementById('tat-observe').classList.add('hidden');
+            document.getElementById('tat-blank-text').classList.add('hidden');
+            document.getElementById('tat-write').classList.remove('hidden');
+            
+            // 4 Minutes writing phase
+            appState.currentTimeout = setTimeout(() => {
+                appState.currentTatIndex++;
+                executeTATPhase1();
+            }, 240000);
         }
 
-        function startTATWriting() {
-            showView('tat-writing-view');
-            const input = document.getElementById('tat-input');
-            const isBlank = appState.currentTatImages[appState.currentTatIndex] === "BLANK";
-            
-            document.getElementById('tat-writing-title').innerText = isBlank ? "Write Your Blank Slide Story" : "Write Your Story";
-            document.getElementById('tat-slide-counter').innerText = `Slide ${appState.currentTatIndex + 1} of 12`;
-            
-            input.value = '';
-            input.focus();
-            
-            let timeLeft = 240; 
-            document.getElementById('tat-timer').innerText = formatTime(timeLeft);
-            
-            appState.tatWriteInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('tat-timer').innerText = formatTime(timeLeft);
-                if (timeLeft <= 0) {
-                    clearInterval(appState.tatWriteInterval);
-                    saveTatStory();
-                }
-            }, 1000);
-        }
-
-        function saveTatStory() {
-            const input = document.getElementById('tat-input');
-            const isBlank = appState.currentTatImages[appState.currentTatIndex] === "BLANK";
-            
-            appState.results.tat.push({
-                slide: appState.currentTatIndex + 1,
-                label: isBlank ? "Blank Slide Story" : `Picture ${appState.currentTatIndex + 1}`,
-                story: input.value.trim(),
-                imageObj: isBlank ? null : appState.currentTatImageObj // Assign captured image info here
-            });
-            
-            appState.currentTatIndex++;
-            initTAT();
-        }
-
-        // --- WAT ---
-        function initWAT() {
+        // --- WAT LOGIC ---
+        function executeWAT() {
             const currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60);
             appState.currentWatIndex = 0;
-            showView('wat-view');
+            appState.results.wat = currentWatWords; // Save for PDF
+            
+            showView('wat-display-view');
+            const wordEl = document.getElementById('wat-word');
             
             const runWatCycle = () => {
-                const wordEl = document.getElementById('wat-word');
-                const inputEl = document.getElementById('wat-input');
-                const bar = document.getElementById('wat-progress-bar');
+                if (appState.currentWatIndex >= currentWatWords.length) {
+                    nextTest();
+                    return;
+                }
                 
                 wordEl.innerText = currentWatWords[appState.currentWatIndex];
-                document.getElementById('wat-progress').innerText = appState.currentWatIndex + 1;
-                inputEl.value = '';
-                inputEl.focus();
+                appState.currentWatIndex++;
                 
-                bar.style.transition = 'none';
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.transition = 'width 15s linear';
-                    bar.style.width = '100%';
-                }, 50);
-                
-                appState.watInterval = setTimeout(() => {
-                    appState.results.wat.push({
-                        word: currentWatWords[appState.currentWatIndex],
-                        response: inputEl.value.trim()
-                    });
-                    appState.currentWatIndex++;
-                    if (appState.currentWatIndex < 60) runWatCycle();
-                    else nextTest();
-                }, 15000);
+                // 15 seconds per word
+                appState.currentTimeout = setTimeout(runWatCycle, 15000);
             };
             runWatCycle();
         }
 
-        // --- SRT ---
-        function initSRT() {
+        // --- SRT LOGIC ---
+        function executeSRT() {
             const currentSrtSituations = shuffle([...SRT_POOL]).slice(0, 60);
-            showView('srt-view');
+            appState.results.srt = currentSrtSituations; // Save for PDF
+            
+            showView('srt-display-view');
             const container = document.getElementById('srt-container');
+            
+            // Render plain text situations without any textareas
             container.innerHTML = currentSrtSituations.map((sit, idx) => `
-                <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow">
-                    <p class="text-lg font-bold text-slate-800 dark:text-white mb-4"><span class="text-teal-600 dark:text-teal-400 mr-2">${idx + 1}.</span> ${sit}</p>
-                    <textarea id="srt-input-${idx}" class="w-full p-4 border-2 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-800 text-slate-900 dark:text-white transition-all resize-none focus:border-teal-500 dark:focus:border-teal-500 font-medium" rows="2" placeholder="Write your reaction..."></textarea>
+                <div class="mb-4">
+                    <p class="text-xl font-bold text-slate-800"><span class="text-teal-600 mr-2">${idx + 1}.</span> ${sit}</p>
                 </div>
             `).join('');
             
-            let timeLeft = 1800; 
-            appState.srtInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('srt-timer').innerText = formatTime(timeLeft);
-                if (timeLeft <= 0) submitSRT();
-            }, 1000);
-            
-            window.submitSRT = () => {
-                clearInterval(appState.srtInterval);
-                appState.results.srt = currentSrtSituations.map((sit, idx) => ({
-                    situation: sit,
-                    response: document.getElementById(`srt-input-${idx}`).value.trim()
-                }));
+            // 30 Minutes total time for SRT (1800 seconds)
+            appState.currentTimeout = setTimeout(() => {
                 nextTest();
-            };
+            }, 1800000); 
         }
 
-        // --- PDF GENERATION ---
-
-        function generatePPDTPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const date = new Date().toLocaleDateString();
-
-            doc.setFillColor(234, 88, 12); 
-            doc.rect(0, 0, 210, 40, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(24);
-            doc.text("PPDT Performance Report", 14, 25);
-            doc.setFontSize(10);
-            doc.text(`Generated on: ${date}`, 14, 34);
-
-            let currentY = 50;
-            doc.setTextColor(30, 41, 59);
-            
-            const imgEl = document.getElementById('ppdt-image');
-            try {
-                const imgData = getBase64Image(imgEl);
-                const maxW = 182; 
-                const maxH = 100;
-                let w = imgEl.naturalWidth;
-                let h = imgEl.naturalHeight;
-                const ratio = Math.min(maxW / w, maxH / h);
-                
-                doc.addImage(imgData, 'JPEG', 14, currentY, w * ratio, h * ratio);
-                currentY += (h * ratio) + 15;
-            } catch (e) {
-                doc.setFontSize(10);
-                doc.setTextColor(239, 68, 68);
-                doc.text("(Could not append image to PDF due to strict browser cross-origin limits.)", 14, currentY);
-                currentY += 10;
-                doc.setTextColor(30, 41, 59);
-            }
-
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Your Story:", 14, currentY);
-            currentY += 8;
-
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            const text = appState.ppdtResult || "(No story provided)";
-            const splitText = doc.splitTextToSize(text, 180);
-            
-            if (currentY + (splitText.length * 5) > 280) {
-                doc.addPage();
-                currentY = 20;
-            }
-            
-            doc.text(splitText, 14, currentY);
-            doc.save(`PPDT_Report_${date.replace(/\//g, '-')}.pdf`);
-        }
-
+        // --- PDF QUESTION PAPER GENERATION ---
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const date = new Date().toLocaleDateString();
             
+            // Cover Header
             doc.setFillColor(30, 41, 59);
             doc.rect(0, 0, 210, 40, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(24);
-            doc.text("SSB Psychological Performance Report", 14, 25);
+            doc.text("SSB Psych Question Paper", 14, 25);
             doc.setFontSize(10);
-            doc.text(`Generated on: ${date}`, 14, 34);
+            doc.text(`Generated on: ${date} - Retain for Self-Evaluation`, 14, 34);
 
             let currentY = 50;
-            let hasPrintedSection = false; // Layout checker to prevent blank pages
+            let hasPrintedSection = false;
 
-            if (appState.results.tat.length > 0) {
+            // PPDT PDF Generation
+            if (appState.results.ppdtObj) {
                 doc.setTextColor(30, 41, 59);
-                doc.setFontSize(16);
+                doc.setFontSize(18);
                 doc.setFont("helvetica", "bold");
-                doc.text("Thematic Apperception Test (TAT)", 14, currentY);
+                doc.text("PPDT Image Stimulus", 14, currentY);
                 currentY += 10;
-
-                appState.results.tat.forEach((item) => {
-                    // Start new page if not enough space for the picture header
-                    if (currentY > 240) { doc.addPage(); currentY = 20; }
-                    
-                    doc.setFontSize(14);
-                    doc.setFont("helvetica", "bold");
-                    doc.text(`${item.label}:`, 14, currentY);
-                    currentY += 8;
-
-                    // If an image object was captured successfully during the TAT phase, render it
-                    if (item.imageObj) {
-                        try {
-                            const maxW = 100; // Constrain the image size for the report
-                            const maxH = 65;
-                            const ratio = Math.min(maxW / item.imageObj.w, maxH / item.imageObj.h);
-                            doc.addImage(item.imageObj.data, 'JPEG', 14, currentY, item.imageObj.w * ratio, item.imageObj.h * ratio);
-                            currentY += (item.imageObj.h * ratio) + 10;
-                        } catch (e) {
-                            doc.setFontSize(10);
-                            doc.setTextColor(239, 68, 68);
-                            doc.text("(Image omitted due to rendering error)", 14, currentY);
-                            currentY += 8;
-                            doc.setTextColor(30, 41, 59);
-                        }
-                    }
-                    
-                    doc.setFontSize(11);
-                    doc.setFont("helvetica", "normal");
-                    const text = item.story || "(No story provided)";
-                    const splitText = doc.splitTextToSize(text, 180);
-                    
-                    // Push story to next page if it overflows
-                    if (currentY + (splitText.length * 5) > 280) {
-                        doc.addPage();
-                        currentY = 20;
-                    }
-                    
-                    doc.text(splitText, 14, currentY);
-                    currentY += (splitText.length * 5) + 15;
-                });
+                
+                const maxW = 180; 
+                const maxH = 120;
+                const ratio = Math.min(maxW / appState.results.ppdtObj.w, maxH / appState.results.ppdtObj.h);
+                doc.addImage(appState.results.ppdtObj.data, 'JPEG', 14, currentY, appState.results.ppdtObj.w * ratio, appState.results.ppdtObj.h * ratio);
                 
                 hasPrintedSection = true;
             }
 
+            // TAT PDF Generation
+            if (appState.results.tat.length > 0) {
+                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
+                
+                doc.setTextColor(30, 41, 59);
+                doc.setFontSize(18);
+                doc.setFont("helvetica", "bold");
+                doc.text("Thematic Apperception Test (TAT) Stimuli", 14, currentY);
+                currentY += 15;
+
+                appState.results.tat.forEach((item, index) => {
+                    if (currentY > 240) { doc.addPage(); currentY = 20; }
+                    
+                    doc.setFontSize(12);
+                    doc.setFont("helvetica", "bold");
+                    doc.text(`Slide ${index + 1}:`, 14, currentY);
+                    currentY += 5;
+
+                    if (item.type === "BLANK") {
+                        doc.setFont("helvetica", "italic");
+                        doc.text("[ BLANK SLIDE - Your Imagination ]", 14, currentY + 5);
+                        currentY += 20;
+                    } else if (item.obj) {
+                        const maxW = 80; 
+                        const maxH = 50;
+                        const ratio = Math.min(maxW / item.obj.w, maxH / item.obj.h);
+                        doc.addImage(item.obj.data, 'JPEG', 14, currentY, item.obj.w * ratio, item.obj.h * ratio);
+                        currentY += (item.obj.h * ratio) + 15;
+                    }
+                });
+                hasPrintedSection = true;
+            }
+
+            // WAT PDF Generation
             if (appState.results.wat.length > 0) {
                 if (hasPrintedSection) { doc.addPage(); currentY = 20; }
                 
-                doc.setFontSize(16);
+                doc.setFontSize(18);
                 doc.setFont("helvetica", "bold");
-                doc.text("Word Association Test (WAT)", 14, currentY);
+                doc.text("Word Association Test (WAT) List", 14, currentY);
                 
                 doc.autoTable({
                     startY: currentY + 5,
-                    head: [['#', 'Stimulus Word', 'Response']],
-                    body: appState.results.wat.map((w, i) => [i + 1, w.word, w.response || "-"]),
+                    head: [['#', 'Stimulus Word']],
+                    body: appState.results.wat.map((w, i) => [i + 1, w]),
                     theme: 'grid',
                     headStyles: { fillColor: [79, 70, 229] }
                 });
                 hasPrintedSection = true;
             }
 
+            // SRT PDF Generation
             if (appState.results.srt.length > 0) {
                 if (hasPrintedSection) { doc.addPage(); currentY = 20; }
                 
-                doc.setFontSize(16);
+                doc.setFontSize(18);
                 doc.setFont("helvetica", "bold");
-                doc.text("Situation Reaction Test (SRT)", 14, currentY);
+                doc.text("Situation Reaction Test (SRT) List", 14, currentY);
                 
                 doc.autoTable({
                     startY: currentY + 5,
-                    head: [['#', 'Situation', 'Reaction']],
-                    body: appState.results.srt.map((s, i) => [i + 1, s.situation, s.response || "-"]),
+                    head: [['#', 'Situation']],
+                    body: appState.results.srt.map((s, i) => [i + 1, s]),
                     theme: 'grid',
-                    headStyles: { fillColor: [13, 148, 136] }
+                    headStyles: { fillColor: [13, 148, 136] },
+                    styles: { cellPadding: 5 }
                 });
             }
 
-            doc.save(`SSB_Psych_Report_${date.replace(/\//g, '-')}.pdf`);
+            doc.save(`SSB_Question_Paper_${date.replace(/\//g, '-')}.pdf`);
         }
     </script>
 </body>
