@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-<head> 
+<head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-SYY2YDFEZ3');
-</script>
-
+      gtag('config', 'G-SYY2YDFEZ3');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSB Test Engine | Focus Mode</title>
@@ -36,7 +35,6 @@
 </head>
 <body class="bg-[#0b1120] text-slate-100 overflow-x-hidden flex flex-col min-h-screen m-0 p-0">
 
-    <!-- READY VIEW (Security Screen to trigger Fullscreen) -->
     <div id="ready-view" class="view h-screen w-full bg-slate-900 flex-col items-center justify-center p-4 z-[100]">
         <div class="bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-blue-500">
             <h1 class="text-3xl font-extrabold text-white mb-4">Ready to Begin?</h1>
@@ -45,7 +43,6 @@
         </div>
     </div>
 
-    <!-- PRE-TEST INSTRUCTION VIEW -->
     <div id="instruction-view" class="view h-screen w-full bg-white dark:bg-slate-900 flex-col items-center justify-center p-8 z-[100]">
         <div class="max-w-4xl w-full mx-auto text-left bg-slate-50 dark:bg-slate-800 p-10 rounded-3xl shadow-2xl border border-slate-700">
             <h1 id="inst-title" class="text-3xl md:text-5xl font-black mb-8 text-white border-b pb-4 border-slate-700"></h1>
@@ -64,7 +61,6 @@
         </div>
     </div>
 
-    <!-- PPDT VIEW -->
     <div id="ppdt-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
         <div id="ppdt-phase1" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
             <div id="ppdt-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
@@ -76,7 +72,6 @@
         <div id="ppdt-phase3" class="hidden w-full h-full bg-white"></div>
     </div>
 
-    <!-- TAT VIEW -->
     <div id="tat-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
         <div id="tat-observe" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
             <div id="tat-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
@@ -88,21 +83,18 @@
         <div id="tat-write" class="hidden w-full h-full bg-white"></div>
     </div>
 
-    <!-- WAT VIEW -->
     <div id="wat-display-view" class="view h-screen w-full bg-white flex-col items-center justify-center relative no-select z-[100]">
         <div class="text-center w-full max-w-5xl px-4 flex flex-col items-center justify-center h-full">
             <div id="wat-word" class="text-6xl md:text-[140px] font-black uppercase tracking-tight text-slate-900 drop-shadow-xl"></div>
         </div>
     </div>
 
-    <!-- SRT VIEW -->
     <div id="srt-display-view" class="view h-screen w-full bg-white flex-col z-[100]">
         <div class="flex-1 overflow-y-auto p-8 md:p-16">
             <div class="max-w-4xl mx-auto space-y-6" id="srt-container"></div>
         </div>
     </div>
 
-    <!-- RESULT VIEW -->
     <div id="result-view" class="view h-screen w-full bg-slate-900 flex-col items-center justify-center p-4 z-[100]">
         <div class="bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
             <h1 class="text-3xl font-extrabold text-white mb-2">Testing Completed</h1>
@@ -114,10 +106,9 @@
 
     <script>
         // ==========================================
-        // 1. DATA ARRAYS (PASTE YOUR 1000+ DATA HERE)
+        // 1. DATA ARRAYS
         // ==========================================
         const PPDT_IMAGES_POOL = Array.from({length: 150}, (_, i) => `https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/1cc1e19b0bd9334670615db849c2a9148d3e0826/PPDT%20(${i + 1}).jpg`);
-        
         const TAT_IMAGES_POOL = Array.from({length: 580}, (_, i) => `https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/dacf27ba8d5775a9d914b896b22d4b7474226fa1/TAT%20(${i + 1}).jpg`);
         
         const WAT_WORDS_POOL = [
@@ -622,6 +613,7 @@
             "He catches a student cheating in the exam hall. He ___________",
             "His team loses a match because of a blunder by him. He ___________"
             // Add your 1000+ situations here
+            // Add your 1000+ situations here
         ];
 
         // ==========================================
@@ -659,6 +651,13 @@
             } catch (e) { console.warn("Beep blocked"); }
         }
 
+        // SMART PRELOADER: Downloads the image silently in the background
+        function preloadImage(url) {
+            if (!url || url === "BLANK") return;
+            const img = new Image();
+            img.src = url;
+        }
+
         // UPGRADED FULLSCREEN LOGIC
         function enterFullscreen() {
             const docElm = document.documentElement;
@@ -685,7 +684,6 @@
                 else if (document.msExitFullscreen) document.msExitFullscreen();
             } catch(e) {}
             
-            // Safe fallback for Preview Environments (Canvas/iframes) to prevent routing errors
             if (window.location.protocol === 'blob:' || window.self !== window.top) {
                 document.getElementById('result-view').innerHTML = '<div class="bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500"><h1 class="text-3xl font-extrabold text-white mb-2">Test Session Ended</h1><p class="text-slate-400 font-medium">You are in preview mode. Please close this tab to return to the homepage.</p></div>';
             } else {
@@ -718,40 +716,29 @@
 
         window.onload = () => {
             let testType;
-            try {
-                testType = new URLSearchParams(window.location.search).get('test');
-            } catch (e) {
-                testType = null;
-            }
+            try { testType = new URLSearchParams(window.location.search).get('test'); } catch (e) { testType = null; }
+            if (!testType) testType = 'full';
             
-            // Fallback for previewing directly without URL params
-            if (!testType) {
-                testType = 'full';
-            }
-            
-            // Store the initial test type and show the Ready screen
             appState.initialTestType = testType;
             showView('ready-view');
         };
 
-        // Triggered by the user clicking "Start Session"
         function startSession() {
-            enterFullscreen(); // Safe to call here because it's a direct user click!
-            
+            enterFullscreen();
             const testType = appState.initialTestType;
             appState.testQueue = testType === 'full' ? ['TAT', 'WAT', 'SRT'] : [testType];
             
-            if (testType === 'PPDT') {
-                startPPDT(); 
-            } else {
-                nextTest();
-            }
+            if (testType === 'PPDT') startPPDT(); else nextTest();
         }
 
         function nextTest() {
             if (appState.testQueue.length === 0) return showView('result-view');
             const next = appState.testQueue.shift();
-            if (next === 'TAT') { appState.currentTatImages = [...shuffle([...TAT_IMAGES_POOL]).slice(0, 11), "BLANK"]; playInstructions('TAT', executeTATPhase1); }
+            if (next === 'TAT') { 
+                appState.currentTatImages = [...shuffle([...TAT_IMAGES_POOL]).slice(0, 11), "BLANK"]; 
+                preloadImage(appState.currentTatImages[0]); // Preload the very first TAT image
+                playInstructions('TAT', executeTATPhase1); 
+            }
             else if (next === 'WAT') playInstructions('WAT', executeWAT);
             else if (next === 'SRT') playInstructions('SRT', executeSRT);
         }
@@ -759,7 +746,12 @@
         // ==========================================
         // 4. TEST EXECUTION LOGIC
         // ==========================================
-        function startPPDT() { appState.testQueue = []; appState.results.ppdt = PPDT_IMAGES_POOL[Math.floor(Math.random() * PPDT_IMAGES_POOL.length)]; playInstructions('PPDT', executePPDTPhase1); }
+        function startPPDT() { 
+            appState.testQueue = []; 
+            appState.results.ppdt = PPDT_IMAGES_POOL[Math.floor(Math.random() * PPDT_IMAGES_POOL.length)]; 
+            preloadImage(appState.results.ppdt); // Preload PPDT image
+            playInstructions('PPDT', executePPDTPhase1); 
+        }
 
         function executePPDTPhase1() {
             showView('ppdt-display-view');
@@ -791,7 +783,16 @@
                 img.src = currentImage;
             }
         }
-        function executeTATPhase2() { document.getElementById('tat-observe').classList.add('hidden'); document.getElementById('tat-blank-text').classList.add('hidden'); document.getElementById('tat-write').classList.remove('hidden'); appState.currentTimeout = setTimeout(() => { appState.currentTatIndex++; executeTATPhase1(); }, 240000); }
+        function executeTATPhase2() { 
+            document.getElementById('tat-observe').classList.add('hidden'); document.getElementById('tat-blank-text').classList.add('hidden'); document.getElementById('tat-write').classList.remove('hidden'); 
+            
+            // SMART PRELOADER: Loads the NEXT image while the user is writing their story!
+            if (appState.currentTatIndex + 1 < appState.currentTatImages.length) {
+                preloadImage(appState.currentTatImages[appState.currentTatIndex + 1]);
+            }
+
+            appState.currentTimeout = setTimeout(() => { appState.currentTatIndex++; executeTATPhase1(); }, 240000); 
+        }
 
         function executeWAT() {
             const currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60); appState.results.wat = currentWatWords;
