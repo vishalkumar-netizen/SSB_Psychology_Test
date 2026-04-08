@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-SYY2YDFEZ3');
     </script>
     <meta charset="UTF-8">
@@ -19,15 +18,15 @@
     <meta name="keywords" content="SSB, PPDT, TAT, WAT, SRT, SSB Interview, Psychological Test, Armed forces preparation, NDA, CDS, AFCAT, DIPR">
     <meta name="author" content="SSB Psych Test Platform">
     
-    <!-- Open Graph Tags for Social Sharing (WhatsApp, Facebook, etc.) -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="SSB Psychological Test Online Platform | 100% Free Tests">
     <meta property="og:description" content="#1 SSB Psychological test platform. Practice real DIPR sets for PPDT, TAT, WAT, and SRT online. 100% Free, No login required.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://i.postimg.cc/YqM6FTTD/logo.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
     
     <!-- Favicon & Apple Touch Icon -->
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/YqM6FTTD/logo.png">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/YqM6FTTD/logo.png">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -37,7 +36,7 @@
       "name": "SSB Psych Test Platform",
       "alternateName": "SSB Psychological Test Online",
       "url": "https://www.ssbpsychtest.in/",
-      "image": "https://i.postimg.cc/YqM6FTTD/logo.png"
+      "image": "https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png"
     }
     </script>
 
@@ -61,15 +60,10 @@
             }
         }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         
-        /* Tool View Logic */
-        .view { display: none; }
-        .view.active { display: flex; animation: fadeIn 0.4s ease-out; }
         .site-page { display: none; }
         .site-page.active { display: block; animation: fadeIn 0.4s ease-out; }
         
@@ -78,25 +72,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Blinking Animation */
         @keyframes blink-animation { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         .blink-me { animation: blink-animation 2s ease-in-out infinite; }
 
-        /* News Ticker */
         @keyframes scroll-left { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: scroll-left 30s linear infinite; }
         .marquee-container:hover .marquee-content { animation-play-state: paused; }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         .dark ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .dark ::-webkit-scrollbar-thumb { background: #334155; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        
-        .no-select { user-select: none; -webkit-user-select: none; }
         
         .glass-nav {
             background: rgba(15, 23, 42, 0.85);
@@ -162,7 +151,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 shadow-2xl absolute w-full overflow-y-auto max-h-[80vh]">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 shadow-2xl absolute w-full overflow-y-auto max-h-[80vh] z-40">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <button onclick="navTo('page-home')" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold hover:bg-slate-800 transition">Home</button>
                 
@@ -227,11 +216,11 @@
                         <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl max-w-fit mx-auto">
                             <span class="block text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">Select a Test to Start Instantly</span>
                             <div class="flex flex-wrap justify-center gap-3 sm:gap-4 items-center">
-                                <button onclick="startPPDT()" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-orange-50 dark:hover:bg-orange-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-orange-400 dark:hover:border-orange-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-orange-500/20">PPDT</button>
-                                <button onclick="startTest('TAT')" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-400 dark:hover:border-blue-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-blue-500/20">TAT</button>
-                                <button onclick="startTest('WAT')" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-indigo-50 dark:hover:bg-indigo-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-indigo-400 dark:hover:border-indigo-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-indigo-500/20">WAT</button>
-                                <button onclick="startTest('SRT')" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-teal-50 dark:hover:bg-teal-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-teal-400 dark:hover:border-teal-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-teal-500/20">SRT</button>
-                                <button onclick="startTest('full')" class="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-blue-600 dark:to-blue-700 text-white border-2 border-transparent font-extrabold py-3.5 px-8 rounded-2xl transition-all text-lg shadow-xl transform hover:-translate-y-1 hover:shadow-blue-500/30 ml-0 sm:ml-2">Full Mock</button>
+                                <button onclick="window.location.href='Test?test=PPDT'" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-orange-50 dark:hover:bg-orange-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-orange-400 dark:hover:border-orange-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-orange-500/20">PPDT</button>
+                                <button onclick="window.location.href='Test?test=TAT'" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-400 dark:hover:border-blue-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-blue-500/20">TAT</button>
+                                <button onclick="window.location.href='Test?test=WAT'" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-indigo-50 dark:hover:bg-indigo-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-indigo-400 dark:hover:border-indigo-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-indigo-500/20">WAT</button>
+                                <button onclick="window.location.href='Test?test=SRT'" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-teal-50 dark:hover:bg-teal-900/20 border-2 border-slate-200 dark:border-slate-600 hover:border-teal-400 dark:hover:border-teal-500 font-bold py-3.5 px-6 rounded-2xl transition-all text-lg shadow-sm transform hover:-translate-y-1 hover:shadow-teal-500/20">SRT</button>
+                                <button onclick="window.location.href='Test?test=full'" class="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-blue-600 dark:to-blue-700 text-white border-2 border-transparent font-extrabold py-3.5 px-8 rounded-2xl transition-all text-lg shadow-xl transform hover:-translate-y-1 hover:shadow-blue-500/30 ml-0 sm:ml-2">Full Mock</button>
                             </div>
                         </div>
 
@@ -239,7 +228,7 @@
                         <div class="mt-8 blink-me inline-block">
                             <p class="text-xs sm:text-sm font-semibold text-blue-800 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/40 px-5 py-2.5 rounded-full border border-blue-200 dark:border-blue-700/50 shadow-sm flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Dynamic Tests: New pictures and words every time. Download PDF results right after test!
+                                Dynamic Tests: New pictures and words every time. Download PDF right after test!
                             </p>
                         </div>
                     </div>
@@ -263,7 +252,7 @@
                         </div>
                         <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-2">PPDT</h3>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Picture Perception & Discussion. 1 Random Picture. 30s observe, 4m write.</p>
-                        <button onclick="startPPDT()" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors">Start PPDT</button>
+                        <button onclick="window.location.href='Test?test=PPDT'" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors z-10 relative">Start PPDT</button>
                     </div>
 
                     <!-- TAT Card -->
@@ -274,7 +263,7 @@
                         </div>
                         <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-2">TAT</h3>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Thematic Apperception. 12 Slides (11 Pic + 1 Blank). 30s observe, 4m write.</p>
-                        <button onclick="startTest('TAT')" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors">Start TAT</button>
+                        <button onclick="window.location.href='Test?test=TAT'" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors z-10 relative">Start TAT</button>
                     </div>
 
                     <!-- WAT Card -->
@@ -285,7 +274,7 @@
                         </div>
                         <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-2">WAT</h3>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Word Association. 60 words flashed for 15 seconds each consecutively.</p>
-                        <button onclick="startTest('WAT')" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors">Start WAT</button>
+                        <button onclick="window.location.href='Test?test=WAT'" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors z-10 relative">Start WAT</button>
                     </div>
 
                     <!-- SRT Card -->
@@ -296,7 +285,7 @@
                         </div>
                         <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-2">SRT</h3>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Situation Reaction. 60 everyday practical situations within 30 minutes total.</p>
-                        <button onclick="startTest('SRT')" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors">Start SRT</button>
+                        <button onclick="window.location.href='Test?test=SRT'" class="w-full bg-slate-50 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl transition-colors z-10 relative">Start SRT</button>
                     </div>
                 </div>
             </div>
@@ -309,7 +298,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Resource 1 -->
                     <button onclick="navTo('page-know-ssb')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-3 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -320,18 +308,16 @@
                         <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
 
-                    <!-- Resource 2 -->
                     <button onclick="navTo('page-know-psych')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 p-3 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                             </div>
-                            <span class="font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Know about Complete Psych Test</span>
+                            <span class="font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Complete Psych Test</span>
                         </div>
                         <svg class="w-5 h-5 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
 
-                    <!-- Resource 3 -->
                     <button onclick="navTo('page-know-ppdt')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 p-3 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors">
@@ -342,7 +328,6 @@
                         <svg class="w-5 h-5 text-slate-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
 
-                    <!-- Resource 4 -->
                     <button onclick="navTo('page-know-tat')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-3 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -353,7 +338,6 @@
                         <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
 
-                    <!-- Resource 5 -->
                     <button onclick="navTo('page-know-wat')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 p-3 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
@@ -364,7 +348,6 @@
                         <svg class="w-5 h-5 text-slate-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
 
-                    <!-- Resource 6 -->
                     <button onclick="navTo('page-know-srt')" class="flex items-center justify-between w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
                         <div class="flex items-center gap-4">
                             <div class="bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 p-3 rounded-xl group-hover:bg-teal-600 group-hover:text-white transition-colors">
@@ -476,7 +459,7 @@
             <div class="bg-blue-600 dark:bg-blue-800 py-12 text-center px-4">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Ready to test your psychology?</h2>
                 <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Start your first full mock test today. Grab your notebook, analyze your traits, and step closer to the uniform.</p>
-                <button onclick="startTest('full')" class="bg-white text-blue-700 font-extrabold py-4 px-10 rounded-full transition-transform transform hover:scale-105 shadow-xl text-lg">Start Full Mock Test</button>
+                <button onclick="window.location.href='Test?test=full'" class="bg-white text-blue-700 font-extrabold py-4 px-10 rounded-full transition-transform transform hover:scale-105 shadow-xl text-lg">Start Full Mock Test</button>
             </div>
         </div>
 
@@ -836,7 +819,7 @@
                     <h3 class="font-extrabold text-xl text-slate-800 dark:text-white mb-6 uppercase tracking-wider">Scan to Pay via UPI</h3>
                     
                     <div class="w-56 h-56 mx-auto flex items-center justify-center rounded-2xl mb-6 bg-white p-3 shadow-md border border-slate-100">
-                        <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/950824f8cbce1c8e86cc41195cf0ea1305d120f0/UPPIPPAAYY.jpeg" alt="UPI QR Code" class="max-w-full max-h-full object-contain rounded-xl">
+                        <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/c8428f97ffb7e77bad4512f16dae2937fb44c612/UPPIPPAAYY.jpeg" alt="UPI QR Code" class="max-w-full max-h-full object-contain rounded-xl">
                     </div>
                     
                     <div class="bg-slate-200 dark:bg-slate-800 py-3 px-4 rounded-xl flex items-center justify-center gap-3">
@@ -894,106 +877,7 @@
         </div>
     </footer>
 
-
-    <!-- ========================================== -->
-    <!-- NEW: PROJECTOR / NOTEBOOK COMPANION VIEWS  -->
-    <!-- ========================================== -->
-
-    <!-- PRE-TEST INSTRUCTION VIEW -->
-    <div id="instruction-view" class="view h-screen w-full bg-white dark:bg-slate-900 flex-col items-center justify-center p-8 z-[100]">
-        <div class="max-w-4xl w-full mx-auto text-left bg-slate-50 dark:bg-slate-800 p-10 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700">
-            <h1 id="inst-title" class="text-3xl md:text-5xl font-black mb-8 text-slate-900 dark:text-white border-b pb-4 border-slate-200 dark:border-slate-700"></h1>
-            <div id="inst-content" class="text-lg md:text-2xl text-slate-800 dark:text-slate-200 space-y-4"></div>
-            
-            <div class="mt-12 text-center bg-blue-50 dark:bg-blue-900/30 py-4 rounded-xl border border-blue-200 dark:border-blue-800">
-                <p class="text-blue-800 dark:text-blue-300 font-extrabold text-xl md:text-2xl uppercase tracking-widest animate-pulse">
-                    Test begins automatically in <span id="inst-timer" class="text-3xl mx-2 text-blue-600 dark:text-blue-400">30</span> seconds
-                </p>
-            </div>
-            <div class="text-center mt-6">
-                <p class="text-slate-500 font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
-                    <span>📓</span> Keep your notebook ready <span>📓</span>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PPDT DISPLAY VIEW (Handles all 3 Phases) -->
-    <div id="ppdt-display-view" class="view h-screen w-full flex-col relative no-select z-[100] transition-colors duration-0">
-        <!-- Phase 1: Image Observation (Black BG) -->
-        <div id="ppdt-phase1" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
-            <div id="ppdt-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-            <img id="ppdt-image" src="" alt="PPDT Image" class="hidden max-h-[95vh] max-w-[95vw] object-contain">
-        </div>
-        
-        <!-- Phase 2: Details Instruction (White BG) -->
-        <div id="ppdt-phase2" class="hidden w-full h-full flex flex-col items-center justify-center bg-white dark:bg-slate-50 p-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-black text-slate-900 max-w-5xl leading-tight">
-                Write down the detail of the picture - No. of characters, their gender, mood, age & what is going on
-            </h1>
-        </div>
-        
-        <!-- Phase 3: Blank Writing Screen (White BG) -->
-        <div id="ppdt-phase3" class="hidden w-full h-full bg-white dark:bg-slate-50"></div>
-    </div>
-
-    <!-- TAT DISPLAY VIEW -->
-    <div id="tat-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
-        <!-- Observation Phase (Black or White based on slide) -->
-        <div id="tat-observe" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
-            <div id="tat-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-            <img id="tat-image" src="" alt="TAT Image" class="hidden max-h-[95vh] max-w-[95vw] object-contain">
-        </div>
-        
-        <!-- Blank Slide Instruction (White BG) -->
-        <div id="tat-blank-text" class="hidden w-full h-full flex flex-col items-center justify-center bg-white dark:bg-slate-50 p-8 text-center">
-            <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight uppercase">
-                Blank - Write story of your own imagination
-            </h1>
-        </div>
-
-        <!-- Writing Phase (White BG) -->
-        <div id="tat-write" class="hidden w-full h-full bg-white dark:bg-slate-50"></div>
-    </div>
-
-    <!-- WAT DISPLAY VIEW -->
-    <div id="wat-display-view" class="view h-screen w-full bg-white dark:bg-slate-50 flex-col items-center justify-center relative no-select z-[100]">
-        <div class="text-center w-full max-w-5xl px-4 flex flex-col items-center justify-center h-full">
-            <div id="wat-word" class="text-6xl md:text-[140px] font-black uppercase tracking-tight text-slate-900 drop-shadow-xl select-none"></div>
-        </div>
-    </div>
-
-    <!-- SRT DISPLAY VIEW -->
-    <div id="srt-display-view" class="view h-screen w-full bg-white dark:bg-slate-50 flex-col z-[100]">
-        <!-- Hidden header to prevent distraction, only pure situations -->
-        <div class="flex-1 overflow-y-auto p-8 md:p-16">
-            <div class="max-w-4xl mx-auto space-y-6" id="srt-container">
-                <!-- Situations injected here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- RESULT / DOWNLOAD VIEW -->
-    <div id="result-view" class="view h-screen w-full bg-slate-50 dark:bg-slate-900 flex-col items-center justify-center p-4 z-[100]">
-        <div class="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500">
-            <div class="w-24 h-24 bg-green-50 dark:bg-green-900/30 text-green-500 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
-            </div>
-            <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Testing Sequence Completed</h1>
-            <p class="text-slate-500 dark:text-slate-400 mb-8 font-medium">Download the Question Paper PDF to review the stimuli against your physical notebook.</p>
-            
-            <button onclick="generatePDF()" class="w-full bg-gradient-to-r from-slate-900 to-slate-800 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 transition-all mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Download Question Paper
-            </button>
-            <button onclick="exitFullscreenAndHome()" class="w-full bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 px-6 py-4 rounded-2xl font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition">
-                End Session
-            </button>
-        </div>
-    </div>
-
-
-    <!-- CORE JAVASCRIPT LOGIC -->
+    <!-- INTERFACE SCRIPTS -->
     <script>
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
@@ -1010,1009 +894,9 @@
 
         function navTo(pageId) {
             document.querySelectorAll('.site-page').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            document.getElementById('main-navbar').style.display = 'block';
-            document.getElementById('main-footer').style.display = 'block';
             document.getElementById('mobile-menu').classList.add('hidden');
             window.scrollTo(0,0);
-        }
-
-        function showView(viewId) {
-            document.querySelectorAll('.site-page').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-            if (viewId !== 'page-home') {
-                document.getElementById('main-navbar').style.display = 'none';
-                document.getElementById('main-footer').style.display = 'none';
-            }
-        }
-
-        // --- FULLSCREEN LOGIC ---
-        function enterFullscreen() {
-            try {
-                const docElm = document.documentElement;
-                if (docElm.requestFullscreen) {
-                    docElm.requestFullscreen().catch(err => {
-                        console.warn("Fullscreen API blocked or not supported:", err.message);
-                    });
-                }
-                else if (docElm.webkitRequestFullScreen) docElm.webkitRequestFullScreen();
-                else if (docElm.msRequestFullscreen) docElm.msRequestFullscreen();
-            } catch (error) {
-                console.warn("Fullscreen API error:", error.message);
-            }
-        }
-
-        function exitFullscreenAndHome() {
-            try {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen().catch(err => {
-                        console.warn("Exit Fullscreen API blocked or not supported:", err.message);
-                    });
-                }
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                else if (document.msExitFullscreen) document.msExitFullscreen();
-            } catch (error) {
-                console.warn("Exit Fullscreen API error:", error.message);
-            } finally {
-                location.reload();
-            }
-        }
-
-        // --- IMAGE DATA POOLS ---
-        const ppdtImages = Array.from({ length: 45 }, (_, i) => `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/ppdtpics/ppdt${i + 1}.jpg`);
-        const tatImages = Array.from({ length: 78 }, (_, i) => `https://raw.githubusercontent.com/ssbarena/ssbarena.github.io/master/tatpics/tat${i + 1}.jpg`);
-        const moreImages = Array.from({ length: 556 }, (_, i) => `https://raw.githubusercontent.com/vishalkumar-netizen/TAT_Picture/0a3f5bb8b475a02af1afec7378eb1f9c708bee04/More%20(${i + 1}).jpg`);
-        const TAT_IMAGES_POOL = [...ppdtImages, ...tatImages, ...moreImages];
-        
-        const WAT_WORDS_POOL = [
-            "Accept", "Achieve", "Action", "Active", "Adopt", "Aim", "Alert", "Angry", "Army", "Attack",
-            "Beat", "Beauty", "Blood", "Brave", "Care", "Caution", "Challenge", "Character", "Cheat", "Clear",
-            "Climb", "Command", "Company", "Complete", "Control", "Cooperate", "Courage", "Coward", "Crisis", "Danger",
-            "Dark", "Death", "Defeat", "Delay", "Demand", "Desire", "Determine", "Dictator", "Difficult", "Direct",
-            "Discipline", "Discuss", "Disease", "Doubt", "Duty", "Eager", "Easy", "Education", "Effort", "Enemy",
-            "Enjoy", "Escape", "Excuse", "Expect", "Fail", "Faith", "Family", "Fault", "Fear", "Fight",
-            "Fire", "Firm", "First", "Follow", "Force", "Forgive", "Free", "Friend", "Future", "Game",
-            "Girl", "Goal", "God", "Good", "Group", "Guide", "Guilt", "Habit", "Happy", "Hard",
-            "Hate", "Health", "Help", "Hero", "Hide", "High", "Hobby", "Honest", "Hope", "Idea",
-            "Ignore", "Illness", "Important", "Improve", "Initiative", "Injure", "Insult", "Intelligence", "Interest", "Jealous",
-            "Join", "Joy", "Judge", "Jump", "Justice", "Kill", "Kind", "Knowledge", "Lame", "Laugh",
-            "Lead", "Learn", "Lie", "Life", "Logic", "Lonely", "Lose", "Love", "Loyal", "Luck",
-            "Major", "Make", "Man", "Manage", "Marriage", "Master", "Meet", "Memory", "Mercy", "Method",
-            "Mind", "Mistake", "Money", "Moral", "Mother", "Murder", "Nation", "Natural", "Need", "Nervous",
-            "Normal", "Obey", "Object", "Officer", "Opinion", "Opportunity", "Oppose", "Order", "Organize", "Original",
-            "Overcome", "Pain", "Panic", "Parents", "Part", "Pass", "Patience", "Peace", "People", "Perfect",
-            "Persuade", "Pity", "Plan", "Play", "Please", "Point", "Policy", "Poor", "Popular", "Positive",
-            "Power", "Practical", "Praise", "Pray", "Prepare", "Pressure", "Pride", "Problem", "Progress", "Promise",
-            "Protect", "Proud", "Punish", "Purpose", "Quality", "Quick", "Quiet", "Race", "Reaction", "Read",
-            "Reason", "Reject", "Relation", "Religion", "Request", "Require", "Resolve", "Respect", "Response", "Responsibility",
-            "Rest", "Result", "Revenge", "Reward", "Right", "Risk", "Rule", "Run", "Sad", "Safe",
-            "Satisfy", "Save", "Secret", "Secure", "Select", "Self", "Serious", "Serve", "Shame", "Share",
-            "Shoot", "Short", "Shy", "Sick", "Simple", "Sister", "Situation", "Skill", "Sleep", "Slow",
-            "Small", "Smile", "Smooth", "Social", "Society", "Soft", "Soldier", "Solve", "Sorrow", "Soul",
-            "Sound", "Speak", "Speed", "Spirit", "Sport", "Stand", "Start", "Step", "Stop", "Story",
-            "Strength", "Strict", "Strike", "Strong", "Struggle", "Study", "Stupid", "Success", "Suffer", "Super",
-            "Support", "Sure", "Surprise", "Sympathy", "System", "Tact", "Talk", "Task", "Teacher", "Team",
-            "Tear", "Temper", "Tempt", "Tension", "Terror", "Test", "Thief", "Think", "Threat", "Time",
-            "Tired", "Tolerate", "Tough", "Train", "Treat", "Trouble", "True", "Trust", "Truth", "Try",
-            "Ugly", "Understand", "Union", "Unjust", "Urge", "Use", "Value", "Victory", "View", "Village",
-            "Vision", "Voice", "Wait", "War", "Waste", "Watch", "Water", "Way", "Weak", "Wealth",
-            "Weapon", "Win", "Wise", "Wish", "Woman", "Word", "Work", "Worry", "Wound", "Wrong",
-            "Young", "Youth", "Zeal", "Accept", "Achieve", "Action", "Active", "Adapt", "Adopt", "Advance", "Advice", "Aim", "Alert",
-"Alive", "Allow", "Alone", "Ambition", "Anger", "Answer", "Apply", "Approach", "Arrange", "Arrive",
-"Art", "Ask", "Assist", "Attempt", "Attend", "Attention", "Attitude", "Authority", "Aware", "Award",
-"Back", "Bad", "Balance", "Base", "Battle", "Be", "Bear", "Become", "Begin", "Believe",
-"Best", "Better", "Big", "Bind", "Bold", "Body", "Brave", "Break", "Build", "Busy",
-"Calm", "Care", "Carry", "Cause", "Center", "Change", "Charge", "Check", "Chief", "Choose",
-"Clean", "Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Concern",
-"Confidence", "Control", "Correct", "Courage", "Create", "Crisis", "Cross", "Current", "Cut", "Daily",
-"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Do", "Done", "Drive", "Duty",
-"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Exact", "Example",
-"Execute", "Exercise", "Exist", "Expand", "Expect", "Experience", "Expert", "Explain", "Explore", "Express",
-"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Full",
-"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-"Human", "Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire",
-"Intend", "Interest", "Judge", "Join", "Keep", "Key", "Kind", "Know", "Knowledge", "Lead",
-"Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live", "Look",
-"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Much", "Need", "New", "Next",
-"Nice", "Normal", "Note", "Notice", "Now", "Obey", "Observe", "Offer", "Open", "Operate",
-"Order", "Organize", "Other", "Overcome", "Own", "Pain", "Part", "Participate", "Pass", "Patience",
-"Perform", "Plan", "Play", "Point", "Power", "Practice", "Prepare", "Present", "Press", "Prevent",
-"Problem", "Process", "Produce", "Progress", "Protect", "Prove", "Public", "Pull", "Push", "Quality",
-"Quick", "Quiet", "Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive",
-"Record", "Reduce", "Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember",
-"Remove", "Repeat", "Reply", "Report", "Respect", "Respond", "Rest", "Result", "Return", "Review",
-"Right", "Rise", "Risk", "Run", "Safe", "Save", "Say", "Search", "Secure", "See",
-"Seek", "Select", "Self", "Send", "Sense", "Serve", "Set", "Settle", "Share", "Shift",
-"Short", "Show", "Simple", "Skill", "Slow", "Small", "Smart", "Solve", "Sound", "Speak",
-"Special", "Speed", "Stand", "Start", "State", "Stay", "Step", "Stop", "Store", "Strong",
-"Study", "Success", "Support", "Sure", "System", "Take", "Talk", "Task", "Team", "Teach",
-"Test", "Think", "Time", "Train", "Try", "Turn", "Understand", "Unit", "Use", "Value",
-"View", "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise",
-"Work", "World", "Worry", "Write", "Young", "Zero",
-"Abandon", "Ability", "Able", "Abuse", "Accident", "Account", "Accuse", "Across", "Act", "Actor",
-"Actual", "Add", "Address", "Adjust", "Admire", "Admit", "Adult", "Advance", "Adventure", "Advertise",
-"Affect", "Afford", "Afraid", "After", "Again", "Against", "Age", "Agency", "Agent", "Agree",
-"Ahead", "Aid", "Air", "Alarm", "Album", "Alcohol", "Alertness", "Alien", "Alive", "All",
-"Allow", "Almost", "Alone", "Along", "Already", "Also", "Alter", "Always", "Amazing", "Ambitious",
-"Amount", "Amuse", "Analyse", "Ancient", "And", "Angel", "Angle", "Animal", "Announce", "Annual",
-"Another", "Answer", "Any", "Anyone", "Anything", "Anyway", "Apart", "Apartment", "Apologize", "Apparent",
-"Appeal", "Appear", "Apple", "Application", "Apply", "Appoint", "Appreciate", "Approve", "Area", "Argue",
-"Arm", "Army", "Around", "Arrange", "Arrest", "Arrive", "Art", "Article", "Artist", "As",
-"Ask", "Asleep", "Aspect", "Assist", "Assume", "At", "Attach", "Attack", "Attempt", "Attend",
-"Attention", "Attitude", "Attract", "Audience", "Author", "Auto", "Available", "Avoid", "Await", "Awake",
-"Baby", "Back", "Bad", "Bag", "Bake", "Balance", "Ball", "Ban", "Band", "Bank",
-"Bar", "Bare", "Bargain", "Base", "Basic", "Basis", "Battle", "Be", "Beach", "Bear",
-"Beat", "Beautiful", "Because", "Become", "Bed", "Before", "Begin", "Behavior", "Behind", "Believe",
-"Benefit", "Best", "Better", "Between", "Beyond", "Big", "Bill", "Bind", "Biology", "Bird",
-"Birth", "Bit", "Bite", "Black", "Blade", "Blame", "Blank", "Blind", "Block", "Blood",
-"Blow", "Blue", "Board", "Boat", "Body", "Boil", "Bold", "Bomb", "Bone", "Book",
-"Border", "Born", "Borrow", "Boss", "Both", "Bottle", "Bottom", "Bound", "Bow", "Box",
-"Boy", "Brain", "Branch", "Brave", "Bread", "Break", "Breath", "Bridge", "Brief", "Bright",
-"Bring", "Broad", "Broken", "Brother", "Brown", "Build", "Burn", "Burst", "Business", "Busy",
-"Calm", "Care", "Carry", "Catch", "Cause", "Center", "Change", "Charge", "Check", "Choose",
-"Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Control", "Courage",
-"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Drive", "Duty", "Do", "Done",
-"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Example", "Execute",
-"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Future",
-"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-"Guard", "Gainful", "Gentle", "Genuine", "Glad", "Global", "Go", "Ground", "Group", "Grateful",
-"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-"Human", "Hurry", "Habit", "Harm", "Hero", "Humble", "Hunt", "Hear", "Heart", "Honor",
-"Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire", "Intend",
-"Interest", "Inform", "Influence", "Important", "Improve", "Involve", "Issue", "Invite", "Ignore", "Invent",
-"Judge", "Join", "Jump", "Job", "Joy", "Just", "Journey", "Justice", "Junior", "Joke",
-"Jealous", "Jolly", "Journal", "Junction", "Jail", "Jewel", "Jerk", "Jet", "Jungle", "Juggle",
-"Keep", "Key", "Kind", "Know", "Knowledge", "Kick", "Kill", "Keen", "Kite", "Knock",
-"Knot", "Knife", "King", "Kindness", "Kid", "Kitchen", "Knee", "Kettle", "Karma", "Known",
-"Lead", "Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live",
-"Look", "Love", "Lose", "Loss", "Luck", "Loyal", "Lead", "Labour", "Large", "Late",
-"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Motivate", "Moral", "Major", "March",
-"Need", "New", "Next", "Nice", "Normal", "Note", "Notice", "Now", "Name", "Near",
-"Neat", "Noble", "Noise", "None", "Number", "Nurture", "Nation", "Natural", "Narrow", "Necessary",
-"Obey", "Observe", "Offer", "Open", "Operate", "Order", "Organize", "Other", "Overcome", "Own",
-"Object", "Obtain", "Occur", "Offend", "Often", "Old", "Only", "Oppose", "Option", "Out",
-"Pain", "Part", "Participate", "Pass", "Patience", "Perform", "Plan", "Play", "Point", "Power",
-"Practice", "Prepare", "Present", "Press", "Prevent", "Problem", "Process", "Produce", "Progress", "Protect",
-"Quality", "Quick", "Quiet", "Question", "Queue", "Quit", "Quarrel", "Quest", "Quote", "Quench",
-"Quickly", "Quietly", "Qualification", "Quantity", "Quirk", "Quiver", "Queen", "Query", "Quilt", "Quotient",
-"Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive", "Record", "Reduce",
-"Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember", "Remove", "Repeat",
-"Safe", "Save", "Say", "Search", "Secure", "See", "Seek", "Select", "Self", "Send",
-"Sense", "Serve", "Set", "Share", "Shift", "Short", "Show", "Simple", "Skill", "Solve",
-"Take", "Talk", "Task", "Team", "Teach", "Test", "Think", "Time", "Train", "Try",
-"Turn", "Trust", "Truth", "Tough", "Target", "Talent", "Travel", "Teach", "Thinker", "Timely",
-"Understand", "Unit", "Use", "Value", "Utilize", "Unite", "Unique", "Useful", "Urgent", "Uplift",
-"Update", "Upgrade", "Upright", "Ultimate", "Uncertain", "Unfair", "Unfit", "Unite", "Urban", "User",
-"Value", "View", "Victory", "Vision", "Visit", "Voice", "Volunteer", "Valid", "Vary", "Vast",
-"Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
-"Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
-"World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
-        ];
-
-        const SRT_POOL = [
-             "He has gone on a cycling expedition with six persons but two cycles have got punctured on a deserted patch. He ___________",
-            "His call for the SSB has come for the same day as his MNC interview and his best friend’s marriage. He ___________",
-            "In the SSB, on the first day, he finds that no one is talking to him. He ___________",
-            "He has been kidnapped and asked to sign a ransom note for ₹10 lakh. He ___________",
-            "Two of his best friends are quarrelling with each other. He ___________",
-            "In the train, two dacoits are looting passengers and demand his belongings. He ___________",
-            "During NCC guard duty at night, he finds two strangers approaching the camp. He ___________",
-            "As picnic in-charge, halfway he realizes food packets and music system were left behind. He ___________",
-            "At his friend’s wedding, a scuffle breaks out between baratis and gharatis. He ___________",
-            "He is staying in rented accommodation and the landlady asks only him to vacate. He ___________",
-            "In a circus show, two lions go out of control and jump on the crowd. He ___________",
-            "At an exhibition, a fake company is misleading people with false propaganda. He ___________",
-            "His father decides to change his will in favor of his younger brother. He ___________",
-            "He wins ₹25 lakh and faces multiple financial demands from family and responsibilities. He ___________",
-            "He and his girlfriend want to watch a movie but tickets are only available in black. He ___________",
-            "He returns home to find his mother insulted by a neighbor’s son. He ___________",
-            "His father has chosen a wealthy girl while he is attracted to others. He ___________",
-            "Two friends want him to mediate but he has urgent work for his father. He ___________",
-            "At a religious place, beggars are harassing a foreign girl. He ___________",
-            "His father wants to cut relations with his uncle who treats him like a son. He ___________",
-            "An organiser falls sick and he is asked to manage a school function last moment. He ___________",
-            "His neighbor’s son falls into a river and no adults are nearby. He ___________",
-            "There is fire in a girls’ hostel nearby and men may not be allowed inside. He ___________",
-            "While riding a scooter, an old man asks for a lift but the tyre has low air. He ___________",
-            "His mother wants to visit a temple but he has an exam and no transport is available. He ___________",
-            "He has to attend SSB in Bengaluru but there is a railway strike. He ___________",
-            "During a picnic, one bus has all tyres punctured and the other driver is missing. He ___________",
-            "After reaching a circuit house at night, the chowkidar is absent. He ___________",
-            "During a debate, all spectators walk away when his turn comes. He ___________",
-            "At a wedding, food runs short despite being delicious. He ___________",
-            "In a train, one lady is stabbed and another is about to deliver a baby. He ___________",
-            "At a railway station, he finds a beggar shivering in cold. He ___________",
-            "He goes to receive a friend but gets stuck in a heavy traffic jam. He ___________",
-            "He wants to organize a cricket match but authorities favor a hockey match. He ___________",
-            "At college gate, he finds a bag with explosives and people suspect him. He ___________",
-            "A murder happens in his village and he is falsely named as a suspect. He ___________",
-            "While driving downhill, the brakes of his vehicle fail. He ___________",
-            "His sister in Nagaland is surrounded by unknown people approaching her. He ___________",
-            "While delivering a lecture, the audience shows no interest. He ___________",
-            "His friend visited him but he was away and now the friend is upset. He ___________",
-            "He is unemployed but refuses to join his father’s business. He ___________",
-            "His peon needs money for daughter’s marriage but he has limited funds. He ___________",
-            "His classmates mock his simple lifestyle and clothes. He ___________",
-            "In a drought area, relief materials are not reaching the needy. He ___________",
-            "His uncle and father disagree on his education path. He ___________",
-            "He witnesses chain snatching, theft, stabbing and accident happening together. He ___________",
-            "Before a match, his team is poisoned by opponents. He ___________",
-            "His marriage causes conflict between his father and grandfather. He ___________",
-            "His hostel roommates are not friendly with him. He ___________",
-            "In a boat, he sees a drowning person but he is not a good swimmer. He ___________",
-            "A fire breaks out nearby but many people are already handling it. He ___________",
-            "In a group, his opinion differs from others. He ___________",
-            "His hostel roommate does not like him. He ___________",
-            "He was given responsibility for an event but now replaced. He ___________",
-            "During an army camp, volunteers strike due to rude behavior of a JCO. He ___________",
-            "His car breaks down at night in an isolated area. He ___________",
-            "While ironing, he gets an electric shock and sees the wire burning. He ___________",
-            "In a cricket match, the captain is absent suddenly. He ___________",
-            "During an outing, he argues with his friends. He ___________",
-            "After school, he is forced into a railway job against his interest. He ___________",
-            "He has done something that he should not have done and is being confronted by his friends. He ___________",
-            "He is present where an accident has taken place and the mob has started thrashing the driver. He ___________",
-            "In a play, he was offered a subordinate role whereas he deserved a better role as he was a better performer. He ___________",
-            "He was called upon to organise a variety show in his college. He ___________",
-            "Being in a tight corner when he is called to take a new step. He ___________",
-            "He is tackling a problem which he is unable to solve. He ___________",
-            "He finds it rather difficult to get admission for a study course of his choice. He ___________",
-            "He feels strongly that a person can achieve a lot if he. He ___________",
-            "He finds a person lying flat on the ground and many people have surrounded him. He ___________",
-            "He is getting late in reaching a meeting. He ___________",
-            "His leader has lost his way while taking his group for trekking. He ___________",
-            "While sharing a room with another boy, he did not find him friendly. He ___________",
-            "He prefers to select Army as a career, but his father is against it. He ___________",
-            "While travelling in the train, he finds that he has lost his ticket and money. He ___________",
-            "He is contesting an election and to win it. He ___________",
-            "He is the secretary of the college union while the president is a girl from the opposite group. He ___________",
-            "Finding that the group leader is not working well. He ___________",
-            "He finds that some members of his group differ with him on the line of action. He ___________",
-            "Monday is his lucky day but he has an interview on Saturday. He ___________",
-            "Since he has not done well in his studies, he is being scolded by his father. He ___________",
-            "College representatives are to be selected and his chances for election are not bright. He ___________",
-            "He has been asked to organise a charity show. He ___________",
-            "He feels that workers in his organisation are not paying sufficient attention to work. He ___________",
-            "The group is present when a car struck a cycle. He ___________",
-            "He had gone to the station to see off his friend and hears a woman crying 'thief'. He ___________",
-            "Two of his classmates seek his assistance while he is preparing for exams. He ___________",
-            "While going on a picnic, his friends refuse to take part in a music competition. He ___________",
-            "His best friend joins opponents and contests elections against him. He ___________",
-            "His friend is on hunger strike but his father warns him not to join. He ___________",
-            "He collected money for picnic but loses the entire collection before purchase. He ___________",
-            "His favourite game is basketball but there is no court in his school. He ___________",
-            "His mathematics teacher is retiring and classmates want to organise a tea party. He ___________",
-            "He was asked to organise a debate but students are not interested due to exams. He ___________",
-            "He is cricket captain but his mother is seriously ill and father is not at home. He ___________",
-            "In office, he is given a task without briefing and no time to prepare. He ___________",
-            "His boss asks him to do work in a way he feels is inappropriate. He ___________",
-            "In exam hall, he realises he forgot his admit card just before exam. He ___________",
-            "During picnic, a wild animal approaches while others are away swimming. He ___________",
-            "His friend's family is asleep when their house catches fire. He ___________",
-            "While returning from work, a truck knocks down a cyclist in front of him. He ___________",
-            "His parents are away and his brother plans court marriage against their wish. He ___________",
-            "He has to carry money with risk of robbery on the way. He ___________",
-            "While going to office, police ask him to give statement as witness in accident. He ___________",
-            "At 18, his father suffers a heart attack and he is the eldest in family. He ___________",
-            "His father wants him to become a doctor but he failed entrance thrice and is not interested. He ___________",
-            "During picnic, a friend steals mangoes and gardener confronts them angrily. He ___________",
-            "He reaches exam late and invigilator refuses permission to sit. He ___________",
-            "His classmates want to complain against a teacher but he disagrees and they ignore him. He ___________",
-            "His land is occupied by neighbours who threaten him when he objects. He ___________",
-            "He has an interview and exam on the same day. He ___________",
-            "He is a notorious student and principal decides to rusticate him for three years. He ___________",
-            "He refuses to join classmates in tournament and they start abusing him. He ___________",
-            "He quarrels with his uncle and uncle decides to leave home in father's absence. He ___________",
-            "He is made section commander during NCC camp for a drill competition. He ___________",
-            "During a bus accident, many are injured seriously while he has minor injuries. He ___________",
-            "In jungle, he and friends see a tiger at a distance of 10 metres. He ___________",
-            "A co-passenger asks him for money after losing ticket and TC arrives. He ___________",
-            "While returning from picnic, a rope bridge breaks while half group crossed river. He ___________",
-            "At railway station, an ammunition wagon catches fire after explosion. He ___________",
-            "While climbing a rock, sand beneath starts sliding and there is nothing to hold. He ___________",
-            "He was the captain of the college aquatics team in a tournament and one of their important players was unable to take part. He ___________",
-            "While travelling in a train, he finds two ladies quarrelling and an unclaimed briefcase in the compartment. He ___________",
-            "His father became severely ill and no one else was at home. He ___________",
-            "He comes home late at night and finds a strong smell of gas in the kitchen. He ___________",
-            "He was going to the examination hall when he was surrounded by some policemen. He ___________",
-            "He observes that a helicopter has fallen near his school. He ___________",
-            "His class teacher is too strict. He ___________",
-            "At night, he hears a cry and finds his neighbour unconscious with a knife in his chest. He ___________",
-            "A fire breaks out in his village and flames are approaching the haystack. He ___________",
-            "While watching a movie, he hears a shout of fire in a corner. He ___________",
-            "While returning home at night, a big snake comes in front of him. He ___________",
-            "During night patrolling, he falls into a dry well and cannot come out. He ___________",
-            "While boating, his boat develops a crack in mid-stream with strong current. He ___________",
-            "Drought conditions are prevailing in his district. He ___________",
-            "While riding a scooter, he sees miscreants harassing a girl in another vehicle. He ___________",
-            "He is working under two officers who give conflicting orders. He ___________",
-            "In a temple, he finds beggars harassing devotees. He ___________",
-            "He has to urgently cross a river but there is a traffic jam on the bridge. He ___________",
-            "He does not drink but his friends insist during his marriage party. He ___________",
-            "During an evening walk, he sees a man thrown out of a speeding taxi. He ___________",
-            "He is riding a scooter without a license and a policeman asks for it. He ___________",
-            "He is in a hurry but finds an old man fainted on the way. He ___________",
-            "In the exam hall, he cannot solve most questions and passing is important. He ___________",
-            "People do not listen to his arguments because he is. He ___________",
-            "He finds his neighbour’s house on fire while people are sleeping upstairs. He ___________",
-            "During sea duty at night, he falls overboard in rough sea. He ___________",
-            "There is famine in his city and people are dying of hunger. He ___________",
-            "While waiting for a bus, he sees a man falling from a moving bus. He ___________",
-            "His classmates want to go on strike. He ___________",
-            "He sees his friend with another friend’s girlfriend. He ___________",
-            "When he comes in conflict with others. He ___________",
-            "A boat develops a leak in mid-river with non-swimmers onboard. He ___________",
-            "His parents cannot afford college but he wants to continue studies. He ___________",
-            "His father forces science but he is interested in literature. He ___________",
-            "Neighbours give him house keys and their house catches fire. He ___________",
-            "While travelling, he loses a suitcase borrowed from his friend. He ___________",
-            "In the company of friends, he feels. He ___________",
-            "He is unsure of success in an examination. He ___________",
-            "In a group, his opinion differs from others. He ___________",
-            "During an exam, if he is not doing well. He ___________",
-            "If some people are having an argument. He ___________",
-            "If things go wrong. He ___________",
-            "If he has a difference of opinion with someone. He ___________",
-            "Most of the people he comes in contact with are. He ___________",
-            "To deal with an emergency. He ___________",
-            "He had to take a batch of boys on a sightseeing tour. He ___________",
-            "In college elections, he is forced to vote for someone he dislikes. He ___________",
-            "He boards a wrong train and is asked to pay extra money. He ___________",
-            "While playing hockey, he twists his ankle badly. He ___________",
-            "He gets lost in a jungle in Nagaland and is confronted by armed locals. He ___________",
-            "He learns his friend must leave studies due to lack of funds. He ___________",
-            "After exams, he finds his village tense due to political conflict. He ___________",
-            "While climbing a rock, he injures his leg and cannot walk back. He ___________",
-            "After higher secondary, he cannot decide his future subjects. He ___________",
-            "He sees a child in canal whose tube is deflating. He ___________",
-            "Before a tournament semi-final, his partner leaves urgently. He ___________",
-            "While cycling in rain, his cycle gets punctured on the way. He ___________",
-            "He has to accompany a friend at night to a place five miles away. He ___________",
-            "While returning from a movie, he sees three men attacking a student. He ___________",
-            "After higher secondary, his father wants engineering but he prefers Army. He ___________",
-            "Faced with strong opposition, he ___________",
-            "If he finds his hostel roommate not very friendly, he ___________",
-            "If he is asked to arrange a farewell party for an outgoing headmaster, he ___________",
-            "If he fails to get selected to represent his college team, he ___________",
-            "If most members of his group oppose his opinion, he ___________",
-            "If he is given a job which he finds very difficult, he ___________",
-            "He is asked to arrange a picnic. He ___________",
-            "If he has done something he should not have done, he ___________",
-            "If he is given a job in which he is not interested, he ___________",
-            "If he happens to be present at the site of an accident, he ___________",
-            "If he has to deliver a lecture, he ___________",
-            "A task assigned to him is given to another person and he is given an inferior job. He ___________",
-            "His team members differ on important matters. He ___________",
-            "His friends want him to contest college elections but his parents are hesitant. He ___________",
-            "His father wants him to join business but he wants to become a doctor. He ___________",
-            "His friend is punished by teacher but he feels it is unjust. He ___________",
-            "His two teachers are not getting along and the atmosphere is tense. He ___________",
-            "He wants to organise a cricket match but the principal denies permission and friends plan a strike. He ___________",
-            "His friend is fined for absence despite representing school in games and no one listens. He ___________",
-            "He joined late and cannot cope with fast teaching speed. He ___________",
-            "He volunteers to assist victims but is not allowed to help. He ___________",
-            "While travelling in a bus, he finds the driver intoxicated and not in control. He ___________",
-            "He gets lost in jungle during shikar, it is dark and vehicle runs out of petrol. He ___________",
-            "He was not invited to a friend's birthday party but others ask him to attend. He ___________",
-            "His father asks him not to stay out late at night though he is grown up. He ___________",
-            "He leaves an unfinished task only when ___________",
-            "If a discussion becomes tense, he ___________",
-            "At a railway station, someone shouts 'thief'. He ___________",
-            "He fails twice to climb his favourite peak despite success elsewhere. He ___________",
-            "During vacations, his friend invites him but his mother is unwell. He ___________",
-            "He is in a deserted area with a punctured motorcycle tyre. He ___________",
-            "He goes to Shimla and loses all his belongings in the train. He ___________",
-            "He finds an unattended suspicious box under his berth in train. He ___________",
-            "While walking with his wife, he encounters a poisonous snake. He ___________",
-            "He is assigned a job by his boss which he feels is illegal. He ___________",
-            "As head of office, he finds a subordinate coming late daily. He ___________",
-            "He notices staff conspiring against him in office. He ___________",
-            "He is asked to prepare a false report by his boss. He ___________",
-            "While going on leave, he finds jawans travelling without proper leave. He ___________",
-            "He sees suspicious persons leaving a box in bus and getting down. He ___________",
-            "He is not allowed to take exam due to missing certificate. He ___________",
-            "He wants to take a job not liked by his parents. He ___________",
-            "He finds his roommate addicted to drugs and alcohol. He ___________",
-            "As captain, he finds his team taking practice casually. He ___________",
-            "He is given a task which he cannot perform. He ___________",
-            "He is scolded for misconduct of his subordinates. He ___________",
-            "He sees a poisonous cobra entering his office without any tool to defend. He ___________",
-            "He is asked to appear for promotion exam without preparation. He ___________",
-            "He is assigned a job by a boss whom he dislikes. He ___________",
-            "He wants to modernise institution but subordinates do not cooperate. He ___________",
-            "He wins a lottery of ₹5 lakhs. He ___________",
-            "While at home, he finds his brother involved in corrupt practices. He ___________",
-            "While going for exam, he meets with an accident and another person is seriously injured. He ___________",
-            "While going for interview, his clothes get stained and he has no time to change. He ___________",
-            "He is captain before final match and gets news of his father’s serious accident. He ___________",
-            "His boss asks him for an illegitimate loan from institutional funds. He ___________",
-            "A stranger informs him about plans to destroy public property. He ___________",
-            "He has plenty of time during summer vacations. He ___________",
-            "He has strained relations with his neighbour. He ___________",
-            "While extinguishing fire, he is falsely accused of starting it. He ___________",
-            "At a party hosted by him on his promotion, his boss gets annoyed due to sarcastic remarks of his elder brother and leaves without a meal. He ___________",
-            "While going to college, he finds a cyclist knocked down by a fast-moving car but cannot note the number. He ___________",
-            "At his friend’s marriage, the groom and his father leave due to dowry issues and the bride becomes unconscious. He ___________",
-            "While taking his father for treatment, he slips, fractures his hip and no conveyance is available in heavy rain. He ___________",
-            "In a cinema hall, some miscreants are teasing a girl in the front row. He ___________",
-            "While travelling in a taxi, he sees a person thrown out from another taxi. He ___________",
-            "He has to go for a hockey match but his friend does not turn up and his scooter tyres are flat. He ___________",
-            "He finds people quarrelling over a purse and police catch him with it. He ___________",
-            "While going to attend SSB, he loses his belongings including ticket and documents in the train. He ___________",
-            "While returning from a late show, he finds miscreants molesting a girl on a lonely road. He ___________",
-            "He has to deposit exam fees but his poor friend urgently needs money. He ___________",
-            "While climbing a mountain, his teammate sprains his ankle and cannot move. He ___________",
-            "While going on a picnic, his cycle gets punctured in a jungle and no help is available. He ___________",
-            "His exams are near but his weak friend comes for help in studies. He ___________",
-            "His parents cannot afford his education but he wants to continue studies. He ___________",
-            "His mother and wife quarrel daily causing tension at home. He ___________",
-            "His father wants him to join his profession but he wants to join defence services. He ___________",
-            "His parents are old and financially weak but want him to continue studies. He ___________",
-            "His poor friend cannot pay fees and he also has limited money. He ___________",
-            "His marriage is fixed but the girl loses one eye in an accident before marriage. He ___________",
-            "He has to catch a train but the coolie disappears with his luggage. He ___________",
-            "He lends money to his friend but now urgently needs it back. He ___________",
-            "He is leading a hiking party but two members want to return midway. He ___________",
-            "His mother is seriously ill but his boss refuses to grant leave. He ___________",
-            "His parents ask him to return home early but friends plan a late party. He ___________",
-            "His brother is leaving for USA but he has to report for duty at the border. He ___________",
-            "The bridge is washed away and he must reach home with medicine for his sick mother. He ___________",
-            "He is a factory manager facing labour problems and his sister’s marriage is near. He ___________",
-            "He is working under two officers who are not on good terms and give conflicting instructions. He ___________",
-            "While returning from a movie, police find contraband in his scooter. He ___________",
-            "At midnight, two armed persons enter his house seeking shelter with blood-stained clothes. He ___________",
-            "During a trip, all his belongings are stolen. He ___________",
-            "Dacoits threaten villagers for money and he is the headman’s son. He ___________",
-            "In a bus at night, armed miscreants loot passengers and molest girls. He ___________",
-            "He is contesting elections but his opponent is influencing voters against him. He ___________",
-            "At midnight, he hears a frightened female voice near his house. He ___________",
-            "College students plan a strike and ask him to join. He ___________",
-            "His best friend accuses him publicly of instigating his girlfriend. He ___________",
-            "He and his friend are standing on a bridge over a river and his friend who does not know swimming suddenly falls down. He ___________",
-            "He and his brother lose their way in a forest and it is becoming dark. He ___________",
-            "While going to attend an important meeting, he sees a serious accident between an auto rickshaw and a tonga. He ___________",
-            "His father has fixed his marriage with a rich girl but he is in love with his classmate. He ___________",
-            "His exams are near and he is not fully prepared when a guest arrives at home. He ___________",
-            "His parents are away and his younger brother gets high fever at night during heavy rain. He ___________",
-            "At night, he notices a thief entering his neighbour’s house just before his exam next day. He ___________",
-            "Two groups are quarrelling over a religious issue and he belongs to the minority group. He ___________",
-            "A fire breaks out in his village at night and he is the only electrician there. He ___________",
-            "He is studying and taking tuitions but lacks time for exams due to weak financial condition. He ___________",
-            "While boating in a river, he falls into fast current and does not know swimming. He ___________",
-            "In the bathroom, a cobra enters through the drain and blocks his path. He ___________",
-            "He finds his girlfriend talking to his rival. He ___________",
-            "While going for an exam, he sees a person fall from a moving bus. He ___________",
-            "He returns late from NCC camp and his stepmother does not open the door. He ___________",
-            "There is a flood in his village and his house is about to collapse at night. He ___________",
-            "While climbing a mountain, one teammate slips and falls down. He ___________",
-            "During a coastal trip, a storm approaches and tide rises suddenly. He ___________",
-            "His friend is being harassed by his boss in office. He ___________",
-            "His final exams and a job interview are on the same day. He ___________",
-            "He has arranged a party and suddenly heavy rain starts after guests arrive. He ___________",
-            "He is hosting a party for his boss and receives bad news during the event. He ___________",
-            "He is travelling by train and his briefcase goes missing. He ___________",
-            "He receives conflicting orders from two superior officers. He ___________",
-            "Other players revolt against his appointment as team captain. He ___________",
-            "An epidemic spreads in his village due to poor hygiene conditions. He ___________",
-            "While discussing his viewpoint in a group, others ignore him. He ___________",
-            "He notices a car speeding and running over a child. He ___________",
-            "A fellow passenger falls from a moving train. He ___________",
-            "His parents want him to marry a wealthy but less educated girl. He ___________",
-            "He made a silly mistake in his work and his friend points it out. He ___________",
-            "The lane outside his house is flooded after heavy rain. He ___________",
-            "His friend needs money for his father's operation and he finds a purse. He ___________",
-            "He sees someone drowning in a river and he doesn't know swimming. He ___________",
-            "While going for an SSB interview, his dress gets torn on the bus. He ___________",
-            "He is stuck in a traffic jam while going to an important meeting. He ___________",
-            "His grandmother has a sudden heart attack right before his final exam. He ___________",
-            "He must take his mother for shopping and also finish his project. He ___________",
-            "He finds students pulling the emergency chain on a train for fun. He ___________",
-            "His sister is unhappy with her arranged marriage just before the wedding. He ___________",
-            "He gets lost in a dense jungle during a trekking camp. He ___________",
-            "His wallet and tickets get stolen while traveling to a new city. He ___________",
-            "A sudden fire breaks out at his home at midnight. He ___________",
-            "He sees someone suspiciously climbing a neighbor's house. He ___________",
-            "He sees a crowd getting aggressive over a minor parking delay. He ___________",
-            "His friend borrows the exact book he needs for tomorrow's exam. He ___________",
-            "His leave is denied during his sister's marriage. He ___________",
-            "A sudden strike takes place and his leave ends but trains are cancelled. He ___________",
-            "He observes someone smoking in a public non-smoking zone. He ___________",
-            "He has to handle two urgent tasks at the exact same time. He ___________",
-            "His co-worker is unwell and a major project deadline is today. He ___________",
-            "His bike breaks down in an isolated place at night. He ___________",
-            "He forgets his assignment at home on the final presentation day. He ___________",
-            "He witnesses a theft in his neighborhood. He ___________",
-            "He is asked to organize a football match but has no funds. He ___________",
-            "He boarded a wrong train and only minutes are left to change. He ___________",
-            "He and his father met with an accident and his father is injured. He ___________",
-            "Due to a cyclone his family lost all their possessions. He ___________",
-            "In his compartment, gunmen force passengers to give belongings. He ___________",
-            "He was in charge of a wireless board and lost communication. He ___________",
-            "In his free period his friends were continuously disturbing him. He ___________",
-            "He is given a job he is not interested in. He ___________",
-            "In his village two parties got in conflict during election. He ___________",
-            "During blackout exercises, he was on duty but one man was adamant. He ___________",
-            "He is asked to perform a tough task which his seniors failed. He ___________",
-            "He finds out that his best friend has been cheating him. He ___________",
-            "Emergency is declared in the city where his unit is located. He ___________",
-            "His wife is seriously sick but his boss refused to give leave. He ___________",
-            "Financial condition is weak but parents want him to study. He ___________",
-            "Marriage is fixed but the girl meets with an accident. He ___________",
-            "He felt that the work he is engaged in is completely useless. He ___________",
-            "He finds a person lying unconscious on the road bleeding. He ___________",
-            "He is given a task that violates his personal ethics. He ___________",
-            "He is returning home late at night and sees three men teasing a girl. He ___________",
-            "He finds a sealed envelope marked confidential on the street. He ___________",
-            "During an excursion, his group is attacked by wild bees. He ___________",
-            "His juniors mock his new initiatives in the workplace. He ___________",
-            "He notices his roommate is depressed and stopped attending classes. He ___________",
-            "He needs to reach the exam hall but his cab breaks down. He ___________",
-            "A senior officer insults him in front of his subordinates. He ___________",
-            "He sees a snake near the feet of his sleeping brother. He ___________",
-            "During a boat ride, the boat starts leaking. He ___________",
-            "He finds a bag full of explosives at a crowded bus stand. He ___________",
-            "He is about to submit his paper when he realizes he skipped a section. He ___________",
-            "Neighbors are playing loud music before his important interview. He ___________",
-            "He catches a student cheating in the exam hall. He ___________",
-            "His team loses a match because of a blunder by him. He ___________"
-        ];
-
-        // --- STATE & UTILS ---
-        let appState = {
-            testQueue: [],
-            results: { ppdt: null, tat: [], wat: [], srt: [] }, // Storing stimuli only
-            currentTatIndex: 0,
-            currentWatIndex: 0,
-            currentTatImages: [],
-            currentTimeout: null, // Global tracker for timeouts
-            instructionInterval: null
-        };
-
-        // Generates a professional digital beep sound
-        function playBeep() {
-            try {
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-                
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // 800Hz frequency
-                
-                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // Volume
-                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3); // Fade out
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                
-                oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.3); // 0.3 seconds duration
-            } catch (error) {
-                console.warn("Beep audio blocked or not supported:", error.message);
-            }
-        }
-
-        function shuffle(array) {
-            let currentIndex = array.length, randomIndex;
-            while (currentIndex !== 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-
-        function getBase64Image(imgEl) {
-            const canvas = document.createElement("canvas");
-            canvas.width = imgEl.naturalWidth;
-            canvas.height = imgEl.naturalHeight;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(imgEl, 0, 0);
-            return canvas.toDataURL("image/jpeg");
-        }
-
-        // --- INSTRUCTION SYSTEM ---
-        const INSTRUCTIONS = {
-            PPDT: {
-                title: "Instruction for PPDT",
-                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
-                        <li>A blurred picture shown for <strong>30 seconds</strong></li>
-                        <li>Observe: characters, mood, action, background</li>
-                        <li><strong>1 minute:</strong> to write down the basic details Mention:
-                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>No. of characters</li>
-                                <li>Age, gender, mood, define action</li>
-                            </ul>
-                        </li>
-                        <li><strong>Write story in 4 minutes:</strong>
-                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>What led to situation (past)</li>
-                                <li>What is happening (present)</li>
-                                <li>What will happen (future)</li>
-                            </ul>
-                        </li>
-                    </ul>`
-            },
-            TAT: {
-                title: "Instruction for TAT",
-                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
-                        <li>12 pictures (last is blank)</li>
-                        <li>Each picture shown for <strong>30 sec</strong></li>
-                        <li>Write story in <strong>4 min each</strong></li>
-                        <li><strong>👉 Story must include:</strong>
-                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>Main character (like you)</li>
-                                <li>Problem/challenge</li>
-                                <li>Logical action</li>
-                                <li>Positive outcome</li>
-                            </ul>
-                        </li>
-                        <li><strong>👉 12th (blank slide):</strong> Write your own real-life based story</li>
-                    </ul>`
-            },
-            WAT: {
-                title: "Instruction for WAT",
-                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
-                        <li>60 words</li>
-                        <li>Each word shown for <strong>15 seconds</strong></li>
-                        <li><strong>👉 Write:</strong>
-                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>First thought that comes to mind</li>
-                                <li>A meaningful sentence</li>
-                            </ul>
-                        </li>
-                    </ul>`
-            },
-            SRT: {
-                title: "Instruction for SRT",
-                html: `<ul class="list-disc pl-6 space-y-3 font-medium">
-                        <li>60 situations</li>
-                        <li>Time: <strong>30 minutes</strong> total</li>
-                        <li><strong>👉 Write:</strong>
-                            <ul class="list-[circle] pl-8 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>What action you will take in that situation</li>
-                                <li>Quick, practical, responsible response</li>
-                            </ul>
-                        </li>
-                    </ul>`
-            }
-        };
-
-        function playInstructions(type, startCallback) {
-            enterFullscreen();
-            showView('instruction-view');
-            
-            document.getElementById('inst-title').innerText = INSTRUCTIONS[type].title;
-            document.getElementById('inst-content').innerHTML = INSTRUCTIONS[type].html;
-            
-            let timeLeft = 30; // 30 seconds instructions
-            document.getElementById('inst-timer').innerText = timeLeft;
-            
-            clearInterval(appState.instructionInterval);
-            appState.instructionInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('inst-timer').innerText = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(appState.instructionInterval);
-                    startCallback();
-                }
-            }, 1000);
-        }
-
-
-        // --- PPDT LOGIC (Strict 3 Phases) ---
-        function startPPDT() {
-            appState.testQueue = ['PPDT_END']; // Ensure it goes to result after
-            appState.results.ppdt = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
-            playInstructions('PPDT', executePPDTPhase1);
-        }
-
-        function executePPDTPhase1() {
-            showView('ppdt-display-view');
-            document.getElementById('ppdt-phase1').classList.remove('hidden');
-            document.getElementById('ppdt-phase2').classList.add('hidden');
-            document.getElementById('ppdt-phase3').classList.add('hidden');
-
-            const img = document.getElementById('ppdt-image');
-            const loading = document.getElementById('ppdt-loading');
-
-            img.classList.add('hidden');
-            loading.classList.remove('hidden');
-            img.crossOrigin = "Anonymous";
-            
-            img.onload = () => {
-                loading.classList.add('hidden');
-                img.classList.remove('hidden');
-                // Capture data for PDF
-                try { appState.results.ppdtObj = { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight }; } catch(e){}
-                
-                // Phase 1 Timer: 30 Seconds
-                appState.currentTimeout = setTimeout(executePPDTPhase2, 30000); 
-            };
-            
-            // ERROR HANDLER: If image is deleted/broken, instantly fetch a new random one
-            img.onerror = () => {
-                console.warn("PPDT image failed to load, picking another...");
-                appState.results.ppdt = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
-                img.src = appState.results.ppdt;
-            };
-            
-            img.src = appState.results.ppdt;
-        }
-
-        function executePPDTPhase2() {
-            document.getElementById('ppdt-phase1').classList.add('hidden');
-            document.getElementById('ppdt-phase2').classList.remove('hidden');
-            
-            // Phase 2 Timer: 60 Seconds
-            appState.currentTimeout = setTimeout(executePPDTPhase3, 60000);
-        }
-
-        function executePPDTPhase3() {
-            document.getElementById('ppdt-phase2').classList.add('hidden');
-            document.getElementById('ppdt-phase3').classList.remove('hidden');
-            
-            // Phase 3 Timer: 4 Minutes (240s)
-            appState.currentTimeout = setTimeout(() => {
-                showView('result-view'); // Proceed to results
-            }, 240000);
-        }
-
-        // --- FULL TEST QUEUE ROUTING ---
-        function startTest(type) {
-            appState.results = { ppdt: null, tat: [], wat: [], srt: [] };
-            appState.currentTatIndex = 0;
-            
-            if (type === 'full') appState.testQueue = ['TAT', 'WAT', 'SRT'];
-            else appState.testQueue = [type];
-            
-            nextTest();
-        }
-
-        function nextTest() {
-            if (appState.testQueue.length === 0) {
-                showView('result-view');
-                return;
-            }
-            const next = appState.testQueue.shift();
-            
-            if (next === 'TAT') {
-                const selected = shuffle([...TAT_IMAGES_POOL]).slice(0, 11);
-                appState.currentTatImages = [...selected, "BLANK"];
-                playInstructions('TAT', executeTATPhase1);
-            } 
-            else if (next === 'WAT') playInstructions('WAT', executeWAT);
-            else if (next === 'SRT') playInstructions('SRT', executeSRT);
-        }
-
-        // --- TAT LOGIC ---
-        function executeTATPhase1() {
-            if (appState.currentTatIndex >= appState.currentTatImages.length) {
-                nextTest();
-                return;
-            }
-
-            showView('tat-display-view');
-            const observeDiv = document.getElementById('tat-observe');
-            const blankTextDiv = document.getElementById('tat-blank-text');
-            const writeDiv = document.getElementById('tat-write');
-            const img = document.getElementById('tat-image');
-            const loading = document.getElementById('tat-loading');
-            
-            writeDiv.classList.add('hidden');
-            const currentImage = appState.currentTatImages[appState.currentTatIndex];
-
-            if (currentImage === "BLANK") {
-                playBeep(); // Beep when blank slide text is shown
-                observeDiv.classList.add('hidden');
-                blankTextDiv.classList.remove('hidden');
-                appState.results.tat.push({ type: "BLANK" });
-                
-                // 30 Seconds observation for Blank Slide
-                appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
-            } else {
-                blankTextDiv.classList.add('hidden');
-                observeDiv.classList.remove('hidden');
-                img.classList.add('hidden');
-                loading.classList.remove('hidden');
-                
-                img.crossOrigin = "Anonymous";
-                img.onload = () => {
-                    loading.classList.add('hidden');
-                    img.classList.remove('hidden');
-                    playBeep(); // Beep when image successfully loads and is shown
-                    
-                    let imgObj = null;
-                    try { imgObj = { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight }; } catch(e){}
-                    appState.results.tat.push({ type: "IMAGE", obj: imgObj });
-
-                    // 30 Seconds observation for Image
-                    appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
-                };
-                
-                // ERROR HANDLER: If image is deleted/broken, instantly fetch a new random one
-                img.onerror = () => {
-                    console.warn("TAT image failed to load, picking another...");
-                    const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
-                    appState.currentTatImages[appState.currentTatIndex] = newImage;
-                    img.src = newImage;
-                };
-                
-                img.src = currentImage;
-            }
-        }
-
-        function executeTATPhase2() {
-            document.getElementById('tat-observe').classList.add('hidden');
-            document.getElementById('tat-blank-text').classList.add('hidden');
-            document.getElementById('tat-write').classList.remove('hidden');
-            
-            // 4 Minutes writing phase
-            appState.currentTimeout = setTimeout(() => {
-                appState.currentTatIndex++;
-                executeTATPhase1();
-            }, 240000);
-        }
-
-        // --- WAT LOGIC ---
-        function executeWAT() {
-            const currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60);
-            appState.currentWatIndex = 0;
-            appState.results.wat = currentWatWords; // Save for PDF
-            
-            showView('wat-display-view');
-            const wordEl = document.getElementById('wat-word');
-            
-            const runWatCycle = () => {
-                if (appState.currentWatIndex >= currentWatWords.length) {
-                    nextTest();
-                    return;
-                }
-                
-                wordEl.innerText = currentWatWords[appState.currentWatIndex];
-                appState.currentWatIndex++;
-                
-                // 15 seconds per word
-                appState.currentTimeout = setTimeout(runWatCycle, 15000);
-            };
-            runWatCycle();
-        }
-
-        // --- SRT LOGIC ---
-        function executeSRT() {
-            const currentSrtSituations = shuffle([...SRT_POOL]).slice(0, 60);
-            appState.results.srt = currentSrtSituations; // Save for PDF
-            
-            showView('srt-display-view');
-            const container = document.getElementById('srt-container');
-            
-            // Render plain text situations without any textareas
-            container.innerHTML = currentSrtSituations.map((sit, idx) => `
-                <div class="mb-4">
-                    <p class="text-xl font-bold text-slate-800"><span class="text-teal-600 mr-2">${idx + 1}.</span> ${sit}</p>
-                </div>
-            `).join('');
-            
-            // 30 Minutes total time for SRT (1800 seconds)
-            appState.currentTimeout = setTimeout(() => {
-                nextTest();
-            }, 1800000); 
-        }
-
-        // --- PDF QUESTION PAPER GENERATION ---
-        function generatePDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const date = new Date().toLocaleDateString();
-            
-            // Cover Header
-            doc.setFillColor(30, 41, 59);
-            doc.rect(0, 0, 210, 40, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(24);
-            doc.text("SSB Psych Question Paper", 14, 25);
-            doc.setFontSize(10);
-            doc.text(`Generated on: ${date} - Retain for Self-Evaluation`, 14, 34);
-
-            let currentY = 50;
-            let hasPrintedSection = false;
-
-            // PPDT PDF Generation
-            if (appState.results.ppdtObj) {
-                doc.setTextColor(30, 41, 59);
-                doc.setFontSize(18);
-                doc.setFont("helvetica", "bold");
-                doc.text("PPDT Image Stimulus", 14, currentY);
-                currentY += 10;
-                
-                const maxW = 180; 
-                const maxH = 120;
-                const ratio = Math.min(maxW / appState.results.ppdtObj.w, maxH / appState.results.ppdtObj.h);
-                doc.addImage(appState.results.ppdtObj.data, 'JPEG', 14, currentY, appState.results.ppdtObj.w * ratio, appState.results.ppdtObj.h * ratio);
-                
-                hasPrintedSection = true;
-            }
-
-            // TAT PDF Generation
-            if (appState.results.tat.length > 0) {
-                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
-                
-                doc.setTextColor(30, 41, 59);
-                doc.setFontSize(18);
-                doc.setFont("helvetica", "bold");
-                doc.text("Thematic Apperception Test (TAT) Stimuli", 14, currentY);
-                currentY += 15;
-
-                appState.results.tat.forEach((item, index) => {
-                    if (currentY > 240) { doc.addPage(); currentY = 20; }
-                    
-                    doc.setFontSize(12);
-                    doc.setFont("helvetica", "bold");
-                    doc.text(`Slide ${index + 1}:`, 14, currentY);
-                    currentY += 5;
-
-                    if (item.type === "BLANK") {
-                        doc.setFont("helvetica", "italic");
-                        doc.text("[ BLANK SLIDE - Your Imagination ]", 14, currentY + 5);
-                        currentY += 20;
-                    } else if (item.obj) {
-                        const maxW = 80; 
-                        const maxH = 50;
-                        const ratio = Math.min(maxW / item.obj.w, maxH / item.obj.h);
-                        doc.addImage(item.obj.data, 'JPEG', 14, currentY, item.obj.w * ratio, item.obj.h * ratio);
-                        currentY += (item.obj.h * ratio) + 15;
-                    }
-                });
-                hasPrintedSection = true;
-            }
-
-            // WAT PDF Generation
-            if (appState.results.wat.length > 0) {
-                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
-                
-                doc.setFontSize(18);
-                doc.setFont("helvetica", "bold");
-                doc.text("Word Association Test (WAT) List", 14, currentY);
-                
-                doc.autoTable({
-                    startY: currentY + 5,
-                    head: [['#', 'Stimulus Word']],
-                    body: appState.results.wat.map((w, i) => [i + 1, w]),
-                    theme: 'grid',
-                    headStyles: { fillColor: [79, 70, 229] }
-                });
-                hasPrintedSection = true;
-            }
-
-            // SRT PDF Generation
-            if (appState.results.srt.length > 0) {
-                if (hasPrintedSection) { doc.addPage(); currentY = 20; }
-                
-                doc.setFontSize(18);
-                doc.setFont("helvetica", "bold");
-                doc.text("Situation Reaction Test (SRT) List", 14, currentY);
-                
-                doc.autoTable({
-                    startY: currentY + 5,
-                    head: [['#', 'Situation']],
-                    body: appState.results.srt.map((s, i) => [i + 1, s]),
-                    theme: 'grid',
-                    headStyles: { fillColor: [13, 148, 136] },
-                    styles: { cellPadding: 5 }
-                });
-            }
-
-            doc.save(`SSB_Question_Paper_${date.replace(/\//g, '-')}.pdf`);
         }
     </script>
 </body>
