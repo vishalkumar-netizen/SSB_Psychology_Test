@@ -655,6 +655,7 @@
         function preloadImage(url) {
             if (!url || url === "BLANK") return;
             const img = new Image();
+            img.crossOrigin = "Anonymous"; // ADD THIS 1 LINE HERE!
             img.src = url;
         }
 
