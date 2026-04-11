@@ -898,5 +898,43 @@
             window.scrollTo(0,0);
         }
     </script>
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="bg-slate-900 border-t border-slate-700 shadow-2xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-7xl mx-auto rounded-t-2xl sm:mx-4 sm:mb-0 mb-0">
+            <div class="text-slate-300 text-sm md:text-base flex-1">
+                <strong class="text-white text-base">🍪 We value your privacy</strong><br>
+                We use cookies (including Google AdSense) to enhance your browsing experience, serve personalized ads, and analyze our traffic. By clicking "Accept", you consent to our use of cookies as described in our <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">Privacy Policy</a>.
+            </div>
+            <div class="flex gap-3 w-full md:w-auto">
+                <button onclick="acceptCookies()" class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 px-8 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 focus:outline-none">Accept</button>
+                <button onclick="dismissCookies()" class="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-600 font-bold py-2.5 px-6 rounded-xl transition-colors focus:outline-none">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE CONSENT SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const consentBanner = document.getElementById('cookie-consent');
+            
+            // Check if the user has already made a choice
+            if (!localStorage.getItem('ssb_cookie_consent')) {
+                // Wait 1.5 seconds after page load, then slide the banner up
+                setTimeout(() => {
+                    consentBanner.classList.remove('translate-y-full');
+                }, 1500);
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('ssb_cookie_consent', 'accepted');
+            document.getElementById('cookie-consent').classList.add('translate-y-full');
+        }
+
+        function dismissCookies() {
+            localStorage.setItem('ssb_cookie_consent', 'declined');
+            document.getElementById('cookie-consent').classList.add('translate-y-full');
+        }
+    </script>
 </body>
 </html>
