@@ -652,7 +652,7 @@
         }
 
         // ==========================================
-        // NEW BACKGROUND SCOUT FUNCTION
+        // NEW BACKGROUND SCOUT FUNCTION (With Unique Check)
         // ==========================================
         function scoutNextImage(index) {
             if (index >= appState.currentTatImages.length) return;
@@ -667,9 +667,14 @@
                 appState.preloadedNext = { url: nextUrl, data: getBase64Image(probe), w: probe.naturalWidth, h: probe.naturalHeight };
             };
             
-            // Failure: It's a deleted image! Pick a new one and try again instantly in the background
+            // Failure: It's a deleted image! Pick a UNIQUE new one and try again instantly
             probe.onerror = () => {
-                const replacement = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                let replacement;
+                // Keep picking a random image until we find one that is NOT already in the 11-image queue
+                do {
+                    replacement = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                } while (appState.currentTatImages.includes(replacement));
+
                 appState.currentTatImages[index] = replacement; // Swap the broken link in the queue
                 scoutNextImage(index); // Recursively try the new link
             };
@@ -809,7 +814,17 @@
                     img.classList.add('hidden'); loading.classList.remove('hidden');
                     img.crossOrigin = "Anonymous";
                     img.onload = () => { loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); try { appState.results.tat.push({ type: "IMAGE", obj: { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight } }); } catch(e){} appState.currentTimeout = setTimeout(executeTATPhase2, 30000); };
-                    img.onerror = () => { const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)]; appState.currentTatImages[appState.currentTatIndex] = newImage; executeTATPhase1(); };
+                    
+                    // IF THE FALLBACK HITS AN ERROR, IT MUST ALSO PICK A UNIQUE IMAGE
+                    img.onerror = () => { 
+                        let newImage;
+                        do {
+                            newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                        } while (appState.currentTatImages.includes(newImage));
+                        
+                        appState.currentTatImages[appState.currentTatIndex] = newImage; 
+                        executeTATPhase1(); 
+                    };
                     img.src = currentImage;
                 }
             }
