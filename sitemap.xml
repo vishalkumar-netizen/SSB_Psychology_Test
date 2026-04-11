@@ -1,66 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- HOMEPAGE -->
+  <!-- Core Pages -->
   <url>
     <loc>https://www.ssbpsychtest.in/</loc>
-    <lastmod>2026-04-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- TEST ENGINE -->
   <url>
     <loc>https://www.ssbpsychtest.in/Test</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- BLOG LIBRARY PAGE -->
   <url>
     <loc>https://www.ssbpsychtest.in/blog</loc>
-    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
-  <!-- ARTICLE 1 -->
+  
+  <!-- Legal & Info Pages (Crucial for AdSense) -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ssbpsychtest.in/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ssbpsychtest.in/privacy-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ssbpsychtest.in/terms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ssbpsychtest.in/disclaimer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Blog Articles & Guides -->
   <url>
     <loc>https://www.ssbpsychtest.in/ssb_complete_guide</loc>
-    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- ARTICLE 2 -->
   <url>
     <loc>https://www.ssbpsychtest.in/why_candidates_fail</loc>
-    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- ARTICLE 3 -->
   <url>
     <loc>https://www.ssbpsychtest.in/how_to_utilize_platform</loc>
-    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- ARTICLE 4 -->
   <url>
-    <loc>https://www.ssbpsychtest.in/how_to_pass_oir_test</loc>
-    <lastmod>2026-04-11</lastmod>
+    <loc>https://www.ssbpsychtest.in/oir_test_guide</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- ARTICLE 5 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/what_is_tat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://www.ssbpsychtest.in/how_psych_tests_decide_result</loc>
-    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
