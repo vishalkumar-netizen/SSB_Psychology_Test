@@ -830,16 +830,18 @@
             }
         }
         function executeTATPhase2() { 
-    // THIS CLEARS THE OLD IMAGE SO IT DOESN'T FLASH LATER
-    document.getElementById('tat-image').src = ""; 
-    document.getElementById('tat-image').classList.add('hidden');
+            // THIS CLEARS THE OLD IMAGE SAFELY TO PREVENT FLASHING
+            const img = document.getElementById('tat-image');
+            img.onerror = null;         
+            img.removeAttribute('src'); 
+            img.classList.add('hidden');
 
-    document.getElementById('tat-observe').classList.add('hidden'); 
-    document.getElementById('tat-blank-text').classList.add('hidden'); 
-    document.getElementById('tat-write').classList.remove('hidden'); 
-    document.getElementById('tat-current-num').innerText = appState.currentTatIndex + 1;
-    
-    // SMART SCOUT continues as normal
+            document.getElementById('tat-observe').classList.add('hidden'); 
+            document.getElementById('tat-blank-text').classList.add('hidden'); 
+            document.getElementById('tat-write').classList.remove('hidden'); 
+            document.getElementById('tat-current-num').innerText = appState.currentTatIndex + 1;
+            
+            // SMART SCOUT continues as normal
             // SMART SCOUT: Sends the scout ahead to secretly find, verify, and download the NEXT image while user writes for 4 mins
             if (appState.currentTatIndex + 1 < appState.currentTatImages.length) {
                 scoutNextImage(appState.currentTatIndex + 1);
