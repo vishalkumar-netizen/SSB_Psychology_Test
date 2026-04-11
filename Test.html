@@ -64,7 +64,7 @@
     <div id="ppdt-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
         <div id="ppdt-phase1" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
             <div id="ppdt-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-            <img id="ppdt-image" crossorigin="anonymous" src="" class="hidden max-h-[95vh] max-w-[95vw] object-contain" alt="PPDT Stimulus">
+            <img id="ppdt-image" src="" class="hidden max-h-[95vh] max-w-[95vw] object-contain" alt="PPDT Stimulus">
         </div>
         <div id="ppdt-phase2" class="hidden w-full h-full flex flex-col items-center justify-center bg-white p-8 text-center">
             <h1 class="text-4xl md:text-6xl font-black text-slate-900 max-w-5xl leading-tight">Write down the detail of the picture - No. of characters, their gender, mood, age & what is going on</h1>
@@ -75,7 +75,7 @@
     <div id="tat-display-view" class="view h-screen w-full flex-col relative no-select z-[100]">
         <div id="tat-observe" class="hidden w-full h-full flex flex-col items-center justify-center bg-black">
             <div id="tat-loading" class="text-slate-400 text-2xl animate-pulse font-semibold">Loading Slide...</div>
-            <img id="tat-image" crossorigin="anonymous" src="" class="hidden max-h-[95vh] max-w-[95vw] object-contain" alt="TAT Stimulus">
+            <img id="tat-image" src="" class="hidden max-h-[95vh] max-w-[95vw] object-contain" alt="TAT Stimulus">
         </div>
         <div id="tat-blank-text" class="hidden w-full h-full flex flex-col items-center justify-center bg-white p-8 text-center">
             <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight uppercase">Blank - Write story of your own imagination</h1>
@@ -145,104 +145,105 @@
             "Vision", "Voice", "Wait", "War", "Waste", "Watch", "Water", "Way", "Weak", "Wealth",
             "Weapon", "Win", "Wise", "Wish", "Woman", "Word", "Work", "Worry", "Wound", "Wrong",
             "Young", "Youth", "Zeal", "Accept", "Achieve", "Action", "Active", "Adapt", "Adopt", "Advance", "Advice", "Aim", "Alert",
-            "Alive", "Allow", "Alone", "Ambition", "Anger", "Answer", "Apply", "Approach", "Arrange", "Arrive",
-            "Art", "Ask", "Assist", "Attempt", "Attend", "Attention", "Attitude", "Authority", "Aware", "Award",
-            "Back", "Bad", "Balance", "Base", "Battle", "Be", "Bear", "Become", "Begin", "Believe",
-            "Best", "Better", "Big", "Bind", "Bold", "Body", "Brave", "Break", "Build", "Busy",
-            "Calm", "Care", "Carry", "Cause", "Center", "Change", "Charge", "Check", "Chief", "Choose",
-            "Clean", "Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Concern",
-            "Confidence", "Control", "Correct", "Courage", "Create", "Crisis", "Cross", "Current", "Cut", "Daily",
-            "Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-            "Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Do", "Done", "Drive", "Duty",
-            "Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-            "Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Exact", "Example",
-            "Execute", "Exercise", "Exist", "Expand", "Expect", "Experience", "Expert", "Explain", "Explore", "Express",
-            "Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-            "Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Full",
-            "Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-            "Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-            "Human", "Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire",
-            "Intend", "Interest", "Judge", "Join", "Keep", "Key", "Kind", "Know", "Knowledge", "Lead",
-            "Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live", "Look",
-            "Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-            "Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Much", "Need", "New", "Next",
-            "Nice", "Normal", "Note", "Notice", "Now", "Obey", "Observe", "Offer", "Open", "Operate",
-            "Order", "Organize", "Other", "Overcome", "Own", "Pain", "Part", "Participate", "Pass", "Patience",
-            "Perform", "Plan", "Play", "Point", "Power", "Practice", "Prepare", "Present", "Press", "Prevent",
-            "Problem", "Process", "Produce", "Progress", "Protect", "Prove", "Public", "Pull", "Push", "Quality",
-            "Quick", "Quiet", "Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive",
-            "Record", "Reduce", "Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember",
-            "Remove", "Repeat", "Reply", "Report", "Respect", "Respond", "Rest", "Result", "Return", "Review",
-            "Right", "Rise", "Risk", "Run", "Safe", "Save", "Say", "Search", "Secure", "See",
-            "Seek", "Select", "Self", "Send", "Sense", "Serve", "Set", "Settle", "Share", "Shift",
-            "Short", "Show", "Simple", "Skill", "Slow", "Small", "Smart", "Solve", "Sound", "Speak",
-            "Special", "Speed", "Stand", "Start", "State", "Stay", "Step", "Stop", "Store", "Strong",
-            "Study", "Success", "Support", "Sure", "System", "Take", "Talk", "Task", "Team", "Teach",
-            "Test", "Think", "Time", "Train", "Try", "Turn", "Understand", "Unit", "Use", "Value",
-            "View", "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise",
-            "Work", "World", "Worry", "Write", "Young", "Zero",
-            "Abandon", "Ability", "Able", "Abuse", "Accident", "Account", "Accuse", "Across", "Act", "Actor",
-            "Actual", "Add", "Address", "Adjust", "Admire", "Admit", "Adult", "Advance", "Adventure", "Advertise",
-            "Affect", "Afford", "Afraid", "After", "Again", "Against", "Age", "Agency", "Agent", "Agree",
-            "Ahead", "Aid", "Air", "Alarm", "Album", "Alcohol", "Alertness", "Alien", "Alive", "All",
-            "Allow", "Almost", "Alone", "Along", "Already", "Also", "Alter", "Always", "Amazing", "Ambitious",
-            "Amount", "Amuse", "Analyse", "Ancient", "And", "Angel", "Angle", "Animal", "Announce", "Annual",
-            "Another", "Answer", "Any", "Anyone", "Anything", "Anyway", "Apart", "Apartment", "Apologize", "Apparent",
-            "Appeal", "Appear", "Apple", "Application", "Apply", "Appoint", "Appreciate", "Approve", "Area", "Argue",
-            "Arm", "Army", "Around", "Arrange", "Arrest", "Arrive", "Art", "Article", "Artist", "As",
-            "Ask", "Asleep", "Aspect", "Assist", "Assume", "At", "Attach", "Attack", "Attempt", "Attend",
-            "Attention", "Attitude", "Attract", "Audience", "Author", "Auto", "Available", "Avoid", "Await", "Awake",
-            "Baby", "Back", "Bad", "Bag", "Bake", "Balance", "Ball", "Ban", "Band", "Bank",
-            "Bar", "Bare", "Bargain", "Base", "Basic", "Basis", "Battle", "Be", "Beach", "Bear",
-            "Beat", "Beautiful", "Because", "Become", "Bed", "Before", "Begin", "Behavior", "Behind", "Believe",
-            "Benefit", "Best", "Better", "Between", "Beyond", "Big", "Bill", "Bind", "Biology", "Bird",
-            "Birth", "Bit", "Bite", "Black", "Blade", "Blame", "Blank", "Blind", "Block", "Blood",
-            "Blow", "Blue", "Board", "Boat", "Body", "Boil", "Bold", "Bomb", "Bone", "Book",
-            "Border", "Born", "Borrow", "Boss", "Both", "Bottle", "Bottom", "Bound", "Bow", "Box",
-            "Boy", "Brain", "Branch", "Brave", "Bread", "Break", "Breath", "Bridge", "Brief", "Bright",
-            "Bring", "Broad", "Broken", "Brother", "Brown", "Build", "Burn", "Burst", "Business", "Busy",
-            "Calm", "Care", "Carry", "Catch", "Cause", "Center", "Change", "Charge", "Check", "Choose",
-            "Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Control", "Courage",
-            "Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
-            "Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Drive", "Duty", "Do", "Done",
-            "Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
-            "Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Example", "Execute",
-            "Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
-            "Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Future",
-            "Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
-            "Guard", "Gainful", "Gentle", "Genuine", "Glad", "Global", "Go", "Ground", "Group", "Grateful",
-            "Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
-            "Human", "Hurry", "Habit", "Harm", "Hero", "Humble", "Hunt", "Hear", "Heart", "Honor",
-            "Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire", "Intend",
-            "Interest", "Inform", "Influence", "Important", "Improve", "Involve", "Issue", "Invite", "Ignore", "Invent",
-            "Judge", "Join", "Jump", "Job", "Joy", "Just", "Journey", "Justice", "Junior", "Joke",
-            "Jealous", "Jolly", "Journal", "Junction", "Jail", "Jewel", "Jerk", "Jet", "Jungle", "Juggle",
-            "Keep", "Key", "Kind", "Know", "Knowledge", "Kick", "Kill", "Keen", "Kite", "Knock",
-            "Knot", "Knife", "King", "Kindness", "Kid", "Kitchen", "Knee", "Kettle", "Karma", "Known",
-            "Lead", "Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live",
-            "Look", "Love", "Lose", "Loss", "Luck", "Loyal", "Lead", "Labour", "Large", "Late",
-            "Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
-            "Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Motivate", "Moral", "Major", "March",
-            "Need", "New", "Next", "Nice", "Normal", "Note", "Notice", "Now", "Name", "Near",
-            "Neat", "Noble", "Noise", "None", "Number", "Nurture", "Nation", "Natural", "Narrow", "Necessary",
-            "Obey", "Observe", "Offer", "Open", "Operate", "Order", "Organize", "Other", "Overcome", "Own",
-            "Object", "Obtain", "Occur", "Offend", "Often", "Old", "Only", "Oppose", "Option", "Out",
-            "Pain", "Part", "Participate", "Pass", "Patience", "Perform", "Plan", "Play", "Point", "Power",
-            "Practice", "Prepare", "Present", "Press", "Prevent", "Problem", "Process", "Produce", "Progress", "Protect",
-            "Quality", "Quick", "Quiet", "Question", "Queue", "Quit", "Quarrel", "Quest", "Quote", "Quench",
-            "Quickly", "Quietly", "Qualification", "Quantity", "Quirk", "Quiver", "Queen", "Query", "Quilt", "Quotient",
-            "Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive", "Record", "Reduce",
-            "Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember", "Remove", "Repeat",
-            "Safe", "Save", "Say", "Search", "Secure", "See", "Seek", "Select", "Self", "Send",
-            "Sense", "Serve", "Set", "Share", "Shift", "Short", "Show", "Simple", "Skill", "Solve",
-            "Take", "Talk", "Task", "Team", "Teach", "Test", "Think", "Time", "Train", "Try",
-            "Turn", "Trust", "Truth", "Tough", "Target", "Talent", "Travel", "Teach", "Thinker", "Timely",
-            "Understand", "Unit", "Use", "Value", "Utilize", "Unite", "Unique", "Useful", "Urgent", "Uplift",
-            "Update", "Upgrade", "Upright", "Ultimate", "Uncertain", "Unfair", "Unfit", "Unite", "Urban", "User",
-            "Value", "View", "Victory", "Vision", "Visit", "Voice", "Volunteer", "Valid", "Vary", "Vast",
-            "Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
-            "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
-            "World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth"
+"Alive", "Allow", "Alone", "Ambition", "Anger", "Answer", "Apply", "Approach", "Arrange", "Arrive",
+"Art", "Ask", "Assist", "Attempt", "Attend", "Attention", "Attitude", "Authority", "Aware", "Award",
+"Back", "Bad", "Balance", "Base", "Battle", "Be", "Bear", "Become", "Begin", "Believe",
+"Best", "Better", "Big", "Bind", "Bold", "Body", "Brave", "Break", "Build", "Busy",
+"Calm", "Care", "Carry", "Cause", "Center", "Change", "Charge", "Check", "Chief", "Choose",
+"Clean", "Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Concern",
+"Confidence", "Control", "Correct", "Courage", "Create", "Crisis", "Cross", "Current", "Cut", "Daily",
+"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
+"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Do", "Done", "Drive", "Duty",
+"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
+"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Exact", "Example",
+"Execute", "Exercise", "Exist", "Expand", "Expect", "Experience", "Expert", "Explain", "Explore", "Express",
+"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
+"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Full",
+"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
+"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
+"Human", "Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire",
+"Intend", "Interest", "Judge", "Join", "Keep", "Key", "Kind", "Know", "Knowledge", "Lead",
+"Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live", "Look",
+"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
+"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Much", "Need", "New", "Next",
+"Nice", "Normal", "Note", "Notice", "Now", "Obey", "Observe", "Offer", "Open", "Operate",
+"Order", "Organize", "Other", "Overcome", "Own", "Pain", "Part", "Participate", "Pass", "Patience",
+"Perform", "Plan", "Play", "Point", "Power", "Practice", "Prepare", "Present", "Press", "Prevent",
+"Problem", "Process", "Produce", "Progress", "Protect", "Prove", "Public", "Pull", "Push", "Quality",
+"Quick", "Quiet", "Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive",
+"Record", "Reduce", "Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember",
+"Remove", "Repeat", "Reply", "Report", "Respect", "Respond", "Rest", "Result", "Return", "Review",
+"Right", "Rise", "Risk", "Run", "Safe", "Save", "Say", "Search", "Secure", "See",
+"Seek", "Select", "Self", "Send", "Sense", "Serve", "Set", "Settle", "Share", "Shift",
+"Short", "Show", "Simple", "Skill", "Slow", "Small", "Smart", "Solve", "Sound", "Speak",
+"Special", "Speed", "Stand", "Start", "State", "Stay", "Step", "Stop", "Store", "Strong",
+"Study", "Success", "Support", "Sure", "System", "Take", "Talk", "Task", "Team", "Teach",
+"Test", "Think", "Time", "Train", "Try", "Turn", "Understand", "Unit", "Use", "Value",
+"View", "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise",
+"Work", "World", "Worry", "Write", "Young", "Zero",
+"Abandon", "Ability", "Able", "Abuse", "Accident", "Account", "Accuse", "Across", "Act", "Actor",
+"Actual", "Add", "Address", "Adjust", "Admire", "Admit", "Adult", "Advance", "Adventure", "Advertise",
+"Affect", "Afford", "Afraid", "After", "Again", "Against", "Age", "Agency", "Agent", "Agree",
+"Ahead", "Aid", "Air", "Alarm", "Album", "Alcohol", "Alertness", "Alien", "Alive", "All",
+"Allow", "Almost", "Alone", "Along", "Already", "Also", "Alter", "Always", "Amazing", "Ambitious",
+"Amount", "Amuse", "Analyse", "Ancient", "And", "Angel", "Angle", "Animal", "Announce", "Annual",
+"Another", "Answer", "Any", "Anyone", "Anything", "Anyway", "Apart", "Apartment", "Apologize", "Apparent",
+"Appeal", "Appear", "Apple", "Application", "Apply", "Appoint", "Appreciate", "Approve", "Area", "Argue",
+"Arm", "Army", "Around", "Arrange", "Arrest", "Arrive", "Art", "Article", "Artist", "As",
+"Ask", "Asleep", "Aspect", "Assist", "Assume", "At", "Attach", "Attack", "Attempt", "Attend",
+"Attention", "Attitude", "Attract", "Audience", "Author", "Auto", "Available", "Avoid", "Await", "Awake",
+"Baby", "Back", "Bad", "Bag", "Bake", "Balance", "Ball", "Ban", "Band", "Bank",
+"Bar", "Bare", "Bargain", "Base", "Basic", "Basis", "Battle", "Be", "Beach", "Bear",
+"Beat", "Beautiful", "Because", "Become", "Bed", "Before", "Begin", "Behavior", "Behind", "Believe",
+"Benefit", "Best", "Better", "Between", "Beyond", "Big", "Bill", "Bind", "Biology", "Bird",
+"Birth", "Bit", "Bite", "Black", "Blade", "Blame", "Blank", "Blind", "Block", "Blood",
+"Blow", "Blue", "Board", "Boat", "Body", "Boil", "Bold", "Bomb", "Bone", "Book",
+"Border", "Born", "Borrow", "Boss", "Both", "Bottle", "Bottom", "Bound", "Bow", "Box",
+"Boy", "Brain", "Branch", "Brave", "Bread", "Break", "Breath", "Bridge", "Brief", "Bright",
+"Bring", "Broad", "Broken", "Brother", "Brown", "Build", "Burn", "Burst", "Business", "Busy",
+"Calm", "Care", "Carry", "Catch", "Cause", "Center", "Change", "Charge", "Check", "Choose",
+"Clear", "Climb", "Close", "Collect", "Come", "Command", "Common", "Complete", "Control", "Courage",
+"Danger", "Dare", "Deal", "Decide", "Decision", "Deep", "Defend", "Delay", "Depend", "Desire",
+"Detail", "Develop", "Direct", "Discipline", "Discover", "Discuss", "Drive", "Duty", "Do", "Done",
+"Earn", "Easy", "Educate", "Effort", "End", "Energy", "Engage", "Enjoy", "Ensure", "Enter",
+"Equal", "Error", "Escape", "Essential", "Establish", "Evaluate", "Even", "Every", "Example", "Execute",
+"Face", "Fact", "Fail", "Fair", "Faith", "Fast", "Fear", "Feel", "Fight", "Find",
+"Finish", "Firm", "Focus", "Follow", "Force", "Form", "Forward", "Free", "Friend", "Future",
+"Gain", "Game", "Gather", "General", "Give", "Goal", "Good", "Great", "Grow", "Guide",
+"Guard", "Gainful", "Gentle", "Genuine", "Glad", "Global", "Go", "Ground", "Group", "Grateful",
+"Handle", "Happy", "Hard", "Head", "Health", "Help", "High", "Hold", "Honest", "Hope",
+"Human", "Hurry", "Habit", "Harm", "Hero", "Humble", "Hunt", "Hear", "Heart", "Honor",
+"Idea", "Identify", "Improve", "Include", "Increase", "Independent", "Initiative", "Inner", "Inspire", "Intend",
+"Interest", "Inform", "Influence", "Important", "Improve", "Involve", "Issue", "Invite", "Ignore", "Invent",
+"Judge", "Join", "Jump", "Job", "Joy", "Just", "Journey", "Justice", "Junior", "Joke",
+"Jealous", "Jolly", "Journal", "Junction", "Jail", "Jewel", "Jerk", "Jet", "Jungle", "Juggle",
+"Keep", "Key", "Kind", "Know", "Knowledge", "Kick", "Kill", "Keen", "Kite", "Knock",
+"Knot", "Knife", "King", "Kindness", "Kid", "Kitchen", "Knee", "Kettle", "Karma", "Known",
+"Lead", "Learn", "Leave", "Level", "Life", "Lift", "Light", "Limit", "Listen", "Live",
+"Look", "Love", "Lose", "Loss", "Luck", "Loyal", "Lead", "Labour", "Large", "Late",
+"Manage", "Make", "Man", "Mark", "Master", "Matter", "Mean", "Measure", "Meet", "Member",
+"Mind", "Mission", "Mistake", "Model", "Moment", "Move", "Motivate", "Moral", "Major", "March",
+"Need", "New", "Next", "Nice", "Normal", "Note", "Notice", "Now", "Name", "Near",
+"Neat", "Noble", "Noise", "None", "Number", "Nurture", "Nation", "Natural", "Narrow", "Necessary",
+"Obey", "Observe", "Offer", "Open", "Operate", "Order", "Organize", "Other", "Overcome", "Own",
+"Object", "Obtain", "Occur", "Offend", "Often", "Old", "Only", "Oppose", "Option", "Out",
+"Pain", "Part", "Participate", "Pass", "Patience", "Perform", "Plan", "Play", "Point", "Power",
+"Practice", "Prepare", "Present", "Press", "Prevent", "Problem", "Process", "Produce", "Progress", "Protect",
+"Quality", "Quick", "Quiet", "Question", "Queue", "Quit", "Quarrel", "Quest", "Quote", "Quench",
+"Quickly", "Quietly", "Qualification", "Quantity", "Quirk", "Quiver", "Queen", "Query", "Quilt", "Quotient",
+"Raise", "Reach", "React", "Read", "Ready", "Real", "Reason", "Receive", "Record", "Reduce",
+"Reflect", "Refuse", "Regard", "Relate", "Relax", "Release", "Remain", "Remember", "Remove", "Repeat",
+"Safe", "Save", "Say", "Search", "Secure", "See", "Seek", "Select", "Self", "Send",
+"Sense", "Serve", "Set", "Share", "Shift", "Short", "Show", "Simple", "Skill", "Solve",
+"Take", "Talk", "Task", "Team", "Teach", "Test", "Think", "Time", "Train", "Try",
+"Turn", "Trust", "Truth", "Tough", "Target", "Talent", "Travel", "Teach", "Thinker", "Timely",
+"Understand", "Unit", "Use", "Value", "Utilize", "Unite", "Unique", "Useful", "Urgent", "Uplift",
+"Update", "Upgrade", "Upright", "Ultimate", "Uncertain", "Unfair", "Unfit", "Unite", "Urban", "User",
+"Value", "View", "Victory", "Vision", "Visit", "Voice", "Volunteer", "Valid", "Vary", "Vast",
+"Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
+"Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
+"World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
+            // Add your 1000+ words here
         ];
 
         const SRT_POOL = [
@@ -611,12 +612,14 @@
             "Neighbors are playing loud music before his important interview. He ___________",
             "He catches a student cheating in the exam hall. He ___________",
             "His team loses a match because of a blunder by him. He ___________"
+            // Add your 1000+ situations here
+            // Add your 1000+ situations here
         ];
 
         // ==========================================
         // 2. ENGINE STATE & UTILS
         // ==========================================
-        let appState = { testQueue: [], results: { ppdt: null, tat: [], wat: [], srt: [] }, currentTatIndex: 0, currentWatIndex: 0, currentTatImages: [], currentTimeout: null, instructionInterval: null, preloadedNext: null };
+        let appState = { testQueue: [], results: { ppdt: null, tat: [], wat: [], srt: [] }, currentTatIndex: 0, currentWatIndex: 0, currentTatImages: [], currentTimeout: null, instructionInterval: null };
 
         function showView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -648,44 +651,30 @@
             } catch (e) { console.warn("Beep blocked"); }
         }
 
-        // ==========================================
-        // NEW BACKGROUND SCOUT FUNCTION (With Unique Check)
-        // ==========================================
-        function scoutNextImage(index) {
-            if (index >= appState.currentTatImages.length) return;
-            const nextUrl = appState.currentTatImages[index];
-            if (nextUrl === "BLANK") return;
-
-            const probe = new Image();
-            probe.crossOrigin = "Anonymous";
-            
-            probe.onload = () => {
-                try {
-                    appState.preloadedNext = { url: nextUrl, data: getBase64Image(probe), w: probe.naturalWidth, h: probe.naturalHeight };
-                } catch(e) {}
-            };
-            
-            probe.onerror = () => {
-                let replacement;
-                do {
-                    replacement = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
-                } while (appState.currentTatImages.includes(replacement));
-
-                appState.currentTatImages[index] = replacement; 
-                scoutNextImage(index); 
-            };
-            
-            probe.src = nextUrl;
+        // SMART PRELOADER: Downloads the image silently in the background
+        function preloadImage(url) {
+            if (!url || url === "BLANK") return;
+            const img = new Image();
+            img.crossOrigin = "Anonymous"; // ADD THIS 1 LINE HERE!
+            img.src = url;
         }
 
+        // UPGRADED FULLSCREEN LOGIC
         function enterFullscreen() {
             const docElm = document.documentElement;
             try {
-                if (docElm.requestFullscreen) { docElm.requestFullscreen().catch(err => console.warn("Fullscreen blocked: " + err.message));
-                } else if (docElm.webkitRequestFullscreen) { docElm.webkitRequestFullscreen();
-                } else if (docElm.mozRequestFullScreen) { docElm.mozRequestFullScreen();
-                } else if (docElm.msRequestFullscreen) { docElm.msRequestFullscreen(); }
-            } catch (e) { console.warn("Fullscreen API error:", e); }
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen().catch(err => console.warn("Fullscreen blocked: " + err.message));
+                } else if (docElm.webkitRequestFullscreen) { // Chrome, Safari
+                    docElm.webkitRequestFullscreen();
+                } else if (docElm.mozRequestFullScreen) { // Firefox
+                    docElm.mozRequestFullScreen();
+                } else if (docElm.msRequestFullscreen) { // IE/Edge
+                    docElm.msRequestFullscreen();
+                }
+            } catch (e) {
+                console.warn("Fullscreen API error:", e);
+            }
         }
 
         function exitTest() {
@@ -698,7 +687,9 @@
             
             if (window.location.protocol === 'blob:' || window.self !== window.top) {
                 document.getElementById('result-view').innerHTML = '<div class="bg-slate-800 p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full border-t-8 border-green-500"><h1 class="text-3xl font-extrabold text-white mb-2">Test Session Ended</h1><p class="text-slate-400 font-medium">You are in preview mode. Please close this tab to return to the homepage.</p></div>';
-            } else { window.location.href = '/'; }
+            } else {
+                window.location.href = '/'; 
+            }
         }
 
         // ==========================================
@@ -728,6 +719,7 @@
             let testType;
             try { testType = new URLSearchParams(window.location.search).get('test'); } catch (e) { testType = null; }
             if (!testType) testType = 'full';
+            
             appState.initialTestType = testType;
             showView('ready-view');
         };
@@ -736,6 +728,7 @@
             enterFullscreen();
             const testType = appState.initialTestType;
             appState.testQueue = testType === 'full' ? ['TAT', 'WAT', 'SRT'] : [testType];
+            
             if (testType === 'PPDT') startPPDT(); else nextTest();
         }
 
@@ -744,7 +737,7 @@
             const next = appState.testQueue.shift();
             if (next === 'TAT') { 
                 appState.currentTatImages = [...shuffle([...TAT_IMAGES_POOL]).slice(0, 11), "BLANK"]; 
-                scoutNextImage(0); 
+                preloadImage(appState.currentTatImages[0]); // Preload the very first TAT image
                 playInstructions('TAT', executeTATPhase1); 
             }
             else if (next === 'WAT') playInstructions('WAT', executeWAT);
@@ -757,6 +750,7 @@
         function startPPDT() { 
             appState.testQueue = []; 
             appState.results.ppdt = PPDT_IMAGES_POOL[Math.floor(Math.random() * PPDT_IMAGES_POOL.length)]; 
+            preloadImage(appState.results.ppdt); // Preload PPDT image
             playInstructions('PPDT', executePPDTPhase1); 
         }
 
@@ -764,21 +758,12 @@
             showView('ppdt-display-view');
             document.getElementById('ppdt-phase1').classList.remove('hidden'); document.getElementById('ppdt-phase2').classList.add('hidden'); document.getElementById('ppdt-phase3').classList.add('hidden');
             const img = document.getElementById('ppdt-image'); const loading = document.getElementById('ppdt-loading');
-            img.classList.add('hidden'); loading.classList.remove('hidden'); 
+            img.classList.add('hidden'); loading.classList.remove('hidden'); img.crossOrigin = "Anonymous";
             img.onload = () => { loading.classList.add('hidden'); img.classList.remove('hidden'); try { appState.results.ppdtObj = { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight }; } catch(e){} appState.currentTimeout = setTimeout(executePPDTPhase2, 30000); };
             img.onerror = () => { appState.results.ppdt = PPDT_IMAGES_POOL[Math.floor(Math.random() * PPDT_IMAGES_POOL.length)]; img.src = appState.results.ppdt; };
             img.src = appState.results.ppdt;
         }
-
-        function executePPDTPhase2() { 
-            const img = document.getElementById('ppdt-image');
-            img.onload = null; img.onerror = null;
-            img.classList.add('hidden'); // Fixes ghosting without breaking the tag
-
-            document.getElementById('ppdt-phase1').classList.add('hidden'); 
-            document.getElementById('ppdt-phase2').classList.remove('hidden'); 
-            appState.currentTimeout = setTimeout(executePPDTPhase3, 60000); 
-        }
+        function executePPDTPhase2() { document.getElementById('ppdt-phase1').classList.add('hidden'); document.getElementById('ppdt-phase2').classList.remove('hidden'); appState.currentTimeout = setTimeout(executePPDTPhase3, 60000); }
         function executePPDTPhase3() { document.getElementById('ppdt-phase2').classList.add('hidden'); document.getElementById('ppdt-phase3').classList.remove('hidden'); appState.currentTimeout = setTimeout(() => showView('result-view'), 240000); }
 
         function executeTATPhase1() {
@@ -792,37 +777,21 @@
                 playBeep(); observeDiv.classList.add('hidden'); blankTextDiv.classList.remove('hidden');
                 appState.results.tat.push({ type: "BLANK" }); appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
             } else {
-                blankTextDiv.classList.add('hidden'); observeDiv.classList.remove('hidden'); 
-                
-                img.classList.add('hidden'); loading.classList.remove('hidden');
-                img.onload = () => { 
-                    loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); 
-                    try { 
-                        let objData = (appState.preloadedNext && appState.preloadedNext.url === currentImage) ? appState.preloadedNext : { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight };
-                        appState.results.tat.push({ type: "IMAGE", obj: objData }); 
-                    } catch(e){} 
-                    appState.currentTimeout = setTimeout(executeTATPhase2, 30000); 
-                };
-                
-                img.onerror = () => { 
-                    let newImage;
-                    do { newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)]; } while (appState.currentTatImages.includes(newImage));
-                    appState.currentTatImages[appState.currentTatIndex] = newImage; 
-                    executeTATPhase1(); 
-                };
-                img.src = currentImage; // Triggers instant load from cache if preloaded!
+                blankTextDiv.classList.add('hidden'); observeDiv.classList.remove('hidden'); img.classList.add('hidden'); loading.classList.remove('hidden');
+                img.crossOrigin = "Anonymous";
+                img.onload = () => { loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); try { appState.results.tat.push({ type: "IMAGE", obj: { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight } }); } catch(e){} appState.currentTimeout = setTimeout(executeTATPhase2, 30000); };
+                img.onerror = () => { const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)]; appState.currentTatImages[appState.currentTatIndex] = newImage; img.src = newImage; };
+                img.src = currentImage;
             }
         }
-
         function executeTATPhase2() { 
-            const img = document.getElementById('tat-image');
-            img.onload = null; img.onerror = null;
-            img.classList.add('hidden'); // Safely hides the picture during writing
-
             document.getElementById('tat-observe').classList.add('hidden'); document.getElementById('tat-blank-text').classList.add('hidden'); document.getElementById('tat-write').classList.remove('hidden'); 
-            document.getElementById('tat-current-num').innerText = appState.currentTatIndex + 1;
             
-            if (appState.currentTatIndex + 1 < appState.currentTatImages.length) { scoutNextImage(appState.currentTatIndex + 1); }
+            // SMART PRELOADER: Loads the NEXT image while the user is writing their story!
+            if (appState.currentTatIndex + 1 < appState.currentTatImages.length) {
+                preloadImage(appState.currentTatImages[appState.currentTatIndex + 1]);
+            }
+
             appState.currentTimeout = setTimeout(() => { appState.currentTatIndex++; executeTATPhase1(); }, 240000); 
         }
 
@@ -859,7 +828,7 @@
                     if (currentY > 240) { doc.addPage(); currentY = 20; }
                     doc.setFontSize(12); doc.text(`Slide ${index + 1}:`, 14, currentY); currentY += 5;
                     if (item.type === "BLANK") { doc.text("[ BLANK SLIDE - Your Imagination ]", 14, currentY + 5); currentY += 20; }
-                    else if (item.obj && item.obj.data) { const ratio = Math.min(80 / item.obj.w, 50 / item.obj.h); doc.addImage(item.obj.data, 'JPEG', 14, currentY, item.obj.w * ratio, item.obj.h * ratio); currentY += (item.obj.h * ratio) + 15; }
+                    else if (item.obj) { const ratio = Math.min(80 / item.obj.w, 50 / item.obj.h); doc.addImage(item.obj.data, 'JPEG', 14, currentY, item.obj.w * ratio, item.obj.h * ratio); currentY += (item.obj.h * ratio) + 15; }
                 }); hasPrintedSection = true;
             }
             if (appState.results.wat.length > 0) {
