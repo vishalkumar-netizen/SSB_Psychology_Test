@@ -1,16 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- HOMEPAGE -->
   <url>
     <loc>https://www.ssbpsychtest.in/</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
+  <!-- TEST ENGINE -->
   <url>
     <loc>https://www.ssbpsychtest.in/Test</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- BLOG LIBRARY PAGE -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/blog</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- ARTICLE 1 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/ssb_complete_guide</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ARTICLE 2 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/why_candidates_fail</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ARTICLE 3 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/how_to_utilize_platform</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ARTICLE 4 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/how_to_pass_oir_test</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ARTICLE 5 -->
+  <url>
+    <loc>https://www.ssbpsychtest.in/how_psych_tests_decide_result</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
