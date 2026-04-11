@@ -243,7 +243,7 @@
 "Vehicle", "Venture", "Verify", "Victory", "Vital", "Vivid", "Vote", "Viewpoint", "Virtue", "Visible",
 "Wait", "Walk", "Want", "War", "Watch", "Way", "Weak", "Win", "Wise", "Work",
 "World", "Worry", "Write", "Will", "Welcome", "Welfare", "Whole", "Wide", "Wish", "Worth",
-            // Add your 1000+ words here
+                        // Add your 1000+ words here
         ];
 
         const SRT_POOL = [
@@ -612,14 +612,14 @@
             "Neighbors are playing loud music before his important interview. He ___________",
             "He catches a student cheating in the exam hall. He ___________",
             "His team loses a match because of a blunder by him. He ___________"
-            // Add your 1000+ situations here
-            // Add your 1000+ situations here
+                        // Add your 1000+ situations here
         ];
 
         // ==========================================
         // 2. ENGINE STATE & UTILS
         // ==========================================
-        let appState = { testQueue: [], results: { ppdt: null, tat: [], wat: [], srt: [] }, currentTatIndex: 0, currentWatIndex: 0, currentTatImages: [], currentTimeout: null, instructionInterval: null };
+        // ADDED preloadedNext property to store our secretly downloaded image
+        let appState = { testQueue: [], results: { ppdt: null, tat: [], wat: [], srt: [] }, currentTatIndex: 0, currentWatIndex: 0, currentTatImages: [], currentTimeout: null, instructionInterval: null, preloadedNext: null };
 
         function showView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -651,12 +651,30 @@
             } catch (e) { console.warn("Beep blocked"); }
         }
 
-        // SMART PRELOADER: Downloads the image silently in the background
-        function preloadImage(url) {
-            if (!url || url === "BLANK") return;
-            const img = new Image();
-            img.crossOrigin = "Anonymous"; // ADD THIS 1 LINE HERE!
-            img.src = url;
+        // ==========================================
+        // NEW BACKGROUND SCOUT FUNCTION
+        // ==========================================
+        function scoutNextImage(index) {
+            if (index >= appState.currentTatImages.length) return;
+            const nextUrl = appState.currentTatImages[index];
+            if (nextUrl === "BLANK") return;
+
+            const probe = new Image();
+            probe.crossOrigin = "Anonymous";
+            
+            // Success: We cache it so it appears in 0.0 seconds later
+            probe.onload = () => {
+                appState.preloadedNext = { url: nextUrl, data: getBase64Image(probe), w: probe.naturalWidth, h: probe.naturalHeight };
+            };
+            
+            // Failure: It's a deleted image! Pick a new one and try again instantly in the background
+            probe.onerror = () => {
+                const replacement = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)];
+                appState.currentTatImages[index] = replacement; // Swap the broken link in the queue
+                scoutNextImage(index); // Recursively try the new link
+            };
+            
+            probe.src = nextUrl;
         }
 
         // UPGRADED FULLSCREEN LOGIC
@@ -737,7 +755,7 @@
             const next = appState.testQueue.shift();
             if (next === 'TAT') { 
                 appState.currentTatImages = [...shuffle([...TAT_IMAGES_POOL]).slice(0, 11), "BLANK"]; 
-                preloadImage(appState.currentTatImages[0]); // Preload the very first TAT image
+                scoutNextImage(0); // Scout the very first TAT image while instructions are playing
                 playInstructions('TAT', executeTATPhase1); 
             }
             else if (next === 'WAT') playInstructions('WAT', executeWAT);
@@ -750,7 +768,7 @@
         function startPPDT() { 
             appState.testQueue = []; 
             appState.results.ppdt = PPDT_IMAGES_POOL[Math.floor(Math.random() * PPDT_IMAGES_POOL.length)]; 
-            preloadImage(appState.results.ppdt); // Preload PPDT image
+            // We use simple error replacement for PPDT since there's no 4 minute gap before it
             playInstructions('PPDT', executePPDTPhase1); 
         }
 
@@ -777,19 +795,31 @@
                 playBeep(); observeDiv.classList.add('hidden'); blankTextDiv.classList.remove('hidden');
                 appState.results.tat.push({ type: "BLANK" }); appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
             } else {
-                blankTextDiv.classList.add('hidden'); observeDiv.classList.remove('hidden'); img.classList.add('hidden'); loading.classList.remove('hidden');
-                img.crossOrigin = "Anonymous";
-                img.onload = () => { loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); try { appState.results.tat.push({ type: "IMAGE", obj: { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight } }); } catch(e){} appState.currentTimeout = setTimeout(executeTATPhase2, 30000); };
-                img.onerror = () => { const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)]; appState.currentTatImages[appState.currentTatIndex] = newImage; img.src = newImage; };
-                img.src = currentImage;
+                blankTextDiv.classList.add('hidden'); observeDiv.classList.remove('hidden'); 
+                
+                // IF THE SCOUT ALREADY DOWNLOADED AND VERIFIED THE IMAGE (0.0 second load)
+                if (appState.preloadedNext && appState.preloadedNext.url === currentImage) {
+                    img.src = appState.preloadedNext.url;
+                    img.classList.remove('hidden'); loading.classList.add('hidden');
+                    playBeep();
+                    appState.results.tat.push({ type: "IMAGE", obj: appState.preloadedNext });
+                    appState.currentTimeout = setTimeout(executeTATPhase2, 30000);
+                } else {
+                    // Fallback just in case scout didn't finish
+                    img.classList.add('hidden'); loading.classList.remove('hidden');
+                    img.crossOrigin = "Anonymous";
+                    img.onload = () => { loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); try { appState.results.tat.push({ type: "IMAGE", obj: { data: getBase64Image(img), w: img.naturalWidth, h: img.naturalHeight } }); } catch(e){} appState.currentTimeout = setTimeout(executeTATPhase2, 30000); };
+                    img.onerror = () => { const newImage = TAT_IMAGES_POOL[Math.floor(Math.random() * TAT_IMAGES_POOL.length)]; appState.currentTatImages[appState.currentTatIndex] = newImage; executeTATPhase1(); };
+                    img.src = currentImage;
+                }
             }
         }
         function executeTATPhase2() { 
             document.getElementById('tat-observe').classList.add('hidden'); document.getElementById('tat-blank-text').classList.add('hidden'); document.getElementById('tat-write').classList.remove('hidden'); 
             
-            // SMART PRELOADER: Loads the NEXT image while the user is writing their story!
+            // SMART SCOUT: Sends the scout ahead to secretly find, verify, and download the NEXT image while user writes for 4 mins
             if (appState.currentTatIndex + 1 < appState.currentTatImages.length) {
-                preloadImage(appState.currentTatImages[appState.currentTatIndex + 1]);
+                scoutNextImage(appState.currentTatIndex + 1);
             }
 
             appState.currentTimeout = setTimeout(() => { appState.currentTatIndex++; executeTATPhase1(); }, 240000); 
