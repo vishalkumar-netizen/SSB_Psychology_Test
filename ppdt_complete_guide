@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SYY2YDFEZ3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO TAGS -->
+    <title>PPDT in SSB: Complete Guide to Picture Perception & Discussion Test | SSB Psych Test</title>
+    <meta name="description" content="Master the PPDT in SSB Interview Day 1. Learn how to write the perfect story, dominate the narration, and survive the group discussion to get screened in.">
+    <meta name="keywords" content="PPDT, SSB Interview Day 1, Screening test SSB, Picture Perception and Discussion Test, PPDT stories, SSB Group Discussion, OIR Test, NDA screening">
+    <meta name="author" content="SSB Psych Test Platform">
+    
+    <!-- 👇 CANONICAL TAG FOR SEO 👇 -->
+    <link rel="canonical" href="https://www.ssbpsychtest.in/ppdt_complete_guide" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="PPDT in SSB: Complete Guide to Picture Perception & Discussion Test">
+    <meta property="og:description" content="Master the PPDT in SSB Day 1. Learn the secrets of story writing, narration, and GD to ensure your screening success.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
+
+    <!-- Google Fonts & Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { primary: '#0f172a', secondary: '#3b82f6', }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; }
+        .dark .glass-nav { background: rgba(15, 23, 42, 0.85); border-bottom: 1px solid #1e293b; }
+        .prose h2 { color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 800;}
+        .prose h3 { color: #1e293b; margin-top: 2.5rem; font-weight: 700;}
+        .dark .prose h2 { color: #f8fafc; border-bottom-color: #334155; }
+        .dark .prose h3 { color: #e2e8f0; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { color: #0f172a; }
+        .dark .prose strong { color: #f8fafc; }
+        .prose a { color: #2563eb; font-weight: 700; text-decoration: none; transition: all 0.2s ease; border-bottom: 1px dotted #2563eb; }
+        .prose a:hover { color: #1d4ed8; text-decoration: none; border-bottom: 1px solid #1d4ed8; }
+        .dark .prose a { color: #60a5fa; border-bottom: 1px dotted #60a5fa;}
+        .dark .prose a:hover { color: #93c5fd; border-bottom: 1px solid #93c5fd;}
+        
+        /* Custom Example Boxes */
+        .example-box { border-radius: 0.75rem; padding: 1.5rem; margin-top: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .bad-example { background-color: #fef2f2; border-left: 5px solid #ef4444; }
+        .dark .bad-example { background-color: rgba(127, 29, 29, 0.15); border-left-color: #f87171; }
+        .good-example { background-color: #f0fdf4; border-left: 5px solid #22c55e; }
+        .dark .good-example { background-color: rgba(20, 83, 45, 0.15); border-left-color: #4ade80; }
+        .example-title { font-weight: 800; display: flex; items-center; gap: 0.5rem; margin-bottom: 0.75rem; margin-top: 0 !important; }
+    </style>
+</head>
+<body class="bg-[#f8fafc] dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <nav id="main-navbar" class="glass-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-[72px]">
+                <a href="/" class="flex items-center cursor-pointer py-2 group">
+                    <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="SSB Logo" class="h-12 w-12 mr-3 object-contain bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
+                    <div class="flex flex-col justify-center">
+                        <span class="font-extrabold text-2xl tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-300">SSB Psych Test</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition">Home</a>
+                    <a href="/blog" class="text-sm font-bold text-blue-600 dark:text-blue-400 transition">Articles</a>
+                    <a href="/Test?test=full" class="text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition">Practice Tests</a>
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition focus:outline-none border border-slate-200 dark:border-slate-700">
+                        <span id="theme-icon-desktop">🌙</span>
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 transition focus:outline-none text-xl border border-slate-200 dark:border-slate-700">
+                        <span id="theme-icon-mobile">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        
+        <a href="/blog" class="inline-flex mb-8 items-center text-blue-600 dark:text-blue-400 font-bold hover:underline underline-offset-4 transition-all" style="border:none;">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Articles
+        </a>
+
+        <article class="bg-white dark:bg-slate-800 p-6 sm:p-10 md:p-14 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700">
+            
+            <!-- Article Header -->
+            <header class="mb-12">
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">Screening Phase</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">Day 1</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-6">PPDT in SSB: Complete Guide to Picture Perception & Discussion Test</h1>
+                <div class="flex items-center gap-4 border-t border-b border-slate-100 dark:border-slate-700 py-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">S</div>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white m-0">Written by SSB Psych Test Editorial Team</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 m-0 mt-1">18 min read • Ultimate Screening Masterclass</p>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Rich Text Content -->
+            <div class="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                
+                <p class="text-xl leading-relaxed font-medium text-slate-600 dark:text-slate-400 mb-8">
+                    Day 1 of the Service Selection Board (SSB) Interview is brutal. Out of 100 candidates who report at the railway station, approximately 60 to 70 will be sent back home by the afternoon. The ultimate decider of your fate on this dreaded day is the <strong>Picture Perception and Discussion Test (PPDT)</strong>.
+                </p>
+
+                <p>
+                    Unlike the <a href="/what_is_tat">TAT (Thematic Apperception Test)</a> which happens on Day 2, the PPDT is a high-pressure, multi-stage elimination round. It tests not just your psychological perception, but your confidence in public speaking, your ability to handle intense group pressure, and your leadership skills in a chaotic environment.
+                </p>
+
+                <p>
+                    In this extensive, highly detailed mega-guide, we will break down the PPDT into its three core phases: Story Writing, Individual Narration, and the infamous Group Discussion (the "Fish Market"). If you master these three phases, your chances of getting screened in will skyrocket.
+                </p>
+
+                <!-- CUSTOM PPDT PHASES INFOGRAPHIC -->
+                <div class="my-10 bg-white dark:bg-slate-800/80 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden not-prose">
+                    <div class="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-5">
+                        <h3 class="text-white text-xl md:text-2xl font-extrabold m-0 flex items-center gap-3">
+                            <svg class="w-7 h-7 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            The 4 Stages of PPDT
+                        </h3>
+                        <p class="text-indigo-100 text-sm mt-1 font-medium">The official timeline of the Day 1 Screening test.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 dark:divide-slate-700">
+                        <!-- Stage 1 -->
+                        <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <div class="w-14 h-14 mx-auto bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center font-black text-xl mb-4 shadow-sm border border-indigo-200 dark:border-indigo-800">30s</div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-lg m-0">Observation</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">A hazy, blurred picture is flashed on the screen. Scan the characters and background.</p>
+                        </div>
+                        <!-- Stage 2 -->
+                        <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <div class="w-14 h-14 mx-auto bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center font-black text-xl mb-4 shadow-sm border border-blue-200 dark:border-blue-800">5m</div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-lg m-0">Writing</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">1 minute to fill the character box + 4 minutes to write a complete story with an action.</p>
+                        </div>
+                        <!-- Stage 3 -->
+                        <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <div class="w-14 h-14 mx-auto bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-full flex items-center justify-center font-black text-xl mb-4 shadow-sm border border-orange-200 dark:border-orange-800">1m</div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-lg m-0">Narration</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Each candidate narrates their story individually to the group in a semi-circle seating.</p>
+                        </div>
+                        <!-- Stage 4 -->
+                        <div class="p-6 text-center hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <div class="w-14 h-14 mx-auto bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center font-black text-xl mb-4 shadow-sm border border-emerald-200 dark:border-emerald-800">15m</div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-lg m-0">GD</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">The group discusses all stories to reach one single, common consensus story.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END INFOGRAPHIC -->
+
+                <h2>Phase 1: Observation & The Character Box</h2>
+                <p>
+                    You will be seated in the testing hall, and a picture will be projected onto the screen. Unlike the pictures in TAT, <strong>the PPDT picture is intentionally extremely hazy, blurred, and ambiguous.</strong>
+                </p>
+                <p>
+                    Why? The psychologists at DIPR blur the picture so that your brain is forced to fill in the missing details using your own subconscious personality. A pessimistic person will see a blurry figure as a crying victim, while an optimistic leader will see the same blurry figure as someone working hard.
+                </p>
+
+                <h3>How to Fill the Answer Sheet Details</h3>
+                <p>After the 30 seconds are over, you get 1 minute to fill in a square box printed on your answer sheet. You must mark the characters you saw by specifying three things:</p>
+                <ul>
+                    <li><strong>Age:</strong> Write the approximate numerical age (e.g., 22, 45).</li>
+                    <li><strong>Sex:</strong> Write <strong>M</strong> (Male), <strong>F</strong> (Female), or <strong>P</strong> (Person, if gender is completely unrecognizable).</li>
+                    <li><strong>Mood:</strong> Write <strong>+</strong> (Positive), <strong>-</strong> (Negative), or <strong>0</strong> (Neutral).</li>
+                </ul>
+                <p>You must circle the character that represents your "Hero". For example, if your hero is a 24-year-old positive male, you will write <strong>(M, 24, +)</strong> and draw a circle around it. You must also write a clear, one-line <strong>"Action"</strong> representing the theme of your story.</p>
+
+                <h2>Phase 2: Writing the Story (The 4 Minutes)</h2>
+                <p>
+                    Once the 1 minute for the box is over, you have exactly 4 minutes to write the story. The formula for writing a PPDT story is identical to writing a <a href="/ssb_psychological_test_detailed_analysis">TAT story</a>. It must have a Past, a Present, and a Future.
+                </p>
+
+                <div class="example-box bad-example">
+                    <h4 class="example-title text-red-700 dark:text-red-400">❌ The Pre-Conceived / Unrelated Story</h4>
+                    <p class="m-0 text-red-900 dark:text-red-200"><em>Action: Eradicating Poverty.</em> "Raju saw a blurry man standing. He realized India has a lot of poverty. So Raju became an IAS officer, started a massive NGO, took money from rich people, and ended poverty in his village. Everyone praised him."</p>
+                    <p class="mt-2 text-sm text-red-800 dark:text-red-300"><strong>Assessor's Note:</strong> This candidate ignored the picture completely and wrote a pre-memorized essay. It shows zero observation skills and unrealistic, grand delusions.</p>
+                </div>
+
+                <div class="example-box good-example">
+                    <h4 class="example-title text-green-700 dark:text-green-400">✅ The Practical, Action-Oriented Story</h4>
+                    <p class="m-0 text-green-900 dark:text-green-200"><em>Action: Organizing an Inter-College Debate.</em> "Vikram, the cultural secretary of his college, was observing the empty auditorium. He noticed the sound system was inadequate for the upcoming state-level debate. He immediately formed a committee of three juniors, arranged a meeting with the college dean to secure funds, and rented professional microphones. He supervised the seating arrangement and ran sound checks a day prior. The event was conducted flawlessly, and his college won the overall trophy."</p>
+                    <p class="mt-2 text-sm text-green-800 dark:text-green-300"><strong>Assessor's Note:</strong> The candidate observed a person in a room, tied it to a practical goal, showed planning, delegation, and hard work to achieve success.</p>
+                </div>
+
+                <h2>Phase 3: Individual Narration (Make or Break)</h2>
+                <p>
+                    Once the writing time is over, your papers are collected. You are divided into groups of 10 to 15 candidates and taken to a testing room where you sit in a semi-circle. Three assessors (GTO, Psychologist, and Interviewing Officer) will be sitting in front of you.
+                </p>
+                <p>
+                    <strong>This is where 50% of the rejections happen.</strong>
+                </p>
+                <p>
+                    You will get exactly 1 minute to narrate the story you just wrote. The assessors are judging your <strong>confidence, clarity of thought, and body language</strong> under pressure. 
+                </p>
+
+                <div class="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-6 rounded-r-2xl my-8 shadow-sm">
+                    <h4 class="text-indigo-900 dark:text-indigo-300 font-extrabold m-0 text-xl">🎤 Golden Rules for Narration</h4>
+                    <ul class="text-indigo-800 dark:text-indigo-200 mt-3 list-disc pl-5 space-y-2">
+                        <li><strong>Never look at the assessors:</strong> Look only at your group members. Making eye contact with the assessors shows you are seeking validation.</li>
+                        <li><strong>Do not memorize word-for-word:</strong> If you forget a line, do not stutter or stop. Continue the flow of the story using different words.</li>
+                        <li><strong>Body Language:</strong> Sit straight, keep your hands on your thighs, do not shake your legs, and speak with a loud, chest-driven voice.</li>
+                        <li><strong>Be concise:</strong> Start with: <em>"Gentlemen, from the picture shown to us, I perceived [X] characters. My hero is a [Age] year old [Gender] in a [Mood] mood. The action of my story is..."</em> Then immediately start the story.</li>
+                    </ul>
+                </div>
+
+                <h2>Phase 4: The Group Discussion (The Fish Market)</h2>
+                <p>
+                    The moment the final candidate finishes their narration, the Group Discussion begins automatically. No assessor will tell you to start. 
+                </p>
+                <p>
+                    Because 15 candidates are fighting desperately to get screened in, the room instantly erupts into chaos. Everyone starts shouting at the same time. This is affectionately known by defence aspirants as the "Fish Market." Your job is to prove your <a href="/why_candidates_fail">Officer Like Qualities</a> by navigating this chaos, not by adding to it.
+                </p>
+
+                <h3>How to Dominate the PPDT GD:</h3>
+                <ol>
+                    <li><strong>The Initiation:</strong> If you can start the discussion by defining a clear theme, do it. <em>"Gentlemen, since the majority of us perceived the background as a village scene, let us agree that our hero is a young sarpanch trying to solve a local issue."</em> If you give the group a direction, the assessors instantly note your leadership.</li>
+                    <li><strong>Do not argue endlessly:</strong> If you wrote a story about a hospital, but 12 other people wrote a story about a school, <strong>drop your story immediately</strong>. Adapt to the group's theme. Stubbornness is a negative trait.</li>
+                    <li><strong>Enter during the pauses:</strong> Do not scream over three people shouting. Wait for the noise level to drop slightly (it happens every 15-20 seconds as people take a breath) and inject a logical point loudly and clearly.</li>
+                    <li><strong>Encourage the weak:</strong> If you notice a candidate sitting quietly, look at them and say, <em>"I believe Chest Number 14 has a valid point to add, let's hear him out."</em> This is the ultimate display of Group Influencing Ability and Social Adaptability.</li>
+                </ol>
+
+                <p>
+                    Ultimately, the group must reach a "Common Consensus Story." One person will be nominated by the group to narrate this final, agreed-upon story to the assessors. If you are chosen to narrate, it is a massive plus point, but even if you are not, active, logical participation guarantees your screening success.
+                </p>
+
+                <hr class="my-10 border-slate-200 dark:border-slate-700">
+
+                <h2>Frequently Asked Questions (FAQs)</h2>
+                
+                <div class="space-y-6 mt-6">
+                    <div>
+                        <h4 class="font-bold text-xl mb-1 text-slate-900 dark:text-white">Q1: What happens if I fumble during my narration?</h4>
+                        <p class="m-0 text-base text-slate-600 dark:text-slate-400">Fumbling slightly is normal due to nervousness. Do not apologize or stop. Just take a deep breath, correct yourself quickly, and continue with confidence. Assessors look for your recovery speed, not perfect English.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1 text-slate-900 dark:text-white">Q2: Should I speak in Hindi if my English is weak?</h4>
+                        <p class="m-0 text-base text-slate-600 dark:text-slate-400">English is highly preferred. However, if you get completely stuck, you can use a few words of Hindi to express your thought, but you must revert to English as soon as possible. Do not narrate your entire story in Hindi.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1 text-slate-900 dark:text-white">Q3: Is the OIR test important, or does only PPDT matter?</h4>
+                        <p class="m-0 text-base text-slate-600 dark:text-slate-400">The Officer Intelligence Rating (OIR) test is incredibly important. Your overall screening result is a combination of your OIR score and your PPDT performance. A poor OIR rating requires an exceptionally brilliant PPDT to get screened in. Read our <a href="/oir_test_guide" class="font-bold">Complete OIR Test Guide</a> to secure a Rating-1.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1 text-slate-900 dark:text-white">Q4: What if I am unable to speak at all during the GD?</h4>
+                        <p class="m-0 text-base text-slate-600 dark:text-slate-400">If you remain completely silent during the GD, your chances of getting screened in are close to zero. You must forcefully, yet politely, enter the discussion at least 2 or 3 times with highly logical points.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1 text-slate-900 dark:text-white">Q5: Can I write a negative story if the picture is dark?</h4>
+                        <p class="m-0 text-base text-slate-600 dark:text-slate-400">Yes. If the picture clearly shows an accident or tragedy, do not write a "happy picnic" story. Accept the tragedy, but show your hero taking immediate, proactive steps (calling an ambulance, giving first aid) to resolve the negative situation into a positive outcome.</p>
+                    </div>
+                </div>
+
+                <!-- OFFICIAL SOURCES SECTION -->
+                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 mt-12 border border-slate-200 dark:border-slate-700 text-sm">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Official Sources & References
+                    </h4>
+                    <p class="text-slate-600 dark:text-slate-400 mb-2">The screening framework and PPDT procedures discussed are based on the official guidelines established by the Services Selection Board.</p>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                        <li>• Join Indian Army Official Portal: <a href="https://joinindianarmy.nic.in" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline border-none">joinindianarmy.nic.in</a></li>
+                        <li>• Indian Air Force AFCAT Portal: <a href="https://afcat.cdac.in/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline border-none">afcat.cdac.in</a></li>
+                    </ul>
+                </div>
+
+                <!-- READ NEXT SECTION -->
+                <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Read Next</h3>
+                    <a href="/ssb_psychological_test_detailed_analysis" class="block bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors shadow-sm hover:shadow-md group" style="border-bottom: 1px solid inherit;">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-indigo-600 dark:text-indigo-400 text-xs font-extrabold tracking-wider uppercase mb-2 block">Day 2 Guide</span>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors m-0 border-none">Psychological Test in SSB: Detailed Analysis (TAT, WAT, SRT)</h4>
+                            </div>
+                            <svg class="w-6 h-6 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- COMMUNITY CONNECT SECTION -->
+            <div class="mt-12 bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+                <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Join the SSB Psych Test Community</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-8 text-base">Get daily practice images, expert reviews, and instant updates.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://t.me/ssbpsychtest_official" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-[#0088cc] hover:bg-[#0077b3] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:-translate-y-1">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.204-.054-.315-.346-.116L7.49 14.33l-2.754-.86c-.598-.18-.61-.595.126-.885l10.76-4.148c.498-.184.945.105.792.884z"/></svg>
+                        Join Telegram
+                    </a>
+                    
+                    <a href="https://youtube.com/@ssbpsychtest" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:-translate-y-1">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch on YouTube
+                    </a>
+
+                    <a href="/contact" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 dark:hover:bg-slate-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:-translate-y-1 border border-slate-700 dark:border-slate-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        Feedback Form
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Call to Action (Testing Simulator) -->
+            <div class="mt-8 bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-700 shadow-xl text-center">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-4">Start Your PPDT Practice Now</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-10 text-lg">Hazy images flash for exactly 30 seconds. Put your perception to the ultimate test in our real-time simulator.</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 sm:gap-4 items-center mb-10">
+                    <a href="/Test?test=PPDT" class="bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-extrabold py-3.5 px-10 rounded-xl hover:scale-105 transition-transform shadow-xl w-full sm:w-auto text-lg mb-4 sm:mb-0">Start PPDT Simulator</a>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-3 items-center pt-6 border-t border-slate-200 dark:border-slate-700">
+                    <span class="text-sm font-bold text-slate-500 mr-2">Other Tests:</span>
+                    <a href="/Test?test=TAT" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">TAT</a>
+                    <span class="text-slate-300 dark:text-slate-600">•</span>
+                    <a href="/Test?test=WAT" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">WAT</a>
+                    <span class="text-slate-300 dark:text-slate-600">•</span>
+                    <a href="/Test?test=SRT" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">SRT</a>
+                    <span class="text-slate-300 dark:text-slate-600">•</span>
+                    <a href="/Test?test=full" class="text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline">Full Battery Test</a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-8 text-center mt-auto">
+        <p class="text-sm text-slate-500">© 2024 SSB Psych Test Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- COOKIE CONSENT SCRIPT & THEME TOGGLE -->
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('theme-icon-desktop').innerText = isDark ? '☀️' : '🌙';
+            document.getElementById('theme-icon-mobile').innerText = isDark ? '☀️' : '🌙';
+        }
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon-desktop').innerText = '☀️';
+            document.getElementById('theme-icon-mobile').innerText = '☀️';
+        }
+    </script>
+    
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transform translate-y-full transition-transform duration-500 ease-in-out z-[9999] p-4 sm:p-6">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div class="flex-1 text-center lg:text-left">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center justify-center lg:justify-start gap-2"><span>🍪</span> We value your privacy</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 m-0">We use cookies, including third-party cookies from Google AdSense, to serve personalized ads and analyze our website traffic. By clicking "Accept", you consent to our use of cookies as detailed in our <a href="/privacy-policy" class="text-blue-600 dark:text-blue-400 font-bold hover:underline" style="border:none;">Privacy Policy</a>.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+                <button onclick="acceptCookies()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-8 rounded-xl transition-colors shadow-md focus:outline-none">Accept</button>
+                <button onclick="dismissCookies()" class="w-full sm:w-auto bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 font-bold py-2.5 px-6 rounded-xl transition-colors focus:outline-none">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const consentBanner = document.getElementById('cookie-consent');
+            if (!localStorage.getItem('ssb_cookie_consent')) { setTimeout(() => { consentBanner.classList.remove('translate-y-full'); }, 1500); }
+        });
+        function acceptCookies() { localStorage.setItem('ssb_cookie_consent', 'accepted'); document.getElementById('cookie-consent').classList.add('translate-y-full'); }
+        function dismissCookies() { localStorage.setItem('ssb_cookie_consent', 'declined'); document.getElementById('cookie-consent').classList.add('translate-y-full'); }
+    </script>
+</body>
+</html>
