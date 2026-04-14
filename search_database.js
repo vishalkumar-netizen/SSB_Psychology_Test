@@ -22,7 +22,7 @@ const searchData = [
     { title: "PPDT Complete Guide", url: "/ppdt_complete_guide", type: "Guide", keywords: "ppdt screening narration gd group discussion fish market action" },
     { title: "WAT Complete Guide", url: "/wat_complete_guide", type: "Guide", keywords: "wat word association test negative words rules 15 seconds examples" },
     { title: "SRT Complete Guide", url: "/srt_complete_guide", type: "Guide", keywords: "srt situation reaction test time management practical reactions examples" },
-    
+    { title: "SDT Complete Guide", url: "/self_description_test_guide", type: "Guide", keywords: "sdt self description test psychology weaknesses strengths parents friends" },
     // Military Lifestyle
     { title: "Salary of Armed Forces Officer", url: "/salary_of_armed_forces_officer", type: "Guide", keywords: "salary pay scale allowances perks money nda cds ima msp" },
     { title: "Strict Social Media Rules", url: "/social_media_rules_armed_forces", type: "Guide", keywords: "social media instagram whatsapp ban rules opsec smartphone mobile" }
