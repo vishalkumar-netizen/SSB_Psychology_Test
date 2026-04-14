@@ -14,7 +14,7 @@ const searchData = [
     { title: "Why Candidates Fail in SSB", url: "/why_candidates_fail", type: "Guide", keywords: "rejection failure mistakes screened out conference out fake" },
     { title: "How to Maximize Prep on this Platform", url: "/how_to_utilize_platform", type: "Guide", keywords: "platform tutorial timer practice notebook mock test" },
     { title: "OIR Test Complete Guide", url: "/oir_test_guide", type: "Guide", keywords: "oir officer intelligence rating reasoning verbal non-verbal screening" },
-    
+    { title: "50-Day SSB Preparation Strategy", url: "/50_day_ssb_preparation_strategy", type: "Guide", keywords: "50 day ssb preparation strategy without coaching daily routine fitness psychology" },
     // Psychology Deep Dives
     { title: "What is TAT? A Complete Guide", url: "/what_is_tat", type: "Guide", keywords: "tat thematic apperception test story formula hero blank slide" },
     { title: "How Psych Tests Decide Your Result", url: "/how_psych_tests_decide_result", type: "Guide", keywords: "psychology hidden truth manasa vacha karmana assessment evaluation" },
