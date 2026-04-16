@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SYY2YDFEZ3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO TAGS -->
+    <title>Fixed Test Series: PPDT, TAT, WAT & SRT | SSB Psych Test</title>
+    <meta name="description" content="Practice the SSB Psychology tests with our structured, fixed-set series. Access 120+ PPDT sets, 25+ TAT sets, WAT, and SRT for organized daily practice.">
+    <meta name="keywords" content="SSB Fixed Tests, PPDT sets, TAT sets, WAT practice sets, SRT practice, SSB structured prep, DIPR syllabus">
+    <meta name="author" content="SSB Psych Test Team">
+    
+    <!-- Canonical Tag (Clean URL) -->
+    <link rel="canonical" href="https://www.ssbpsychtest.in/fixed_tests" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
+
+    <!-- Google Fonts & Tailwind (SAFE PATTERN) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { primary: '#0f172a', secondary: '#3b82f6', }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; }
+        .dark .glass-nav { background: rgba(15, 23, 42, 0.85); border-bottom: 1px solid #1e293b; }
+        
+        /* Tab Transitions */
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+<body class="bg-[#f8fafc] dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 overflow-x-hidden transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="glass-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-[72px]">
+                <a href="/" class="flex items-center cursor-pointer py-2 group">
+                    <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="SSB Logo" class="h-12 w-12 mr-3 object-contain bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
+                    <div class="flex flex-col justify-center">
+                        <span class="font-extrabold text-2xl tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-300">SSB Psych Test</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition">Home</a>
+                    <a href="/blog" class="text-sm font-bold text-blue-600 dark:text-blue-400 transition">Articles</a>
+                    <a href="/Test?test=full" class="text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition">Random Tests</a>
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition focus:outline-none border border-slate-200 dark:border-slate-700">
+                        <span id="theme-icon-desktop">🌙</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger & Theme Toggle -->
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 transition focus:outline-none text-xl border border-slate-200 dark:border-slate-700">
+                        <span id="theme-icon-mobile">🌙</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-2xl absolute w-full overflow-y-auto max-h-[80vh] z-40">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="/" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition">Home</a>
+                <a href="/blog" class="block w-full text-left px-4 py-3 rounded-xl text-base font-bold text-blue-600 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Articles Library</a>
+                <a href="/Test?test=full" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition">Random Tests</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        
+        <a href="/" class="inline-flex mb-8 items-center text-blue-600 dark:text-blue-400 font-bold hover:underline underline-offset-4 transition-all">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Home
+        </a>
+
+        <!-- Header Section -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-6 border border-amber-200 dark:border-amber-800">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                Structured Prep
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
+                Fixed Practice Sets
+            </h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                Track your progress systematically. These sets are fixed and sequential. Complete them day-by-day to guarantee your recommendation.
+            </p>
+        </div>
+
+        <!-- TABS NAVIGATION -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 bg-white dark:bg-slate-800 p-2 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm w-fit mx-auto">
+            <button onclick="switchTab('ppdt-tab')" id="btn-ppdt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all bg-orange-500 text-white shadow-md">PPDT (120 Sets)</button>
+            <button onclick="switchTab('tat-tab')" id="btn-tat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">TAT (25 Sets)</button>
+            <button onclick="switchTab('wat-tab')" id="btn-wat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">WAT (25 Sets)</button>
+            <button onclick="switchTab('srt-tab')" id="btn-srt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">SRT (25 Sets)</button>
+        </div>
+
+        <!-- TAB CONTENT CONTAINERS -->
+        <div class="bg-white dark:bg-slate-800 p-6 md:p-12 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 min-h-[50vh]">
+            
+            <!-- PPDT CONTENT -->
+            <div id="ppdt-tab" class="tab-content active">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center">P</span>
+                        PPDT Practice Sets
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">1 distinct PPDT picture per set. 30s observation, 4m writing.</p>
+                </div>
+                <!-- The Grid will be injected by JavaScript -->
+                <div id="ppdt-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"></div>
+            </div>
+
+            <!-- TAT CONTENT -->
+            <div id="tat-tab" class="tab-content">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">T</span>
+                        TAT Practice Sets
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">11 fixed pictures + 1 Blank Slide per set. (48 Mins per set).</p>
+                </div>
+                <div id="tat-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
+            </div>
+
+            <!-- WAT CONTENT -->
+            <div id="wat-tab" class="tab-content">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">W</span>
+                        WAT Practice Sets
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">60 fixed words flashed sequentially. (15s per word).</p>
+                </div>
+                <div id="wat-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
+            </div>
+
+            <!-- SRT CONTENT -->
+            <div id="srt-tab" class="tab-content">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 flex items-center justify-center">S</span>
+                        SRT Practice Sets
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">60 fixed everyday situations. (30 Mins limit).</p>
+                </div>
+                <div id="srt-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Tailwind Safelist to prevent purging dynamic classes -->
+    <div class="hidden bg-orange-500 bg-blue-600 bg-indigo-600 bg-teal-600 hover:bg-orange-500 dark:hover:bg-orange-500 hover:bg-blue-600 dark:hover:bg-blue-600 hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:bg-teal-600 dark:hover:bg-teal-600"></div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-8 text-center mt-auto">
+        <p class="text-sm text-slate-500 font-medium">© 2024 SSB Psych Test Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- SCRIPT FOR TAB SWITCHING AND GRID GENERATION -->
+    <script>
+        // 1. Dark Mode Toggle
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('theme-icon-desktop').innerText = isDark ? '☀️' : '🌙';
+            if (document.getElementById('theme-icon-mobile')) {
+                document.getElementById('theme-icon-mobile').innerText = isDark ? '☀️' : '🌙';
+            }
+        }
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon-desktop').innerText = '☀️';
+            if (document.getElementById('theme-icon-mobile')) {
+                document.getElementById('theme-icon-mobile').innerText = '☀️';
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 2. Tab Switching Logic
+        const tabs = ['ppdt-tab', 'tat-tab', 'wat-tab', 'srt-tab'];
+        const colors = {
+            'ppdt-tab': 'bg-orange-500',
+            'tat-tab': 'bg-blue-600',
+            'wat-tab': 'bg-indigo-600',
+            'srt-tab': 'bg-teal-600'
+        };
+
+        function switchTab(activeTabId) {
+            tabs.forEach(tabId => {
+                document.getElementById(tabId).classList.remove('active');
+                const btn = document.getElementById('btn-' + tabId);
+                btn.className = `tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700`;
+            });
+
+            document.getElementById(activeTabId).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + activeTabId);
+            activeBtn.className = `tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${colors[activeTabId]} text-white shadow-md border border-transparent`;
+        }
+
+        // 3. Grid Generator Logic (With Local Fallback and Exact File Mapping)
+        function generateGrid(containerId, testType, totalSets, colorClasses) {
+            const container = document.getElementById(containerId);
+            let htmlContent = '';
+            
+            // Detect if running locally (file://) to prevent broken links during testing
+            const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            
+            // Map to exact filenames. Using "test2" to match your lowercase file exactly to avoid GitHub 404s.
+            const enginePath = isLocal ? 'test2.html' : '/test2';
+            const randomEnginePath = isLocal ? 'Test.html' : '/Test';
+            
+            // Loop to generate Set 1 to Set N
+            for (let i = 1; i <= totalSets; i++) {
+                htmlContent += `
+                    <a href="${enginePath}?test=${testType}&set=${i}" class="group flex flex-col items-center justify-center py-5 px-2 rounded-2xl border-2 border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 hover:border-transparent hover:shadow-xl transition-all ${colorClasses}">
+                        <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-hover:text-white/80 transition-colors">SET</span>
+                        <span class="text-2xl font-black text-slate-800 dark:text-slate-200 group-hover:text-white transition-colors">${i}</span>
+                    </a>
+                `;
+            }
+
+            // Append the "More (Random Tests)" button at the very end
+            htmlContent += `
+                <a href="${randomEnginePath}?test=${testType}" class="group flex flex-col items-center justify-center py-5 px-2 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-transparent hover:border-transparent hover:shadow-xl transition-all ${colorClasses}">
+                    <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-hover:text-white/80 transition-colors">Random</span>
+                    <span class="text-lg font-black text-slate-800 dark:text-slate-200 group-hover:text-white transition-colors">More ♾️</span>
+                </a>
+            `;
+
+            container.innerHTML = htmlContent;
+        }
+
+        // Generate grids exactly as requested on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            // PPDT: 120 Sets + "More"
+            generateGrid('ppdt-grid', 'PPDT', 120, 'hover:bg-orange-500 dark:hover:bg-orange-500');
+            
+            // TAT: 25 Sets + "More"
+            generateGrid('tat-grid', 'TAT', 25, 'hover:bg-blue-600 dark:hover:bg-blue-600');
+            
+            // WAT: 25 Sets + "More"
+            generateGrid('wat-grid', 'WAT', 25, 'hover:bg-indigo-600 dark:hover:bg-indigo-600');
+            
+            // SRT: 25 Sets + "More"
+            generateGrid('srt-grid', 'SRT', 25, 'hover:bg-teal-600 dark:hover:bg-teal-600');
+        });
+    </script>
+</body>
+</html>
