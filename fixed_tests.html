@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO TAGS -->
-    <title>Fixed Test Series: PPDT, TAT, WAT & SRT | SSB Psych Test</title>
-    <meta name="description" content="Practice the SSB Psychology tests with our structured, fixed-set series. Access 120+ PPDT sets, 25+ TAT sets, WAT, and SRT for organized daily practice.">
-    <meta name="keywords" content="SSB Fixed Tests, PPDT sets, TAT sets, WAT practice sets, SRT practice, SSB structured prep, DIPR syllabus">
+    <title>Fixed Test Series: PPDT, TAT, WAT, SRT & Full Mocks | SSB Psych Test</title>
+    <meta name="description" content="Practice the SSB Psychology tests with our structured, fixed-set series. Access 120+ PPDT sets, TAT, WAT, SRT, SD, and 20+ Full Mock batteries.">
+    <meta name="keywords" content="SSB Fixed Tests, PPDT sets, TAT sets, WAT practice sets, SRT practice, SSB Full Mock, SSB structured prep, DIPR syllabus">
     <meta name="author" content="SSB Psych Test Team">
     
     <!-- Canonical Tag (Clean URL) -->
@@ -125,10 +125,12 @@
 
         <!-- TABS NAVIGATION -->
         <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 bg-white dark:bg-slate-800 p-2 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm w-fit mx-auto">
-            <button onclick="switchTab('ppdt-tab')" id="btn-ppdt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all bg-orange-500 text-white shadow-md">PPDT (120 Sets)</button>
-            <button onclick="switchTab('tat-tab')" id="btn-tat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">TAT (25 Sets)</button>
-            <button onclick="switchTab('wat-tab')" id="btn-wat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">WAT (25 Sets)</button>
-            <button onclick="switchTab('srt-tab')" id="btn-srt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">SRT (25 Sets)</button>
+            <button onclick="switchTab('ppdt-tab')" id="btn-ppdt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all bg-orange-500 text-white shadow-md border border-transparent">PPDT (120 Sets)</button>
+            <button onclick="switchTab('tat-tab')" id="btn-tat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700">TAT (25 Sets)</button>
+            <button onclick="switchTab('wat-tab')" id="btn-wat-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700">WAT (25 Sets)</button>
+            <button onclick="switchTab('srt-tab')" id="btn-srt-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700">SRT (25 Sets)</button>
+            <button onclick="switchTab('sd-tab')" id="btn-sd-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700">SD (1 Set)</button>
+            <button onclick="switchTab('full-tab')" id="btn-full-tab" class="tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm border border-slate-200 dark:border-slate-700">Full Tests (20 Sets)</button>
         </div>
 
         <!-- TAB CONTENT CONTAINERS -->
@@ -183,12 +185,36 @@
                 <div id="srt-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
             </div>
 
+            <!-- SD CONTENT (NEW) -->
+            <div id="sd-tab" class="tab-content">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center">S</span>
+                        Self Description (SD)
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">1 Fixed Set: 5 Paragraphs, 15 Minutes strict timer.</p>
+                </div>
+                <div id="sd-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
+            </div>
+
+            <!-- FULL MOCK CONTENT -->
+            <div id="full-tab" class="tab-content">
+                <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center">F</span>
+                        Full Battery Mocks
+                    </h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Complete Day 2 sequence: TAT + WAT + SRT + SD Test.</p>
+                </div>
+                <div id="full-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
+            </div>
+
         </div>
 
     </main>
 
     <!-- Tailwind Safelist to prevent purging dynamic classes -->
-    <div class="hidden bg-orange-500 bg-blue-600 bg-indigo-600 bg-teal-600 hover:bg-orange-500 dark:hover:bg-orange-500 hover:bg-blue-600 dark:hover:bg-blue-600 hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:bg-teal-600 dark:hover:bg-teal-600"></div>
+    <div class="hidden bg-orange-500 bg-blue-600 bg-indigo-600 bg-teal-600 bg-rose-600 bg-purple-600 hover:bg-orange-500 dark:hover:bg-orange-500 hover:bg-blue-600 dark:hover:bg-blue-600 hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:bg-teal-600 dark:hover:bg-teal-600 hover:bg-rose-600 dark:hover:bg-rose-600 hover:bg-purple-600 dark:hover:bg-purple-600"></div>
 
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-8 text-center mt-auto">
@@ -221,12 +247,14 @@
         }
 
         // 2. Tab Switching Logic
-        const tabs = ['ppdt-tab', 'tat-tab', 'wat-tab', 'srt-tab'];
+        const tabs = ['ppdt-tab', 'tat-tab', 'wat-tab', 'srt-tab', 'sd-tab', 'full-tab'];
         const colors = {
             'ppdt-tab': 'bg-orange-500',
             'tat-tab': 'bg-blue-600',
             'wat-tab': 'bg-indigo-600',
-            'srt-tab': 'bg-teal-600'
+            'srt-tab': 'bg-teal-600',
+            'sd-tab': 'bg-rose-600',
+            'full-tab': 'bg-purple-600'
         };
 
         function switchTab(activeTabId) {
@@ -241,17 +269,16 @@
             activeBtn.className = `tab-btn px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${colors[activeTabId]} text-white shadow-md border border-transparent`;
         }
 
-        // 3. Grid Generator Logic (With Local Fallback and Exact File Mapping)
-        function generateGrid(containerId, testType, totalSets, colorClasses) {
+        // 3. Grid Generator Logic
+        function generateGrid(containerId, testType, totalSets, colorClasses, randomEnginePath) {
             const container = document.getElementById(containerId);
             let htmlContent = '';
             
-            // Detect if running locally (file://) to prevent broken links during testing
+            // Detect if running locally
             const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             
-            // Map to exact filenames. Using "test2" to match your lowercase file exactly to avoid GitHub 404s.
+            // Engine 2 Path for fixed sets
             const enginePath = isLocal ? 'test2.html' : '/test2';
-            const randomEnginePath = isLocal ? 'Test.html' : '/Test';
             
             // Loop to generate Set 1 to Set N
             for (let i = 1; i <= totalSets; i++) {
@@ -263,30 +290,40 @@
                 `;
             }
 
-            // Append the "More (Random Tests)" button at the very end
-            htmlContent += `
-                <a href="${randomEnginePath}?test=${testType}" class="group flex flex-col items-center justify-center py-5 px-2 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-transparent hover:border-transparent hover:shadow-xl transition-all ${colorClasses}">
-                    <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-hover:text-white/80 transition-colors">Random</span>
-                    <span class="text-lg font-black text-slate-800 dark:text-slate-200 group-hover:text-white transition-colors">More ♾️</span>
-                </a>
-            `;
+            // Append the "More (Random Tests)" button ONLY if a randomEnginePath is provided
+            if (randomEnginePath) {
+                const finalRandomLink = isLocal ? randomEnginePath.replace('/', '') + '.html' + (randomEnginePath.includes('?') ? '&test=' + testType : '?test=' + testType) : randomEnginePath;
+
+                htmlContent += `
+                    <a href="${finalRandomLink}" class="group flex flex-col items-center justify-center py-5 px-2 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-transparent hover:border-transparent hover:shadow-xl transition-all ${colorClasses}">
+                        <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-hover:text-white/80 transition-colors">Random</span>
+                        <span class="text-lg font-black text-slate-800 dark:text-slate-200 group-hover:text-white transition-colors">More ♾️</span>
+                    </a>
+                `;
+            }
 
             container.innerHTML = htmlContent;
         }
 
-        // Generate grids exactly as requested on page load
+        // Generate grids on page load
         document.addEventListener("DOMContentLoaded", () => {
             // PPDT: 120 Sets + "More"
-            generateGrid('ppdt-grid', 'PPDT', 120, 'hover:bg-orange-500 dark:hover:bg-orange-500');
+            generateGrid('ppdt-grid', 'PPDT', 120, 'hover:bg-orange-500 dark:hover:bg-orange-500', '/Test?test=PPDT');
             
             // TAT: 25 Sets + "More"
-            generateGrid('tat-grid', 'TAT', 25, 'hover:bg-blue-600 dark:hover:bg-blue-600');
+            generateGrid('tat-grid', 'TAT', 25, 'hover:bg-blue-600 dark:hover:bg-blue-600', '/Test?test=TAT');
             
             // WAT: 25 Sets + "More"
-            generateGrid('wat-grid', 'WAT', 25, 'hover:bg-indigo-600 dark:hover:bg-indigo-600');
+            generateGrid('wat-grid', 'WAT', 25, 'hover:bg-indigo-600 dark:hover:bg-indigo-600', '/Test?test=WAT');
             
             // SRT: 25 Sets + "More"
-            generateGrid('srt-grid', 'SRT', 25, 'hover:bg-teal-600 dark:hover:bg-teal-600');
+            generateGrid('srt-grid', 'SRT', 25, 'hover:bg-teal-600 dark:hover:bg-teal-600', '/Test?test=SRT');
+            
+            // SD: 1 Set (NO "More" button)
+            generateGrid('sd-grid', 'SD', 1, 'hover:bg-rose-600 dark:hover:bg-rose-600', null);
+
+            // FULL MOCK: 20 Sets + "More"
+            generateGrid('full-grid', 'full', 20, 'hover:bg-purple-600 dark:hover:bg-purple-600', '/Test?test=full');
         });
     </script>
 </body>
