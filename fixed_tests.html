@@ -109,18 +109,48 @@
             Back to Home
         </a>
 
-        <!-- Header Section -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-6 border border-amber-200 dark:border-amber-800">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                Structured Prep
+        <!-- Header & Support Section -->
+        <div class="grid lg:grid-cols-2 gap-8 items-center mb-12 max-w-6xl mx-auto">
+            <!-- Header Left -->
+            <div class="text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-6 border border-amber-200 dark:border-amber-800">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Structured Prep
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
+                    Fixed Practice Sets
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                    Track your progress systematically. These sets are fixed and sequential. Complete them day-by-day to guarantee your recommendation.
+                </p>
             </div>
-            <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
-                Fixed Practice Sets
-            </h1>
-            <p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
-                Track your progress systematically. These sets are fixed and sequential. Complete them day-by-day to guarantee your recommendation.
-            </p>
+
+            <!-- Support Box Right -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-700 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-center gap-6 group">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 rounded-full bg-rose-500/10 blur-3xl pointer-events-none group-hover:bg-rose-500/20 transition-all duration-500"></div>
+                
+                <div class="flex-1 text-center sm:text-left z-10">
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 text-[10px] font-bold uppercase tracking-widest mb-3 border border-rose-200 dark:border-rose-800">
+                        💖 Support Our Mission
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">Keep this platform free forever.</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 font-medium leading-relaxed">
+                        Join our mission. Support the website and help thousands of learners like you.
+                    </p>
+                    <div class="inline-flex flex-col w-full sm:w-auto">
+                        <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1">Scan QR or Copy UPI ID</span>
+                        <code class="block bg-slate-50 dark:bg-slate-900/50 text-blue-600 dark:text-blue-400 font-bold text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 select-all text-center shadow-inner">
+                            www.ssbpsychtest.in@ybl
+                        </code>
+                    </div>
+                </div>
+                
+                <div class="flex-shrink-0 z-10">
+                    <div class="bg-white p-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/c8428f97ffb7e77bad4512f16dae2937fb44c612/UPPIPPAAYY.jpeg" alt="UPI QR Code" class="w-28 h-28 object-cover rounded-xl border border-slate-100">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- TABS NAVIGATION -->
@@ -185,7 +215,7 @@
                 <div id="srt-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
             </div>
 
-            <!-- SD CONTENT (NEW) -->
+            <!-- SD CONTENT -->
             <div id="sd-tab" class="tab-content">
                 <div class="mb-8 border-b border-slate-200 dark:border-slate-700 pb-4 text-center sm:text-left">
                     <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
@@ -209,6 +239,33 @@
                 <div id="full-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4"></div>
             </div>
 
+        </div>
+
+        <!-- LARGE BOTTOM SUPPORT SECTION -->
+        <div class="mt-16 bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden relative max-w-5xl mx-auto">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl pointer-events-none"></div>
+            <div class="flex flex-col md:flex-row items-center gap-10 relative z-10">
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-widest mb-4 border border-rose-200 dark:border-rose-800">
+                        💖 Support Our Mission
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Keep this platform free forever.</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 font-medium leading-relaxed">
+                        Join our mission. Support the website and help thousands of learners like you. We independently cover the costs of server hosting, database management, and development so that the core testing engine will always remain 100% free. If this tool has helped your SSB preparation, consider buying us a coffee!
+                    </p>
+                    <div class="inline-flex flex-col items-center md:items-start w-full md:w-auto">
+                        <span class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Scan QR or Copy UPI ID</span>
+                        <code class="block bg-slate-50 dark:bg-slate-900/50 text-blue-600 dark:text-blue-400 font-bold text-lg md:text-xl px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-700 select-all shadow-inner w-full md:w-auto text-center">
+                            www.ssbpsychtest.in@ybl
+                        </code>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 flex justify-center">
+                    <div class="bg-white p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 transform transition duration-300 hover:scale-105">
+                        <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/c8428f97ffb7e77bad4512f16dae2937fb44c612/UPPIPPAAYY.jpeg" alt="UPI QR Code" class="w-56 h-56 object-cover rounded-xl border border-slate-100">
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -310,8 +367,8 @@
             // PPDT: 120 Sets + "More"
             generateGrid('ppdt-grid', 'PPDT', 120, 'hover:bg-orange-500 dark:hover:bg-orange-500', '/Test?test=PPDT');
             
-            // TAT: 25 Sets + "More"
-            generateGrid('tat-grid', 'TAT', 25, 'hover:bg-blue-600 dark:hover:bg-blue-600', '/Test?test=TAT');
+            // TAT: 50 Sets + "More"
+            generateGrid('tat-grid', 'TAT', 50, 'hover:bg-blue-600 dark:hover:bg-blue-600', '/Test?test=TAT');
             
             // WAT: 25 Sets + "More"
             generateGrid('wat-grid', 'WAT', 25, 'hover:bg-indigo-600 dark:hover:bg-indigo-600', '/Test?test=WAT');
@@ -322,8 +379,8 @@
             // SD: 1 Set (NO "More" button)
             generateGrid('sd-grid', 'SD', 1, 'hover:bg-rose-600 dark:hover:bg-rose-600', null);
 
-            // FULL MOCK: 20 Sets + "More"
-            generateGrid('full-grid', 'full', 20, 'hover:bg-purple-600 dark:hover:bg-purple-600', '/Test?test=full');
+            // FULL MOCK: 50 Sets + "More"
+            generateGrid('full-grid', 'full', 50, 'hover:bg-purple-600 dark:hover:bg-purple-600', '/Test?test=full');
         });
     </script>
 </body>
