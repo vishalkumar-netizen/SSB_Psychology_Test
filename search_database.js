@@ -8,7 +8,7 @@ const searchData = [
     { title: "Start WAT Mock Test", url: "/Test?test=WAT", type: "Test", keywords: "practice wat word association test psychology words 15 seconds" },
     { title: "Start SRT Mock Test", url: "/Test?test=SRT", type: "Test", keywords: "practice srt situation reaction test psychology 30 minutes" },
     { title: "Start Full Mock Test", url: "/Test?test=full", type: "Test", keywords: "practice full mock test psychology tat wat srt battery" },
-    
+    { title: "Start SD (Self Description) Test", url: "/test2?test=SD&set=1", type: "Test", keywords: "practice sd sdt self description test psychology 15 minutes paragraph parents teachers friends" },
     // Core Guides
     { title: "SSB Interview Complete Guide", url: "/ssb_complete_guide", type: "Guide", keywords: "ssb process 5 days screening psychology gto interview conference olq" },
     { title: "Why Candidates Fail in SSB", url: "/why_candidates_fail", type: "Guide", keywords: "rejection failure mistakes screened out conference out fake" },
