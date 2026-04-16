@@ -97,9 +97,9 @@
 
     <!-- SD DISPLAY VIEW -->
     <div id="sd-display-view" class="view h-screen w-full bg-white flex-col items-center justify-center p-8 relative no-select z-[100]">
-        <div class="max-w-4xl w-full text-left bg-white p-10 rounded-2xl border border-slate-200 shadow-sm">
-            <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 border-b-2 border-slate-200 pb-4">Write it down</h1>
-            <div class="text-xl md:text-2xl text-slate-700 space-y-6 font-medium">
+        <div class="max-w-4xl w-full text-left">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 border-b-4 border-blue-500 pb-4">Write it down</h1>
+            <div class="text-2xl text-slate-800 space-y-6 font-bold">
                 <p>1. What do your Parents think of you?</p>
                 <p>2. What do your Teachers/Employers think of you?</p>
                 <p>3. What do your Friends/Colleagues think of you?</p>
@@ -1495,7 +1495,7 @@
         }
 
         // ==========================================
-        // BACKGROUND SCOUT FUNCTION 
+        // NEW BACKGROUND SCOUT FUNCTION (With Sequential Check)
         // ==========================================
         function scoutNextImage(index) {
             if (index >= appState.currentTatImages.length) return;
@@ -1611,7 +1611,8 @@
             const next = appState.testQueue.shift();
             
             if (next === 'TAT') { 
-                appState.tatNextAvailableIndex = ((appState.currentSet - 1) * 20) % TAT_IMAGES_POOL.length;
+                // Fix for repeating images: Map sets strictly sequentially without gap jumping
+                appState.tatNextAvailableIndex = ((appState.currentSet - 1) * 11) % TAT_IMAGES_POOL.length;
                 appState.currentTatImages = [];
                 for(let i=0; i<11; i++) {
                     appState.currentTatImages.push(TAT_IMAGES_POOL[appState.tatNextAvailableIndex % TAT_IMAGES_POOL.length]);
@@ -1675,7 +1676,9 @@
             } else {
                 blankTextDiv.classList.add('hidden'); observeDiv.classList.remove('hidden'); 
                 
-                img.classList.add('hidden'); loading.classList.remove('hidden'); img.crossOrigin = "Anonymous";
+                img.classList.add('hidden'); loading.classList.remove('hidden');
+                img.crossOrigin = "Anonymous"; // Ensure crossOrigin is set for PDF generator
+                
                 img.onload = () => { 
                     loading.classList.add('hidden'); img.classList.remove('hidden'); playBeep(); 
                     try { 
@@ -1691,7 +1694,7 @@
                     appState.currentTatImages[appState.currentTatIndex] = newImage; 
                     executeTATPhase1(); 
                 };
-                img.src = currentImage; 
+                img.src = currentImage; // Triggers instant load from cache if preloaded!
             }
         }
 
