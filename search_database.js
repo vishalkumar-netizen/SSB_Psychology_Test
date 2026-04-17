@@ -17,7 +17,7 @@ const searchData = [
     { title: "50-Day SSB Preparation Strategy", url: "/50_day_ssb_preparation_strategy", type: "Guide", keywords: "50 day ssb preparation strategy without coaching daily routine fitness psychology" },
     { title: "Top 50 Negative Words in WAT", url: "/top_50_negative_words_in_wat", type: "Guide", keywords: "negative words in wat top 50 list examples death murder defeat psychology" },
     { title: "The Blank Slide in TAT", url: "/the_blank_slide_in_tat", type: "Guide", keywords: "blank slide tat 12th story examples psychology trap" },
-   
+    { title: "Time Management in SSB Psych Test: The Ultimate Guide", url: "/time_management_in_ssb_psych_test", type: "Guide", keywords: "time management ssb psychology test tat 4 minutes wat 15 seconds srt 30 minutes dipr testing hall clear ssb strategy tricks fast writing speed" },
     // Psychology Deep Dives
     { title: "What is TAT? A Complete Guide", url: "/what_is_tat", type: "Guide", keywords: "tat thematic apperception test story formula hero blank slide" },
     { title: "How Psych Tests Decide Your Result", url: "/how_psych_tests_decide_result", type: "Guide", keywords: "psychology hidden truth manasa vacha karmana assessment evaluation" },
