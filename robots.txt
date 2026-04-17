@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ssbpsychtest.in/sitemap.xml
+Sitemap: https://ssbpsychtest.in/sitemap.xml
