@@ -62,6 +62,22 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">The <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">Officer's Library</span></h1>
             <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Expert strategies, deep psychological analysis, and the brutal truth about what it takes to get recommended at the SSB.</p>
+            
+            <!-- SEARCH BAR CONTAINER (ADDED HERE) -->
+            <div class="relative w-full max-w-2xl mx-auto z-50 mt-8">
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                        <svg class="w-6 h-6 text-slate-400 group-focus-within:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="text" id="site-search" autocomplete="off" placeholder="Search any article here..." class="w-full bg-white dark:bg-slate-900/80 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-700 rounded-full py-4 pl-14 pr-12 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-lg shadow-sm">
+                    <button id="clear-search" class="hidden absolute inset-y-0 right-0 pr-5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+                <div id="search-results" class="hidden absolute w-full mt-3 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden max-h-96 overflow-y-auto text-left z-50"></div>
+            </div>
+            <!-- END OF SEARCH BAR CONTAINER -->
+
         </div>
     </header>
 
@@ -290,6 +306,69 @@
     <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-8 text-center mt-auto">
         <p class="text-sm text-slate-500">© 2024 SSB Psych Test Platform. All rights reserved.</p>
     </footer>
+
+    <!-- ADDED SEARCH SCRIPT -->
+    <script src="/search_database.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById('site-search');
+            const searchResults = document.getElementById('search-results');
+            const clearBtn = document.getElementById('clear-search');
+            if (!searchInput || !searchResults || !clearBtn) return;
+
+            searchInput.addEventListener('input', (e) => {
+                if (typeof searchData === 'undefined') return;
+                const query = e.target.value.toLowerCase().trim();
+                if (query.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                    const filtered = searchData.filter(item => item.title.toLowerCase().includes(query) || item.keywords.toLowerCase().includes(query)).slice(0, 8);
+                    renderResults(filtered);
+                } else {
+                    clearBtn.classList.add('hidden');
+                    searchResults.classList.add('hidden');
+                }
+            });
+
+            function renderResults(results) {
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="p-4 text-center text-sm font-medium text-slate-500 dark:text-slate-400">No results found.</div>';
+                    searchResults.classList.remove('hidden');
+                    return;
+                }
+                searchResults.innerHTML = results.map(item => `
+                    <a href="${item.url}" class="flex items-start p-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 border-b border-slate-100 dark:border-slate-700 last:border-0 transition-colors cursor-pointer" style="text-decoration:none;">
+                        <div class="flex-shrink-0 mt-0.5">
+                            ${item.type === 'Test' 
+                                ? '<span class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Test</span>' 
+                                : '<span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Guide</span>'}
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-bold text-slate-900 dark:text-white m-0 border-none">${item.title}</p>
+                        </div>
+                    </a>`).join('');
+                searchResults.classList.remove('hidden');
+            }
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearBtn.classList.add('hidden');
+                searchResults.classList.add('hidden');
+                searchInput.focus();
+            });
+
+            document.addEventListener('click', (e) => { 
+                if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.add('hidden'); 
+                }
+            });
+            
+            searchInput.addEventListener('focus', () => { 
+                if (searchInput.value.trim().length > 0) {
+                    searchResults.classList.remove('hidden'); 
+                }
+            });
+        });
+    </script>
 
     <!-- Dark Mode Script -->
     <script>
