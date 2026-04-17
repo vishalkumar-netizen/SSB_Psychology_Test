@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Pages -->
   <url>
-    <loc>https://www.ssbpsychtest.in/</loc>
+    <loc>https://ssbpsychtest.in/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/Test</loc>
+    <loc>https://ssbpsychtest.in/Test</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/test2</loc>
+    <loc>https://ssbpsychtest.in/test2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/fixed_tests</loc>
+    <loc>https://ssbpsychtest.in/fixed_tests</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/blog</loc>
+    <loc>https://ssbpsychtest.in/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <!-- Legal & Info Pages (Crucial for AdSense) -->
   <url>
-    <loc>https://www.ssbpsychtest.in/about</loc>
+    <loc>https://ssbpsychtest.in/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/contact</loc>
+    <loc>https://ssbpsychtest.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/privacy-policy</loc>
+    <loc>https://ssbpsychtest.in/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/terms</loc>
+    <loc>https://ssbpsychtest.in/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/disclaimer</loc>
+    <loc>https://ssbpsychtest.in/disclaimer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <!-- Blog Articles & Guides -->
   <url>
-    <loc>https://www.ssbpsychtest.in/ssb_complete_guide</loc>
+    <loc>https://ssbpsychtest.in/ssb_complete_guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/why_candidates_fail</loc>
+    <loc>https://ssbpsychtest.in/why_candidates_fail</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/how_to_utilize_platform</loc>
+    <loc>https://ssbpsychtest.in/how_to_utilize_platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/oir_test_guide</loc>
+    <loc>https://ssbpsychtest.in/oir_test_guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/what_is_tat</loc>
+    <loc>https://ssbpsychtest.in/what_is_tat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/how_psych_tests_decide_result</loc>
+    <loc>https://ssbpsychtest.in/how_psych_tests_decide_result</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -91,7 +91,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ssbpsychtest.in/social_media_rules_armed_forces</loc>
+    <loc>https://ssbpsychtest.in/social_media_rules_armed_forces</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
