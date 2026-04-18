@@ -19,6 +19,7 @@ const searchData = [
     { title: "The Blank Slide in TAT", url: "/the_blank_slide_in_tat", type: "Guide", keywords: "blank slide tat 12th story examples psychology trap" },
     { title: "Time Management in SSB Psych Test: The Ultimate Guide", url: "/time_management_in_ssb_psych_test", type: "Guide", keywords: "time management ssb psychology test tat 4 minutes wat 15 seconds srt 30 minutes dipr testing hall clear ssb strategy tricks fast writing speed" },
     { title: "The 'Weekend Warrior' SSB Strategy for Working Professionals", url: "/weekend_warrior_ssb_strategy", type: "Guide", keywords: "working professional college student weekend strategy micro habits time management ssb preparation mock tests dipr drop year study plan" },
+    { title: "The Ultimate SSB Repeater Strategy", url: "/ssb_repeater_strategy", type: "Guide", keywords: "repeater strategy bounce back unlearn coaching fail pass interview ppdt fish market previous attempt" },
     // Psychology Deep Dives
     { title: "What is TAT? A Complete Guide", url: "/what_is_tat", type: "Guide", keywords: "tat thematic apperception test story formula hero blank slide" },
     { title: "How Psych Tests Decide Your Result", url: "/how_psych_tests_decide_result", type: "Guide", keywords: "psychology hidden truth manasa vacha karmana assessment evaluation" },
