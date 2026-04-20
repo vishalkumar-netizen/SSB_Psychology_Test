@@ -22,6 +22,7 @@ const searchData = [
     { title: "The Ultimate SSB Repeater Strategy", url: "/ssb_repeater_strategy", type: "Guide", keywords: "repeater strategy bounce back unlearn coaching fail pass interview ppdt fish market previous attempt" },
     { title: "TAT Pictures with PDF Download & Analysis", url: "/articles/tat_practice_set_1", type: "Guide", keywords: "download tat pictures pdf practice offline images slides psychological test set 1" },
     { title: "Stays Near SSB Boards: The Ultimate Guide", url: "/articles/nearby_ssb_stays", type: "Guide", keywords: "ssb stay nearby accommodation hotel dormitory allahabad bhopal mysore dehradun afsb reporting" },
+    { title: "TAT Practice Set 2: Free PDF Download & Analysis", url: "/articles/tat_practice_set_2", type: "Guide", keywords: "download tat pictures pdf free practice offline images slides psychological test set 2" },
     // Psychology Deep Dives
     { title: "What is TAT? A Complete Guide", url: "/what_is_tat", type: "Guide", keywords: "tat thematic apperception test story formula hero blank slide" },
     { title: "How Psych Tests Decide Your Result", url: "/how_psych_tests_decide_result", type: "Guide", keywords: "psychology hidden truth manasa vacha karmana assessment evaluation" },
