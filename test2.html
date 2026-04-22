@@ -118,6 +118,8 @@
                 <button id="next-set-btn" onclick="goToNextSet()" class="w-full bg-emerald-600 text-white px-4 py-4 rounded-2xl font-bold hover:bg-emerald-500 transition shadow-lg flex items-center justify-center gap-2">Next Set <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg></button>
                 <button onclick="exitTest()" class="w-full bg-slate-700 text-slate-300 px-4 py-4 rounded-2xl font-bold hover:bg-slate-600 transition">Dashboard</button>
             </div>
+            <!-- NEW REVIEW DOSSIER BUTTON -->
+            <button onclick="prepareAndReviewDossier()" class="w-full mt-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-4 rounded-2xl font-black hover:from-emerald-600 hover:to-teal-700 transition shadow-lg border-2 border-emerald-400">Review Your Psych Dossier</button>
         </div>
     </div>
 
@@ -1748,6 +1750,37 @@
             const nextSet = appState.currentSet + 1;
             const testType = appState.initialTestType;
             window.location.href = `/test2?test=${testType}&set=${nextSet}`;
+        }
+        // ==========================================
+        // NEW DOSSIER REVIEW LOGIC
+        // ==========================================
+        function prepareAndReviewDossier() {
+            let testType = appState.initialTestType;
+            let items = [];
+
+            // Grab the exact questions/images the user just saw
+            if (testType === 'PPDT') items = [appState.results.ppdt];
+            else if (testType === 'TAT') items = appState.currentTatImages;
+            else if (testType === 'WAT') items = appState.results.wat;
+            else if (testType === 'SRT') items = appState.results.srt;
+            else if (testType === 'SD') items = [
+                "1. What do your Parents think of you?",
+                "2. What do your Teachers/Employers think of you?",
+                "3. What do your Friends/Colleagues think of you?",
+                "4. What is your opinion about yourself?",
+                "5. What qualities do you want to improve/develop?"
+            ];
+            else if (testType === 'full') items = appState.currentTatImages; // Uses TAT images as the primary visual review for Full Mocks
+
+            const testBundle = {
+                type: testType,
+                attemptId: 'DOSSIER-' + Math.floor(Math.random() * 90000) + 10000,
+                items: items
+            };
+
+            // Save securely to browser memory and redirect
+            localStorage.setItem('ssb_test_dossier', JSON.stringify(testBundle));
+            window.location.href = '/review_report';
         }
 
         // ==========================================
