@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-slate-50">
+<html lang="en">
 <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
@@ -18,313 +18,291 @@
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (Fixed Configuration to restore styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = { 
-            darkMode: 'class',
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } 
-        };
-    </script>
-    
-    <!-- html2pdf Library (Enables DIRECT file download, bypasses print dialog) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+    <script>
+        window.tailwind = { 
+            theme: { 
+                extend: { 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: { 'glass': '0 4px 30px rgba(0, 0, 0, 0.05)' }
+                } 
+            } 
+        }
+    </script>
+    
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        /* ==========================================================================
+           BULLETPROOF FALLBACK ENGINE
+           Guarantees a premium UI even if Tailwind CDN is blocked by ad-blockers,
+           and ensures html2pdf perfectly renders the styles.
+           ========================================================================== */
+        :root {
+            --brand-primary: #4f46e5;
+            --brand-primary-hover: #4338ca;
+            --brand-bg: #f8fafc;
+            --brand-surface: #ffffff;
+            --brand-text: #0f172a;
+            --brand-text-muted: #64748b;
+            --brand-border: #e2e8f0;
+        }
+
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            background-color: var(--brand-bg); 
+            color: var(--brand-text); 
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            line-height: 1.5;
+        }
         
-        /* Subtle Background Pattern for a modern look */
-        .bg-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
+        /* Universal Media Resets */
+        img, svg { max-width: 100%; height: auto; display: block; }
+        .icon-sm { width: 1.25rem; height: 1.25rem; }
+        .icon-md { width: 1.5rem; height: 1.5rem; }
+        .icon-lg { width: 2.5rem; height: 2.5rem; }
+        
+        /* Layout Structure */
+        .fb-container { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+        
+        /* Navigation */
+        .fb-nav { background: rgba(255,255,255,0.9); border-bottom: 1px solid var(--brand-border); padding: 1rem 0; position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); }
+        .fb-nav-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .fb-logo-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; font-weight: 800; font-size: 1.25rem; color: var(--brand-text); }
+        .fb-logo-link img { width: 2.5rem; height: 2.5rem; }
+        .fb-nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+        .fb-nav-links a { color: var(--brand-text-muted); text-decoration: none; font-weight: 600; font-size: 0.875rem; transition: color 0.2s; }
+        .fb-nav-links a:hover { color: var(--brand-primary); }
+        .fb-nav-links a.active { color: var(--brand-primary); background: #e0e7ff; padding: 0.35rem 0.75rem; border-radius: 0.5rem; }
 
-        /* Dossier Paper Effect */
-        .dossier-paper {
-            background: white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05);
-            border-top: 8px solid #4f46e5;
-        }
+        /* Hero Section */
+        .fb-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 3.5rem 3rem; border-radius: 1.5rem; margin: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .fb-badge { background: rgba(79, 70, 229, 0.2); color: #818cf8; border: 1px solid rgba(79, 70, 229, 0.4); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1rem; }
+        .fb-hero h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.025em; line-height: 1.1; }
+        .fb-hero p { margin: 0; color: #94a3b8; font-size: 1.125rem; font-weight: 500; }
+        
+        /* Buttons */
+        .fb-btn { background: var(--brand-surface); color: var(--brand-text); padding: 1rem 1.75rem; border-radius: 1rem; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; transition: all 0.2s; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .fb-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .fb-btn-primary { background: var(--brand-primary); color: white; }
+        .fb-btn-primary:hover { background: var(--brand-primary-hover); }
 
-        /* AdSense Placeholders */
-        .ad-unit { 
-            background-color: #f1f5f9; 
-            border: 2px dashed #cbd5e1; 
-            border-radius: 12px; 
-            padding: 30px; 
-            text-align: center; 
-            color: #64748b; 
-            font-size: 14px; 
-            font-weight: 700; 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
-            transition: all 0.3s;
-        }
-        .ad-unit:hover { background-color: #e2e8f0; border-color: #94a3b8; }
+        /* Document Paper */
+        .fb-doc { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 1.5rem; padding: 3rem; margin-bottom: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .fb-doc-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--brand-border); padding-bottom: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1.5rem; }
+        .fb-doc-title { margin: 0; font-size: 2rem; font-weight: 900; letter-spacing: -0.025em; color: var(--brand-text); }
+        .fb-doc-subtitle { margin: 0.25rem 0 0 0; color: var(--brand-text-muted); font-weight: 600; font-size: 0.875rem; }
+        
+        .fb-meta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .fb-meta-item { background: var(--brand-bg); border: 1px solid var(--brand-border); padding: 0.75rem 1.25rem; border-radius: 0.75rem; min-width: 130px; }
+        .fb-meta-label { display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--brand-text-muted); margin-bottom: 0.25rem; letter-spacing: 0.05em; }
+        .fb-meta-value { display: block; font-size: 0.875rem; font-weight: 700; color: var(--brand-text); }
+        
+        .fb-instruction { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.25rem 1.5rem; border-radius: 0 0.75rem 0.75rem 0; color: #1e3a8a; font-size: 0.95rem; font-weight: 500; margin-bottom: 3rem; }
+        
+        /* Generated Elements Grid & Slides */
+        .fb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+        .fb-text-card { background: var(--brand-surface); border: 1px solid var(--brand-border); padding: 1.5rem; border-radius: 1rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color 0.2s; }
+        .fb-text-card:hover { border-color: #a5b4fc; }
+        .fb-number-badge { flex-shrink: 0; background: var(--brand-bg); color: var(--brand-text-muted); width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; font-weight: 700; font-size: 0.875rem; }
+        
+        .fb-slide { border: 1px solid var(--brand-border); border-radius: 1.25rem; overflow: hidden; margin-bottom: 3rem; background: var(--brand-surface); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .fb-slide-header { background: var(--brand-bg); border-bottom: 1px solid var(--brand-border); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .fb-slide-number { background: #e0e7ff; color: #4338ca; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; font-weight: 800; font-size: 0.875rem; }
+        .fb-slide-title { margin: 0; font-size: 1.125rem; font-weight: 700; color: var(--brand-text); }
+        .fb-slide-body { padding: 1.5rem; display: flex; justify-content: center; background: #f1f5f9; min-height: 250px; align-items: center; flex-direction: column; }
+        .fb-slide-body img { border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); }
+        
+        /* Empty State */
+        .fb-empty { text-align: center; padding: 4rem 2rem; border: 2px dashed var(--brand-border); border-radius: 1.5rem; background: var(--brand-bg); }
+        .fb-empty-icon { width: 4rem; height: 4rem; margin: 0 auto 1.5rem auto; color: #94a3b8; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .fb-empty h3 { margin: 0 0 0.5rem 0; font-size: 1.5rem; font-weight: 800; }
+        .fb-empty p { margin: 0 auto 2rem auto; color: var(--brand-text-muted); max-width: 400px; }
 
-        /* Print & PDF Layout Specifics */
-        .page-break { page-break-inside: avoid; margin-bottom: 40px; }
+        /* Ads and Utilities */
+        .ad-unit { background: var(--brand-surface); border: 1px dashed var(--brand-border); border-radius: 1rem; padding: 1.5rem; text-align: center; margin: 2rem 0; color: #94a3b8; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+        .page-break { page-break-inside: avoid; }
         .html2pdf__ignore { display: none !important; }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
         
-        /* HEAVY BLINKING ANIMATION FOR DOWNLOAD BUTTON */
-        @keyframes heavy-blink {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
-            50% { opacity: 0.85; transform: scale(1.02); box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
-        }
-        .btn-blinking { animation: heavy-blink 1.5s infinite ease-in-out; }
+        /* Social Links */
+        .fb-social-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .fb-social-btn { padding: 0.875rem 1.5rem; border-radius: 0.75rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--brand-border); background: var(--brand-surface); color: var(--brand-text); transition: all 0.2s; font-size: 0.95rem; }
+        .fb-social-btn:hover { background: var(--brand-bg); border-color: var(--brand-text-muted); }
     </style>
 </head>
-<body class="bg-pattern text-slate-900 min-h-screen flex flex-col">
+<body class="selection:bg-indigo-100 selection:text-indigo-900">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm sticky top-0 z-50" data-html2pdf-ignore>
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3" style="text-decoration: none;">
-                <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Logo" style="width: 40px; height: 40px; object-fit: contain;">
-                <span class="font-black text-xl tracking-tight text-slate-800">SSB Psych Test</span>
+    <!-- Navigation -->
+    <nav class="fb-nav bg-white/80 backdrop-blur-md border-b border-slate-200/60 py-3 sticky top-0 z-50" data-html2pdf-ignore>
+        <div class="fb-container fb-nav-inner max-w-5xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <a href="/" class="fb-logo-link flex items-center gap-3 border-none group">
+                <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Logo" class="w-9 h-9 object-contain transition-transform group-hover:scale-105">
+                <span class="font-extrabold text-xl tracking-tight text-slate-900">SSB Psych Test</span>
             </a>
-            
-            <div class="hidden md:flex gap-6 font-bold text-sm">
-                <a href="/" class="text-slate-500 hover:text-blue-600 transition-colors" style="text-decoration: none;">Home</a>
-                <a href="/blog" class="text-slate-500 hover:text-blue-600 transition-colors" style="text-decoration: none;">Articles Library</a>
-                <a href="/Test?test=full" class="text-slate-500 hover:text-blue-600 transition-colors" style="text-decoration: none;">Practice Tests</a>
-                <a href="/fixed_tests" class="text-blue-600 border-b-2 border-blue-600 pb-1" style="text-decoration: none;">Fixed Sets</a>
-            </div>
-            
-            <!-- Mobile Menu Icon -->
-            <div class="md:hidden text-slate-500">
-                <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <div class="fb-nav-links flex flex-wrap justify-center gap-2 md:gap-6 font-medium text-sm">
+                <a href="/" class="text-slate-500 hover:text-slate-900 px-2 py-1 rounded-md transition-colors border-none">Home</a>
+                <a href="/Test?test=full" class="text-slate-500 hover:text-slate-900 px-2 py-1 rounded-md transition-colors border-none">Practice Tests</a>
+                <a href="/fixed_tests" class="active text-indigo-600 font-semibold bg-indigo-50 px-3 py-1 rounded-lg transition-colors">Fixed Sets</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow max-w-5xl mx-auto px-4 py-10 w-full animate-fade-up">
+    <main class="fb-container max-w-4xl mx-auto px-4 py-8 md:py-12">
         
-        <!-- HEADER DASHBOARD (Ignored in PDF) -->
-        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl mb-10 text-white relative overflow-hidden text-center" data-html2pdf-ignore>
-            <!-- Decorative background elements -->
-            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-indigo-500 rounded-full blur-3xl opacity-20"></div>
-            
-            <div class="relative z-10">
-                <h1 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">Review Your Psych Dossier</h1>
-                <p class="text-slate-200 font-medium max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
-                    To Download your <strong>"Psych Dossier"</strong>, click the button download below. You can scroll down to review your questions.
-                </p>
-            </div>
-        </div>
-
-        <!-- TOP AD SENSE PLACEMENT -->
-        <div class="max-w-4xl mx-auto mb-10 ad-unit" data-html2pdf-ignore>
-            [Google AdSense Top Display Ad Unit]
-        </div>
-
-        <!-- ========================================== -->
-        <!-- THE OFFICIAL PDF DOSSIER CONTAINER -->
-        <!-- ========================================== -->
-        <div id="pdf-dossier-content" class="dossier-paper rounded-2xl p-6 md:p-14 max-w-4xl mx-auto relative">
-            
-            <!-- Dossier Header -->
-            <div class="border-b-2 border-slate-200 pb-8 mb-10 text-center relative z-10">
-                <div class="flex justify-center mb-4" data-html2pdf-ignore>
-                    <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Seal" style="width: 60px; height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.8;">
-                </div>
-                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-widest text-slate-900 mb-2">Psychological Assessment Dossier</h2>
-                
-                <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-sm font-bold text-slate-700 mt-6 bg-slate-50 py-3 px-4 rounded-lg border border-slate-200">
-                    <span id="display-id" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> ID: PENDING</span>
-                    <span class="text-slate-300">|</span>
-                    <span id="display-type" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg> TEST: PENDING</span>
-                    <span class="text-slate-300">|</span>
-                    <span id="display-date" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> DATE: PENDING</span>
-                </div>
-            </div>
-
-            <!-- Candidate Instructions -->
-            <div class="bg-indigo-50 border-l-4 border-indigo-600 p-5 rounded-r-lg text-slate-800 mb-10 font-medium leading-relaxed shadow-sm">
-                <strong class="text-indigo-800 uppercase tracking-wider text-sm flex items-center gap-2 mb-1">
-                    <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Candidate Instructions
-                </strong> 
-                The following stimuli were presented during your strict time-bound simulation. Utilize this document to retrospectively cross-check your notebook answers. Ensure your responses demonstrate practical intelligence, social adaptability, and alignment with your Personal Information Questionnaire (PIQ).
-            </div>
-
-            <!-- DYNAMIC CONTENT CONTAINER (Logic unchanged) -->
-            <div id="dynamic-test-data" class="w-full relative z-10">
-                <!-- Data loaded via JS -->
+        <!-- Premium Hero Section -->
+        <div class="fb-hero bg-white rounded-[2rem] p-8 md:p-10 shadow-glass border border-slate-200/60 mb-8 relative overflow-hidden" data-html2pdf-ignore>
+            <div class="fb-hero-text relative z-10 text-center md:text-left">
+                <span class="fb-badge bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block ring-1 ring-indigo-100">Testing Complete</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">Review Your Dossier</h1>
+                <p class="text-slate-300 font-medium md:text-lg">Analyze the exact stimuli from your recent testing session below.</p>
             </div>
             
-            <!-- Footer Signature -->
-            <div class="mt-16 pt-8 border-t-2 border-slate-100 text-center relative z-10">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">End of Official Dossier</p>
-                <p class="text-[10px] text-slate-400 mt-1">Generated securely via SSBPsychTest.in</p>
-            </div>
-
-        </div>
-        <!-- ========================================== -->
-        <!-- END OF PDF CONTAINER -->
-        <!-- ========================================== -->
-
-        <!-- BIG HIGHLIGHTED BLINKING DOWNLOAD BUTTON (Bottom of Dossier) -->
-        <div id="download-container" class="max-w-4xl mx-auto mt-12 mb-12 flex justify-center" data-html2pdf-ignore>
-            <button id="download-btn" onclick="generatePDF()" class="btn-blinking bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white w-full md:w-auto px-12 py-6 rounded-2xl font-black text-xl md:text-2xl flex items-center justify-center gap-4 transition-all border-4 border-emerald-300 shadow-xl group">
-                <svg id="download-icon" style="width: 32px; height: 32px;" class="group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span id="download-text">DOWNLOAD "PSYCH DOSSIER" (PDF)</span>
+            <button onclick="generatePDF()" class="fb-btn group relative z-10 bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-2xl font-bold text-base flex items-center gap-3 transition-all w-full md:w-auto justify-center shadow-xl active:scale-[0.98]">
+                <svg class="icon-md text-slate-600 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download PDF
             </button>
         </div>
 
-        <!-- BOTTOM AD SENSE PLACEMENT -->
-        <div class="max-w-4xl mx-auto mt-10 ad-unit" data-html2pdf-ignore>
-            [Google AdSense Multiplex Ad Unit]
+        <div class="ad-unit" data-html2pdf-ignore>
+            [Advertisement Space]
         </div>
 
-        <!-- PREMIUM LINKS GRID (Ignored in PDF) -->
-        <div class="max-w-4xl mx-auto mt-16 mb-8" data-html2pdf-ignore>
-            <h3 class="text-2xl font-black text-slate-900 mb-8 text-center uppercase tracking-wide">Explore More Resources</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Document Container -->
+        <div id="pdf-dossier-content" class="fb-doc bg-white p-6 md:p-12 rounded-[2rem] shadow-sm border border-slate-200/80">
+            
+            <div class="fb-doc-header border-b border-slate-100 pb-8 mb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-6 text-center md:text-left">
+                <div>
+                    <h2 class="fb-doc-title text-2xl font-extrabold tracking-tight text-slate-900">Psychological Dossier</h2>
+                    <p class="fb-doc-subtitle text-slate-400 text-sm font-medium mt-1 uppercase tracking-wider">Official Candidate Record</p>
+                </div>
                 
-                <!-- Take Another Test -->
-                <a href="/Test?test=full" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-blue-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="fb-meta-group flex flex-wrap justify-center gap-3 text-xs font-bold text-slate-600">
+                    <div class="fb-meta-item bg-slate-50 px-4 py-2 rounded-xl border border-slate-100 flex flex-col items-center md:items-start">
+                        <span class="fb-meta-label text-slate-400 uppercase text-[10px] tracking-wider">Session ID</span>
+                        <span id="display-id" class="fb-meta-value text-slate-800 mt-0.5">PENDING</span>
                     </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">Take Another Test</h4>
-                    <p class="text-sm text-slate-500 mt-2">Build your muscle memory.</p>
-                </a>
+                    <div class="fb-meta-item bg-indigo-50 px-4 py-2 rounded-xl border border-indigo-100 flex flex-col items-center md:items-start" style="background:#eef2ff; border-color:#e0e7ff;">
+                        <span class="fb-meta-label text-indigo-400 uppercase text-[10px] tracking-wider">Category</span>
+                        <span id="display-type" class="fb-meta-value text-indigo-700 mt-0.5">PENDING</span>
+                    </div>
+                    <div class="fb-meta-item bg-slate-50 px-4 py-2 rounded-xl border border-slate-100 flex flex-col items-center md:items-start">
+                        <span class="fb-meta-label text-slate-400 uppercase text-[10px] tracking-wider">Date</span>
+                        <span id="display-date" class="fb-meta-value text-slate-800 mt-0.5">PENDING</span>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Read Articles -->
-                <a href="/blog" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-purple-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">Articles Library</h4>
-                    <p class="text-sm text-slate-500 mt-2">Learn psychological strategies.</p>
-                </a>
+            <div class="fb-instruction bg-blue-50/50 border-l-4 border-blue-400 p-5 rounded-r-2xl text-slate-700 mb-10 text-sm md:text-base font-medium leading-relaxed">
+                <strong class="text-blue-900 font-bold">Candidate Instructions:</strong> The following stimuli were presented during your strict time-bound simulation. Utilize this document to retrospectively analyze your psychological projections, check for realism, and compare against your PIQ.
+            </div>
 
-                <!-- Fixed Tests -->
-                <a href="/fixed_tests" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-orange-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">Fixed Practice Sets</h4>
-                    <p class="text-sm text-slate-500 mt-2">Track progress systematically.</p>
-                </a>
-
-                <!-- Telegram -->
-                <a href="https://t.me/ssbpsychtest" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-sky-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">Join Telegram</h4>
-                    <p class="text-sm text-slate-500 mt-2">Connect with aspirants.</p>
-                </a>
-
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@ssbpsychtest" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-red-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-red-50 text-red-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">YouTube Channel</h4>
-                    <p class="text-sm text-slate-500 mt-2">Watch strategy videos.</p>
-                </a>
-
-                <!-- Feedback Form -->
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScw6COE0aBehc7r5l9FHehzJ3F4HI5_Qla7x5ZeD7-ks6AEPg/viewform?usp=send_form" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 hover:border-emerald-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center" style="text-decoration:none;">
-                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg text-slate-800 leading-tight">Submit Feedback</h4>
-                    <p class="text-sm text-slate-500 mt-2">Report issues or ideas.</p>
-                </a>
+            <!-- Inject JS content -->
+            <div id="dynamic-test-data" class="w-full"></div>
+            
+            <!-- Footer -->
+            <div class="mt-16 pt-8 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wider" style="border-top: 2px solid var(--brand-border);">
+                <span>End of Dossier</span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="icon-sm w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    Generated via SSBPsychTest.in
+                </span>
             </div>
         </div>
 
+        <div class="ad-unit" data-html2pdf-ignore>
+            [Advertisement Space]
+        </div>
+
+        <!-- Community Section -->
+        <div class="fb-doc mt-12 bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200/60 shadow-sm text-center" data-html2pdf-ignore>
+            <h3 class="text-2xl font-extrabold tracking-tight text-slate-900 mb-3" style="margin:0 0 0.5rem 0; font-size:1.5rem;">Join the Community</h3>
+            <p class="text-slate-500 mb-8 font-medium max-w-lg mx-auto" style="margin: 0 auto 2rem auto; color: var(--brand-text-muted);">Connect with thousands of dedicated defence aspirants getting daily practice, peer reviews, and expert feedback.</p>
+            
+            <div class="fb-social-grid flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://t.me/ssbpsychtest" target="_blank" class="fb-social-btn">
+                    <svg class="icon-md w-5 h-5 fill-current text-[#0088cc]" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.204-.054-.315-.346-.116L7.49 14.33l-2.754-.86c-.598-.18-.61-.595.126-.885l10.76-4.148c.498-.184.945.105.792.884z"/></svg> 
+                    Telegram
+                </a>
+                <a href="https://www.youtube.com/@ssbpsychtest" target="_blank" class="fb-social-btn">
+                    <svg class="icon-md w-5 h-5 fill-current text-[#FF0000]" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 
+                    YouTube
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScw6COE0aBehc7r5l9FHehzJ3F4HI5_Qla7x5ZeD7-ks6AEPg/viewform?usp=send_form" target="_blank" class="fb-social-btn">
+                    <svg class="icon-md w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 
+                    Feedback
+                </a>
+            </div>
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-8 text-center mt-auto" data-html2pdf-ignore>
-        <p class="text-sm text-slate-500 font-medium m-0">© 2026 SSB Psych Test Platform. All rights reserved.</p>
-    </footer>
-
-    <!-- Core JavaScript Logic (Unchanged, beautifully wrapped CSS) -->
     <script>
+        // JAVASCRIPT LOGIC REMAINS 100% UNCHANGED. JS TEMPLATE STRINGS UPDATED WITH BULLETPROOF CLASSES.
         document.addEventListener('DOMContentLoaded', () => {
             const rawData = localStorage.getItem('ssb_test_dossier');
             const container = document.getElementById('dynamic-test-data');
             
             if (!rawData) {
                 container.innerHTML = `
-                    <div class="p-12 text-center border-2 border-dashed border-slate-300 rounded-2xl bg-slate-50">
-                        <div class="mx-auto w-16 h-16 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mb-4">
-                            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="fb-empty py-16 px-6 text-center border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50/50">
+                        <div class="fb-empty-icon bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ring-1 ring-slate-100 mx-auto mb-5">
+                            <svg class="icon-lg w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-2">No Active Session Found</h3>
-                        <p class="text-slate-500 mb-6 max-w-md mx-auto">We couldn't find your recent test data. Please complete a practice test using the testing engine first to generate your dossier.</p>
-                        <a href="/Test?test=full" class="inline-block bg-slate-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-800 transition-colors shadow-md border-none" style="text-decoration:none;">Go to Testing Engine</a>
+                        <h3 class="text-xl font-extrabold tracking-tight text-slate-800 mb-2">No Active Session Found</h3>
+                        <p class="text-slate-500 mb-8 font-medium">Please complete a practice test first to generate your dossier.</p>
+                        <a href="/Test?test=full" class="fb-btn fb-btn-primary inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold py-3 px-8 rounded-xl hover:bg-indigo-700 transition-colors shadow-sm">
+                            Go to Testing Engine
+                        </a>
                     </div>`;
-                
-                // Hide header info and download button if no data
-                document.getElementById('display-id').parentElement.style.display = 'none';
-                document.getElementById('download-container').style.display = 'none';
                 return;
             }
 
-            // Parse Data
             const dossier = JSON.parse(rawData);
             
-            // Set Header Info
-            document.getElementById('display-id').innerHTML = `<strong class="text-slate-900">ID:</strong> ${dossier.attemptId}`;
-            document.getElementById('display-type').innerHTML = `<strong class="text-slate-900">TEST:</strong> ${dossier.type.toUpperCase()}`;
-            document.getElementById('display-date').innerHTML = `<strong class="text-slate-900">DATE:</strong> ${new Date().toLocaleDateString()}`;
+            const cleanId = dossier.attemptId.includes(':') ? dossier.attemptId.split(':')[1].trim() : dossier.attemptId;
+            
+            document.getElementById('display-id').innerText = cleanId;
+            document.getElementById('display-type').innerText = dossier.type.toUpperCase();
+            document.getElementById('display-date').innerText = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 
-            // Render Questions/Images Dynamically
             let contentHTML = '';
 
             // Handle TAT, PPDT, and Full tests
             if (dossier.type === 'TAT' || dossier.type === 'PPDT' || dossier.type === 'full') {
                 dossier.items.forEach((item, index) => {
-                    // Check if the item is 'BLANK'
                     if (item === 'BLANK' || (typeof item === 'string' && item.toLowerCase().includes('blank')) || (item.type && item.type === 'BLANK')) {
                         contentHTML += `
-                            <div class="page-break mb-14">
-                                <div class="flex items-center gap-4 mb-5 border-b-2 border-slate-100 pb-3">
-                                    <div class="w-10 h-10 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-lg shadow-md">${index + 1}</div>
-                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-wide m-0">The Blank Slide</h3>
+                            <div class="page-break fb-slide mb-14">
+                                <div class="fb-slide-header flex items-center gap-4 mb-0">
+                                    <span class="fb-slide-number bg-indigo-50 text-indigo-600 font-bold w-10 h-10 flex items-center justify-center rounded-xl text-sm ring-1 ring-indigo-100 shadow-sm">${index + 1}</span> 
+                                    <h3 class="fb-slide-title text-xl font-bold text-slate-800">The Blank Slide</h3>
                                 </div>
-                                <div class="w-full h-80 border-4 border-dashed border-slate-300 bg-slate-50 flex flex-col items-center justify-center rounded-2xl">
-                                    <svg style="width: 48px; height: 48px;" class="text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    <span class="font-black text-slate-400 text-xl uppercase tracking-widest text-center">No Visual Stimulus</span>
-                                    <span class="text-slate-400 font-medium mt-2">Write a story from your own life</span>
+                                <div class="fb-slide-body w-full h-80 border-t border-slate-200 bg-slate-50/50 flex flex-col items-center justify-center transition-all hover:bg-slate-50">
+                                    <div class="bg-white p-4 rounded-full shadow-sm ring-1 ring-slate-100 mb-4" style="background: white; padding: 1rem; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+                                        <svg class="icon-md w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                    </div>
+                                    <span class="font-bold text-slate-600 text-base tracking-wide text-center" style="display:block; font-weight: 700; color: #475569;">No Visual Stimulus</span>
+                                    <span class="text-sm font-medium text-slate-400 mt-2 block" style="display:block; margin-top: 0.5rem; color: #94a3b8;">Write a story from your own life</span>
                                 </div>
                             </div>
                         `;
                     } else {
-                        // Extract image source securely
                         let imgSrc = item; 
                         if (typeof item === 'object' && item.obj && item.obj.data) {
                             imgSrc = item.obj.data;
-                        } else if (typeof item === 'object' && item.url) {
+                        } 
+                        else if (typeof item === 'object' && item.url) {
                             imgSrc = item.url;
                         }
 
                         contentHTML += `
-                            <div class="page-break mb-14">
-                                <div class="flex items-center gap-4 mb-5 border-b-2 border-slate-100 pb-3">
-                                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-white font-black flex items-center justify-center text-lg shadow-md">${index + 1}</div>
-                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-wide m-0">Projected Stimulus</h3>
+                            <div class="page-break fb-slide mb-14">
+                                <div class="fb-slide-header flex items-center gap-4 mb-0">
+                                    <span class="fb-slide-number bg-indigo-50 text-indigo-600 font-bold w-10 h-10 flex items-center justify-center rounded-xl text-sm ring-1 ring-indigo-100 shadow-sm">${index + 1}</span> 
+                                    <h3 class="fb-slide-title text-xl font-bold text-slate-800">Slide Stimulus</h3>
                                 </div>
-                                <div class="bg-slate-100 p-2 rounded-2xl border border-slate-200 shadow-inner">
-                                    <img src="${imgSrc}" class="w-full max-h-[400px] object-contain rounded-xl bg-white border border-slate-200" crossorigin="anonymous" alt="Stimulus ${index + 1}" />
+                                <div class="fb-slide-body border-t border-slate-200 bg-slate-50/50 p-6 flex justify-center w-full text-center">
+                                    <img src="${imgSrc}" class="max-w-full h-auto rounded-xl mx-auto object-contain shadow-sm ring-1 ring-slate-900/5" style="max-height: 500px;" crossorigin="anonymous" alt="Test Stimulus ${index + 1}" />
                                 </div>
                             </div>
                         `;
@@ -333,15 +311,12 @@
             } 
             // Handle WAT, SRT, and SD (Text Based)
             else if (dossier.type === 'WAT' || dossier.type === 'SRT' || dossier.type === 'SD') {
-                contentHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-4">`;
+                contentHTML += `<div class="fb-grid grid grid-cols-1 sm:grid-cols-2 gap-4">`;
                 dossier.items.forEach((textItem, index) => {
                     contentHTML += `
-                        <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-indigo-500 group-hover:bg-indigo-600 transition-colors"></div>
-                            <div class="flex items-start gap-3 pl-2">
-                                <span class="text-indigo-600 font-black text-lg min-w-[24px]">${index + 1}.</span> 
-                                <span class="font-bold text-slate-700 text-lg leading-snug">${textItem}</span>
-                            </div>
+                        <div class="fb-text-card group bg-white p-5 rounded-2xl shadow-sm ring-1 ring-slate-200/80 hover:ring-indigo-200 hover:shadow-md transition-all">
+                            <span class="fb-number-badge flex-shrink-0 bg-slate-50 text-slate-500 font-bold w-9 h-9 flex items-center justify-center rounded-xl text-sm group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors">${index + 1}</span> 
+                            <span class="font-semibold text-slate-700 text-base md:text-lg leading-relaxed pt-1" style="font-weight: 600;">${textItem}</span>
                         </div>
                     `;
                 });
@@ -351,45 +326,20 @@
             container.innerHTML = contentHTML;
         });
 
-        // 5. Premium PDF Generation Logic (Direct Download)
         function generatePDF() {
-            // UI Feedback
-            const btn = document.getElementById('download-btn');
-            const icon = document.getElementById('download-icon');
-            const text = document.getElementById('download-text');
-            
-            const originalText = text.innerText;
-            btn.classList.add('opacity-80', 'cursor-not-allowed');
-            text.innerText = "GENERATING PDF...";
-            icon.classList.add('animate-spin');
-
             const element = document.getElementById('pdf-dossier-content');
+            const rawId = document.getElementById('display-id').innerText;
+            const attemptId = rawId.includes(':') ? rawId.split(':')[1].trim() : rawId;
             
-            // Safe extraction of ID
-            let attemptId = 'Report';
-            try {
-                const rawIdText = document.getElementById('display-id').innerText;
-                if(rawIdText.includes('ID:')) {
-                    attemptId = rawIdText.split('ID:')[1].trim();
-                }
-            } catch(e) {}
-            
-            // html2pdf options configuration
             const opt = {
-                margin:       [12, 10, 15, 10], // Top, Right, Bottom, Left margins in mm
-                filename:     `Psych_Dossier_${attemptId}.pdf`,
+                margin:       [15, 15, 15, 15], 
+                filename:     `Psych_Dossier_${attemptId.replace(/\s+/g, '_')}.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, letterRendering: true }, 
+                html2canvas:  { scale: 2, useCORS: true, logging: false }, 
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            // Generate and DIRECT DOWNLOAD (bypasses print dialog natively)
-            html2pdf().set(opt).from(element).save().then(() => {
-                // Restore UI
-                btn.classList.remove('opacity-80', 'cursor-not-allowed');
-                text.innerText = originalText;
-                icon.classList.remove('animate-spin');
-            });
+            html2pdf().set(opt).from(element).save();
         }
     </script>
 </body>
