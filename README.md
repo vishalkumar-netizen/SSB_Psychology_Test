@@ -43,33 +43,15 @@ Psychological tests (TAT, WAT, and SRT) assess a candidate's natural responses a
   * **Formatted Data:** Stories, sentences, and reactions are organized into tables and sections.
   * **Privacy-First:** All PDF generation happens locally in the browser; no data is sent to a server.
 
------
+Copyright (c) 2026 Vishal Kumar
 
-## 💻 Tech Stack
+All rights reserved.
 
-  * **Frontend:** HTML5, CSS3, JavaScript (ES6+).
-  * **Styling:** Tailwind CSS (Responsive and modern UI).
-  * **PDF Engine:** [jsPDF](https://github.com/parallax/jsPDF) & [jsPDF-AutoTable](https://github.com/simonbengtsson/jsPDF-AutoTable).
-  * **Deployment:** GitHub Pages compatible.
+This source code and all associated materials are proprietary and confidential.
+No part of this code may be copied, modified, distributed, published, or used in any form without prior written permission from the owner.
 
------
 
-## 📖 How to Use
 
-1.  **Access the Tool:** Open the live link or clone the repository and open `index.html`.
-2.  **Select Mode:** Choose a "Full Mock Test" for a complete experience or "Practice Mode" for individual tests.
-3.  **Take the Test:** Ensure you are in a quiet environment with a physical keyboard for the best experience.
-4.  **Download Report:** Click the "Download PDF Report" button at the end to save and review your performance.
-
------
-
-## 🤝 Contributing
-
-Contributions are welcome. If you would like to suggest new TAT images, WAT words, or SRT situations:
-
-1.  Fork the repository.
-2.  Create a feature branch.
-3.  Submit a Pull Request with your proposed changes.
 
 
 
