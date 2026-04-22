@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SYY2YDFEZ3');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Psych Dossier | SSB Psych Test</title>
+    
+    <link rel="canonical" href="https://ssbpsychtest.in/review_report" />
+    
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        window.tailwind = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+
+        /* AdSense Placeholders */
+        .ad-unit { background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0; color: #64748b; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);}
+
+        /* PDF Layout Specifics (Kept relatively clean so it prints well) */
+        .page-break { page-break-inside: avoid; margin-bottom: 40px; }
+        .dossier-image { max-width: 100%; height: auto; border: 3px solid #1e293b; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        
+        /* Highlighted Download Button Animation */
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.5); }
+        }
+        .btn-highlight { animation: subtle-pulse 3s infinite; }
+        
+        /* Hide UI elements when printing to PDF */
+        .html2pdf__ignore { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white border-b border-slate-200 py-4 shadow-sm sticky top-0 z-50" data-html2pdf-ignore>
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <a href="/" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Logo" class="w-10 h-10 object-contain">
+                <span class="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">SSB Psych Test</span>
+            </a>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 font-bold text-sm">
+                <a href="/" class="text-slate-600 hover:text-blue-600 transition-colors">Home</a>
+                <a href="/Test?test=full" class="text-slate-600 hover:text-blue-600 transition-colors">Practice Tests</a>
+                <a href="/fixed_tests" class="text-blue-600 hover:text-indigo-600 transition-colors border-b-2 border-blue-600">Fixed Sets</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-10">
+        
+        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 mb-10 flex flex-col md:flex-row justify-between items-center gap-6" data-html2pdf-ignore>
+            <div>
+                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Testing Complete</span>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Review Your Psych Dossier</h1>
+                <p class="text-slate-600 font-medium">Scroll down to analyze the exact stimuli from your recent testing session.</p>
+            </div>
+            
+            <button onclick="generatePDF()" class="btn-highlight bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 rounded-2xl font-black text-lg flex items-center gap-3 transition-all w-full md:w-auto justify-center border-2 border-emerald-400">
+                <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download PDF Dossier
+            </button>
+        </div>
+
+        <div class="ad-unit" data-html2pdf-ignore>
+            [Google AdSense Top Display Ad Unit Goes Here]
+            </div>
+
+        <div id="pdf-dossier-content" class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200">
+            
+            <div class="border-b-4 border-indigo-600 pb-6 mb-8 text-center">
+                <h2 class="text-3xl font-black uppercase tracking-widest text-slate-900 mb-2">Review Your Psych Dossier</h2>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-bold text-slate-600 mt-4 bg-slate-50 py-3 rounded-lg border border-slate-200">
+                    <span id="display-id" class="text-indigo-700">ID: PENDING</span>
+                    <span id="display-type">CATEGORY: PENDING</span>
+                    <span id="display-date">DATE: PENDING</span>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg text-slate-800 mb-10 font-medium leading-relaxed">
+                <strong class="text-blue-700">Candidate Instructions:</strong> The following stimuli were presented during your strict time-bound simulation. Utilize this official dossier to retrospectively analyze your psychological projections, check for realism, and compare against your Personal Information Questionnaire (PIQ).
+            </div>
+
+            <div id="dynamic-test-data" class="w-full">
+                </div>
+            
+            <div class="mt-16 pt-6 border-t-2 border-slate-200 text-center text-xs font-bold text-slate-400 uppercase tracking-widest">
+                End of Dossier • Generated securely via
