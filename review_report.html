@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-slate-50">
 <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYY2YDFEZ3"></script>
@@ -17,101 +17,232 @@
     <link rel="canonical" href="https://ssbpsychtest.in/review_report" />
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
     <script>
-        window.tailwind = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = { 
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } 
+        };
     </script>
     
+    <!-- html2pdf Library (Enables DIRECT file download, bypasses print dialog) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        .ad-unit { background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0; color: #64748b; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);}
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        /* Subtle Background Pattern */
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Dossier Paper Effect */
+        .dossier-paper {
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05);
+            border-top: 8px solid #2563eb;
+        }
+
+        /* AdSense Placeholders */
+        .ad-unit { 
+            background-color: #f1f5f9; 
+            border: 2px dashed #cbd5e1; 
+            border-radius: 12px; 
+            padding: 30px; 
+            text-align: center; 
+            color: #64748b; 
+            font-size: 14px; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            transition: all 0.3s;
+        }
+        .ad-unit:hover { background-color: #e2e8f0; border-color: #94a3b8; }
+
+        /* Print & PDF Layout Specifics */
         .page-break { page-break-inside: avoid; margin-bottom: 40px; }
-        .dossier-image { max-width: 100%; height: auto; border: 3px solid #1e293b; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        @keyframes subtle-pulse { 0%, 100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3); } 50% { transform: scale(1.02); box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.5); } }
-        .btn-highlight { animation: subtle-pulse 3s infinite; }
         .html2pdf__ignore { display: none !important; }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
+        
+        /* HEAVY BLINKING ANIMATION FOR DOWNLOAD BUTTON */
+        @keyframes heavy-blink {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
+            50% { opacity: 0.85; transform: scale(1.02); box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+        }
+        .btn-blinking { animation: heavy-blink 1.5s infinite ease-in-out; }
     </style>
 </head>
-<body>
+<body class="bg-pattern text-slate-900 min-h-screen flex flex-col">
 
-    <nav class="bg-white border-b border-slate-200 py-4 shadow-sm sticky top-0 z-50" data-html2pdf-ignore>
-        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <a href="/" class="flex items-center gap-3 border-none">
-                <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Logo" class="w-10 h-10 object-contain">
-                <span class="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">SSB Psych Test</span>
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm sticky top-0 z-50" data-html2pdf-ignore>
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                <span class="font-black text-xl tracking-tight text-slate-800">SSB Psych Test</span>
             </a>
-            <div class="flex flex-wrap justify-center gap-4 md:gap-6 font-bold text-sm">
-                <a href="/" class="text-slate-600 hover:text-blue-600 transition-colors border-none">Home</a>
-                <a href="/Test?test=full" class="text-slate-600 hover:text-blue-600 transition-colors border-none">Practice Tests</a>
-                <a href="/fixed_tests" class="text-blue-600 hover:text-indigo-600 transition-colors border-b-2 border-blue-600 pb-0.5">Fixed Sets</a>
+            <div class="hidden sm:flex gap-6 font-bold text-sm">
+                <a href="/" class="text-slate-500 hover:text-blue-600 transition-colors">Home</a>
+                <a href="/Test?test=full" class="text-slate-500 hover:text-blue-600 transition-colors">Practice Tests</a>
+                <a href="/fixed_tests" class="text-blue-600 border-b-2 border-blue-600 pb-1">Review Hub</a>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="sm:hidden text-slate-500">
+                <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-4 py-10">
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-10 w-full animate-fade-up">
         
-        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 mb-10 flex flex-col md:flex-row justify-between items-center gap-6" data-html2pdf-ignore>
-            <div>
-                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Testing Complete</span>
-                <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Review Your Psych Dossier</h1>
-                <p class="text-slate-600 font-medium">Scroll down to analyze the exact stimuli from your recent testing session.</p>
+        <!-- HEADER DASHBOARD (Ignored in PDF) -->
+        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl mb-10 text-white relative overflow-hidden text-center" data-html2pdf-ignore>
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-teal-500 rounded-full blur-3xl opacity-20"></div>
+            
+            <div class="relative z-10">
+                <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight">Review Your Psych Dossier</h1>
+                <p class="text-white font-medium max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+                    To Download your <strong>"Psych Dossier"</strong>, click the download button below. You can scroll down to review your questions.
+                </p>
             </div>
-            <button onclick="generatePDF()" class="btn-highlight bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 rounded-2xl font-black text-lg flex items-center gap-3 transition-all w-full md:w-auto justify-center border-2 border-emerald-400">
-                <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                Download PDF Dossier
-            </button>
         </div>
 
-        <div class="ad-unit" data-html2pdf-ignore>
-            [Google AdSense Top Display Ad Unit Goes Here]
+        <!-- TOP AD SENSE PLACEMENT -->
+        <div class="max-w-4xl mx-auto mb-10 ad-unit" data-html2pdf-ignore>
+            [Google AdSense Top Display Ad Unit]
         </div>
 
-        <div id="pdf-dossier-content" class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200">
-            <div class="border-b-4 border-indigo-600 pb-6 mb-8 text-center">
-                <h2 class="text-3xl font-black uppercase tracking-widest text-slate-900 mb-2">Review Your Psych Dossier</h2>
-                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-bold text-slate-600 mt-4 bg-slate-50 py-3 rounded-lg border border-slate-200">
-                    <span id="display-id" class="text-indigo-700">ID: PENDING</span>
-                    <span id="display-type">CATEGORY: PENDING</span>
-                    <span id="display-date">DATE: PENDING</span>
+        <!-- ========================================== -->
+        <!-- THE OFFICIAL PDF CONTAINER -->
+        <!-- ========================================== -->
+        <div id="pdf-dossier-content" class="dossier-paper rounded-xl p-8 md:p-14 max-w-4xl mx-auto relative">
+            
+            <!-- Dossier Header -->
+            <div class="border-b-2 border-slate-300 pb-8 mb-10 text-center relative z-10">
+                <div class="flex justify-center mb-4" data-html2pdf-ignore>
+                    <img src="https://raw.githubusercontent.com/vishalkumar-netizen/TTPPPIC/2c5fdc0d58540d1d15bb3bba6e55de1b6529dcb4/logo%20new.png" alt="Seal" style="width: 60px; height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.8;">
+                </div>
+                <h2 class="text-3xl font-black uppercase tracking-widest text-slate-900 mb-2">Psychological Assessment Dossier</h2>
+                
+                <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-sm font-bold text-slate-700 mt-6 bg-slate-100/50 py-3 px-4 rounded-lg border border-slate-200">
+                    <span id="display-id" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> ID: PENDING</span>
+                    <span class="text-slate-300">|</span>
+                    <span id="display-type" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg> TEST: PENDING</span>
+                    <span class="text-slate-300">|</span>
+                    <span id="display-date" class="flex items-center gap-2"><svg style="width: 16px; height: 16px;" class="text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> DATE: PENDING</span>
                 </div>
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg text-slate-800 mb-10 font-medium leading-relaxed">
-                <strong class="text-blue-700">Candidate Instructions:</strong> The following stimuli were presented during your strict time-bound simulation. Utilize this official dossier to retrospectively analyze your psychological projections, check for realism, and compare against your Personal Information Questionnaire (PIQ).
+            <!-- Candidate Instructions -->
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-5 rounded-r-lg text-slate-800 mb-10 font-medium leading-relaxed relative z-10 shadow-sm">
+                <strong class="text-blue-800 uppercase tracking-wider text-sm flex items-center gap-2 mb-1">
+                    <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Candidate Instructions
+                </strong> 
+                The following stimuli were presented during your strict time-bound simulation. Utilize this document to retrospectively cross-check your notebook answers. Ensure your responses demonstrate practical intelligence, social adaptability, and alignment with your Personal Information Questionnaire (PIQ).
             </div>
 
-            <div id="dynamic-test-data" class="w-full"></div>
+            <!-- DYNAMIC CONTENT CONTAINER -->
+            <div id="dynamic-test-data" class="w-full relative z-10">
+                <!-- Data loaded via JS -->
+            </div>
             
-            <div class="mt-16 pt-6 border-t-2 border-slate-200 text-center text-xs font-bold text-slate-400 uppercase tracking-widest">
-                End of Dossier • Generated securely via SSBPsychTest.in
+            <!-- Footer Signature -->
+            <div class="mt-20 pt-8 border-t-2 border-slate-200 text-center relative z-10">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">End of Official Dossier</p>
+                <p class="text-[10px] text-slate-400 mt-1">Generated securely via SSBPsychTest.in</p>
+            </div>
+
+        </div>
+        <!-- ========================================== -->
+        <!-- END OF PDF CONTAINER -->
+        <!-- ========================================== -->
+
+        <!-- BIG HIGHLIGHTED BLINKING DOWNLOAD BUTTON (Bottom of Dossier) -->
+        <div id="download-container" class="max-w-4xl mx-auto mt-12 mb-12 flex justify-center" data-html2pdf-ignore>
+            <button id="download-btn" onclick="generatePDF()" class="btn-blinking bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white w-full md:w-auto px-12 py-6 rounded-2xl font-black text-xl md:text-2xl flex items-center justify-center gap-4 transition-all border-4 border-emerald-300 shadow-[0_10px_30px_rgba(16,185,129,0.5)] group">
+                <svg id="download-icon" style="width: 32px; height: 32px;" class="group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span id="download-text">DOWNLOAD "PSYCH DOSSIER" (PDF)</span>
+            </button>
+        </div>
+
+        <!-- BOTTOM AD SENSE PLACEMENT -->
+        <div class="max-w-4xl mx-auto mt-10 ad-unit" data-html2pdf-ignore>
+            [Google AdSense Multiplex Ad Unit]
+        </div>
+
+        <!-- SUGGESTED ARTICLES (Read Next) -->
+        <div class="max-w-4xl mx-auto mt-14 mb-8" data-html2pdf-ignore>
+            <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-6 text-center uppercase tracking-wide">Read Next to Improve Your Score</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Article 1: Psych Guide -->
+                <a href="/ssb_psychological_test_detailed_analysis" class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 hover:border-blue-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 dark:text-white leading-tight">Psych Test Detailed Analysis</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Read good vs bad answers.</p>
+                </a>
+                
+                <!-- Article 2: Blank Slide Guide -->
+                <a href="/the_blank_slide_in_tat" class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 hover:border-purple-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 dark:text-white leading-tight">The Blank Slide Strategy</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Master the ultimate trap.</p>
+                </a>
+
+                <!-- Article 3: Why Candidates Fail -->
+                <a href="/why_candidates_fail" class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 hover:border-red-500 hover:-translate-y-1 transition-all group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg style="width: 28px; height: 28px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 dark:text-white leading-tight">Why Candidates Fail</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Avoid the top 10 mistakes.</p>
+                </a>
             </div>
         </div>
 
-        <div class="ad-unit" data-html2pdf-ignore>
-            [Google AdSense Multiplex / Bottom Ad Unit Goes Here]
-        </div>
-
-        <div class="mt-12 bg-white rounded-3xl p-8 border border-slate-200 shadow-lg text-center" data-html2pdf-ignore>
-            <h3 class="text-2xl font-black text-slate-900 mb-2">Connect With The Community</h3>
-            <p class="text-slate-600 mb-8 font-medium">Join thousands of dedicated defence aspirants getting daily practice and feedback.</p>
+        <!-- COMMUNITY LINKS & CONTACT (Ignored in PDF) -->
+        <div class="max-w-4xl mx-auto mt-12 bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg text-center" data-html2pdf-ignore>
+            <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-6">Connect With The Community</h3>
             
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="https://t.me/ssbpsychtest" target="_blank" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-[#0088cc] hover:bg-[#0077b3] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md border-none">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.204-.054-.315-.346-.116L7.49 14.33l-2.754-.86c-.598-.18-.61-.595.126-.885l10.76-4.148c.498-.184.945.105.792.884z"/></svg> Telegram
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.204-.054-.315-.346-.116L7.49 14.33l-2.754-.86c-.598-.18-.61-.595.126-.885l10.76-4.148c.498-.184.945.105.792.884z"/></svg>
+                    Telegram
                 </a>
+                
                 <a href="https://www.youtube.com/@ssbpsychtest" target="_blank" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md border-none">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YouTube
                 </a>
+
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScw6COE0aBehc7r5l9FHehzJ3F4HI5_Qla7x5ZeD7-ks6AEPg/viewform?usp=send_form" target="_blank" class="flex items-center justify-center gap-3 w-full sm:w-auto bg-slate-800 hover:bg-slate-900 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md border-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> Feedback
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    Feedback
                 </a>
             </div>
         </div>
+
     </main>
 
+    <!-- Core Logic Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const rawData = localStorage.getItem('ssb_test_dossier');
@@ -119,60 +250,68 @@
             
             if (!rawData) {
                 container.innerHTML = `
-                    <div class="p-10 text-center border-2 border-dashed border-slate-300 rounded-xl bg-slate-50">
-                        <svg class="w-12 h-12 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="text-xl font-bold text-slate-700 mb-2">No active session found</h3>
-                        <p class="text-slate-500 mb-4">Please complete a practice test first to generate your dossier.</p>
-                        <a href="/Test?test=full" class="inline-block bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 border-none">Go to Testing Engine</a>
+                    <div class="p-12 text-center border-2 border-dashed border-slate-300 rounded-2xl bg-slate-50">
+                        <div class="mx-auto w-16 h-16 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mb-4">
+                            <svg style="width: 32px; height: 32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">No Active Session Found</h3>
+                        <p class="text-slate-500 mb-6 max-w-md mx-auto">We couldn't find your recent test data. Please complete a practice test using the testing engine first to generate your dossier.</p>
+                        <a href="/Test?test=full" class="inline-block bg-slate-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-800 transition-colors shadow-md border-none">Go to Testing Engine</a>
                     </div>`;
+                
+                // Hide header info and download button if no data
+                document.getElementById('display-id').parentElement.style.display = 'none';
+                document.getElementById('download-container').style.display = 'none';
                 return;
             }
 
+            // 2. Parse Data
             const dossier = JSON.parse(rawData);
             
-            document.getElementById('display-id').innerText = `ID: ${dossier.attemptId}`;
-            document.getElementById('display-type').innerText = `CATEGORY: ${dossier.type.toUpperCase()}`;
-            document.getElementById('display-date').innerText = `DATE: ${new Date().toLocaleDateString()}`;
+            // 3. Set Header Info
+            document.getElementById('display-id').innerHTML = `<strong class="text-slate-900">ID:</strong> ${dossier.attemptId}`;
+            document.getElementById('display-type').innerHTML = `<strong class="text-slate-900">TEST:</strong> ${dossier.type.toUpperCase()}`;
+            document.getElementById('display-date').innerHTML = `<strong class="text-slate-900">DATE:</strong> ${new Date().toLocaleDateString()}`;
 
+            // 4. Render the Questions/Images Dynamically
             let contentHTML = '';
 
             // Handle TAT, PPDT, and Full tests
             if (dossier.type === 'TAT' || dossier.type === 'PPDT' || dossier.type === 'full') {
                 dossier.items.forEach((item, index) => {
-                    // Check if the item is 'BLANK' (String) or type='BLANK' (Object from TAT)
+                    // Check if the item is 'BLANK'
                     if (item === 'BLANK' || (typeof item === 'string' && item.toLowerCase().includes('blank')) || (item.type && item.type === 'BLANK')) {
                         contentHTML += `
-                            <div class="page-break mb-12">
-                                <h3 class="text-xl font-black text-indigo-900 mb-4 flex items-center gap-2">
-                                    <span class="bg-indigo-600 text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">${index + 1}</span> 
-                                    The Blank Slide
-                                </h3>
-                                <div class="w-full h-72 border-4 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center rounded-xl">
-                                    <span class="font-bold text-slate-400 uppercase tracking-widest text-center px-4">No Visual Stimulus<br><span class="text-xs font-medium">Write a story from your own life</span></span>
+                            <div class="page-break mb-14">
+                                <div class="flex items-center gap-4 mb-5 border-b-2 border-slate-100 pb-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-md">${index + 1}</div>
+                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-wide m-0">The Blank Slide</h3>
+                                </div>
+                                <div class="w-full h-80 border-4 border-dashed border-slate-300 bg-slate-50 flex flex-col items-center justify-center rounded-2xl">
+                                    <svg style="width: 48px; height: 48px;" class="text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    <span class="font-black text-slate-400 text-xl uppercase tracking-widest text-center">No Visual Stimulus</span>
+                                    <span class="text-slate-400 font-medium mt-2">Write a story from your own life</span>
                                 </div>
                             </div>
                         `;
                     } else {
                         // Extract image source securely
-                        // If it's a direct URL string from PPDT
                         let imgSrc = item; 
-                        
-                        // If it's an object from TAT engine (appState.results.tat)
                         if (typeof item === 'object' && item.obj && item.obj.data) {
                             imgSrc = item.obj.data;
-                        } 
-                        // If the object only has a 'url' property (fallback)
-                        else if (typeof item === 'object' && item.url) {
+                        } else if (typeof item === 'object' && item.url) {
                             imgSrc = item.url;
                         }
 
                         contentHTML += `
-                            <div class="page-break mb-12">
-                                <h3 class="text-xl font-black text-indigo-900 mb-4 flex items-center gap-2">
-                                    <span class="bg-indigo-600 text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">${index + 1}</span> 
-                                    Slide Stimulus
-                                </h3>
-                                <img src="${imgSrc}" class="dossier-image mx-auto block" crossorigin="anonymous" alt="Test Stimulus ${index + 1}" />
+                            <div class="page-break mb-14">
+                                <div class="flex items-center gap-4 mb-5 border-b-2 border-slate-100 pb-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-white font-black flex items-center justify-center text-lg shadow-md">${index + 1}</div>
+                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-wide m-0">Projected Stimulus</h3>
+                                </div>
+                                <div class="bg-slate-100 p-2 rounded-2xl border border-slate-200 shadow-inner">
+                                    <img src="${imgSrc}" class="w-full max-h-[400px] object-contain rounded-xl bg-white border border-slate-200" crossorigin="anonymous" alt="Stimulus ${index + 1}" />
+                                </div>
                             </div>
                         `;
                     }
@@ -183,9 +322,12 @@
                 contentHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-4">`;
                 dossier.items.forEach((textItem, index) => {
                     contentHTML += `
-                        <div class="border-2 border-slate-200 bg-slate-50 p-5 rounded-xl shadow-sm">
-                            <span class="text-indigo-500 font-black mr-2 text-lg">${index + 1}.</span> 
-                            <span class="font-bold text-slate-800 text-lg">${textItem}</span>
+                        <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 group-hover:bg-blue-600 transition-colors"></div>
+                            <div class="flex items-start gap-3 pl-2">
+                                <span class="text-blue-500 font-black text-lg min-w-[24px]">${index + 1}.</span> 
+                                <span class="font-bold text-slate-700 text-lg leading-snug">${textItem}</span>
+                            </div>
                         </div>
                     `;
                 });
@@ -195,20 +337,45 @@
             container.innerHTML = contentHTML;
         });
 
+        // 5. Premium PDF Generation Logic (Direct Download)
         function generatePDF() {
-            const element = document.getElementById('pdf-dossier-content');
-            const rawId = document.getElementById('display-id').innerText;
-            const attemptId = rawId.includes(':') ? rawId.split(':')[1].trim() : 'Report';
+            // UI Feedback
+            const btn = document.getElementById('download-btn');
+            const icon = document.getElementById('download-icon');
+            const text = document.getElementById('download-text');
             
+            const originalText = text.innerText;
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            text.innerText = "GENERATING PDF...";
+            icon.classList.add('animate-spin');
+
+            const element = document.getElementById('pdf-dossier-content');
+            
+            // Safe extraction of ID
+            let attemptId = 'Report';
+            try {
+                const rawIdText = document.getElementById('display-id').innerText;
+                if(rawIdText.includes('ID:')) {
+                    attemptId = rawIdText.split('ID:')[1].trim();
+                }
+            } catch(e) {}
+            
+            // html2pdf options configuration
             const opt = {
-                margin:       [15, 15, 15, 15], 
+                margin:       [12, 10, 15, 10], // Top, Right, Bottom, Left margins in mm
                 filename:     `Psych_Dossier_${attemptId}.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, logging: false }, 
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true }, 
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            html2pdf().set(opt).from(element).save();
+            // Generate and DIRECT DOWNLOAD (bypasses print dialog natively)
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore UI
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                text.innerText = originalText;
+                icon.classList.remove('animate-spin');
+            });
         }
     </script>
 </body>
