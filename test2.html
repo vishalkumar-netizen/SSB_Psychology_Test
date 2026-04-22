@@ -1773,7 +1773,7 @@
             else if (testType === 'full') items = appState.currentTatImages; // Uses TAT images as the primary visual review for Full Mocks
 
             const testBundle = {
-                type: testType,
+                type: testType === 'full' ? 'TAT' : testType, // This fixes the Full Test!
                 attemptId: 'DOSSIER-' + Math.floor(Math.random() * 90000) + 10000,
                 items: items
             };
