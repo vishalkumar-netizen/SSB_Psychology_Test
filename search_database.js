@@ -25,6 +25,7 @@ const searchData = [
     { title: "TAT Practice Set 2: Free PDF Download & Analysis", url: "/articles/tat_practice_set_2", type: "Guide", keywords: "download tat pictures pdf free practice offline images slides psychological test set 2" },
     { title: "Free TAT & PPDT Practice: The Ultimate Mastery Guide", url: "/articles/tat_and_ppdt_practice", type: "Guide", keywords: "tat free practice ppdt practice free online simulators test offline ssb interview" },
     { title: "30 Days to SSB: Intensive Psychological Conditioning Plan", url: "/articles/30_days_ssb_psychological_plan", type: "Guide", keywords: "tat free practice ppdt practice free online simulators test offline ssb interview 30 days plan strategy" },
+    { title: "What to Do if You Only Have 7 Days Left for SSB (Emergency Protocol)", url: "/articles/7-days-left-ssb-emergency-protocol", type: "Guide", keywords: "7 days ssb last minute emergency protocol one week preparation strategy timeline fast revision anxiety ppdt tat wat srt sd test" },
     // Psychology Deep Dives
     { title: "What is TAT? A Complete Guide", url: "/what_is_tat", type: "Guide", keywords: "tat thematic apperception test story formula hero blank slide" },
     { title: "How Psych Tests Decide Your Result", url: "/how_psych_tests_decide_result", type: "Guide", keywords: "psychology hidden truth manasa vacha karmana assessment evaluation" },
