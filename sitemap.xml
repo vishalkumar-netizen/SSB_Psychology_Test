@@ -206,7 +206,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ssbpsychtest.in/articlestime-management-strategy-for-srt</loc>
+    <loc>https://ssbpsychtest.in/articles/time-management-strategy-for-srt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ssbpsychtest.in/articles/how-to-prepare-for-ssb-with-nda-exam</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
