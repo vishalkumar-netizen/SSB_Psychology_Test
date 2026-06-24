@@ -1687,7 +1687,7 @@
         function executeWAT() {
             const currentWatWords = shuffle([...WAT_WORDS_POOL]).slice(0, 60); appState.results.wat = currentWatWords;
             showView('wat-display-view'); const wordEl = document.getElementById('wat-word');
-            const runWatCycle = () => { if (appState.currentWatIndex >= currentWatWords.length) return nextTest(); wordEl.innerText = currentWatWords[appState.currentWatIndex]; appState.currentWatIndex++; appState.currentTimeout = setTimeout(runWatCycle, 15000); };
+            const runWatCycle = () => { if (appState.currentWatIndex >= currentWatWords.length) return nextTest(); playBeep(); wordEl.innerText = currentWatWords[appState.currentWatIndex]; appState.currentWatIndex++; appState.currentTimeout = setTimeout(runWatCycle, 15000); };
             runWatCycle();
         }
 
