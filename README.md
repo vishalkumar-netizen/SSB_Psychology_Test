@@ -1,4 +1,4 @@
-# SSB Psychological Test Simulator
+#Learnng Github
 
 [](https://www.google.com/search?q=https://github.com/vishalkumar-netizen/SSB_Psychology_Test/blob/main/LICENSE)
 [](https://www.google.com/search?q=https://vishalkumar-netizen.github.io/SSB_Psychology_Test/)
